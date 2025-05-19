@@ -1,0 +1,23 @@
+slug: smlms-poc
+id: qdc8nkvr2gpn
+title: SUSE Multi-Linux Hands-on Workshop - PoC
+description: ""
+icon: ""
+tags: []
+owner: suse
+developers:
+- raul.mahiques@suse.com
+- graham.hares@suse.com
+- rjmateus@gmail.com
+maintenance: true
+idle_timeout: 300
+timelimit: 1200
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+checksum: "16449772264845439987"
+enhanced_loading: false
