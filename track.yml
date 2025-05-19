@@ -3,15 +3,17 @@ id: qdc8nkvr2gpn
 title: SUSE Multi-Linux Hands-on Workshop - PoC
 description: ""
 icon: ""
-tags: []
+tags: 
+ - poc
 owner: suse
 developers:
 - raul.mahiques@suse.com
 - graham.hares@suse.com
 - rjmateus@gmail.com
 maintenance: true
-idle_timeout: 300
-timelimit: 1200
+skipping_enabled: true
+idle_timeout: 3600
+timelimit: 10800
 lab_config:
   sidebar_enabled: true
   feedback_recap_enabled: true
