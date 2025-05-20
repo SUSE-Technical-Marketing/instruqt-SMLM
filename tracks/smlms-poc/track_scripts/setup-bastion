@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# 0. Insruqt init
+#################
+
+# waits for Instruqt host bootstrap to finish
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+  sleep 1
+done
+
+# makes sure the registration is ok
+registercloudguest --force-new
+
+# Create SSH config dir and pass the keys
+[]
+cat << EOF > /root/.ssh/id_secret
+$SSH_PRIVATE_KEY
+EOF
+
+cat << EOF > /root/.ssh/config
+Host $FQDN_SMLM
+  User myuser
+  IdentityFile /root/.ssh/id_secret
+EOF
+
+
+
+local_ip=`ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'`
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -F
+iptables -X
+for i in 80 443
+do
+  iptables -t nat -A PREROUTING -p tcp --dport $i -j DNAT --to-destination ${local_ip}:${i}
+  iptables -t nat -A POSTROUTING -p tcp -d ${local_ip} --dport $i -j SNAT --to-source $( dig +answer ${FQDN_SMLM} +short)
+done
+
+
+
+# Configure remote SMLM
+## Create user
+
+## Create org.
+
+## Assign permissions
+
+
+
+
+

@@ -1,0 +1,106 @@
+slug: smlms-poc
+id: hrdrzxximnj9
+title: SUSE Multi-Linux Hands-on Workshop - PoC
+description: ""
+icon: ""
+tags:
+- poc
+owner: suse
+developers:
+- graham.hares@suse.com
+- rjmateus@gmail.com
+- donald.vosburg@suse.com
+- raul.mahiques@suse.com
+maintenance: true
+skipping_enabled: true
+challenges:
+- slug: 01-welcome-to-the-smlm-s-poc
+  id: rmzdezi3w4am
+  type: challenge
+  title: Welcome to the SMLM/S PoC
+  teaser: This is the final test challenge, only production changes, please use other
+    challenges to try things
+  notes:
+  - type: text
+    contents: |
+      # Welcome to the SMLM/S PoC
+
+
+      Please wait while we setup your lab environment.
+  assignment: |
+    Username:
+    ```txt
+    [[ Instruqt-Var key="SMLM_USERNAME" hostname="bastion" ]]
+    ```
+
+    Password:
+    ```txt
+    [[ Instruqt-Var key="SMLM_PASSWORD" hostname="bastion" ]]
+    ```
+
+    > [!NOTE]
+    > It could be that the browser tab needs to be refreshed after the environment is started.
+
+    ## Check everything looks ok
+
+    - Channels
+    - Environments
+    - ...
+
+    ## Exercise 1
+
+    Onboard Ubuntu 24.04 LTS
+
+    ## Exercise 2
+
+    Show we extend support for CentOS 7 by onboarding it with Liberate formula and showing there are new updates and the changes to centos-release, etc..
+
+    ## Exercise 3
+
+    Onboard SLES 15 SP5, upgrade to SP6
+
+    ## Exercise 4
+
+    Audit VMs with openSCAP
+
+
+    ## Exercise 5
+
+    Lifecycle Management:
+     - Scheduling and then patching a machine
+     - Recurring actions for all the registered VMs in a group
+
+
+    ## Exercise 6
+
+    Ideally show automation with Ansible and salt stack.
+  tabs:
+  - id: wqflkh2nnmh4
+    title: SMLM UI
+    type: website
+    url: https://mlm-server.geeko.land
+    new_window: true
+  - id: 1sh6mpcbevdb
+    title: Bastion Terminal
+    type: terminal
+    hostname: bastion
+  - id: dd0mw91hp1cu
+    title: test
+    type: service
+    hostname: bastion
+    port: 443
+  difficulty: basic
+  timelimit: 6000
+  enhanced_loading: null
+idle_timeout: 3600
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "16253610610012432662"
+enhanced_loading: true
