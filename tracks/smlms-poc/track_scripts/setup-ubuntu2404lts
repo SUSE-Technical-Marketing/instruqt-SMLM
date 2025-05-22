@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# 0. Insruqt init
+#################
+
+# waits for Instruqt host bootstrap to finish
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+  sleep 1
+done
+
+# makes sure the registration is ok
+#registercloudguest --force-new
+
+
+
+# Configure remote SMLM
+## Create user
+
+## Create org.
+
+## Assign permissions
+
+
+
+
+

@@ -70,7 +70,6 @@ challenges:
      - Scheduling and then patching a machine
      - Recurring actions for all the registered VMs in a group
 
-
     ## Exercise 6
 
     Ideally show automation with Ansible and salt stack.
@@ -84,11 +83,14 @@ challenges:
     title: Bastion Terminal
     type: terminal
     hostname: bastion
-  - id: dd0mw91hp1cu
-    title: test
-    type: service
-    hostname: bastion
-    port: 443
+  - id: 0irvcrkiataf
+    title: SLES 15
+    type: terminal
+    hostname: sles15
+  - id: 0ozkvjnxahpz
+    title: Ubuntu 2404 LTS
+    type: terminal
+    hostname: ubuntu2404lts
   difficulty: basic
   timelimit: 6000
   enhanced_loading: null
@@ -102,5 +104,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
-checksum: "16253610610012432662"
+checksum: "14459515441827087158"
 enhanced_loading: true
