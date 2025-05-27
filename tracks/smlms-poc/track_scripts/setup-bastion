@@ -13,7 +13,6 @@ done
 registercloudguest --force-new
 
 # Create SSH config dir and pass the keys
-[]
 cat << EOF > /root/.ssh/id_secret
 $SSH_PRIVATE_KEY
 EOF
@@ -36,14 +35,17 @@ do
   iptables -t nat -A POSTROUTING -p tcp -d ${local_ip} --dport $i -j SNAT --to-source $( dig +answer ${FQDN_SMLM} +short)
 done
 
-
+randomstring=`head -1 /dev/urandom | od -A o -t oS -w4 |tr ' ' 'b' |head -1`
 
 # Configure remote SMLM
-## Create user
+## Create organization and user
 
-## Create org.
+## Create activation key
 
-## Assign permissions
+## Verify the generic bootstrap script is available
+
+ 
+
 
 
 
