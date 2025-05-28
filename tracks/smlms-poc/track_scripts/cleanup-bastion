@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+
+
+## Delete organization 
+manage_org.py -s "${FQDN_SMLM}" -u ${SMLM_ADMIN_USERNAME} -p ${SMLM_ADMIN_PASSWORD} \
+  --add -o "${USER_ORG_NAME}"
+
+
+
+

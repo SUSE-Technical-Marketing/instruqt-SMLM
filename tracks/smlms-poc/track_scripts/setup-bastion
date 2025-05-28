@@ -35,19 +35,56 @@ do
   iptables -t nat -A POSTROUTING -p tcp -d ${local_ip} --dport $i -j SNAT --to-source $( dig +answer ${FQDN_SMLM} +short)
 done
 
-randomstring=`head -1 /dev/urandom | od -A o -t oS -w4 |tr ' ' 'b' |head -1`
+# Generate a random universal password for this student
+UNIVERSAL_PWD="abcAB12.$(tr -dc '[:alnum:]' </dev/urandom | head -c 8; echo)"
+
+# Generate organization name
+USER_ORG_NAME="myorg_${_SANDBOX_ID}"
+ORG_ADM_USER="user${_SANDBOX_ID}"
+
+
+
+# setup dependencies
+zypper install -y python3-PyYAML 
 
 # Configure remote SMLM
+## Download the scripts
+
+for i in manage_org.py manage_activationkeys.py
+do
+  curl -skL "${SMLM_SCRIPTS_URL}"/${i} > /usr/local/bin/${i}
+  chmod a+x /usr/local/bin/${i}
+done
+
+
 ## Create organization and user
+manage_org.py -s "${FQDN_SMLM}" -u ${SMLM_ADMIN_USERNAME} -p ${SMLM_ADMIN_PASSWORD} \
+  --add -o "${USER_ORG_NAME}" --admusr "${ORG_ADM_USER}" --admpwd "${UNIVERSAL_PWD}" \
+  --admprefix 'Dr.' --admfirstname "${ORG_ADM_USER}" --admlastname user-instruqt \
+  --admemail aaaa@aaa${_SANDBOX_ID}.org
+
 
 ## Create activation key
+### SLES 15 SP5
+manage_activationkeys.py -s "${FQDN_SMLM}" -u "${ORG_ADM_USER}" -p "${UNIVERSAL_PWD}" -a --basechannellabel sle-product-sles15-sp5-pool-x86_64 --childchannels sle-manager-tools15-pool-x86_64-sp5,sle-module-basesystem15-sp5-pool-x86_64,sle-module-live-patching15-sp5-pool-x86_64,sle-product-sles15-sp5-ltss-updates-x86_64 -k ak-sles15sp5 --description "Activation key for SLES 15 SP5 systems"
+
+### Ubuntu 24.04 LTS
+manage_activationkeys.py -s "${FQDN_SMLM}" -u "${ORG_ADM_USER}" -p "${UNIVERSAL_PWD}" -a --basechannellabel ubuntu-2404-amd64-main-amd64 --childchannels ubuntu-2404-amd64-main-security-amd64,ubuntu-2404-amd64-main-updates-amd64,ubuntu-2404-suse-manager-tools-amd64 -k ak-ubuntu2404lts --description "Activation key for Ubuntu 24.04 LTS systems"
+
+### CentOS 7
+manage_activationkeys.py -s "${FQDN_SMLM}" -u "${ORG_ADM_USER}" -p "${UNIVERSAL_PWD}" -a --basechannellabel manage_activationkeys.py -s "${FQDN_SMLM}" -u "${ORG_ADM_USER}" -p "${UNIVERSAL_PWD}" -a --basechannellabel res-7-ltss-updates-x86_64 --childchannels res-7-base-updates-x86_64-lbt7,res-7-lh-updates-x86_64-lbt7,res-7-suse-manager-tools-x86_64-lbt7  -k ak-centos7 --description "Activation key for CentOS 7"
+
+
 
 ## Verify the generic bootstrap script is available
+### Final location TBD
+echo 'Checking if the generic bootstrap script is available otherwise fail'
+curl -skL "${SMLM_SCRIPTS_URL}"/generic_bootstrap.sh &>/dev/null || exit 1
 
- 
 
-
-
-
+## Push variables to instruqt
+agent variable set "UNIVERSAL_PWD" "${UNIVERSAL_PWD}"
+agent variable set "USER_ORG_NAME" "${USER_ORG_NAME}"
+agent variable set "ORG_ADM_USER" "${ORG_ADM_USER}"
 
 
