@@ -9,24 +9,25 @@ virtualmachines:
     SMLM_USERNAME: mlmpilot1
     SMLM_PASSWORD: susemanager
     SMLM_ORGNAME: mynewtestorg
+    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
   machine_type: n1-standard-1
   allow_external_ingress:
   - high-ports
   - http
   - https
-#- name: centos7
-#  image: suse/dpv-centos7
-#  shell: /bin/bash
-#  environment:
-#    FQDN_SMLM: mlm-server.geeko.land
-#    SSL_PUB_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG
-#    SMLM_USERNAME: mlmpilot1
-#    SMLM_PASSWORD: susemanager
-#  machine_type: n1-standard-1
-#  allow_external_ingress:
-#  - high-ports
-#  - http
-#  - https
+- name: centos7
+  image: suse/dpv-centos7-instruqt9
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: mlm-server.geeko.land
+    SSL_PUB_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG
+    SMLM_USERNAME: mlmpilot1
+    SMLM_PASSWORD: susemanager
+  machine_type: n1-standard-1
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
 - name: sles15
   image: suse/sles-15-sp5
   shell: /bin/bash

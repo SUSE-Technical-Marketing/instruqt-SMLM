@@ -38,6 +38,22 @@ challenges:
     [[ Instruqt-Var key="SMLM_PASSWORD" hostname="bastion" ]]
     ```
 
+
+    Universal password:
+    ```txt
+    [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="bastion" ]]
+    ```
+
+    Organization name:
+    ```txt
+    [[ Instruqt-Var key="USER_ORG_NAME" hostname="bastion" ]]
+    ```
+
+    Organization admin user:
+    ```txt
+    [[ Instruqt-Var key="ORG_ADM_USER" hostname="bastion" ]]
+    ```
+
     > [!NOTE]
     > It could be that the browser tab needs to be refreshed after the environment is started.
 
@@ -91,6 +107,10 @@ challenges:
     title: Ubuntu 2404 LTS
     type: terminal
     hostname: ubuntu2404lts
+  - id: hb1jd3gvm0qn
+    title: CentOS 7
+    type: terminal
+    hostname: centos7
   difficulty: basic
   timelimit: 6000
   enhanced_loading: null
@@ -104,5 +124,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
-checksum: "14459515441827087158"
+checksum: "13842309888895737480"
 enhanced_loading: true
