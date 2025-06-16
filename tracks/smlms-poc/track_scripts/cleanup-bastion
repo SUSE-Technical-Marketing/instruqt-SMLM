@@ -1,12 +1,17 @@
 #!/bin/bash
+set -euxo pipefail
 
+## Get variables to instruqt
+UNIVERSAL_PWD="$(agent variable get 'UNIVERSAL_PWD')"
+USER_ORG_NAME="$(agent variable get 'USER_ORG_NAME')"
+ORG_ADM_USER="$(agent variable get 'ORG_ADM_USER')"
 
 
 
 ## Delete organization 
 manage_org.py -s "${FQDN_SMLM}" -u ${SMLM_ADMIN_USERNAME} -p ${SMLM_ADMIN_PASSWORD} \
-  --add -o "${USER_ORG_NAME}"
+  -d -o "${USER_ORG_NAME}" && echo "Organization ${USER_ORG_NAME} has been deleted"
 
 
-
+echo 'Cleanup finished successfully'
 
