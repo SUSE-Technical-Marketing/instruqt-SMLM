@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euxo pipefail
+
 
 # 0. Insruqt init
 #################
@@ -13,9 +15,9 @@ done
 registercloudguest --force-new
 
 # Create SSH config dir and pass the keys
-cat << EOF > /root/.ssh/id_secret
-$SSH_PRIVATE_KEY
-EOF
+#cat << EOF > /root/.ssh/id_secret
+#$SSH_PRIVATE_KEY
+#EOF
 
 cat << EOF > /root/.ssh/config
 Host $FQDN_SMLM
@@ -23,7 +25,7 @@ Host $FQDN_SMLM
   IdentityFile /root/.ssh/id_secret
 EOF
 
-
+echo "INSTRUQT_AUTH_TOKEN $INSTRUQT_AUTH_TOKEN"
 
 local_ip=`ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'`
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -42,6 +44,11 @@ UNIVERSAL_PWD="abcAB12.$(tr -dc '[:alnum:]' </dev/urandom | head -c 8; echo)"
 USER_ORG_NAME="myorg_${_SANDBOX_ID}"
 ORG_ADM_USER="user${_SANDBOX_ID}"
 
+
+## Push variables to instruqt
+agent variable set 'UNIVERSAL_PWD' "${UNIVERSAL_PWD}"
+agent variable set 'USER_ORG_NAME' "${USER_ORG_NAME}"
+agent variable set 'ORG_ADM_USER' "${ORG_ADM_USER}"
 
 
 # setup dependencies
@@ -82,9 +89,4 @@ echo 'Checking if the generic bootstrap script is available otherwise fail'
 curl -skL "${SMLM_SCRIPTS_URL}"/generic_bootstrap.sh &>/dev/null || exit 1
 
 
-## Push variables to instruqt
-agent variable set "UNIVERSAL_PWD" "${UNIVERSAL_PWD}"
-agent variable set "USER_ORG_NAME" "${USER_ORG_NAME}"
-agent variable set "ORG_ADM_USER" "${ORG_ADM_USER}"
-
-
+echo 'Setup finished successfully'

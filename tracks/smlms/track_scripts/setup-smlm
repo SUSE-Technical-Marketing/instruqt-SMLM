@@ -1,0 +1,99 @@
+#!/bin/bash
+# set -euxo pipefail
+
+rm -f /etc/machine-id ; dbus-uuidgen --ensure=/etc/machine-id
+
+
+cat << EOF > /root/bootstrapfix.sh
+#!/bin/bash
+mount /dev/sdb /opt/instruqt/bootstrap/
+/opt/instruqt/bootstrap/setup.sh
+EOF
+
+chmod +x /root/bootstrapfix.sh
+
+transactional-update run /root/bootstrapfix.sh
+
+
+
+echo "[INFO] Waiting for Instruqt bootstrap to complete..."
+timeout 60 bash -c 'until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do sleep 1; done' || echo "[WARN] Timeout waiting for bootstrap, continuing anyway"
+
+
+
+echo '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'|base64 -d |xz -d >/var/lib/containers/storage/volumes/root/_data/change_hostname
+chmod +x /var/lib/containers/storage/volumes/root/_data/change_hostname
+
+mgrctl exec -- /root/change_hostname 1.1.1.1  --skip-ip-validation --password=Admin123 --auto --hostname=smlm.${_SANDBOX_ID}.instruqt.io
+
+
+
+
+
+
+
+
+# 0. Insruqt init
+#################
+
+
+# makes sure the registration is ok
+#registercloudguest --force-new
+
+
+echo '# grant remote access'
+cat << EOF >> /root/.ssh/authorized_keys
+$SSH_PUB_KEY
+EOF
+
+
+local_ip=`ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'`
+
+
+echo '# Add generic bootstrap script'
+curl -skL "${SMLM_SCRIPTS_URL}"/generic_bootstrap.sh > /var/lib/containers/storage/volumes/srv-www/_data/htdocs/pub/bootstrap/generic_bootstrap.sh
+chmod a+x /var/lib/containers/storage/volumes/srv-www/_data/htdocs/pub/bootstrap/generic_bootstrap.sh
+
+echo '# set auto accept for salt keys'
+sed 's/#.*auto_accept:.*/auto_accept: True/' -i /var/lib/containers/storage/volumes/etc-salt/_data/master
+
+
+
+
+echo '# update SSL Certificate'
+mgrctl exec -- mv /root/ssl-build /root/old-ssl-build
+
+mgrctl exec -ti -- rhn-ssl-tool --gen-ca --dir="/root/ssl-build" --set-country="CH" \
+--set-state="LU" --set-city="Luzern" --set-org="${SMLM_ORGNAME}" \
+--set-org-unit="IT" --set-common-name="SUSEManagerCACertificate" \
+--set-email="admin@dontexi.st" -p 1234
+
+mgrctl exec -ti -- rhn-ssl-tool --gen-server --dir="/root/ssl-build" --set-country="CH" \
+--set-state="LU" --set-city="Luzern" --set-org="${SMLM_ORGNAME}" \
+--set-org-unit="IT" --set-email="admin@dontexi.st" \
+--set-hostname="smlm.${_SANDBOX_ID}.instruqt.io" --set-cname="smlm.${_SANDBOX_ID}.instruqt.io" \
+--set-cname="smlm.aaaaa.instruqt.io" -p 1234
+
+
+curl -s -o /var/lib/containers/storage/volumes/root/_data/ssl-build/smlm.${_SANDBOX_ID}/server.crt -H "Metadata-Flavor: Google" \
+    "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssl-certificate"
+curl -s -o /var/lib/containers/storage/volumes/root/_data/ssl-build/smlm.${_SANDBOX_ID}/server.key -H "Metadata-Flavor: Google" \
+    "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssl-certificate-key"
+
+
+
+podman secret create --replace uyuni-ca /var/lib/containers/storage/volumes/root/_data/ssl-build/RHN-ORG-TRUSTED-SSL-CERT
+podman secret create --replace uyuni-cert /var/lib/containers/storage/volumes/root/_data/ssl-build/smlm.${_SANDBOX_ID}/server.crt
+podman secret create --replace uyuni-key /var/lib/containers/storage/volumes/root/_data/ssl-build/smlm.${_SANDBOX_ID}/server.key
+mgradm restart
+
+sleep 60
+
+
+echo '###################### Completed smlm setup #################
+######################################################################'
+
+shutdown -r 0 &
+
+
+

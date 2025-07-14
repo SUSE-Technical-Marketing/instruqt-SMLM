@@ -8,10 +8,5 @@ ORG_ADM_USER="$(agent variable get 'ORG_ADM_USER')"
 
 
 
-## Delete organization 
-manage_org.py -s "${FQDN_SMLM}" -u ${SMLM_ADMIN_USERNAME} -p ${SMLM_ADMIN_PASSWORD} \
-  -d -o "${USER_ORG_NAME}" && echo "Organization ${USER_ORG_NAME} has been deleted"
-
-
 echo 'Cleanup finished successfully'
 
