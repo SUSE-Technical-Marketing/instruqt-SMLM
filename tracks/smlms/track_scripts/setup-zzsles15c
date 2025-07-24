@@ -23,10 +23,12 @@ EOF
 
 echo "`python3 -c \"import socket; print(socket.gethostbyname('smlm'))\"` smlm.aaaaa.instruqt.io" >>/etc/hosts
 
-nohup $( curl -Sks --retry-connrefused --retry 50 --retry-delay 5 --retry-max-time 180 "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp6 PROFILENAME='ab-ct-qa'  bash || echo 'failed') &
 
+nohup $(sleep 600; zypper install -y openscap-utils scap-security-guide >/dev/null) &
+
+nohup $( curl -Sks --retry-connrefused --retry 50 --retry-delay 5 --retry-max-time 180 "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp6 PROFILENAME='at-ct-qa'  bash || echo 'failed') &
 
 
 echo '###################### Completed zzsles15c setup ###############
 ######################################################################'
-shutdown -r 3 &
+#shutdown -r 3 &
