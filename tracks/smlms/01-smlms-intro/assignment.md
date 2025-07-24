@@ -22,7 +22,9 @@ enhanced_loading: null
 
 
 
-# Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
+Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
+==================================================================
+
 ![Welcome](../assets/logos/01-welcome.jpeg)
 
 In this workshop you will explore some of the magic that <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #fe7c3f">SUSE Multi-Linux Manager</b> (<b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #fe7c3f">SMLM</b>) can do, it is <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b>'s solution to manage multiple Linux distributions at scale from a unified interface. And also will discover how can you keep your legacy production servers supported with <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #2453ff">SUSE Multi-Linux Support</b> (<b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #2453ff">SMLS</b>), our professional and reliable support solution for Linux systems.

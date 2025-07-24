@@ -3,7 +3,7 @@ id: hrdrzxximnj9
 title: "\U0001F6A7 SUSE Multi-Linux Hands-on Workshop"
 description: |
   <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><b style="color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop</span>
-  <p style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');">Join us and discover how to seamlessly convert your systems to <b style="color: #30ba78">SUSE Multi-Linux Support</b>, extend their lifecycle and manage them with <b style="color: #30ba78">SUSE Multi-Linux Manager</b> (even the ones you don’t convert).</p>
+  <p style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');">Join us and discover how to seamlessly onboard your systems into <b style="color: #30ba78">SUSE Multi-Linux Support</b>, extend their lifecycle and manage them with <b style="color: #30ba78">SUSE Multi-Linux Manager</b> </p>
 icon: ""
 tags:
 - dev
@@ -13,6 +13,9 @@ developers:
 - rjmateus@gmail.com
 - donald.vosburg@suse.com
 - raul.mahiques@suse.com
+- patrick.swartz@suse.com
+- gvarela@suse.com
+- roberto.isidoro@suse.com
 maintenance: true
 skipping_enabled: true
 idle_timeout: 3600
@@ -25,5 +28,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
-checksum: "1013327243628206788"
+checksum: "1617522228565184374"
 enhanced_loading: true

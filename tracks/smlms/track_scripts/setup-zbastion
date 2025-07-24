@@ -23,6 +23,15 @@ done
 echo "# makes sure the registration is ok"
 registercloudguest --force-new
 
+
+## Get variables to instruqt
+SSH_PRIVATE_KEY="$(agent variable get 'SSH_PRIVATE_KEY')"
+SMLM_ADMIN_USERNAME="$(agent variable get 'SMLM_ADMIN_USERNAME')"
+SMLM_ADMIN_PASSWORD="$(agent variable get 'SMLM_ADMIN_PASSWORD')"
+
+
+
+
 # Create SSH config dir and pass the keys
 cat << EOF > /root/.ssh/id_secret
 $SSH_PRIVATE_KEY
@@ -57,7 +66,7 @@ agent variable set 'ORG_ADM_USER' "${ORG_ADM_USER}"
 
 
 # setup dependencies
-zypper install -y python3-PyYAML 
+#zypper install -y python3-PyYAML 
 
 
 # Configure remote SMLM
@@ -65,48 +74,53 @@ zypper install -y python3-PyYAML
 
 for i in manage_org.py manage_activationkeys.py manage_users.py manage_groups.py manage_custominfo.py manage_systems.py
 do
-  curl -skL "${SMLM_SCRIPTS_URL}"/${i} > /usr/local/bin/${i} || echo "ERROR: Failed to retrieve ${SMLM_SCRIPTS_URL}/${i}"
+  curl -skL --retry 40 --retry-delay 5 --retry-max-time 60 "${SMLM_SCRIPTS_URL}"/${i} > /usr/local/bin/${i} || echo "ERROR: Failed to retrieve ${SMLM_SCRIPTS_URL}/${i}"
   chmod a+x /usr/local/bin/${i}
+  echo "Downloaded ${SMLM_SCRIPTS_URL}/${i}"
 done
 
 
 
 echo "# Waiting for SMLM to start"
-curl -Sk --retry-connrefused --retry 40 --retry-delay 5 --retry-max-time 180 https://smlm/rhn/manager/api/api/getVersion || echo 'FAILLED! max timeout 180s reached trying to contact SMLM'
+curl -Sk --retry-connrefused --retry 40 --retry-delay 5 --retry-max-time 600 https://${FQDN_SMLM}/rhn/manager/api/api/getVersion || echo 'FAILLED! max timeout 180s reached trying to contact SMLM'
 
 
 
 ## Create admin user
-manage_users.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME}" -p "${SMLM_PASSWORD}" \
-  --add --nusr ${SMLM_ADMIN_USERNAME} --npwd ${UNIVERSAL_PWD} --nrole satellite_admin,org_admin
+manage_users.py -s "${FQDN_SMLM}" -u "${SMLM_ADMIN_USERNAME}" -p "${SMLM_ADMIN_PASSWORD}" --add --nusr ${SMLM_ADMIN_USERNAME} --npwd ${UNIVERSAL_PWD} --nrole satellite_admin,org_admin
 
 
 
 ## Create organization and user
-manage_org.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" \
+manage_org.py -s "${FQDN_SMLM}" -u "${SMLM_ADMIN_USERNAME:-ERROR_empty}" -p "${SMLM_ADMIN_PASSWORD:-ERROR_empty}" \
   --add -o "${USER_ORG_NAME}" --admusr "${ORG_ADM_USER}" --admpwd "${UNIVERSAL_PWD}" \
   --admprefix 'Dr.' --admfirstname "${ORG_ADM_USER}" --admlastname user-instruqt \
-  --admemail aaaa@aaa${_SANDBOX_ID}.org || echo "manage_org.py -s ${FQDN_SMLM} -u ${SMLM_USERNAME:-ERROR_empty} -p ${SMLM_PASSWORD:-ERROR_empty} --add -o ${USER_ORG_NAME} --admusr ${ORG_ADM_USER} --admpwd ${UNIVERSAL_PWD}  --admprefix 'Dr.' --admfirstname ${ORG_ADM_USER} --admlastname user-instruqt  --admemail aaaa@aaa${_SANDBOX_ID}.org"
+  --admemail aaaa@aaa${_SANDBOX_ID}.org || echo "manage_org.py -s ${FQDN_SMLM} -u ${SMLM_ADMIN_USERNAME:-ERROR_empty} -p ${SMLM_ADMIN_PASSWORD:-ERROR_empty} --add -o ${USER_ORG_NAME} --admusr ${ORG_ADM_USER} --admpwd ${UNIVERSAL_PWD}  --admprefix 'Dr.' --admfirstname ${ORG_ADM_USER} --admlastname user-instruqt  --admemail aaaa@aaa${_SANDBOX_ID}.org"
 
 
-for i in air_bus boing embrader antolov komak zesna prod qa dev
+for i in airtrain being cisne prod qa dev airco
 do
-  nohup $(while ! manage_groups.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}"  --group "${i}" -a; do sleep 3; done) &
+  nohup $(while ! manage_groups.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}"  --group "${i}" -a  >/dev/null; do sleep 3; done) &
 done
 
-for i in "air_bus:ab-ft-pro" "air_bus:ab-ct-pro" "air_bus:ab-ct-qa" "prod:ab-ft-pro" "prod:ab-ct-pro" "qa:ab-ct-qa" 
+for i in "airtrain:at-ft-pro" "airtrain:at-ct-pro" "airtrain:at-ct-qa" "prod:at-ft-pro" "prod:at-ct-pro" "qa:at-ct-qa" "qa:airco-dh4a-qa" "airco:airco-dh4a-qa"
 do
-  nohup $(while ! manage_groups.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}"  --group "${i//:*}" -b --system "${i//*:}"; do sleep 5; done) &
+  nohup $(while ! manage_groups.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}"  --group "${i//:*}" -b --system "${i//*:}" >/dev/null; do sleep 5; done) &
 done
 
 
-nohup $(while ! manage_custominfo.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" -a --key application --description 'Main business application running on the system'; do sleep 5; done) &
 
 
-for i in "ab-ft-pro:fuselage systems" "ab-ct-pro:controltech 2" "ab-ct-qa:controltech 2" "airco-dh4a-qa:radio systems" 
+nohup $(while ! manage_custominfo.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" -a --key application --description 'Main business application running on the system' >/dev/null; do sleep 5; done) &
+
+
+for i in "at-ft-pro:fuselage systems" "at-ct-pro:controltech 2" "at-ct-qa:controltech 2" "airco-dh4a-qa:radio systems" 
 do
-  nohup $(while ! manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" --addcustomvalue --keyvalue "${i//*:}" --customkey application --system ${i//:*} ; do sleep 5; done) &
+  nohup $(while ! manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" --addcustomvalue --keyvalue "${i//*:}" --customkey application --system ${i//:*} >/dev/null ; do sleep 5; done) &
 done
+
+
+nohup $( timerr=0 ; while [[ "$timerr" -lt 50 ]]; do for i in `manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" -l | grep name: | awk '{print $2 }' | xargs`; do   manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" --system $i --schedulepackagerefresh >/dev/null; sleep 15; manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" --system $i --scheduleapplyhighstate >/dev/null; sleep 30; manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" --system $i --schedulehardwarerefresh  >/dev/null; sleep 15;  manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_ADMIN_USERNAME}" -p "${UNIVERSAL_PWD}" --system $i --schedulestate >/dev/null;  done; sleep 50; ((timerr++)); done) &
 
 
 echo '###################### Completed zbastion setup ################
