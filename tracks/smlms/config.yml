@@ -2,9 +2,13 @@ version: "3"
 virtualbrowsers:
 - name: smlm-www
   url: https://smlm.${_SANDBOX_ID}.instruqt.io
+- name: verify
+  url: https://zbastion.${_SANDBOX_ID}.instruqt.io
 virtualmachines:
 - name: smlm
-  image: suse/smlm-pro
+#  image: suse/smlm-pro
+  image: suse/smlm-pro-retired
+#  image: suse/smlm-510-dev
   shell: /bin/bash
   environment:
     COMPANY_NAME: Chameleon Airlines
@@ -121,3 +125,5 @@ secrets:
 - name: SMLM_ADMIN_USERNAME
 - name: SMLM_ADMIN_PASSWORD
 - name: SMLM_SSH_PRIVATE_KEY
+
+

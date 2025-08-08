@@ -1,6 +1,6 @@
 ---
 slug: welcome-to-smlms
-id: jqvoffac4qwm
+id: lipth7seb9iy
 type: challenge
 title: DEVELOPMENT VERSION - This track will go away
 teaser: This track will go away, is only used for development
@@ -10,27 +10,31 @@ notes:
     # Welcome to the SMLM/S
     Please wait while we setup your lab environment.
 tabs:
-- id: k7ltckl2a8ao
+- id: xr5qvsmaxusj
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: ekr0jmyelioh
+- id: jbxulhtzkyr6
+  title: Verify
+  type: browser
+  hostname: verify
+- id: fkutrymn7mvu
   title: SMLM Terminal
   type: terminal
   hostname: smlm
-- id: hwjewldskbxp
+- id: zkujcrcqxuqs
   title: Bastion Terminal
   type: terminal
   hostname: zbastion
-- id: icf9gvcvsrcs
+- id: hvwf7zgcpvqa
   title: SLES 15
   type: terminal
   hostname: sles15
-- id: ky2xro3fvhnx
+- id: 85njv8fhndun
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts
-- id: gxcztxw5gvyk
+- id: a9y9on2btgg8
   title: CentOS 7
   type: terminal
   hostname: centos7
@@ -38,6 +42,9 @@ difficulty: basic
 timelimit: 6000
 enhanced_loading: null
 ---
+
+<img style="width: 0;" src="../assets/css/tmm.css" />
+<link href="../assets/css/tmm.css" type="text/css" rel="stylesheet" />
 
 # This is only for development, please press `Next` to start
 
@@ -65,27 +72,27 @@ enhanced_loading: null
 🌃
 👍👍🏻👍🏼👍🏿👍🏾
 
-  Username:
+<b class="hovereffect">  Username:</b>
   ```txt
-  [[ Instruqt-Var key="SMLM_ADMIN_USERNAME" hostname="zbastion" ]]
+  [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
   ```
 
-  Password:
+<b class="hovereffect">  Password:</b>
   ```txt
-  [[ Instruqt-Var key="SMLM_ADMIN_PASSWORD" hostname="zbastion" ]]
+  [[ Instruqt-Var key="SMLM_PASSWORD" hostname="zbastion" ]]
   ```
 
-  Organization name:
+<b class="hovereffect">  Organization name:</b>
   ```txt
   [[ Instruqt-Var key="USER_ORG_NAME" hostname="zbastion" ]]
   ```
 
-  Organization admin user:
+<b class="hovereffect">  Organization admin user:</b>
   ```txt
   [[ Instruqt-Var key="ORG_ADM_USER" hostname="zbastion" ]]
   ```
 
-  SMLM url:
+<b class="hovereffect">  SMLM url:</b>
 
   ```txt
   [[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
