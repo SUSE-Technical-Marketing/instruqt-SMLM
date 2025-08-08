@@ -19,6 +19,22 @@ cat << EOF >> /root/.ssh/authorized_keys
 $SSH_PUB_KEY
 EOF
 
+
+
+
+
+sed 's/^.*PasswordAuthentication.*/PasswordAuthentication yes/' -i /etc/ssh/sshd_config.d/*.conf
+echo '
+PasswordAuthentication yes
+ChallengeResponseAuthentication yes
+AuthenticationMethods any
+' >>/etc/ssh/sshd_config
+
+systemctl restart ssh
+
+
+
+
 echo '###################### Completed ubuntu2404lts setup ###########
 ######################################################################'
 

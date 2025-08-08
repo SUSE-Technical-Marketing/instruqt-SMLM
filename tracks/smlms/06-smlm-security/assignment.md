@@ -2,7 +2,7 @@
 slug: smlm-security
 id: 9a7xiirqoeu8
 type: challenge
-title: RC - Security and patching
+title: Security and patching
 tabs:
 - id: hbnxwyfdoo5q
   title: SMLM UI
@@ -16,20 +16,96 @@ enhanced_loading: null
 🌌 Security and patching
 ===================================
 
-![Welcome](../assets/logos/06-security.jpeg)
+<style type="text/css">
+  * {
+    font-family: suse;
+    src: url('https://fonts.google.com/specimen/SUSE');
+  }
+  .hovereffect {
+    border-radius: 25px 25px 25px 25px;
+    background: linear-gradient(#30ba78 0 0) var(--hundredpercent, 0) / var(--hundredpercent, 0) no-repeat;
+    transition: 0.5s, background-position 0s;
+    padding: 5px;
+  }
+  .hovereffect:hover {
+    --hundredpercent: 100%;
+    color: white;
+    border-radius: 10px 25px 10px 25px;
+  }
+  .smlmext {
+    color: #fe7c3f;
+  }
+  .smlm {
+    color: #fe7c3f;
+  }
+  .suse {
+    color: #30ba78;
+  }
+  .smls {
+    color: #2453ff;
+  }
+  .smlsext {
+    color: #2453ff;
+  }
+  .companyname {
+    color: #008657;
+  }
+  .liberty {
+    color: #efefef;
+  }
+  .sles {
+    color: #90ebcd;
+  }
 
-In this lab, we will tackle one of the most important responsibilities we have: ensuring the security of our entire digital fleet. We'll explore how **SUSE Multi-Linux Manager** allows us to respond to security threats with the speed and precision required by a world-class airline.
+  .bottoms {
+    vertical-align: middle;
+    height: 50%;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    object-fit: contain;
+  }
+
+  img.animatedgif {
+    --borderthickness: 5pt;
+    --colors: #0000 25%,#30ba78 0;
+    padding: 10px;
+    background:
+      conic-gradient(from 90deg  at top    var(--borderthickness) left  var(--borderthickness),var(--colors)) 0    0,
+      conic-gradient(from 180deg at top    var(--borderthickness) right var(--borderthickness),var(--colors)) 100% 0,
+      conic-gradient(from 0deg   at bottom var(--borderthickness) left  var(--borderthickness),var(--colors)) 0    100%,
+      conic-gradient(from -90deg at bottom var(--borderthickness) right var(--borderthickness),var(--colors)) 100% 100%;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    transition: 1s;
+  }
+
+  img.animatedgif:hover {
+    background-size: 51% 51%;
+  }
+
+  img.logos {
+    border-radius: 10px;
+  }
+
+</style>
+
+<img class="logos" alt="Welcome!" src="../assets/logos/06-security.jpeg"/>
+
+
+
+In this lab, we will tackle one of the most important responsibilities we have: ensuring the security of our entire digital fleet. We'll explore how <b class="smlmext">SUSE Multi-Linux Manager</b> allows us to respond to security threats with the speed and precision required by a world-class airline.
 
 
 
 
-### Your Objectives:
+## <b class="hovereffect">Your Objectives:</b>
 
-- Perform an audit of your systems
+- Perform an security compliance audit on your systems using OpenSCAP.
 
-- Identify systems affected by vulnerabilities
+- Identify systems affected by relevant security vulnerabilities.
 
-- Patch systems affected
+- Apply the necessary patches to all affected systems simultaneously.
 
 
 
@@ -38,15 +114,15 @@ Lab details
 
 Username:
 ```txt
-[[ Instruqt-Var key="SMLM_ADMIN_USERNAME" hostname="zbastion" ]]
+[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
 Password:
 ```txt
-[[ Instruqt-Var key="SMLM_ADMIN_PASSWORD" hostname="zbastion" ]]
+[[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-SMLM URL:
+<b class="smlm">SMLM</b> URL:
 ```txt
 [[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
 ```
@@ -75,21 +151,32 @@ We will be directed to the **System Set Manager Overview** page, as we saw earli
 
 - Go to `Audit` tab
 - Under `OpenSCAP` complete the form with the following details, leave the rest with the defaults:
-  - **Command-line Arguments:** '--profile xccdf_org.ssgproject.content_profile_stig'
-  - **Path to XCCDF document:** '/usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml'
-- Press ![Schedule](../assets/SMLM5.1/buttom-Schedule.png)
-- Press ![Confirm](../assets/SMLM5.1/buttom-confirm.png)
+  - **Command-line Arguments:** --profile xccdf_org.ssgproject.content_profile_stig
+  - **Path to XCCDF document:** /usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml
+- Press
+
+
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">
+</p>
+<p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
+<img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-Schedule.png"/>
+</p> ✈
+<p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;">
+<img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-confirm.png"/>
+</p>
+
+
 
 This will take a couple of minutes.
 
 
-To see the restuls lets go to `Audit` ✈ `OpenSCAP` ✈ `All Scans`
+To see the results let's go to `Audit` ✈ `OpenSCAP` ✈ `All Scans`
 
 ![OpenSCAP Results](../assets/SMLM5.1/openscap_results.png)
 
-If we click on one of theese results we can see a more detailed view.
+If we click on one of these results, we can see a more detailed breakdown.
 
-- By clicking on **report.html** we can see a nicer view of the report.
+- By clicking on **report.html**, you can view a nicer version of the report that was generated by OpenSCAP.
 
 ![Detailed OpenSCAP Results](../assets/SMLM5.1/openscap_results_detailed.png)
 
@@ -97,45 +184,58 @@ If we click on one of theese results we can see a more detailed view.
 Don't worry about the problems reported.
 
 
+  <div style='align: middle; margin: 15px;'>
+    <img class="animatedgif" src="../assets/SMLM5.1/videos/06-security_and_patching-audit_your_system.gif"/>
+  </div>
+
+<br/>
+
+
+
 Identify systems affected by vulnerabilities
 ============================================
 
 We want to see which systems are affected by vulnerabilities.
 
-- Let's navigate to 	`Patches` ✈ `Patch List` ✈ `Relevant`
+- Now, let's navigate to `Patches` ✈ `Patch List` ✈ `Relevant`
 
-Here we can see a list of all relevant patches available for our systems, let's look at the **Security Patches**.
+  Here we can see a list of all relevant patches available for our systems, let's look at the **Security Patches**.
 
-- By clicking in the **Advisory** it will take us to a page where we can find more information about which packages and systems it affects amongst other details.
+- By clicking on an **Advisory** name, you can view a detailed page showing wihchi packages and systems it affects, among other details.
 
-- On the right side of the list we have a **CVEs** column with links to the actual CVEs included in the advisory.
+- On the right side of the list, the **CVEs** column provides direct links to the official vulnerability reports.
 
-It is also possible to create our own patches, but we won't cover it in this track, for more information please consult the links at the end of the track.
+  It is also possible to create our own patches, but we won't cover it in this track, for more information please consult the links at the end of the track.
 
 
-### Patch systems affected
+## <b class="hovereffect">Patch systems affected</b>
 
-To patch our systems is as simple as:
+Patching our systems is as simple as following these steps:
 
-- going to `Systems` ✈ `System Set Manager`
-- `Patches` ✈ Select **Security Advisory** and click `Show`
+- Go to `Systems` ✈ `System Set Manager`
+- Navigate to `Patches`tab  ✈ select **Security Advisory** in the drop-down list, and click `Show`
 
 ![Select Security Advisory](../assets/SMLM5.1/show_only_security_advisories.png)
 
-- `Select All` ✈ `Apply Patches` ✈ ![Confirm](../assets/SMLM5.1/buttom-confirm.png)
+- Click `Select All` ✈ `Apply Patches` ✈ ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
 
 
+  <div style='align: middle; margin: 15px;'>
+    <img class="animatedgif" src="../assets/SMLM5.1/videos/06-security_and_patching-indentify_vulnerabilities.gif"/>
+  </div>
+
+<br/>
 
 
 Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
 =================================================================================
 
 
-- By being able to act fast we are reducing the window of exposure. When a new vulnerability is discovered, a race begins between us and the malicious actors trying to exploit it. A complex, manual patching process leaves our critical systems for far too long.
+- By being able to act fast, we are reducing the window of exposure. When a new vulnerability is discovered, a race begins between us and the malicious actors trying to exploit it. A complex, manual patching process leaves our critical systems exposed for far too long.
 
-- SUSE Multi-Linux Manager provides a single, unified view of our entire fleet's security posture and allow us to remediate threats with a consistent, reliable process.
+- <b class="smlmext">SUSE Multi-Linux Manager</b> provides a single, unified view of our entire fleet's security posture and allows us to remediate threats with a consistent, reliable process.
 
-- Being able to check our systems compliance against different security frameworks easily allow us to implement corrective measures faster to comply with industry regulations.
+- Being able to easily check our systems' compliance against different security frameworks allows us to implement corrective measures faster and adhere to strict industry regulations.
 
 
 More information

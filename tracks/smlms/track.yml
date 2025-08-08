@@ -1,24 +1,32 @@
 slug: smlms
 id: hrdrzxximnj9
-title: "\U0001F6A7 SUSE Multi-Linux Hands-on Workshop"
+title: SUSE Multi-Linux Hands-on Workshop
 description: |
-  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><b style="color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop</span>
-  <p style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');">Join us and discover how to seamlessly onboard your systems into <b style="color: #30ba78">SUSE Multi-Linux Support</b>, extend their lifecycle and manage them with <b style="color: #30ba78">SUSE Multi-Linux Manager</b> </p>
-icon: ""
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Throughout this workshop, you will explore the core capabilities of <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, our best-in-class solution for managing diverse Linux environments at scale, and <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+
+  <p>You will learn how to solve real-world IT challenges by using <b style="color: #30ba78">SUSE</b>'s powerful tools to automate tasks, ensure security compliance, and manage the entire lifecycle of your systems—from legacy distributions to the latest enterprise servers.</p>
+
+  <p>This workshop is designed to give you practical skills and a clear understanding of how to simplify and control your complex infrastructure.</p>
+
+  <p>Let's get started.</p></span>
+icon: https://www.suse.com/favicon.ico
 tags:
-- dev
+- smls
+- mlm
+- prod
+- mls
+- smlm
 owner: suse
 developers:
-- graham.hares@suse.com
-- rjmateus@gmail.com
-- donald.vosburg@suse.com
+- roberto.isidoro@suse.com
 - raul.mahiques@suse.com
+- donald.vosburg@suse.com
 - patrick.swartz@suse.com
 - gvarela@suse.com
-- roberto.isidoro@suse.com
-maintenance: true
+- rjmateus@gmail.com
+- graham.hares@suse.com
 skipping_enabled: true
-idle_timeout: 3600
+idle_timeout: 6000
 timelimit: 10800
 lab_config:
   sidebar_enabled: true
@@ -28,5 +36,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
-checksum: "1617522228565184374"
+checksum: "13148697739624187789"
 enhanced_loading: true

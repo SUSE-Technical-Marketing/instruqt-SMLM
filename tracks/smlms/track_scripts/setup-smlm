@@ -15,7 +15,6 @@ chmod +x /root/bootstrapfix.sh
 transactional-update run /root/bootstrapfix.sh
 
 
-
 echo "[INFO] Waiting for Instruqt bootstrap to complete..."
 timeout 60 bash -c 'until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do sleep 1; done' || echo "[WARN] Timeout waiting for bootstrap, continuing anyway"
 
