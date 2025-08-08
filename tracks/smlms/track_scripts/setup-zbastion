@@ -106,16 +106,16 @@ cd /root/
 ## Create activation key
 ### SLES 15 SP5
 
-while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp5-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp5,managertools-sle15-updates-x86_64-sp5,sle-module-basesystem15-sp5-pool-x86_64,sle-module-basesystem15-sp5-updates-x86_64,sle-module-server-applications15-sp5-pool-x86_64,sle-module-server-applications15-sp5-updates-x86_64,sle-module-python3-15-sp5-updates-x86_64,sle-module-python3-15-sp5-pool-x86_64,sle15-sp5-installer-updates-x86_64 -k sles15sp5 --description "SLES15 SP5" ; do sleep 3; done
+#while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp5-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp5,managertools-sle15-updates-x86_64-sp5,sle-module-basesystem15-sp5-pool-x86_64,sle-module-basesystem15-sp5-updates-x86_64,sle-module-server-applications15-sp5-pool-x86_64,sle-module-server-applications15-sp5-updates-x86_64,sle-module-python3-15-sp5-updates-x86_64,sle-module-python3-15-sp5-pool-x86_64,sle15-sp5-installer-updates-x86_64 -k sles15sp5 --description "SLES15 SP5" ; do sleep 3; done
 
 ### SLES 15 SP6
-while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp6-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp6,managertools-sle15-updates-x86_64-sp6,sle-module-basesystem15-sp6-pool-x86_64,sle-module-basesystem15-sp6-updates-x86_64,sle-module-server-applications15-sp6-pool-x86_64,sle-module-server-applications15-sp6-updates-x86_64,sle-module-python3-15-sp6-updates-x86_64,sle-module-python3-15-sp6-pool-x86_64,sle15-sp6-installer-updates-x86_64 -k sles15sp6 --description "SLES15 SP5" ; do sleep 3; done
+#while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp6-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp6,managertools-sle15-updates-x86_64-sp6,sle-module-basesystem15-sp6-pool-x86_64,sle-module-basesystem15-sp6-updates-x86_64,sle-module-server-applications15-sp6-pool-x86_64,sle-module-server-applications15-sp6-updates-x86_64,sle-module-python3-15-sp6-updates-x86_64,sle-module-python3-15-sp6-pool-x86_64,sle15-sp6-installer-updates-x86_64 -k sles15sp6 --description "SLES15 SP5" ; do sleep 3; done
 
 ### Ubuntu 24.04 LTS
-while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}"  -a --basechannellabel ubuntu-2404-amd64-main-amd64 --childchannels managertools-ubuntu2404-updates-amd64,ubuntu-2404-amd64-main-security-amd64,ubuntu-2404-amd64-main-updates-amd64 -k ubuntu2404 --description "Ubuntu 2404 LTS" ; do sleep 3; done
+#while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}"  -a --basechannellabel ubuntu-2404-amd64-main-amd64 --childchannels managertools-ubuntu2404-updates-amd64,ubuntu-2404-amd64-main-security-amd64,ubuntu-2404-amd64-main-updates-amd64 -k ubuntu2404 --description "Ubuntu 2404 LTS" ; do sleep 3; done
 
 ### CentOS 7
-while ! manage_activationkeys.py  -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel res-7-ltss-updates-x86_64 --childchannels managertools-el7-pool-x86_64-lbt7,managertools-el7-updates-x86_64-lbt7  -k liberty7ltss --description "SUSE Multi-Linux Support 7 with LTS" ; do sleep 3; done
+#while ! manage_activationkeys.py  -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel res-7-ltss-updates-x86_64 --childchannels managertools-el7-pool-x86_64-lbt7,managertools-el7-updates-x86_64-lbt7  -k liberty7ltss --description "SUSE Multi-Linux Support 7 with LTS" ; do sleep 3; done
 
 
 

@@ -1,6 +1,6 @@
 ---
 slug: welcome-to-smlms
-id: lipth7seb9iy
+id: eptiuthdb0cr
 type: challenge
 title: DEVELOPMENT VERSION - This track will go away
 teaser: This track will go away, is only used for development
@@ -10,31 +10,31 @@ notes:
     # Welcome to the SMLM/S
     Please wait while we setup your lab environment.
 tabs:
-- id: xr5qvsmaxusj
+- id: ocl5kbu03udo
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: jbxulhtzkyr6
+- id: hg3e0ekoc8wr
   title: Verify
   type: browser
   hostname: verify
-- id: fkutrymn7mvu
+- id: xjwgyd6yrnej
   title: SMLM Terminal
   type: terminal
   hostname: smlm
-- id: zkujcrcqxuqs
+- id: wofpthc4rxiv
   title: Bastion Terminal
   type: terminal
   hostname: zbastion
-- id: hvwf7zgcpvqa
+- id: jydgpobxufuz
   title: SLES 15
   type: terminal
   hostname: sles15
-- id: 85njv8fhndun
+- id: bnfkhrpw5fyc
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts
-- id: a9y9on2btgg8
+- id: uweanc4zokse
   title: CentOS 7
   type: terminal
   hostname: centos7
