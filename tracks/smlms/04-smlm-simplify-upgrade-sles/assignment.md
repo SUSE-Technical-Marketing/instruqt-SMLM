@@ -226,6 +226,7 @@ Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]
 
 - System upgrades and other routine tasks must be simple and repeatable, otherwise, we risk making costly mistakes. With these tools, we can control precisely when and where we perform actions, scheduling critical maintenance for our fleet with confidence.
 
+- Upgrading to a newer version of the product allows for compliance with lifecycle compliance for the fleet in a controlled manner.
 
 - We can control when and where we perform actions, and schedule maintenance operations on our grounded fleet.
 
