@@ -225,7 +225,7 @@ We will not use a filter in this case since <b class="sles">SLES</b> already pro
 - Click on `Build`
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
+> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process only creates new package database pointers and metadata, and does not duplicate the actual packages themselves.
 
 
 <br/>
