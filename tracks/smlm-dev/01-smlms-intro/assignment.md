@@ -151,9 +151,9 @@ Depending on the package purchased, <b class="smlsext">SUSE Multi-Linux Support<
 =======================
 Before we begin our first task, let's take a moment to look at Instruqt UI.
 
-+ The **right side** of the screen provides you with these instructions and navigation controls.
++ The **left side** of the screen provides you with these instructions and navigation controls.
 
-+ The **left side** give you access to the various machines and services that make up our lab environment.
++ The **right side** give you access to the various machines and services that make up our lab environment.
 
 Within the Instruqt UI you can jump between the [button label="SMLM UI" variant="success"](tab-0) and the available [button label="terminals" variant="success"](tab-1) by clicking on tabs at the top of the left-side panel.
 
