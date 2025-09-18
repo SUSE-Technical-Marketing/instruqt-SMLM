@@ -234,7 +234,7 @@ We will not use a filter in this case since <b class="sles">SLES</b> already pro
 
 Now, let's promote the content to further stages.
 
-- Click on the `Promote` bottom between Development and QA
+- Click on the `Promote` button between Development and QA
 - Another screen with the title **Promote version 1 into QA** will appear, just click `Promote` again.
 
 Repeat the same step for Production.
@@ -317,7 +317,7 @@ Now developers can do their work using the new and patched versions of libraries
 
 Let's assume our developers have given their approval. It's time to create a stable version for the QA team so that all the pre-production tests can be performed.
 
-- Click on the `Promote` bottom between Development and QA
+- Click on the `Promote` button between Development and QA
 - Another screen with the title **Promote version 2 into QA** will appear, just click `Promote` again.
 
 Now let's go to our QA systems and do an upgrade.
