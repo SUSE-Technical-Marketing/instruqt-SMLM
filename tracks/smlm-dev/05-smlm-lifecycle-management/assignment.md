@@ -249,7 +249,7 @@ Repeat the same step for Production.
 Upgrade our systems.
 ====================
 
-Now let's try how it works.
+Now let's see how it works.
 
 We are going to:
 - add some of our system to the new environment.
