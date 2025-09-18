@@ -249,7 +249,7 @@ Let's begin.
   - **Patching**
 
     One of the most common tasks in IT is to keep systems up-to-date and from time to time apply security patches in a rush!
-    Wish SMLM we can easily see a list of **relevant** pacthes, classified by type, and provided with all the information you may need to know including all the systems and packages they affect.
+    With SMLM we can easily see a list of **relevant** pacthes, classified by type, and provided with all the information you may need to know including all the systems and packages they affect.
 
     Beyond the vendor-supplied patches we can also create our own patches. Later on we will explore the different options we have to manage patching and regular updates accross all our fleet.
 
