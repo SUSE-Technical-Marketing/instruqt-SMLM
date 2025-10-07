@@ -6,9 +6,8 @@ virtualbrowsers:
   url: https://zbastion.${_SANDBOX_ID}.instruqt.io
 virtualmachines:
 - name: smlm
-#  image: suse/smlm-pro
-  image: suse/smlm-pro-retired
-#  image: suse/smlm-510-dev
+  image: suse/smlm-pro
+#  image: suse/smlm-pro-retired
   shell: /bin/bash
   environment:
     COMPANY_NAME: Chameleon Airlines
@@ -25,7 +24,7 @@ virtualmachines:
   provision_ssl_certificate: true
 
 - name: centos7
-  image: suse/dpv-centos7-instruqt9
+  image: suse/dpv-centos7-smlms-workshop-pro
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -37,7 +36,7 @@ virtualmachines:
   - https
 
 - name: zzcentos7
-  image: suse/dpv-centos7-instruqt9
+  image: suse/dpv-centos7-smlms-workshop-pro
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -49,7 +48,7 @@ virtualmachines:
   - https
 
 - name: sles15
-  image: suse/sles15-sp5-smlm-workshop
+  image: suse/sles15-sp5-smlm-workshop-pro
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -73,7 +72,7 @@ virtualmachines:
   - https
 
 - name: zbastion
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-pro
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -88,7 +87,7 @@ virtualmachines:
   - https
 
 - name: zzsles15a
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-pro
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -100,7 +99,7 @@ virtualmachines:
   - https
 
 - name: zzsles15b
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-pro
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -112,7 +111,7 @@ virtualmachines:
   - https
 
 - name: zzsles15c
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-pro
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
