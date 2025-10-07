@@ -1,14 +1,14 @@
 ---
 slug: smlm-simplify-upgrade-sles
-id: kpvorqbwj3wv
+id: fhbwdlwedspg
 type: challenge
 title: Simple and reliable maintenance
 tabs:
-- id: 9b38bjgehpsy
+- id: f65eokpjct0l
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: w7qr03nhfh5v
+- id: pounuhkwnzab
   title: SLES 15
   type: terminal
   hostname: sles15

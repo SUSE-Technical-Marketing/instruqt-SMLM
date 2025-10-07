@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: kwzunvdchxdx
+id: ejxtdpb7jztq
 type: challenge
 title: Lifecycle management
 tabs:
-- id: nyswxfwx5pjf
+- id: vj7zqlkc0xab
   title: SMLM UI
   type: browser
   hostname: smlm-www

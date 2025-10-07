@@ -1,10 +1,10 @@
 ---
 slug: smlm-security
-id: t6pqrp8sfoui
+id: aclbwkhzejoc
 type: challenge
 title: Security and patching
 tabs:
-- id: edwwamzgzkax
+- id: 3b5zt9sllzou
   title: SMLM UI
   type: browser
   hostname: smlm-www

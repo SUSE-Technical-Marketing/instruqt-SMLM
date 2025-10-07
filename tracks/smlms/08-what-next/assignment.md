@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: n8ujb4yrzttd
+id: swgxeykwmryd
 type: challenge
 title: What's next?
 tabs:
-- id: m46a6qhbjxzy
+- id: bx0oibmauanb
   title: SMLM UI
   type: browser
   hostname: smlm-www

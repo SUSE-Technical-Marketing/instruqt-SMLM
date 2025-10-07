@@ -1,18 +1,18 @@
 ---
 slug: smls-extended-support
-id: mnzm9cvikmkd
+id: p19lqfytmc9b
 type: challenge
 title: Extended support for legacy systems
 tabs:
-- id: 0xj8uydjqvt6
+- id: 9xmkhkrycdlq
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: 6pimscrsukh2
+- id: 40lnzj9nsp9b
   title: CentOS 7 QA
   type: terminal
   hostname: centos7
-- id: 0dpycs6xnzis
+- id: boawmufluo08
   title: CentOS 7 Prod
   type: terminal
   hostname: zzcentos7

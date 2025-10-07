@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: owykp29rpqrf
+id: fkelapqkrgth
 type: challenge
 title: Automation (Optional)
 tabs:
-- id: tkwxow56heki
+- id: u0y5w6ewsnm1
   title: SMLM UI
   type: browser
   hostname: smlm-www
