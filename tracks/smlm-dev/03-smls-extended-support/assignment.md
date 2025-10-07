@@ -204,7 +204,7 @@ And see the logs appearing in the terminals.
 
 ## <b class="hovereffect">Identify and apply updates from <b class="liberty">Liberty</b> repositories</b>
 
-This Centos 7 systems come with the packages provided by Centos 7, we want to make sure new bugs are fixed and we have a friendly support person to help us when there are troubles, now we have already subscribed the Centos 7 systems to SUSE provided software repositories during the registration process, so let's patch them all:
+This Centos 7 systems come with the latest packages provided upstream, we want to make sure new bugs are fixed and we have a friendly support person to help us when there are troubles, now we have already subscribed the Centos 7 systems to SUSE provided software repositories during the registration process, so let's patch them all:
 
 Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
 
