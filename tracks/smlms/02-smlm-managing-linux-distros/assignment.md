@@ -1,14 +1,14 @@
 ---
 slug: smlm-managing-linux-distros
-id: 21mkw6eixcgp
+id: 0s4wjswo2zhk
 type: challenge
 title: Managing different Linux distributions
 tabs:
-- id: jwykqknt4au4
+- id: qsppgdkckld3
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: xc9nibfluyx4
+- id: uefwdei7ywmk
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts

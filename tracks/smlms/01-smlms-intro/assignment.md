@@ -1,6 +1,6 @@
 ---
 slug: smlms-intro
-id: czegcbnwbsst
+id: 0iw3zqvgqtvl
 type: challenge
 title: Welcome to SUSE Multi-Linux Hands-on Workshop!
 teaser: Welcome to SUSE Multi-Linux Hands-on Workshop! in this section we will introduce
@@ -12,7 +12,7 @@ notes:
     Please wait while we setup your lab environment.
     <img class="logos" src="../assets/logos/suse_logo.svg"/>
 tabs:
-- id: anmg573mysnu
+- id: vkgmrxwzdbdi
   title: SMLM UI
   type: browser
   hostname: smlm-www
