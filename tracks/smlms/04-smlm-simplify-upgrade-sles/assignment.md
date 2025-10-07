@@ -1,14 +1,14 @@
 ---
 slug: smlm-simplify-upgrade-sles
-id: bcty19jh0cic
+id: kpvorqbwj3wv
 type: challenge
 title: Simple and reliable maintenance
 tabs:
-- id: p3ne7mjqq9xf
+- id: 9b38bjgehpsy
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: jgoy19ouejw2
+- id: w7qr03nhfh5v
   title: SLES 15
   type: terminal
   hostname: sles15
@@ -60,6 +60,11 @@ enhanced_loading: null
   .sles {
     color: #90ebcd;
   }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+  }
 
   .bottoms {
     vertical-align: middle;
@@ -105,7 +110,7 @@ And while we're using SLES as the example, remember the key principle of our uni
 ## <b class="hovereffect">Your Objectives:</b>
 
 - Onboard a new SLES 15 SP5 system to serve as our test aircraft.
-- Perform a major service upgrade from SP5 to SP6.
+- Perform a mayor service upgrade from SP5 to SP6.
 
 
 
@@ -122,10 +127,9 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL:
-```txt
-[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
-```
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+
+
 
 
 
@@ -139,7 +143,7 @@ Access the system terminal from the tab [button label="SLES 15" variant="success
 Let's register the system within <b class="smlm">SMLM</b> as **sles15**
 
 ```bash,run
-curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp5 bash
+curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp5 bash ; echo "Wait 45 seconds for it to finish"; sleep 45
 ```
 
 
@@ -210,7 +214,7 @@ This will take some time. To monitor the status, go to `Events` ✈ `History` an
 
 ## <b class="hovereffect">The importance of Scheduling</b>
 
-We have scheduled these actions to happen immediately, but this is not always desirable. <b class="smlm">SMLM</b> supports the creation of Maintenance Windows ( `Schedule` ✈ `Maintenance Windows` ) which allows you to ensure the major events like reboots onlye occur during those pre-approved periods .
+We have scheduled these actions to happen immediately, but this is not always desirable. <b class="smlm">SMLM</b> supports the creation of Maintenance Windows ( `Schedule` ✈ `Maintenance Windows` ) which allows you to ensure the mayor events like reboots onlye occur during those pre-approved periods .
 
 Scheduling is especially useful for production systems, as it allows for carefully planned changes on groups of systems and even phased "canary" deployments.
 
@@ -226,7 +230,6 @@ Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]
 
 - System upgrades and other routine tasks must be simple and repeatable, otherwise, we risk making costly mistakes. With these tools, we can control precisely when and where we perform actions, scheduling critical maintenance for our fleet with confidence.
 
-- Upgrading to a newer version of the product allows for compliance with lifecycle compliance for the fleet in a controlled manner.
 
 - We can control when and where we perform actions, and schedule maintenance operations on our grounded fleet.
 

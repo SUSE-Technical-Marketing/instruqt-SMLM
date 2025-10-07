@@ -69,6 +69,7 @@ sleep 60
 
 
 
+
 # Configure remote SMLM
 ## Download the scripts
 
@@ -106,17 +107,34 @@ cd /root/
 ## Create activation key
 ### SLES 15 SP5
 
-#while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp5-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp5,managertools-sle15-updates-x86_64-sp5,sle-module-basesystem15-sp5-pool-x86_64,sle-module-basesystem15-sp5-updates-x86_64,sle-module-server-applications15-sp5-pool-x86_64,sle-module-server-applications15-sp5-updates-x86_64,sle-module-python3-15-sp5-updates-x86_64,sle-module-python3-15-sp5-pool-x86_64,sle15-sp5-installer-updates-x86_64 -k sles15sp5 --description "SLES15 SP5" ; do sleep 3; done
+while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp5-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp5,managertools-sle15-updates-x86_64-sp5,sle-module-basesystem15-sp5-pool-x86_64,sle-module-basesystem15-sp5-updates-x86_64,sle-module-server-applications15-sp5-pool-x86_64,sle-module-server-applications15-sp5-updates-x86_64,sle-module-python3-15-sp5-updates-x86_64,sle-module-python3-15-sp5-pool-x86_64 -k sles15sp5 --description "SLES15 SP5" ; do sleep 3; done
 
 ### SLES 15 SP6
-#while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp6-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp6,managertools-sle15-updates-x86_64-sp6,sle-module-basesystem15-sp6-pool-x86_64,sle-module-basesystem15-sp6-updates-x86_64,sle-module-server-applications15-sp6-pool-x86_64,sle-module-server-applications15-sp6-updates-x86_64,sle-module-python3-15-sp6-updates-x86_64,sle-module-python3-15-sp6-pool-x86_64,sle15-sp6-installer-updates-x86_64 -k sles15sp6 --description "SLES15 SP5" ; do sleep 3; done
+while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp6-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp6,managertools-sle15-updates-x86_64-sp6,sle-module-basesystem15-sp6-pool-x86_64,sle-module-basesystem15-sp6-updates-x86_64,sle-module-server-applications15-sp6-pool-x86_64,sle-module-server-applications15-sp6-updates-x86_64,sle-module-python3-15-sp6-updates-x86_64,sle-module-python3-15-sp6-pool-x86_64,sle15-sp6-installer-updates-x86_64 -k sles15sp6 --description "SLES15 SP5" ; do sleep 3; done
 
 ### Ubuntu 24.04 LTS
-#while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}"  -a --basechannellabel ubuntu-2404-amd64-main-amd64 --childchannels managertools-ubuntu2404-updates-amd64,ubuntu-2404-amd64-main-security-amd64,ubuntu-2404-amd64-main-updates-amd64 -k ubuntu2404 --description "Ubuntu 2404 LTS" ; do sleep 3; done
+while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}"  -a --basechannellabel ubuntu-2404-amd64-main-amd64 --childchannels managertools-ubuntu2404-updates-amd64,ubuntu-2404-amd64-main-security-amd64,ubuntu-2404-amd64-main-updates-amd64 -k ubuntu2404 --description "Ubuntu 2404 LTS" ; do sleep 3; done
 
 ### CentOS 7
-#while ! manage_activationkeys.py  -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel res-7-ltss-updates-x86_64 --childchannels managertools-el7-pool-x86_64-lbt7,managertools-el7-updates-x86_64-lbt7  -k liberty7ltss --description "SUSE Multi-Linux Support 7 with LTS" ; do sleep 3; done
+while ! manage_activationkeys.py  -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel res-7-ltss-updates-x86_64 --childchannels managertools-el7-pool-x86_64-lbt7,managertools-el7-updates-x86_64-lbt7  -k liberty7ltss --description "SUSE Multi-Linux Support 7 with LTS" ; do sleep 3; done
 
+
+
+
+
+#cat << EOF > /root/remove_SMLM_schedules.sh
+#while true
+#do
+#  for i in mgr-sync-refresh-default single-repo-sync-bunch-0 single-repo-sync-bunch-1
+#  do
+#    ssh -o "StrictHostKeyChecking=no" smlm "echo \"delete from rhntaskoschedule where job_label = '${i}';\" | mgrctl exec -- spacewalk-sql --select-mode -"
+#  done
+#  sleep 180
+#done
+#EOF
+#chmod +x /root/remove_SMLM_schedules.sh
+#sync
+#nohup  /root/remove_SMLM_schedules.sh &
 
 
 
@@ -201,5 +219,258 @@ ssh ubuntu2404lts -o "StrictHostKeyChecking=no" "echo 'root:${UNIVERSAL_PWD}' | 
 echo '###################### Completed zbastion setup ################
 ######################################################################'
 
+######################################################################################
+######################################################################################
+### verification system ##############################################################
+######################################################################################
+######################################################################################
+
+
+
+
+
+
+curl -s -o /etc/apache2/ssl.crt/zbastion.crt -H "Metadata-Flavor: Google" \
+    "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssl-certificate"
+curl -s -o /etc/apache2/ssl.key/zbastion.key -H "Metadata-Flavor: Google" \
+    "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssl-certificate-key"
+
+cat << EOF > /etc/apache2/vhosts.d/zbastion.conf
+<IfDefine SSL>
+<IfDefine !NOSSL>
+<VirtualHost _default_:443>
+        DocumentRoot "/srv/www/htdocs"
+        ServerName zbastion.${_SANDBOX_ID}.instruqt.io:443
+        ServerAdmin webmaster@zbastion.${_SANDBOX_ID}.instruqt.io
+        ErrorLog /var/log/apache2/error_log
+        TransferLog /var/log/apache2/access_log
+        SSLEngine on
+        SSLUseStapling  on
+        SSLCertificateFile /etc/apache2/ssl.crt/zbastion.crt
+        SSLCertificateKeyFile /etc/apache2/ssl.key/zbastion.key
+        CustomLog /var/log/apache2/ssl_request_log   ssl_combined
+</VirtualHost>
+</IfDefine>
+</IfDefine>
+
+EOF
+
+sed 's/^APACHE_SERVER_FLAGS="*/APACHE_SERVER_FLAGS="SSL HTTP2"/' -i /etc/sysconfig/apache2
+
+
+
+systemctl enable --now apache2
+
+cat << EOF > /srv/www/cgi-bin/app.py
+# app.py
+# This is the main Flask application file.
+# To run this, you would typically use a WSGI server like Gunicorn or mod_wsgi with Apache.
+# For development:
+# 1. pip install Flask
+# 2. export FLASK_APP=app.py
+# 3. flask run
+
+from flask import Flask, render_template, request
+import subprocess
+
+app = Flask(__name__)
+
+@app.route('/check', methods=['POST'])
+def check_exercise():
+    """
+    Handles the form submission.
+    Runs a script and renders a success or failure page based on the exit code.
+    """
+    if request.method == 'POST':
+        exercise_id = request.form.get('exercise_id')
+        action = request.form.get('action')
+
+        # --- Security Note ---
+        # In a real-world application, directly running a script with user-provided
+        # input is dangerous. You should sanitize and validate the 'exercise_id'
+        # to ensure it matches an expected value and prevent command injection.
+        # For this example, we'll assume 'exercise_id' is a safe, known value.
+
+        if action == 'check' and exercise_id:
+            try:
+                # Construct the command to run the shell script
+                # The script needs to be executable (chmod +x check_exercise.sh)
+                command = ['./check_exercise.sh', exercise_id]
+
+                # Run the script and capture the result
+                result = subprocess.run(command, capture_output=True, text=True)
+
+                # Check the exit code of the script
+                if result.returncode == 0:
+                    # Success! Render the success page.
+                    return render_template('success.html', exercise_id=exercise_id)
+                else:
+                    # Failure! Render the failure page.
+                    # You can pass the error output to the template if needed
+                    error_message = result.stderr or result.stdout
+                    return render_template('failure.html', exercise_id=exercise_id, error=error_message)
+
+            except FileNotFoundError:
+                # This error occurs if the script doesn't exist or isn't executable
+                return render_template('failure.html', exercise_id=exercise_id, error="Error: The check script was not found on the server.")
+            except Exception as e:
+                # Catch any other exceptions
+                return render_template('failure.html', exercise_id=exercise_id, error=f"An unexpected error occurred: {e}")
+
+    # If the request is not valid, redirect to the home page
+    return render_template('index.html')
+EOF
+
+
+
+mkdir /srv/www/htdocs/templates
+
+cat << EOF > /srv/www/htdocs/templates/index.html
+"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chameleon Airlines - Exercise Check</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-cham-green { background-color: #30ba78; }
+        .text-cham-green { color: #30ba78; }
+        .border-cham-green { border-color: #30ba78; }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-2xl p-8 text-center">
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">Chameleon Airlines</h1>
+            <p class="text-gray-500">Exercise Validation System</p>
+        </div>
+        <form action="/check" method="POST">
+            <input type="hidden" name="exercise_id" value="lab-01-onboarding">
+            <input type="hidden" name="action" value="check">
+            <button type="submit" class="w-full bg-cham-green text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-300 transform hover:scale-105">
+                Check Exercise
+            </button>
+        </form>
+        <p class="text-xs text-gray-400 mt-6">Click the button to verify the completion of your current lab exercise.</p>
+    </div>
+</body>
+</html>
+"""
+EOF
+
+cat << EOF > /srv/www/htdocs/templates/success.html
+"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success! - Chameleon Airlines</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="w-full max-w-2xl bg-white rounded-lg shadow-2xl p-8 text-center">
+        <div class="mb-6">
+            <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h1 class="text-3xl font-bold text-gray-800 mt-4">Exercise Complete!</h1>
+            <p class="text-gray-500">Excellent work, Engineer. The check for '{{ exercise_id }}' was successful.</p>
+        </div>
+        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+            <!-- Placeholder for your success video -->
+            <iframe src="https://www.youtube.com/embed/3_yD_cEKo9s?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <a href="/" class="inline-block mt-8 bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors">
+            Back to Home
+        </a>
+    </div>
+</body>
+</html>
+"""
+EOF
+
+
+
+
+cat << EOF > /srv/www/htdocs/templates/failure.html
+"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Again - Chameleon Airlines</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="w-full max-w-2xl bg-white rounded-lg shadow-2xl p-8 text-center">
+        <div class="mb-6">
+            <svg class="w-16 h-16 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h1 class="text-3xl font-bold text-gray-800 mt-4">Check Incomplete</h1>
+            <p class="text-gray-500">The check for '{{ exercise_id }}' failed. Please review your work and try again.</p>
+        </div>
+        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+            <!-- Placeholder for your failure video -->
+            <iframe src="https://www.youtube.com/embed/Z86V_ICUCD4?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-4 p-4 bg-red-50 text-red-700 rounded-lg text-left">
+            <h3 class="font-bold">Error Details:</h3>
+            <pre class="text-sm whitespace-pre-wrap">{{ error | default('No specific error message was returned.') }}</pre>
+        </div>
+        <a href="/" class="inline-block mt-8 bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors">
+            Try Again
+        </a>
+    </div>
+</body>
+</html>
+"""
+
+EOF
+
+
+cat << EOF > /usr/local/bin/check_exercise
+"""
+#!/bin/bash
+
+# This script simulates checking an exercise.
+# It takes one argument: the exercise ID.
+
+EXERCISE_ID=$1
+
+echo "Checking exercise: ${EXERCISE_ID}" >&2
+
+# For this example, we'll use a simple logic.
+# If the exercise ID contains "onboarding", we'll succeed.
+# Otherwise, we'll fail.
+if [[ "${EXERCISE_ID}" == *"onboarding"* ]]; then
+  echo "Check successful for ${EXERCISE_ID}." >&2
+  exit 0 # Success
+else
+  echo "Check failed. Condition not met for ${EXERCISE_ID}." >&2
+  exit 1 # Failure
+fi
+"""
+
+EOF
+
+
+
+chmod +x /usr/local/bin/check_exercise
+
+
+
+# setup dependencies
+# zypper install -y python3-PyYAML apache2 python3-Flask apache2-mod_wsgi-python3
 
 
