@@ -1,14 +1,14 @@
 ---
 slug: smlm-managing-linux-distros
-id: xwbbkru4elci
+id: 21mkw6eixcgp
 type: challenge
 title: Managing different Linux distributions
 tabs:
-- id: nejibmsfonuc
+- id: jwykqknt4au4
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: uc3opgllyk50
+- id: xc9nibfluyx4
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts
@@ -59,6 +59,12 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
@@ -172,11 +178,7 @@ We are going to use the [button label="web UI" variant="success"](tab-0) to do s
   [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
   ```
 
-  - **Activation Key:**
-
-  ```txt
-  1-ubuntu2404
-  ```
+  - **Activation Key:**   <b class="highlightcopy">1-ubuntu2404</b>
 
 - Leave the rest as it is and click on
 
@@ -187,7 +189,7 @@ We are going to use the [button label="web UI" variant="success"](tab-0) to do s
 
 
 ```bash,run
-echo 'Waiting for the registration to complete' ;while [[ ! -f /etc/apt/sources.list.d/susemanager_bootstrap.sources ]] || [[ ! -f /etc/apt/sources.list.d/susemanager:channels.sources ]]; do echo -n '.'; sleep 5; done ; grep -v '^#\|^Types:\|Trusted:\|Architectures:' /etc/apt/sources.list.d/*
+echo 'Waiting for the registration to complete' ;while [[ ! -f /etc/apt/sources.list.d/susemanager_bootstrap.sources ]] || [[ ! -f /etc/apt/sources.list.d/susemanager:channels.sources ]]; do echo -n '.'; sleep 5; done ; sleep 60; grep -v '^#\|^Types:\|Trusted:\|Architectures:' /etc/apt/sources.list.d/*
 ```
 
 
@@ -269,11 +271,11 @@ Let's continue with the system we just registered, we are going to add a few set
 
 | Field | Content                                                  |
 | ---: | :-----                                                    |
-| **Description** | Multimedia workstation for graphics designers. |
-| **Facility Address** | Candy eye street, 1 |
-| **City** | Aeolia |
-| **Building** | Belem Tower 4 |
-| **Room** | Sierra nevada |
+| **Description** | <b class="highlightcopy">Multimedia workstation for graphics designers.</b> |
+| **Facility Address** | <b class="highlightcopy">Candy eye street, 1</b> |
+| **City** | <b class="highlightcopy">Aeolia</b> |
+| **Building** | <b class="highlightcopy">Belem Tower 4</b> |
+| **Room** | <b class="highlightcopy">Sierra nevada</b> |
 
 
 <img style='padding: 0; margin:0; vertical-align: middle' src="../assets/SMLM5.1/bottom-Update_Properties.png"/>
@@ -371,9 +373,6 @@ Don't modify the schedule, we want it to run as soon as possible, click on:
 
 
 <br/>
-
-> [!NOTE]
-> <b class="smlm">SMLM</b> doesn't connect to the systems directly, instead systems connect to it periodically to retrieve the orders, this mechanism reduces the attack surface on those systems and avoids having to open firewalls and the like.
 
 
 <br/><br/>

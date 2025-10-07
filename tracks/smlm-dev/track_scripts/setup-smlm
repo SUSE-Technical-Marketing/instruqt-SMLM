@@ -26,12 +26,6 @@ chmod +x /var/lib/containers/storage/volumes/root/_data/change_hostname
 mgrctl exec -- /root/change_hostname 1.1.1.1  --skip-ip-validation --password=Admin123 --auto --hostname=smlm.${_SANDBOX_ID}.instruqt.io
 
 
-
-
-
-
-
-
 # 0. Insruqt init
 #################
 
@@ -74,6 +68,15 @@ mgrctl exec -ti -- rhn-ssl-tool --gen-server --dir="/root/ssl-build" --set-count
 --set-cname="smlm.aaaaa.instruqt.io" -p 1234
 
 
+echo "# Removing schedules"
+for i in mgr-sync-refresh-default mgr-sync-refresh-bunch  mgr-sync-refresh-default single-repo-sync-bunch-0 single-repo-sync-bunch-1
+do
+  mgrctl exec -- "echo \"delete from rhntaskoschedule where job_label = '${i}';\" >>/tmp/remove_schedules.sql"
+done
+mgrctl exec -- spacewalk-sql --select-mode /tmp/remove_schedules.sql
+
+
+echo "# Retrieving google SSL certificate"
 curl -s -o /var/lib/containers/storage/volumes/root/_data/ssl-build/smlm.${_SANDBOX_ID}/server.crt -H "Metadata-Flavor: Google" \
     "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ssl-certificate"
 curl -s -o /var/lib/containers/storage/volumes/root/_data/ssl-build/smlm.${_SANDBOX_ID}/server.key -H "Metadata-Flavor: Google" \

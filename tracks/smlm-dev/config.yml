@@ -7,15 +7,15 @@ virtualbrowsers:
 virtualmachines:
 - name: smlm
 #  image: suse/smlm-pro
-  image: suse/smlm-pro-retired
-#  image: suse/smlm-510-dev
+#  image: suse/smlm-pro-retired
+  image: suse/smlm-510-dev
   shell: /bin/bash
   environment:
     COMPANY_NAME: Chameleon Airlines
     SMLM_ORGNAME: chamaleonair
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
-#    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
-    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/aa08f64788307d750d3ec46ae889e6aca8fe392f/scripts/smlm/
+    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
+#    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/aa08f64788307d750d3ec46ae889e6aca8fe392f/scripts/smlm/
     SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
   machine_type: e2-standard-8
   allow_external_ingress:
@@ -49,7 +49,7 @@ virtualmachines:
   - https
 
 - name: sles15
-  image: suse/sles15-sp5-smlm-workshop
+  image: suse/sles15-sp5-smlm-workshop-dev
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -73,14 +73,14 @@ virtualmachines:
   - https
 
 - name: zbastion
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-dev
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
     COMPANY_NAME: Chameleon Airlines
     SMLM_ORGNAME: chamaleonair
-#    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
-    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/aa08f64788307d750d3ec46ae889e6aca8fe392f/scripts/smlm/
+    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
+#    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/aa08f64788307d750d3ec46ae889e6aca8fe392f/scripts/smlm/
   machine_type: e2-micro
   allow_external_ingress:
   - high-ports
@@ -88,7 +88,7 @@ virtualmachines:
   - https
 
 - name: zzsles15a
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-dev
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -100,7 +100,7 @@ virtualmachines:
   - https
 
 - name: zzsles15b
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-dev
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
@@ -112,7 +112,7 @@ virtualmachines:
   - https
 
 - name: zzsles15c
-  image: suse/sles15-sp6-smlm-workshop
+  image: suse/sles15-sp6-smlm-workshop-dev
   shell: /bin/bash
   environment:
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
