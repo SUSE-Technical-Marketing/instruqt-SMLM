@@ -372,9 +372,6 @@ Don't modify the schedule, we want it to run as soon as possible, click on:
 
 <br/>
 
-> [!NOTE]
-> <b class="smlm">SMLM</b> doesn't connect to the systems directly, instead systems connect to it periodically to retrieve the orders, this mechanism reduces the attack surface on those systems and avoids having to open firewalls and the like.
-
 
 <br/><br/>
 

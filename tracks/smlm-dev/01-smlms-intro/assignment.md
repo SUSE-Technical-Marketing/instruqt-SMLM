@@ -1,6 +1,6 @@
 ---
 slug: smlms-intro
-id: wb6ybu9mjctz
+id: czegcbnwbsst
 type: challenge
 title: Welcome to SUSE Multi-Linux Hands-on Workshop!
 teaser: Welcome to SUSE Multi-Linux Hands-on Workshop! in this section we will introduce
@@ -12,7 +12,7 @@ notes:
     Please wait while we setup your lab environment.
     <img class="logos" src="../assets/logos/suse_logo.svg"/>
 tabs:
-- id: vuahsyyxgrd0
+- id: anmg573mysnu
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -20,14 +20,20 @@ difficulty: ""
 enhanced_loading: null
 ---
 
-
-
 Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
 ==================================================================
+
+<link  rel="stylesheet" href="https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/web/css/instruqt.css" type="text/css" crossorigin="anonymous" fetchpriority="high" />
+
 <style type="text/css">
+
+  @import url("https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/web/css/instruqt.css");
+  @import "https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/web/css/instruqt.css";
+
   * {
     font-family: suse;
     src: url('https://fonts.google.com/specimen/SUSE');
+/*    background-color: #30ba78; */
   }
   .hovereffect {
     border-radius: 25px 25px 25px 25px;
@@ -49,54 +55,16 @@ Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/speci
   .suse {
     color: #30ba78;
   }
-  .smls {
-    color: #2453ff;
-  }
-  .smlsext {
-    color: #2453ff;
-  }
-  .companyname {
-    color: #008657;
-  }
-  .liberty {
-    color: #efefef;
-  }
-  .sles {
-    color: #90ebcd;
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
-  .bottoms {
-    vertical-align: middle;
-    height: 50%;
-    width: 50%;
-    margin: 0px;
-    padding: 0px;
-    object-fit: contain;
-  }
-
-  img.animatedgif {
-    --borderthickness: 5pt;
-    --colors: #0000 25%,#30ba78 0;
-    padding: 10px;
-    background:
-      conic-gradient(from 90deg  at top    var(--borderthickness) left  var(--borderthickness),var(--colors)) 0    0,
-      conic-gradient(from 180deg at top    var(--borderthickness) right var(--borderthickness),var(--colors)) 100% 0,
-      conic-gradient(from 0deg   at bottom var(--borderthickness) left  var(--borderthickness),var(--colors)) 0    100%,
-      conic-gradient(from -90deg at bottom var(--borderthickness) right var(--borderthickness),var(--colors)) 100% 100%;
-    background-size: 50px 50px;
-    background-repeat: no-repeat;
-    transition: 1s;
-  }
-
-  img.animatedgif:hover {
-    background-size: 51% 51%;
-  }
-
-  img.logos {
-    border-radius: 10px;
-  }
 
 </style>
+
+
 
 <img class="logos" alt="Welcome!" src="../assets/logos/01-welcome.jpeg"/>
 
@@ -106,9 +74,7 @@ In this workshop you will explore some of the magic that <b class="smlmext">SUSE
 
 &emsp;&emsp; As with any airplane component, it is critical that those servers remain stable and reliable, no matter if they are located on the ground in some datacenter or flying above the clouds ☁ ☁ ☁
 
-
 &emsp;&emsp; Some plane models will require a different Linux flavor, or a different CPU architecture. This is not an issue for <b class="smlm">SMLM</b>, you are free to choose the Linux distribution and CPU architecture that better suits your needs without having to give up on easy standardization and management.
-
 
 &emsp;&emsp; As an engineer responsible for managing the Linux landscape you will go through some of the solutions <b class="smlm">SMLM</b> and <b class="smls">SMLS</b> offers you to ease and automate systems management and resolve exceptional problems that may occur.
 
@@ -185,7 +151,13 @@ Let's get you familiarized with the environment.
 If everything went well, you should see the **Overview** page in the <b class="smlmext">SUSE Multi-Linux Manager</b> UI logged in as `[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]` user.
 
 > [!NOTE]
->  If the page doesn't load correctly, you may need to refresh the browser tab after the lab environment has finished starting up.
+> If you wish to access <b class="smlmext">SUSE Multi-Linux Manager</b> UI directly through your browser you can do too:
+
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+
+
+> [!NOTE]
+> If the page doesn't load correctly, you may need to refresh the browser tab after the lab environment has finished starting up.
 
 
 🗺 Explore <b class="smlmext">SUSE Multi-Linux Manager</b> 🗺

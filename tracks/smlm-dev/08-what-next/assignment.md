@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: syxqw2xdsbmv
+id: n8ujb4yrzttd
 type: challenge
 title: What's next?
 tabs:
-- id: ojnzjitpamkk
+- id: m46a6qhbjxzy
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -55,6 +55,11 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
