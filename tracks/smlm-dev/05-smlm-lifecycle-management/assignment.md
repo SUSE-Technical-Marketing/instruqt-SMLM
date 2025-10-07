@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: 5mkftmzuno7p
+id: kwzunvdchxdx
 type: challenge
 title: Lifecycle management
 tabs:
-- id: wdxp5fjicmfm
+- id: nyswxfwx5pjf
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -55,6 +55,11 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
@@ -125,10 +130,7 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL:
-```txt
-[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
-```
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 Building Our Software Certification Pathway
@@ -151,11 +153,25 @@ Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
 - Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
 
 - Fill in the project details:
-    * **Project Name:**        "Airtrain SLES15 SPx"
 
-    * **Project Label:**       "at-sles15_spx"
+- **Project Name:**
 
-    * **Project Description:** "Certified software channel for Airtrain SLES 15 systems."
+```txt
+Airtrain SLES15 SPx
+```
+
+- **Project Label:**
+
+```txt
+at-sles15_spx
+```
+
+- **Project Description:**
+
+```txt
+Certified software channel for Airtrain SLES 15 systems.
+```
+
 
 - Click ![Create](../assets/SMLM5.1/bottom-create.png)
 
@@ -176,8 +192,8 @@ Create the Development Environment Lifecycle
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
 - Populate with the following:
-  * **Name:** 'Development'
-  * **label:** 'dev'
+  * **Name:** <b class="highlightcopy">Development</b>
+  * **Label:** <b class="highlightcopy">dev</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -190,8 +206,8 @@ Create the Quality Assurance Environment Lifecycle
 - Click on `Add Environment`
 
 - Populate with the following:
-  * **Name:** 'QA'
-  * **label:** 'qa'
+  * **Name:** <b class="highlightcopy">QA</b>
+  * **Label:** <b class="highlightcopy">qa</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -204,8 +220,8 @@ Create the Production Environment Lifecycle
 - Click on `Add Environment`
 
 - Populate with the following:
-  * **Name:** 'Production'
-  * **label:** 'prod'
+  * **Name:** <b class="highlightcopy">Production</b>
+  * **Label:** <b class="highlightcopy">prod</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -221,7 +237,13 @@ We will not use a filter in this case since <b class="sles">SLES</b> already pro
 
 - Click on ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- Fill in **Version Message** with 'October'
+- In **Version Message** type
+
+```txt
+October
+```
+
+
 - Click on `Build`
 
 > [!NOTE]
@@ -234,7 +256,7 @@ We will not use a filter in this case since <b class="sles">SLES</b> already pro
 
 Now, let's promote the content to further stages.
 
-- Click on the `Promote` bottom between Development and QA
+- Click on the `Promote` button between Development and QA
 - Another screen with the title **Promote version 1 into QA** will appear, just click `Promote` again.
 
 Repeat the same step for Production.
@@ -249,7 +271,7 @@ Repeat the same step for Production.
 Upgrade our systems.
 ====================
 
-Now let's try how it works.
+Now let's see how it works.
 
 We are going to:
 - add some of our system to the new environment.
@@ -270,7 +292,12 @@ Let's go to `Systems` ✈ `System List` ✈ `All`
 
 Go back to `Systems` ✈ `System List` ✈ `All`
 
-- Filter by **at-**
+- Filter by:
+
+```txt
+at-
+```
+
 - Select all the systems that end with **-pro**
 - Go to `Systems` ✈ `System Set Manager`
 - Go to `Channels`
@@ -298,7 +325,13 @@ No new patches will suddenly appear and disrupt their work.
 
 - Click on ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- Fill in **Version Message** with 'November'
+- In **Version Message** type
+
+```txt
+November
+```
+
+
 - Click on `Build`
 
 Notice the version number has automatically increased.
@@ -317,7 +350,7 @@ Now developers can do their work using the new and patched versions of libraries
 
 Let's assume our developers have given their approval. It's time to create a stable version for the QA team so that all the pre-production tests can be performed.
 
-- Click on the `Promote` bottom between Development and QA
+- Click on the `Promote` button between Development and QA
 - Another screen with the title **Promote version 2 into QA** will appear, just click `Promote` again.
 
 Now let's go to our QA systems and do an upgrade.
