@@ -74,9 +74,7 @@ In this workshop you will explore some of the magic that <b class="smlmext">SUSE
 
 &emsp;&emsp; As with any airplane component, it is critical that those servers remain stable and reliable, no matter if they are located on the ground in some datacenter or flying above the clouds ☁ ☁ ☁
 
-
-&emsp;&emsp; Some plane models will require a different Linux flavor, or a different CPU architecture. This is not an issue for <b class="smlm">SMLM</b>, you are free to choose the Linux distribution and CPU arquitecture that better suits your needs without having to give up on easy standardization and management.
-
+&emsp;&emsp; Some plane models will require a different Linux flavor, or a different CPU architecture. This is not an issue for <b class="smlm">SMLM</b>, you are free to choose the Linux distribution and CPU architecture that better suits your needs without having to give up on easy standardization and management.
 
 &emsp;&emsp; As an engineer responsible for managing the Linux landscape you will go through some of the solutions <b class="smlm">SMLM</b> and <b class="smls">SMLS</b> offers you to ease and automate systems management and resolve exceptional problems that may occur.
 
@@ -119,9 +117,9 @@ Depending on the package purchased, <b class="smlsext">SUSE Multi-Linux Support<
 =======================
 Before we begin our first task, let's take a moment to look at Instruqt UI.
 
-+ The **right side** of the screen provides you with these instructions and navigation controls.
++ The **left side** of the screen provides you with these instructions and navigation controls.
 
-+ The **left side** give you access to the various machines and services that make up our lab environment.
++ The **right side** give you access to the various machines and services that make up our lab environment.
 
 Within the Instruqt UI you can jump between the [button label="SMLM UI" variant="success"](tab-0) and the available [button label="terminals" variant="success"](tab-1) by clicking on tabs at the top of the left-side panel.
 
@@ -223,7 +221,7 @@ Let's begin.
   - **Patching**
 
     One of the most common tasks in IT is to keep systems up-to-date and from time to time apply security patches in a rush!
-    Wish SMLM we can easily see a list of **relevant** pacthes, classified by type, and provided with all the information you may need to know including all the systems and packages they affect.
+    With SMLM we can easily see a list of **relevant** pacthes, classified by type, and provided with all the information you may need to know including all the systems and packages they affect.
 
     Beyond the vendor-supplied patches we can also create our own patches. Later on we will explore the different options we have to manage patching and regular updates accross all our fleet.
 
