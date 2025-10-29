@@ -27,6 +27,7 @@ echo "`python3 -c \"import socket; print(socket.gethostbyname('smlm'))\"` smlm.a
 
 
 cat << EOF > /root/register.sh
+rm /etc/venv-salt-minion/minion.d/susemanager.conf
 while [[ ! -f /etc/venv-salt-minion/minion.d/susemanager.conf ]]; do
   curl -Sks --retry-connrefused --retry 50 --retry-delay 5 --retry-max-time 180 https://smlm.${_SANDBOX_ID}.instruqt.io/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp6 PROFILENAME='at-ct-qa'  bash || echo 'failed'
   sleep 10
