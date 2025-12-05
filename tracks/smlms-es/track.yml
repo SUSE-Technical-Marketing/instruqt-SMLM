@@ -31,3 +31,4 @@ lab_config:
   hideStopButton: false
   default_layout: AssignmentLeft
 enhanced_loading: true
+maintenance: true
