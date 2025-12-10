@@ -1,0 +1,130 @@
+version: "3"
+virtualbrowsers:
+- name: smlm-www
+  url: https://smlm.${_SANDBOX_ID}.instruqt.io
+- name: verify
+  url: https://zbastion.${_SANDBOX_ID}.instruqt.io
+virtualmachines:
+- name: smlm
+  image: suse/smlm-pro
+#  image: suse/smlm-pro-retired
+  shell: /bin/bash
+  environment:
+    COMPANY_NAME: Chameleon Airlines
+    SMLM_ORGNAME: chamaleonair
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+#    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
+    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/aa08f64788307d750d3ec46ae889e6aca8fe392f/scripts/smlm/
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: e2-standard-8
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+  provision_ssl_certificate: true
+
+- name: centos7
+  image: suse/dpv-centos7-smlms-workshop-pro
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: e2-micro
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+- name: zzcentos7
+  image: suse/dpv-centos7-smlms-workshop-pro
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: f1-micro
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+- name: sles15
+  image: suse/sles15-sp5-smlm-workshop-pro
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: n2-highcpu-2
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+- name: ubuntu2404lts
+  image: ubuntu-os-cloud/ubuntu-2404-lts-amd64
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: e2-micro
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+- name: zbastion
+  image: suse/sles15-sp6-smlm-workshop-pro
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    COMPANY_NAME: Chameleon Airlines
+    SMLM_ORGNAME: chamaleonair
+#    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
+    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/aa08f64788307d750d3ec46ae889e6aca8fe392f/scripts/smlm/
+  machine_type: e2-micro
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+- name: zzsles15a
+  image: suse/sles15-sp6-smlm-workshop-pro
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: f1-micro
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+- name: zzsles15b
+  image: suse/sles15-sp6-smlm-workshop-pro
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: f1-micro
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+- name: zzsles15c
+  image: suse/sles15-sp6-smlm-workshop-pro
+  shell: /bin/bash
+  environment:
+    FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
+    SSH_PUB_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk4PwwZ/cu+UNXhLB5LHUP6VDoHSKkFxW9NfUHV8LfG"
+  machine_type: f1-micro
+  allow_external_ingress:
+  - high-ports
+  - http
+  - https
+
+secrets:
+- name: SMLM_ADMIN_USERNAME
+- name: SMLM_ADMIN_PASSWORD
+- name: SMLM_SSH_PRIVATE_KEY
+
+

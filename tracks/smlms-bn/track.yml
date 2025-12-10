@@ -1,0 +1,34 @@
+slug: smlms-bn
+id: hrdrzxximnj9
+title: SUSE Multi-Linux Hands-on Workshop - BN
+description: |
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Throughout this workshop, you will explore the core capabilities of <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, our best-in-class solution for managing diverse Linux environments at scale, and <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+
+  <p>You will learn how to solve real-world IT challenges by using <b style="color: #30ba78">SUSE</b>'s powerful tools to automate tasks, ensure security compliance, and manage the entire lifecycle of your systems—from legacy distributions to the latest enterprise servers.</p>
+
+  <p>This workshop is designed to give you practical skills and a clear understanding of how to simplify and control your complex infrastructure.</p>
+
+  <p>Let's get started.</p></span>
+icon: https://www.suse.com/favicon.ico
+tags:
+- smls
+- mlm
+- prod
+- mls
+- smlm
+owner: suse
+developers:
+- raul.mahiques@suse.com
+skipping_enabled: true
+idle_timeout: 6000
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+enhanced_loading: true
+maintenance: true
