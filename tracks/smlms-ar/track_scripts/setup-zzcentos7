@@ -1,0 +1,50 @@
+#!/bin/bash
+#set -euxo pipefail
+
+rm -f /etc/machine-id ; dbus-uuidgen --ensure=/etc/machine-id
+
+# 0. Insruqt init
+#################
+
+# waits for Instruqt host bootstrap to finish
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+  sleep 1
+done
+
+
+# grant remote access
+cat << EOF >> /root/.ssh/authorized_keys
+${SSH_PUB_KEY}
+EOF
+
+echo "`python -c \"import socket; print(socket.gethostbyname('smlm'))\"` smlm.aaaaa.instruqt.io" >>/etc/hosts
+
+cat << EOF > /root/register.sh
+#!/bin/bash
+while [[ ! -f /etc/venv-salt-minion/minion.d/susemanager.conf ]]; do 
+  PROFILENAME='airco-dh4a-prod' SMLM_DNS="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-liberty7ltss curl -Sks --retry 50 --retry-delay 5 --retry-max-time 180 https://smlm.${_SANDBOX_ID}.instruqt.io/pub/bootstrap/generic_bootstrap.sh | SMLM_DNS="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-liberty7ltss PROFILENAME='airco-dh4a-prod' bash
+  sleep 10
+  echo 'Attempted registration' >>/root/registration.log
+done
+EOF
+chmod +x /root/register.sh
+
+sync
+echo "Launching register script with nohup"
+cd /root/
+nohup /root/register.sh >>/root/registration.log &
+
+cat << EOF > /root/downloadpkg.sh
+sleep 300
+yum update --downloadonly -y
+EOF
+chmod +x /root/downloadpkg.sh
+nohup /root/downloadpkg.sh &
+
+
+
+
+echo '###################### Completed zzcentos7 setup ###############
+######################################################################'
+#shutdown -r 4 &
