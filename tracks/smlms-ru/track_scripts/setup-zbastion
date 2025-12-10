@@ -1,0 +1,221 @@
+#!/bin/bash
+
+# fail early - fix earlier
+#set -euxo pipefail
+
+# Save the starting time
+start_time=`date +%s`
+
+rm -f /etc/machine-id ; dbus-uuidgen --ensure=/etc/machine-id
+
+
+
+echo "# 0. Insruqt init
+#################"
+
+echo "# waits for Instruqt host bootstrap to finish"
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+  echo -n .
+  sleep 1
+done
+
+
+
+
+echo "# makes sure the registration is ok"
+registercloudguest --force-new
+
+
+# Create SSH config dir and pass the keys
+cat << EOF > /root/.ssh/id_secret
+${SMLM_SSH_PRIVATE_KEY:-error}
+EOF
+
+echo "`python3 -c \"import socket; print(socket.gethostbyname('smlm'))\"` smlm.aaaaa.instruqt.io" >>/etc/hosts
+
+echo "# 1. Initialize script
+#################"
+
+local_ip=`ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'`
+
+# Generate a random universal password for this student
+UNIVERSAL_PWD="abcAB12.$(tr -dc '[:alnum:]' </dev/urandom | head -c 8; echo)"
+
+# Generate organization name
+ORG_ADM_USER="vega"
+SMLM_USERNAME='myadmin'
+FQDN_SMLM="smlm.${_SANDBOX_ID}.instruqt.io"
+USER_ORG_NAME="trainning"
+SMLM_PASSWORD="${UNIVERSAL_PWD}"
+UBUNTU_FQDN=`host -t cname  ubuntu2404lts  |awk '{print $1}'`
+ubuntuIP=`python3 -c "import socket; print(socket.gethostbyname('ubuntu2404lts'))"`
+
+## Push variables to instruqt
+agent variable set 'UNIVERSAL_PWD' "${UNIVERSAL_PWD}"
+agent variable set 'FQDN_SMLM' "${FQDN_SMLM}"
+agent variable set 'SMLM_URL' "https://$FQDN_SMLM"
+agent variable set 'USER_ORG_NAME' "${USER_ORG_NAME}"
+agent variable set 'SMLM_USERNAME' "${SMLM_USERNAME}"
+agent variable set 'SMLM_PASSWORD' "${UNIVERSAL_PWD}"
+agent variable set 'ORG_ADM_USER' "${ORG_ADM_USER}"
+agent variable set 'UBUNTU_FQDN' "${UBUNTU_FQDN}"
+agent variable set 'UBUNTU_IP' "${ubuntuIP}"
+
+sleep 30
+while ! ssh smlm -o "StrictHostKeyChecking=no" "echo '$ubuntuIP ubuntu2404lts' >>/etc/hosts"; do sleep 5; done
+while ! ssh smlm -o "StrictHostKeyChecking=no" "mgradm restart"; do sleep 5; done
+sleep 60
+
+
+
+
+# Configure remote SMLM
+## Download the scripts
+
+for i in manage_org.py manage_activationkeys.py manage_users.py manage_groups.py manage_custominfo.py manage_systems.py
+do
+  curl -skL --retry 40 --retry-delay 5 --retry-max-time 60 "${SMLM_SCRIPTS_URL}"/${i} > /usr/local/bin/${i} || echo "ERROR: Failed to retrieve ${SMLM_SCRIPTS_URL}/${i}"
+  chmod a+x /usr/local/bin/${i}
+  echo "Downloaded ${SMLM_SCRIPTS_URL}/${i}"
+done
+
+
+
+echo "# Waiting for SMLM to start"
+curl -Sk --retry-all-errors --retry 120 --retry-delay 5 --retry-max-time 300 https://${FQDN_SMLM}/rhn/manager/api/api/getVersion 
+if [[ "$?" != "0" ]]
+then
+  echo 'FAILLED! max timeout 180s reached trying to contact SMLM'
+  exit 1
+fi
+
+
+## Create admin user
+manage_users.py -s "${FQDN_SMLM}" -u "${SMLM_ADMIN_USERNAME}" -p "${SMLM_ADMIN_PASSWORD}" --add --nusr ${SMLM_USERNAME} --npwd ${SMLM_PASSWORD} --nrole satellite_admin,org_admin || exit 1
+
+
+
+## Create organization and user
+manage_org.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" \
+  --add -o "${USER_ORG_NAME}" --admusr "${ORG_ADM_USER}" --admpwd "${UNIVERSAL_PWD}" \
+  --admprefix 'Dr.' --admfirstname "${ORG_ADM_USER}" --admlastname user-instruqt \
+  --admemail aaaa@aaa${_SANDBOX_ID}.org || echo "manage_org.py -s ${FQDN_SMLM} -u ${SMLM_USERNAME:-ERROR_empty} -p ${SMLM_PASSWORD:-ERROR_empty} --add -o ${USER_ORG_NAME} --admusr ${ORG_ADM_USER} --admpwd ${UNIVERSAL_PWD}  --admprefix 'Dr.' --admfirstname ${ORG_ADM_USER} --admlastname user-instruqt  --admemail aaaa@aaa${_SANDBOX_ID}.org"
+
+cd /root/
+
+## Create activation key
+### SLES 15 SP5
+
+while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp5-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp5,managertools-sle15-updates-x86_64-sp5,sle-module-basesystem15-sp5-pool-x86_64,sle-module-basesystem15-sp5-updates-x86_64,sle-module-server-applications15-sp5-pool-x86_64,sle-module-server-applications15-sp5-updates-x86_64,sle-module-python3-15-sp5-updates-x86_64,sle-module-python3-15-sp5-pool-x86_64 -k sles15sp5 --description "SLES15 SP5" ; do sleep 3; done
+
+### SLES 15 SP6
+while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel sle-product-sles15-sp6-pool-x86_64 --childchannels managertools-sle15-pool-x86_64-sp6,managertools-sle15-updates-x86_64-sp6,sle-module-basesystem15-sp6-pool-x86_64,sle-module-basesystem15-sp6-updates-x86_64,sle-module-server-applications15-sp6-pool-x86_64,sle-module-server-applications15-sp6-updates-x86_64,sle-module-python3-15-sp6-updates-x86_64,sle-module-python3-15-sp6-pool-x86_64,sle15-sp6-installer-updates-x86_64 -k sles15sp6 --description "SLES15 SP5" ; do sleep 3; done
+
+### Ubuntu 24.04 LTS
+while ! manage_activationkeys.py -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}"  -a --basechannellabel ubuntu-2404-amd64-main-amd64 --childchannels managertools-ubuntu2404-updates-amd64,ubuntu-2404-amd64-main-security-amd64,ubuntu-2404-amd64-main-updates-amd64 -k ubuntu2404 --description "Ubuntu 2404 LTS" ; do sleep 3; done
+
+### CentOS 7
+while ! manage_activationkeys.py  -s "${FQDN_SMLM}" -u "${SMLM_USERNAME:-ERROR_empty}" -p "${SMLM_PASSWORD:-ERROR_empty}" -a --basechannellabel res-7-ltss-updates-x86_64 --childchannels managertools-el7-pool-x86_64-lbt7,managertools-el7-updates-x86_64-lbt7  -k liberty7ltss --description "SUSE Multi-Linux Support 7 with LTS" ; do sleep 3; done
+
+
+
+
+
+#cat << EOF > /root/remove_SMLM_schedules.sh
+#while true
+#do
+#  for i in mgr-sync-refresh-default single-repo-sync-bunch-0 single-repo-sync-bunch-1
+#  do
+#    ssh -o "StrictHostKeyChecking=no" smlm "echo \"delete from rhntaskoschedule where job_label = '${i}';\" | mgrctl exec -- spacewalk-sql --select-mode -"
+#  done
+#  sleep 180
+#done
+#EOF
+#chmod +x /root/remove_SMLM_schedules.sh
+#sync
+#nohup  /root/remove_SMLM_schedules.sh &
+
+
+
+
+
+
+for i in airtrain being cisne prod qa dev airco
+do
+  cat << EOF > /root/${i}.sh
+while ! manage_groups.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}"  --group "${i}" -a ; do sleep 3; done
+EOF
+  chmod +x /root/${i}.sh
+  sync
+  nohup  /root/${i}.sh &
+done
+
+for i in "airtrain:at-ft-pro" "airtrain:at-ct-pro" "airtrain:at-ct-qa" "prod:at-ft-pro" "prod:at-ct-pro" "qa:at-ct-qa" "qa:airco-dh4a-qa" "airco:airco-dh4a-qa"
+do
+  cat << EOF > /root/"${i//:/_}".sh
+while ! manage_groups.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}"  --group "${i//:*}" -b --system "${i//*:}" >/dev/null; do sleep 5; done
+EOF
+  sync
+  chmod +x /root/"${i//:/_}".sh
+  nohup /root/"${i//:/_}".sh &
+done
+
+
+
+
+cat << EOF > /root/add_key.sh
+while ! manage_custominfo.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}" -a --key application --description 'Main business application running on the system' >/dev/null; do sleep 5; done
+EOF
+sync 
+chmod +x /root/add_key.sh
+
+nohup /root/add_key.sh &
+
+
+for i in "at-ft-pro:fuselage systems" "at-ct-pro:controltech 2" "at-ct-qa:controltech 2" "airco-dh4a-qa:radio systems" 
+do
+  cat << EOF > /root/"${i//:/_}".sh
+while ! manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}" --addcustomvalue --keyvalue "${i//*:}" --customkey application --system ${i//:*} >/dev/null ; do sleep 5; done
+EOF
+  sync
+  chmod +x /root/"${i//:/_}".sh
+  nohup /root/"${i//:/_}".sh &
+done
+
+
+
+
+cat << EOF > /root/schedules.sh
+timerr=0
+while [[ "\$timerr" -lt 50 ]]; do 
+  for i in \`manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}" -l | grep name: | awk '{print \$2 }' | xargs\`
+  do
+    manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}" --system \$i --schedulepackagerefresh
+    sleep 15
+    manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}" --system \$i --scheduleapplyhighstate
+    sleep 30
+    manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}" --system \$i --schedulehardwarerefresh
+    sleep 15
+    manage_systems.py -s "${FQDN_SMLM}"  -u "${SMLM_USERNAME}" -p "${UNIVERSAL_PWD}" --system \$i --schedulestate
+  done
+  sleep 50
+  ((timerr++))
+done
+EOF
+chmod +x /root/schedules.sh
+sync
+nohup /root/schedules.sh &
+
+
+
+
+# Change ubuntu root password
+ssh ubuntu2404lts -o "StrictHostKeyChecking=no" "echo 'root:${UNIVERSAL_PWD}' | chpasswd"
+
+
+
+
+echo '###################### Completed zbastion setup ################
+######################################################################'
+

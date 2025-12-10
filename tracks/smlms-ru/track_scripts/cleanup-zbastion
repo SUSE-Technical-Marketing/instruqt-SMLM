@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euxo pipefail
+
+## Get variables to instruqt
+UNIVERSAL_PWD="$(agent variable get 'UNIVERSAL_PWD')"
+USER_ORG_NAME="$(agent variable get 'USER_ORG_NAME')"
+ORG_ADM_USER="$(agent variable get 'ORG_ADM_USER')"
+
+
+
+echo 'Cleanup finished successfully'
+
