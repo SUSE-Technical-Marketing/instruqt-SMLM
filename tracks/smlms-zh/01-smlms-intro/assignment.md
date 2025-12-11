@@ -1,18 +1,17 @@
 ---
 slug: smlms-intro
-id: 0iw3zqvgqtvl
+id: gv6vncqistgy
 type: challenge
-title: Welcome to SUSE Multi-Linux Hands-on Workshop!
-teaser: Welcome to SUSE Multi-Linux Hands-on Workshop! in this section we will introduce
-  you to the workshop and to its main components.
+title: 欢迎参加 SUSE Multi-Linux Hands-on Workshop!
+teaser: 欢迎参加 SUSE Multi-Linux Hands-on Workshop! 在本节中，我们将向您介绍 研讨会及其主要组件。
 notes:
 - type: text
   contents: |
-    # Welcome to the SUSE Multi-Linux Hands-on Workshop!
-    Please wait while we setup your lab environment.
+    # 欢迎参加 SUSE Multi-Linux Hands-on Workshop!
+    请稍候，我们正在设置您的实验室环境。
     <img class="logos" src="../assets/logos/suse_logo.svg"/>
 tabs:
-- id: vkgmrxwzdbdi
+- id: r8mxswfufylx
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -20,7 +19,7 @@ difficulty: ""
 enhanced_loading: null
 ---
 
-Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
+欢迎参加 <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
 ==================================================================
 
 <link  rel="stylesheet" href="https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/web/css/instruqt.css" type="text/css" crossorigin="anonymous" fetchpriority="high" />
@@ -68,146 +67,145 @@ Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/speci
 
 <img class="logos" alt="Welcome!" src="../assets/logos/01-welcome.jpeg"/>
 
-In this workshop you will explore some of the magic that <b class="smlmext">SUSE Multi-Linux Manager</b> (<b class="smlm">SMLM</b>) can do, it is <b class="suse">SUSE</b>'s solution to manage multiple Linux distributions at scale from a unified interface. And also will discover how can you keep your legacy production servers supported with <b class="smlsext">SUSE Multi-Linux Support</b> (<b class="smls">SMLS</b>), our professional and reliable support solution for Linux systems.
+在这个研讨会中，您将探索 <b class="smlmext">SUSE Multi-Linux Manager</b> (<b class="smlm">SMLM</b>) 的一些神奇功能；它是 <b class="suse">SUSE</b> 用于从统一界面大规模管理多个 Linux 发行版的解决方案。此外，您还将发现如何使用 <b class="smlsext">SUSE Multi-Linux Support</b> (<b class="smls">SMLS</b>) 让您的旧版生产服务器获得支持，这是我们要面向 Linux 系统的专业且可靠的支持解决方案。
 
-&emsp;&emsp; You will adopt the role of an **engineer** at <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b>, an airline where every plane has a Linux server onboard.
+&emsp;&emsp; 您将扮演 <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> 的一名 **工程师**，这是一家每架飞机上都搭载 Linux 服务器的航空公司。
 
-&emsp;&emsp; As with any airplane component, it is critical that those servers remain stable and reliable, no matter if they are located on the ground in some datacenter or flying above the clouds ☁ ☁ ☁
-
-
-&emsp;&emsp; Some plane models will require a different Linux flavor, or a different CPU architecture. This is not an issue for <b class="smlm">SMLM</b>, you are free to choose the Linux distribution and CPU arquitecture that better suits your needs without having to give up on easy standardization and management.
+&emsp;&emsp; 与任何飞机组件一样，这些服务器必须保持稳定和可靠，无论它们是位于数据中心的地面上，还是在云端飞行 ☁ ☁ ☁
 
 
-&emsp;&emsp; As an engineer responsible for managing the Linux landscape you will go through some of the solutions <b class="smlm">SMLM</b> and <b class="smls">SMLS</b> offers you to ease and automate systems management and resolve exceptional problems that may occur.
+&emsp;&emsp; 某些飞机型号可能需要不同的 Linux 版本或不同的 CPU 架构。这对 <b class="smlm">SMLM</b> 来说不是问题，您可以自由选择最适合您需求的 Linux 发行版和 CPU 架构，而无需放弃简便的标准化和管理。
 
 
-Along the different challenges you will have the following tools available:
+&emsp;&emsp; 作为负责管理 Linux 领域的工程师，您将了解 <b class="smlm">SMLM</b> 和 <b class="smls">SMLS</b> 为您提供的一些解决方案，以简化和自动化系统管理，并解决可能发生的异常问题。
+
+
+在不同的挑战中，您将可以使用以下工具：
 
  ✈ **SUSE Multi-Linux Manager**:
-   The single pane of glass for managing your entire Linux stack.
+   管理整个 Linux 堆栈的单一管理界面 (single pane of glass)。
 
  ✈ **Centos 7**:
-   A legacy distribution still in use on some older aircrafts and ground systems.
+   一种仍在一些旧飞机和地面系统上使用的旧版发行版。
 
- ✈ **Ubuntu 24**: A specific Linux distribution required by our marketing department to run their graphic design applications..
+ ✈ **Ubuntu 24**: 市场部门运行其图形设计应用程序所需的特定 Linux 发行版。
 
- ✈ **SLES 15**: <b class="suse">SUSE</b>'s highly reliable, stable and secure Linux distribution that forms the backbone of our most critical systems.
-
-
+ ✈ **SLES 15**: <b class="suse">SUSE</b> 高度可靠、稳定且安全的 Linux 发行版，构成了我们最关键系统的支柱。
 
 
 ## <b class="smlmext hovereffect">SUSE Multi-Linux Manager</b>
 
-It is a best-in-class open source infrastructure management solution for your software-defined infrastructure.
+它是针对您的软件定义基础设施的一流开源基础设施管理解决方案。
 
-&emsp;&emsp; <b class="smlmext">SUSE Multi-Linux Manager</b> was designed to help your enterprise DevOps and IT Operations teams reduce complexity and regain control of your IT assets, a single but very powerful tool to manage Linux systems across a variety of hardware architectures, hypervisors as well as container, IoT and cloud platforms.
+&emsp;&emsp; <b class="smlmext">SUSE Multi-Linux Manager</b> 旨在帮助您的企业 DevOps 和 IT 运营团队降低复杂性并重新获得对 IT 资产的控制权，这是一个单一但非常强大的工具，用于管理跨各种硬件架构、虚拟机管理程序以及容器、IoT 和云平台的 Linux 系统。
 
-&emsp;&emsp; It automates Linux server and IoT device provisioning, patching and configuration for faster, consistent and repeatable server deployment helping to optimize operations and reduce costs. And with automated monitoring, tracking, auditing and reporting of your systems, VMs, and containers across your development, test and production environments, you can ensure compliance with internal security policies and external regulations.
+&emsp;&emsp; 它自动化 Linux 服务器和 IoT 设备配置、补丁和设置，以实现更快、一致和可重复的服务器部署，帮助优化运营并降低成本。通过对开发、测试和生产环境中的系统、虚拟机和容器进行自动监控、跟踪、审计和报告，您可以确保遵守内部安全策略和外部法规。
 
 
 ## <b class="smlsext hovereffect">SUSE Multi-Linux Support</b>
 
 
-It is a comprehensive service offering technical assistance and maintenance for various Linux distributions, including your existing Red Hat Enterprise Linux (RHEL), CentOS, <b class="liberty">SUSE Liberty Linux</b>, and <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>), depending on the offering.
+这是一项全面的服务，为各种 Linux 发行版提供技术援助和维护，包括您现有的 Red Hat Enterprise Linux (RHEL)、CentOS、<b class="liberty">SUSE Liberty Linux</b> 和 <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>)，具体取决于所提供的服务。
 
-&emsp;&emsp; It enables organizations to manage mixed Linux environments efficiently under a single support framework.
-Depending on the package purchased, <b class="smlsext">SUSE Multi-Linux Support</b> may also include <b class="smlmext">SUSE Multi-Linux Manager</b>, a multi-Linux management tool to manage these distributions.
+&emsp;&emsp; 它使组织能够在单一支持框架下有效地管理混合 Linux 环境。
+根据购买的套餐，<b class="smlsext">SUSE Multi-Linux Support</b> 还可能包含 <b class="smlmext">SUSE Multi-Linux Manager</b>，这是一个用于管理这些发行版的多 Linux 管理工具。
 
 
 
- 🌅 Explore the Instruqt UI
+ 🌅 探索 Instruqt UI
 =======================
-Before we begin our first task, let's take a moment to look at Instruqt UI.
+在开始第一个任务之前，让我们花点时间看看 Instruqt UI。
 
-+ The **right side** of the screen provides you with these instructions and navigation controls.
++ 屏幕 **右侧** 为您提供这些说明和导航控件。
 
-+ The **left side** give you access to the various machines and services that make up our lab environment.
++ **左侧** 让您可以访问构成我们实验室环境的各种机器和服务。
 
-Within the Instruqt UI you can jump between the [button label="SMLM UI" variant="success"](tab-0) and the available [button label="terminals" variant="success"](tab-1) by clicking on tabs at the top of the left-side panel.
+在 Instruqt UI 中，您可以通过单击左侧面板顶部的选项卡，在 [button label="SMLM UI" variant="success"](tab-0) 和可用的 [button label="terminals" variant="success"](tab-1) 之间跳转。
 
 
 > [!NOTE]
-> No automatic reloading happens on the web UI, in some cases you may have to reload Instruqt's internal web browser to see updates.
+> Web UI 上不会自动重新加载；在某些情况下，您可能需要重新加载 Instruqt 的内部 Web 浏览器才能看到更新。
 
 
-🛫 Logging into <b class="smlmext">SUSE Multi-Linux Manager</b> 🛫
+🛫 登录到 <b class="smlmext">SUSE Multi-Linux Manager</b> 🛫
 ========================================
+让我们熟悉一下环境。
 
-Let's get you familiarized with the environment.
-
-- Open <b class="smlmext">SUSE Multi-Linux Manager</b> inside the lab from the [button label="SMLM UI" variant="success"](tab-0)
+- 从 [button label="SMLM UI" variant="success"](tab-0) 在实验室内部打开 <b class="smlmext">SUSE Multi-Linux Manager</b>
 
 
-- Log in with the following credentials:
+- 使用以下凭据登录：
 
-  - Username:
+  - 用户名 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
-  - Password:
+  - 密码 (Password):
 
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-If everything went well, you should see the **Overview** page in the <b class="smlmext">SUSE Multi-Linux Manager</b> UI logged in as `[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]` user.
+如果一切顺利，您应该看到作为 `[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]` 用户登录的 <b class="smlmext">SUSE Multi-Linux Manager</b> UI 中的 **Overview** 页面。
 
 > [!NOTE]
-> If you wish to access <b class="smlmext">SUSE Multi-Linux Manager</b> UI directly through your browser you can do too:
+> 如果您希望直接通过浏览器访问 <b class="smlmext">SUSE Multi-Linux Manager</b> UI，也可以这样做：
 
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 > [!NOTE]
-> If the page doesn't load correctly, you may need to refresh the browser tab after the lab environment has finished starting up.
+> 如果页面未正确加载，您可能需要在实验室环境完成启动后刷新浏览器选项卡。
 
 
-🗺 Explore <b class="smlmext">SUSE Multi-Linux Manager</b> 🗺
+
+
+🗺  探索 <b class="smlmext">SUSE Multi-Linux Manager</b> 🗺
 ======================================
 
-Before we take off, let's get familiar with the controls. This is not meant to be an exhaustive tour, but a brief overview of the key instruments we will use throughout the workshop. We encourage you to be curious and explore.
+在起飞之前，让我们熟悉一下控制装置。这并不是一次详尽的参观，而是对我们在整个研讨会期间将使用的关键仪器的简要概述。我们鼓励您保持好奇心并进行探索。
 
 
-Let's begin.
+让我们开始吧。
 
 
-- **Systems menu** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_systems.png"/>
+- **Systems 菜单** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_systems.png"/>
 
-  On the left-hand panel, click on `systems`. This is our fleet overview, showing every registered server. The list is small now, but it will grow as we complete our exercises.
+  在左侧面板上，点击 `systems`。这是我们的机队概览，显示了每个注册的服务器。列表现在很小，但随着我们完成练习，它会变得越来越长。
 
    - **System Lists**
 
-     This section provides convenient, pre-filtered views. For example, the `Out of Date`list instantly shows you which servers require updates, saving you from performing a manual search. </p>
+     此部分提供方便的、预过滤的视图。例如，`Out of Date` 列表会立即显示哪些服务器需要更新，从而省去您手动搜索的麻烦。</p>
 
   <br/>
 
   - **System Groups**
 
-    To organize our fleet logically, we use `System Groups`, you can categorize them based on any criteria, by doing so you can save time when applying actions or defining policies. Once created you can automatically attach systems to one or multiple groups, e.g. using `activation keys`.
+    为了从逻辑上组织我们的机队，我们使用 `System Groups`；您可以根据任何标准对它们进行分类。这样做可以在应用操作或定义策略时节省时间。创建后，您可以自动将系统附加到一个或多个组，例如使用 `activation keys`。
 
 
-    Feel free to try creating one now by clicking `+ Create Group`.
+    请随时点击 `+ Create Group` 现在尝试创建一个。
 
   <br/>
 
-  - **Batch operations**
+  - **批量操作**
 
-    `System Set Manager` provides a powerful way to perform actions on multiple systems simultaneously.
+    `System Set Manager` 提供了一种强大的方式来同时对多个系统执行操作。
 
 
-    Instead of applying changes one by one, you can select a collection of systems, either individually from the System List or by leveraging existing System Groups, and then execute tasks across all of them in a single operation.
+    您可以选择一组系统（无论是从 System List 单独选择还是利用现有的 System Groups），然后在一次操作中对所有系统执行任务，而不是逐个应用更改。
 
   <br/>
 
   - **Provisioning**
 
-    <b class="smlmext">SUSE Multi-Linux Manager</b> provides comprehensive tools for provisioning new systems and reprovisioning existing ones. This capability helps you establish a standardized and repeatable process for systems deployment.
+    <b class="smlmext">SUSE Multi-Linux Manager</b> 为新系统的配置和现有系统的重新配置提供了全面的工具。此功能可帮助您建立标准化且可重复的系统部署流程。
 
 
-    For example, within `Autoinstallation` section you can define distributions and Kickstart/AutoYaST profiles which allows you to specify how your systems should be deployed, what software they will have installed, how the storage space will be distributed and more.
+    例如，在 `Autoinstallation` 部分中，您可以定义发行版和 Kickstart/AutoYaST 配置文件，这允许您指定应如何部署系统、将安装什么软件、如何分配存储空间等等。
 
 
-    All these simple to setup automation mechanisms can be combined with complex but more powerful automation solutions like Salt or Ansible, maintaining your freedom to choose the best solution for each challenge.
+    所有这些设置简单的自动化机制都可以与 Salt 或 Ansible 等复杂但更强大的自动化解决方案相结合，保持您为每个挑战选择最佳解决方案的自由。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -218,29 +216,27 @@ Let's begin.
 
 
 
-- **Patches menu** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_patches.png"/>
+- **Patches 菜单** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_patches.png"/>
 
   - **Patching**
 
-    One of the most common tasks in IT is to keep systems up-to-date and from time to time apply security patches in a rush!
-    Wish SMLM we can easily see a list of **relevant** pacthes, classified by type, and provided with all the information you may need to know including all the systems and packages they affect.
+    IT 中最常见的任务之一是保持系统最新，并不时匆忙应用安全补丁！
+    通过 SMLM，我们可以轻松查看按类型分类的 **相关** 补丁列表，并提供您可能需要知道的所有信息，包括它们影响的所有系统和软件包。
 
-    Beyond the vendor-supplied patches we can also create our own patches. Later on we will explore the different options we have to manage patching and regular updates accross all our fleet.
+    除了供应商提供的补丁外，我们还可以创建自己的补丁。稍后我们将探索管理整个机队的补丁和定期更新的不同选项。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_patches.gif"/>
   </div>
 
 <br/>
+- **软件频道** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_software.png"/>
 
+  在 `Channel List` 上，我们可以看到所有可供使用的软件包频道/存储库/流；您还可以创建新的软件频道来组织您的软件或上传您自己的软件包。
 
-- **Software channels** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_software.png"/>
+  您目前看到的所有频道都是 SMLM 从官方来源检索的，并且可以轻松保持同步。
 
-  On `Channel List` we can see all the package channels/repositories/streams available for consumption, you can also create new software channels to organize your software or upload your own packages.
-
-  All the channels you currently see have been retrieved by SMLM from the official sources and they can be kept in sync easily.
-
-  In `Package Search` we are able to search for specific packages and inspect their content and metadata.
+  在 `Package Search` 中，我们能够搜索特定的软件包并检查其内容和元数据。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_software.gif"/>
@@ -250,9 +246,9 @@ Let's begin.
 
 - **Configuration** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_configuration.png"/>
 
-  It is also possible to manage and apply specific configurations to systems, upon registration or afterwards, for that we can inspect `Configuration` section.
+  还可以在注册时或之后管理特定配置并将其应用于系统；为此我们可以检查 `Configuration` 部分。
 
-  SMLM provides an easy way to easily manage revisions, deploy and compare configuration files across systems. And all can be easily grouped into configuration channels.
+  SMLM 提供了一种简单的方法来轻松管理修订、部署和比较系统之间的配置文件。并且所有内容都可以轻松分组到配置频道中。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_configuration.gif"/>
@@ -262,16 +258,12 @@ Let's begin.
 
 - **Scheduling** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_schedule.png"/>
 
-  In `Schedule` we can observe and manage scheduled actions, define specific maintenance windows. This is specially useful to automate regular operations or perform canary deployments when managing many systems. We will see this in action later on during the workshop.
+  在 `Schedule` 中，我们可以观察和管理计划的操作，定义特定的维护窗口。这在管理许多系统时自动执行常规操作或执行金丝雀部署时特别有用。我们将在研讨会稍后看到实际操作。
 
 <br/>
 <br/>
 
-SUSE Multi-Linux Manager offers many posibilities to manage your systems, we cannot cover all of them in this workshop but, as always, feel free to ask questions and explore.
+SUSE Multi-Linux Manager 提供了许多管理系统的可能性；我们无法在本次研讨会中涵盖所有内容，但一如既往，请随时提问和探索。
 
 > [!NOTE]
-> Your user has full admin privileges so we recommend to make changes only after having finished the exercises.
-
-
-
-
+> 您的用户具有完全管理员权限，因此我们建议仅在完成练习后进行更改。

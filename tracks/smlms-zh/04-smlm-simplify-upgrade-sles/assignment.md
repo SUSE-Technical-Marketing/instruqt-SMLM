@@ -1,14 +1,14 @@
 ---
 slug: smlm-simplify-upgrade-sles
-id: fhbwdlwedspg
+id: wdmlgucorzf7
 type: challenge
-title: Simple and reliable maintenance
+title: 简单可靠的维护
 tabs:
-- id: f65eokpjct0l
+- id: dg1ainswxxje
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: pounuhkwnzab
+- id: ww0yav8wicoy
   title: SLES 15
   type: terminal
   hostname: sles15
@@ -17,7 +17,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Simple and reliable maintenance
+🌌 简单可靠的维护
 ===================================
 
 <style type="text/css">
@@ -99,30 +99,32 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/04-upgrade.jpeg"/>
 
-So far, we’ve focused on managing the diversity of our mixed fleet and even extending the life of our legacy systems. Now, we turn our attention to the core of our airline: our flagship <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>) systems.
+到目前为止，我们一直专注于管理我们混合机队的多样性，甚至延长了我们遗留系统的寿命。现在，我们将注意力转向我们航空公司的核心：我们的旗舰 <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>) 系统。
 
 
-Think of these as our state-of-the-art, long-haul jets. Their reliability is paramount, and keeping them in peak condition involves regular, planned service patching and upgrades. This next exercise is exactly that: we're going to walk through the process of a version upgrade, a common task in managing the lifecycle of any critical system.
-
-And while we're using SLES as the example, remember the key principle of our universal control tower: the process you're about to perform is the same one you would use for any other Linux distribution. The interface and the methodology do not change.
-
-
-## <b class="hovereffect">Your Objectives:</b>
-
-- Onboard a new SLES 15 SP5 system to serve as our test aircraft.
-- Perform a mayor service upgrade from SP5 to SP6.
+将这些视为我们最先进的长途喷气式飞机。它们的可靠性至关重要，而保持它们处于最佳状态涉及定期、计划性的服务补丁和升级。接下来的这个练习正是如此：我们将通过版本升级的过程，这是管理任何关键系统生命周期中的常见任务。
 
 
 
-Lab details
+虽然我们使用 SLES 作为示例，但请记住我们通用控制塔的关键原则：您即将执行的过程与您用于任何其他 Linux 发行版的过程是相同的。界面和方法论不会改变。
+
+
+## <b class="hovereffect">您的目标：</b>
+
+- 接入 (Onboard) 一个新的 SLES 15 SP5 系统，作为我们的测试飞机。
+- 执行从 SP5 到 SP6 的重大服务升级 (major service upgrade)。
+
+
+
+实验室详情 (Lab details)
 ===========
 
-Username:
+用户名 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+密码 (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -134,55 +136,57 @@ Password:
 
 
 
-Onboarding and preparation
+接入和准备 (Onboarding and preparation)
 ==========================
 
-Access the system terminal from the tab [button label="SLES 15" variant="success"](tab-1)
+从标签页 [button label="SLES 15" variant="success"](tab-1) 访问系统终端
 
 
-Let's register the system within <b class="smlm">SMLM</b> as **sles15**
+让我们将该系统在 <b class="smlm">SMLM</b> 中注册为 **sles15**
 
 ```bash,run
 curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp5 bash ; echo "Wait 45 seconds for it to finish"; sleep 45
 ```
 
 
-Now, let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+现在，让我们切换到 [button label="SMLM UI" variant="success"](tab-0) 标签页
 
 
-Executing the upgrade
+执行升级 (Executing the upgrade)
 =====================
 
-We should see it soon on the list of systems, let's go to `Systems` ✈ `System List` ✈ `All`, please click refresh on the internal browser if you don't see it.
+我们应该很快就能在系统列表中看到它，前往 `Systems` ✈ `System List` ✈ `All`，如果您没有看到它，请点击内部浏览器上的刷新。
 
 
-Let's click on it and go to `Software` ✈ `Packages` ✈ `Upgrade`.
+让我们点击它并前往 `Software` ✈ `Packages` ✈ `Upgrade`。
 
 
-To ensure a smooth migration is best to apply the latests updates.
+为了确保顺利迁移，最好应用最新的更新。
 
 
 
-<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">Click on </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">点击 </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-This may take some time to complete.
+这可能需要一些时间才能完成。
 
 <br/>
 
 
-## <b class="hovereffect">Product migration</b>
+## <b class="hovereffect">产品迁移 (Product migration)</b>
 
 
-Once it finish, please go to `Software` ✈ `Product Migration`
+完成后，请前往 `Software` ✈ `Product Migration`
 
-<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">You will see a section called **Target Products**. Ensure that <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #90ebcd">SUSE Linux Enterprise Server 15 SP6 x86_64</b> is selected, then press: </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; vertical-align: middle; display:block; align:left; padding: 0px;" src="../assets/SMLM5.1/bottom-select_channels.png"/></p>
 
-You will be shown a confirmation screen with a summary and aditional options. Leave the defaults as they are and click: ![Schedule Migration](../assets/SMLM5.1/bottom-schedule_migration.png)
 
-The system will ask you to do a dry run first, ignore it and press: ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">您将看到一个名为 **Target Products** 的部分。确保已选中 <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #90ebcd">SUSE Linux Enterprise Server 15 SP6 x86_64</b>，然后按下： </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; vertical-align: middle; display:block; align:left; padding: 0px;" src="../assets/SMLM5.1/bottom-select_channels.png"/></p>
 
-This will take some time. To monitor the status, go to `Events` ✈ `History` and watch for the **Product Migration** event. Once its status icon turns green, the migration is completed. You can verify this by navigating to `Software` ✈ `Software Channels` and confirming the system is now subscribed to the new SP6 channels.
+系统将向您显示一个包含摘要和附加选项的确认屏幕。保持默认值不变并点击： ![Schedule Migration](../assets/SMLM5.1/bottom-schedule_migration.png)
+
+系统会要求您先进行一次试运行 (dry run)，忽略它并按下： ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+
+这将需要一些时间。要监控状态，请前往 `Events` ✈ `History` 并观察 **Product Migration** 事件。一旦其状态图标变为绿色，迁移即告完成。您可以通过导航到 `Software` ✈ `Software Channels` 并确认系统现在已订阅新的 SP6 频道来验证这一点。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/04-simple_and_reliable_maintenance-executing_the_upgrade.gif"/>
@@ -190,51 +194,53 @@ This will take some time. To monitor the status, go to `Events` ✈ `History` an
 
 <br/>
 
-## <b class="hovereffect">Post-Migration Reboot</b>
+## <b class="hovereffect">迁移后重启 (Post-Migration Reboot)</b>
 
-- Navigate back to `Systems` ✈ `System List` ✈ `All`
+- 导航回 `Systems` ✈ `System List` ✈ `All`
 
-- Notice that the `sles15` system now has a reboot icon next to it:
+- 注意 `sles15` 系统旁边现在有一个重启图标：
 
 ![Needs reboot icon](../assets/SMLM5.1/icon_needs_reboot.png)
 
-  This indicates a reboot is required, usually due to a mayor kernel update.
+  这表明需要重启，通常是因为重大的内核更新。
 
-- Click on it, we will see something similar to this:
+- 点击它，我们将看到类似于此的内容：
 
 ![Needs reboot message](../assets/SMLM5.1/system_requires_a_reboot.png)
 
-- Click on `Schedule System Reboot` and in the following screen click on ![Reboot System](../assets/SMLM5.1/bottom-reboot_system.png)
+- 点击 `Schedule System Reboot`，在随后的屏幕中点击 ![Reboot System](../assets/SMLM5.1/bottom-reboot_system.png)
 
 > [!NOTE]
-> The reboot won't happen immediatly.
+> 重启不会立即发生。
 
 <br/>
 
 
-## <b class="hovereffect">The importance of Scheduling</b>
+## <b class="hovereffect">调度 (Scheduling) 的重要性</b>
 
-We have scheduled these actions to happen immediately, but this is not always desirable. <b class="smlm">SMLM</b> supports the creation of Maintenance Windows ( `Schedule` ✈ `Maintenance Windows` ) which allows you to ensure the mayor events like reboots onlye occur during those pre-approved periods .
+我们已将这些操作安排为立即发生，但这并不总是可取的。<b class="smlm">SMLM</b> 支持创建维护窗口 (Maintenance Windows) (`Schedule` ✈ `Maintenance Windows`)，这允许您确保像重启这样的重大事件仅在这些预先批准的时段内发生。
 
-Scheduling is especially useful for production systems, as it allows for carefully planned changes on groups of systems and even phased "canary" deployments.
+
+
+调度对于生产系统特别有用，因为它允许对系统组进行精心计划的更改，甚至可以进行分阶段的“金丝雀” (canary) 部署。
 
 <br/>
 
 > [!NOTE]
-> It is possible to do kernel live patching with KLP, it makes it possible to apply the latest security updates to Linux kernels without rebooting.
+> 可以使用 KLP 进行内核实时补丁 (live patching)，这使得无需重启即可将最新的安全更新应用于 Linux 内核。
 
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+这对 [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] 有什么重要意义？
 =================================================================================
 
-- System upgrades and other routine tasks must be simple and repeatable, otherwise, we risk making costly mistakes. With these tools, we can control precisely when and where we perform actions, scheduling critical maintenance for our fleet with confidence.
+- 系统升级和其他例行任务必须简单且可重复，否则，我们就有犯下代价高昂错误的风险。有了这些工具，我们可以精确控制执行操作的时间和地点，充满信心地为我们的机队安排关键维护。
 
 
-- We can control when and where we perform actions, and schedule maintenance operations on our grounded fleet.
+- 我们可以控制何时何地执行操作，并在我们的地面机队上安排维护作业。
 
 
-More information
+更多信息
 ================
 
 - [Live kernel patching with KLP](https://documentation.suse.com/en-us/sles/15-SP7/html/SLES-all/cha-klp.html)

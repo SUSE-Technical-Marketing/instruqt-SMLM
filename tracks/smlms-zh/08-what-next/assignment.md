@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: swgxeykwmryd
+id: geajdynzldq5
 type: challenge
-title: What's next?
+title: 下一步做什么？
 tabs:
-- id: bx0oibmauanb
+- id: ipemx93ua8k7
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Conclusion: Cleared for Takeoff
+🌌 结论：获准起飞 (Cleared for Takeoff)
 ==================================
 
 <style type="text/css">
@@ -97,21 +97,23 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/08-whats_next.jpeg"/>
 
-Our final approach is complete. Throughout this workshop, we've navigated the challenges of managing a diverse, mission-critical IT fleet. We've seen how <b class="smlmext">SUSE Multi-Linux Manager</b> acts as our universal control tower, providing the visibility, automation, and security required to keep Chameleon Airlines flying high.
-
-For our engineers, this means less time fighting fires and more time innovating. It means having a standardized, reliable set of tools to manage any system, from our legacy workhorses to our most modern aircraft.
-
-For our decision-makers, this translates directly to reduced operational risk, lower costs, and enhanced business agility. It's the confidence of knowing our digital infrastructure is as robust, compliant, and reliable as the aircraft in our physical fleet.
-
-We hope this session has been a valuable one. The lab environment will remain available for you to explore further, so please continue to experiment. Our flight instructors are on standby to answer any questions you may have.
+我们的最终进近已经完成。在整个研讨会中，我们应对了管理多样化、关键任务 IT 机队的挑战。我们已经看到 <b class="smlmext">SUSE Multi-Linux Manager</b> 如何充当我们的通用控制塔，提供让 Chameleon Airlines 保持高飞所需的可见性、自动化和安全性。
 
 
-For those who wish to dive deeper after today's session, here are some key navigation points:
+
+对于我们的工程师来说，这意味着花在“救火”上的时间更少，而花在创新上的时间更多。这意味着拥有一套标准化、可靠的工具来管理任何系统，从我们老旧的主力机型到最现代化的飞机。
+
+对于我们的决策者来说，这直接转化为降低的运营风险、更低的成本和增强的业务敏捷性。这是一种信心，确信我们的数字基础设施与我们实体机队中的飞机一样稳健、合规且可靠。
+
+我们希望本次会议对您有价值。实验室环境将继续开放供您进一步探索，请继续进行实验。我们的飞行教官随时待命，回答您可能遇到的任何问题。
+
+
+对于那些希望在今天的会议之后深入了解的人，这里有一些关键的导航点：
 
 - [SUSE Multi-Linux Manager](https://www.suse.com/products/multi-linux-manager/)
 - [SUSE Multi-Linux Support](https://www.suse.com/products/multi-linux-support/)
 - [SUSE Linux Enterprise Server](https://www.suse.com/products/server/)
-- [SUSE Products and Solutions](https://www.suse.com/)
+- [SUSE 产品和解决方案](https://www.suse.com/)
 
 
-It has been a pleasure to fly with you!
+很高兴与您一同飞行！
