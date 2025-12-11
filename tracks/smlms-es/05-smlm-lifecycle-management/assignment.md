@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: 5mkftmzuno7p
+id: dknm0fazqmmu
 type: challenge
 title: Lifecycle management
 tabs:
-- id: wdxp5fjicmfm
+- id: ni8x1b52hjmi
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -55,6 +55,11 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
@@ -125,10 +130,7 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL:
-```txt
-[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
-```
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 Building Our Software Certification Pathway
@@ -151,11 +153,25 @@ Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
 - Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
 
 - Fill in the project details:
-    * **Project Name:**        "Airtrain SLES15 SPx"
 
-    * **Project Label:**       "at-sles15_spx"
+- **Project Name:**
 
-    * **Project Description:** "Certified software channel for Airtrain SLES 15 systems."
+```txt
+Airtrain SLES15 SPx
+```
+
+- **Project Label:**
+
+```txt
+at-sles15_spx
+```
+
+- **Project Description:**
+
+```txt
+Certified software channel for Airtrain SLES 15 systems.
+```
+
 
 - Click ![Create](../assets/SMLM5.1/bottom-create.png)
 
@@ -176,8 +192,8 @@ Create the Development Environment Lifecycle
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
 - Populate with the following:
-  * **Name:** 'Development'
-  * **label:** 'dev'
+  * **Name:** <b class="highlightcopy">Development</b>
+  * **Label:** <b class="highlightcopy">dev</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -190,8 +206,8 @@ Create the Quality Assurance Environment Lifecycle
 - Click on `Add Environment`
 
 - Populate with the following:
-  * **Name:** 'QA'
-  * **label:** 'qa'
+  * **Name:** <b class="highlightcopy">QA</b>
+  * **Label:** <b class="highlightcopy">qa</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -204,8 +220,8 @@ Create the Production Environment Lifecycle
 - Click on `Add Environment`
 
 - Populate with the following:
-  * **Name:** 'Production'
-  * **label:** 'prod'
+  * **Name:** <b class="highlightcopy">Production</b>
+  * **Label:** <b class="highlightcopy">prod</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -221,11 +237,17 @@ We will not use a filter in this case since <b class="sles">SLES</b> already pro
 
 - Click on ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- Fill in **Version Message** with 'October'
+- In **Version Message** type
+
+```txt
+October
+```
+
+
 - Click on `Build`
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process only creates new package database pointers and metadata, and does not duplicate the actual packages themselves.
+> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
 
 
 <br/>
@@ -270,7 +292,12 @@ Let's go to `Systems` ✈ `System List` ✈ `All`
 
 Go back to `Systems` ✈ `System List` ✈ `All`
 
-- Filter by **at-**
+- Filter by:
+
+```txt
+at-
+```
+
 - Select all the systems that end with **-pro**
 - Go to `Systems` ✈ `System Set Manager`
 - Go to `Channels`
@@ -298,7 +325,13 @@ No new patches will suddenly appear and disrupt their work.
 
 - Click on ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- Fill in **Version Message** with 'November'
+- In **Version Message** type
+
+```txt
+November
+```
+
+
 - Click on `Build`
 
 Notice the version number has automatically increased.
@@ -380,3 +413,420 @@ More information
 * [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
 
 
+---
+slug: smlm-lifecycle-management
+id: ejxtdpb7jztq
+type: challenge
+title: Gestión del ciclo de vida
+tabs:
+- id: vj7zqlkc0xab
+  title: SMLM UI
+  type: browser
+  hostname: smlm-www
+difficulty: basic
+timelimit: 6000
+enhanced_loading: null
+---
+
+🌌 Gestión del ciclo de vida
+===================================
+
+<style type="text/css">
+  * {
+    font-family: suse;
+    src: url('https://fonts.google.com/specimen/SUSE');
+  }
+  .hovereffect {
+    border-radius: 25px 25px 25px 25px;
+    background: linear-gradient(#30ba78 0 0) var(--hundredpercent, 0) / var(--hundredpercent, 0) no-repeat;
+    transition: 0.5s, background-position 0s;
+    padding: 5px;
+  }
+  .hovereffect:hover {
+    --hundredpercent: 100%;
+    color: white;
+    border-radius: 10px 25px 10px 25px;
+  }
+  .smlmext {
+    color: #fe7c3f;
+  }
+  .smlm {
+    color: #fe7c3f;
+  }
+  .suse {
+    color: #30ba78;
+  }
+  .smls {
+    color: #2453ff;
+  }
+  .smlsext {
+    color: #2453ff;
+  }
+  .companyname {
+    color: #008657;
+  }
+  .liberty {
+    color: #efefef;
+  }
+  .sles {
+    color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+
+  .bottoms {
+    vertical-align: middle;
+    height: 50%;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    object-fit: contain;
+  }
+
+  img.animatedgif {
+    --borderthickness: 5pt;
+    --colors: #0000 25%,#30ba78 0;
+    padding: 10px;
+    background:
+      conic-gradient(from 90deg  at top    var(--borderthickness) left  var(--borderthickness),var(--colors)) 0    0,
+      conic-gradient(from 180deg at top    var(--borderthickness) right var(--borderthickness),var(--colors)) 100% 0,
+      conic-gradient(from 0deg   at bottom var(--borderthickness) left  var(--borderthickness),var(--colors)) 0    100%,
+      conic-gradient(from -90deg at bottom var(--borderthickness) right var(--borderthickness),var(--colors)) 100% 100%;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    transition: 1s;
+  }
+
+  img.animatedgif:hover {
+    background-size: 51% 51%;
+  }
+
+  img.logos {
+    border-radius: 10px;
+  }
+
+</style>
+
+<img class="logos" alt="Welcome!" src="../assets/logos/05-lifecycle.jpeg"/>
+
+En esta parte pasaremos de las tareas de mantenimiento individuales a establecer un proceso certificado en toda la flota para gestionar los cambios. Exploraremos cómo la Gestión del Ciclo de Vida del Contenido (Content Lifecycle Management) en <b class="smlmext">SUSE Multi-Linux Manager</b> proporciona la estructura y seguridad que nuestra aerolínea demanda.
+
+
+
+En [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], una pieza nueva no se instala en un avión de pasajeros en el momento en que llega del fabricante. Pasa por un riguroso proceso de certificación.
+
+Primero, se examina y prueba en un taller controlado (**Desarrollo**). A continuación, se instala en un avión de prueba no comercial y se somete a extenuantes pruebas en tierra y vuelo (**Control de Calidad - QA**). Solo después de pasar cada verificación concebible se certifica para su instalación en nuestra flota activa (**Producción**).
+
+
+
+Este enfoque metódico y escalonado evita que un solo componente defectuoso deje en tierra un avión, garantizando la seguridad de nuestros pasajeros y la fiabilidad de nuestras operaciones. Aplicamos exactamente esta misma filosofía a nuestros sistemas de TI. Una actualización de software o una nueva aplicación es un "componente" que, si está defectuoso, podría detener nuestras operaciones digitales. La Gestión del Ciclo de Vida del Contenido es nuestro proceso oficial de certificación para todos los cambios de software.
+
+
+
+## <b class="hovereffect">Sus Objetivos:</b>
+
+- Construir un Proyecto de Ciclo de Vida del Contenido (Content Lifecycle Project).
+
+- Usar el proyecto para gestionar y certificar actualizaciones de software para nuestros sistemas.
+
+
+
+Detalles del laboratorio (Lab details)
+===========
+
+Usuario (Username):
+```txt
+[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
+```
+
+Contraseña (Password):
+```txt
+[[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
+```
+
+URL de <b class="smlm">SMLM</b>: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+
+
+Construyendo Nuestra Vía de Certificación de Software
+==============================================
+
+En este ejercicio, crearemos un Proyecto de Ciclo de Vida del Contenido para controlar el flujo de actualizaciones de software. Esto asegura que un parche se pruebe exhaustivamente antes de llegar a nuestros servidores de producción críticos.
+
+<br/>
+
+Nuestro objetivo es construir un pipeline `Dev ✈ QA ✈ Prod`.
+
+1.  **Desarrollo (Dev):** El taller inicial. Todos los parches y paquetes nuevos llegan aquí primero.
+2.  **Control de Calidad (QA):** El terreno de prueba. Promoveremos una versión específica del contenido de Dev a QA para que nuestros equipos de prueba la validen.
+3.  **Producción (Prod):** La flota activa. Solo el conjunto de parches aprobados y certificados por QA se promueve a Producción, donde se puede aplicar de forma segura a nuestros sistemas en vivo.
+
+
+
+<br/>
+
+## <b class="hovereffect">Crear el proyecto</b>
+
+- Navegue a `Content Lifecycle` ✈ `Projects` y haga clic en ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
+
+- Complete los detalles del proyecto:
+
+- **Project Name** (Nombre del Proyecto):
+
+```txt
+Airtrain SLES15 SPx
+```
+
+- **Project Label** (Etiqueta del Proyecto):
+
+```txt
+at-sles15_spx
+```
+
+- **Project Description** (Descripción del Proyecto):
+
+```txt
+Certified software channel for Airtrain SLES 15 systems.
+```
+
+
+- Haga clic en ![Create](../assets/SMLM5.1/bottom-create.png)
+
+Ahora vamos a poblarlo, haga clic en `Attach/Detach Sources`
+
+![Create](../assets/SMLM5.1/content_lifecycle_just_created.png)
+
+- En **New Base Channel** seleccione <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> y haga clic en ![Save](../assets/SMLM5.1/bottom-save.png)
+
+<br/>
+
+## <b class="hovereffect">Crear entorno de Desarrollo (Dev)</b>
+
+Cree el Ciclo de Vida del Entorno de Desarrollo
+
+- Haga clic en `Add Environment`
+
+![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
+
+- Complete con lo siguiente:
+  * **Name:** <b class="highlightcopy">Development</b>
+  * **Label:** <b class="highlightcopy">dev</b>
+
+- Haga clic en ![Save](../assets/SMLM5.1/bottom-save.png)
+
+<br/>
+
+## <b class="hovereffect">Crear entorno de QA</b>
+
+Cree el Ciclo de Vida del Entorno de Control de Calidad
+
+- Haga clic en `Add Environment`
+
+- Complete con lo siguiente:
+  * **Name:** <b class="highlightcopy">QA</b>
+  * **Label:** <b class="highlightcopy">qa</b>
+
+- Haga clic en ![Save](../assets/SMLM5.1/bottom-save.png)
+
+<br/>
+
+## <b class="hovereffect">Crear entorno de Prod</b>
+
+Cree el Ciclo de Vida del Entorno de Producción
+
+- Haga clic en `Add Environment`
+
+- Complete con lo siguiente:
+  * **Name:** <b class="highlightcopy">Production</b>
+  * **Label:** <b class="highlightcopy">prod</b>
+
+- Haga clic en ![Save](../assets/SMLM5.1/bottom-save.png)
+
+<br/>
+
+## <b class="hovereffect">Poblar (Populate)</b>
+
+Ahora que tenemos los tres entornos, poblémoslos con contenido.
+
+No usaremos un filtro en este caso ya que <b class="sles">SLES</b> ya proporciona versiones de paquetes estables.
+
+La cadencia de pruebas de [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] es actualmente de un mes, por lo que nombraremos esta compilación (build) con el nombre del mes actual, Octubre.
+
+- Haga clic en ![Build](../assets/SMLM5.1/bottom-build.png)
+
+- En **Version Message** escriba:
+
+```txt
+October
+```
+
+
+- Haga clic en `Build`
+
+> [!NOTE]
+> Este proceso puede tardar un par de minutos, verá algunos pasos como 'cloning' (clonación), pero puede estar tranquilo sabiendo que esto no requiere mucho almacenamiento. El proceso de clonación se aplica solo a los puntos de índice de los paquetes, no a los paquetes reales en sí.
+
+
+<br/>
+
+## <b class="hovereffect">Promoviendo contenido</b>
+
+Ahora, promovamos el contenido a etapas posteriores.
+
+- Haga clic en el botón `Promote` entre Development y QA
+- Aparecerá otra pantalla con el título **Promote version 1 into QA**, simplemente haga clic en `Promote` nuevamente.
+
+Repita el mismo paso para Producción.
+
+
+  <div style='align: middle; margin: 15px;'>
+    <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-create_the_project.gif"/>
+  </div>
+
+<br/>
+
+Actualizar nuestros sistemas.
+====================
+
+Ahora probemos cómo funciona.
+
+Vamos a:
+- añadir algunos de nuestros sistemas al nuevo entorno.
+- Crear una nueva versión del contenido.
+- Promover la nueva versión y actualizar los sistemas.
+
+<br/>
+
+## <b class="hovereffect">Añadir sistemas</b>
+
+Vaya a `Systems` ✈ `System List` ✈ `All`
+
+- Haga clic en el sistema **at-ct-qa**
+- Vaya a `Software` ✈ `Software Channels`
+- En **Custom Channels**, seleccione la casilla de verificación para el canal **at-sles15_spx-qa-...** y haga clic en ![Next](../assets/SMLM5.1/bottom-next.png)
+- Haga clic en ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+
+
+Vuelva a `Systems` ✈ `System List` ✈ `All`
+
+- Filtre por:
+
+```txt
+at-
+```
+
+- Seleccione todos los sistemas que terminen en **-pro**
+- Vaya a `Systems` ✈ `System Set Manager`
+- Vaya a `Channels`
+- En **Custom Channels**, seleccione la casilla de verificación para el canal **at-sles15_spx-prod-...** y haga clic en ![Next](../assets/SMLM5.1/bottom-next.png)
+- Haga clic en 'include recommended' (incluir recomendados) para suscribirse a todos los canales recomendados:
+
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-next.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
+
+
+  <div style='align: middle; margin: 15px;'>
+    <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-add_systems.gif"/>
+  </div>
+
+<br/>
+
+## <b class="hovereffect">Crear una nueva versión</b>
+
+
+Ha pasado un mes y queremos continuar con nuestro proceso estable de actualizaciones.
+Va a crear una copia estática e inmutable de los canales de software para el equipo de Desarrolladores.
+
+No aparecerán nuevos parches repentinamente que interrumpan su trabajo.
+
+- Vuelva a `Content Lifecycle` ✈ `Projects` y haga clic en el proyecto que acabamos de crear.
+
+- Haga clic en ![Build](../assets/SMLM5.1/bottom-build.png)
+
+- En **Version Message** escriba:
+
+```txt
+November
+```
+
+
+- Haga clic en `Build`
+
+Note que el número de versión ha aumentado automáticamente.
+
+Ahora los desarrolladores pueden hacer su trabajo utilizando las versiones nuevas y parcheadas de bibliotecas y aplicaciones proporcionadas por SUSE.
+
+
+  <div style='align: middle; margin: 15px;'>
+    <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-create_new_version.gif"/>
+  </div>
+
+
+<br/>
+
+## <b class="hovereffect">Promover contenido de Dev a QA</b>
+
+Supongamos que nuestros desarrolladores han dado su aprobación. Es hora de crear una versión estable para el equipo de QA para que se puedan realizar todas las pruebas de pre-producción.
+
+- Haga clic en el botón `Promote` entre Development y QA
+- Aparecerá otra pantalla con el título **Promote version 2 into QA**, simplemente haga clic en `Promote` nuevamente.
+
+Ahora vayamos a nuestros sistemas de QA y hagamos una actualización.
+
+- `Systems` ✈ `System List` ✈ `All`
+- Haga clic en el sistema **at-ct-qa**
+- Vaya a `Software` ✈ `Packages` ✈ `Upgrade`
+- Haga clic en:
+
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
+
+
+Ahora nuestros ingenieros de QA pueden realizar sus pruebas de forma segura y sin interrupciones.
+
+
+> [!NOTE]
+> No tenemos tiempo suficiente para ver los cambios llegar; en un escenario real, debería haber nuevas versiones de paquetes disponibles para promover en la versión 2.
+
+  <div style='align: middle; margin: 15px;'>
+    <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-promote_from_dev_to_QA.gif"/>
+  </div>
+
+
+<br/>
+
+## <b class="hovereffect">Promover a Producción</b>
+
+El equipo de QA ha completado sus pruebas rigurosas en la `v2` y la ha certificado como estable y segura para la flota principal. Es hora de ponerla a disposición de nuestros sistemas de producción.
+
+Vamos a repetir el mismo proceso que hicimos para QA en nuestro entorno de producción:
+
+- Primero, promueva el contenido.
+  Esto hará que los nuevos paquetes estén disponibles para nuestros servidores de producción.
+  Ha asegurado con éxito que solo las actualizaciones probadas y aprobadas puedan llegar a sus sistemas más críticos.
+
+- Segundo, actualice nuestros sistemas de Producción; aquí la única diferencia es que vamos a programar la actualización para **mañana a las 14:00** para permitir que todos nuestros equipos estén preparados y tener un proceso controlado.
+
+
+<br/>
+
+¿Por qué es importante para [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+=================================================================================
+
+- Construimos una serie de puertas de seguridad, facilitando la implementación de un principio central de nuestra estrategia operativa: **gestión de riesgos**.
+- Un solo parche defectuoso introducido en el entorno de **Dev** puede ser detectado y corregido mucho antes de que tenga la oportunidad de impactar los sistemas que generan ingresos.
+- Este proceso transforma la aplicación de parches y actualizaciones de un evento arriesgado y estresante en un procedimiento de mantenimiento rutinario y predecible, la piedra angular de una aerolínea fiable.
+
+
+<br/>
+
+Más información
+================
+
+* [Ventanas de Mantenimiento](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
+
+* [Gestión de Parches](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
+
+* [Gestión del Ciclo de Vida del Contenido](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
+
+* [Página del Producto SUSE Multi-Linux Manager](https://www.suse.com/products/suse-manager/)
