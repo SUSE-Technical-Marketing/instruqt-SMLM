@@ -11,7 +11,7 @@ mount /dev/sdb /opt/instruqt/bootstrap/
 EOF
 
 chmod +x /root/bootstrapfix.sh
-
+echo "Starting transactional-update bootstrapfix script"
 transactional-update run /root/bootstrapfix.sh
 
 

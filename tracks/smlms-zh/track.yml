@@ -1,0 +1,35 @@
+slug: smlms-zh
+id: nmrdcj9ceaoo
+title: SUSE Multi-Linux Hands-on Workshop - Simplified Chinese
+description: |
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>在本次研讨会中，您将探索 <b style="color: #30ba78">SUSE Multi-Linux Manager</b> 的核心功能——这是我们用于大规模管理多样化 Linux 环境的一流解决方案——以及 <b style="color: #30ba78">SUSE Multi-Linux Support</b>。</p>
+
+  <p>您将学习如何利用 <b style="color: #30ba78">SUSE</b> 强大的工具来解决现实世界中的 IT 挑战，从而实现任务自动化、确保安全合规性，并管理系统的整个生命周期——从传统发行版到最新的企业级服务器。</p>
+
+  <p>本研讨会旨在为您提供实用的技能，并帮助您清晰地理解如何简化和控制复杂的基础设施。</p>
+
+  <p>让我们开始吧。</p></span>
+icon: https://www.suse.com/favicon.ico
+tags:
+- smls
+- mlm
+- prod
+- mls
+- smlm
+owner: suse
+developers:
+- raul.mahiques@suse.com
+maintenance: true
+skipping_enabled: true
+idle_timeout: 6000
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "7892821515130556199"
+enhanced_loading: true

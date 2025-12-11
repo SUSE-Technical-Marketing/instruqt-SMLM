@@ -1,0 +1,35 @@
+slug: smlms-it
+id: zhsoe5hq9ziu
+title: SUSE Multi-Linux Hands-on Workshop - Italian
+description: |
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Nel corso di questo workshop, esplorerai le funzionalità principali di <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, la nostra soluzione di prima categoria per gestire diversi ambienti Linux su larga scala, e <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+
+  <p>Imparerai a risolvere le sfide IT del mondo reale utilizzando i potenti strumenti di <b style="color: #30ba78">SUSE</b> per automatizzare le attività, garantire la conformità della sicurezza e gestire l'intero ciclo di vita dei tuoi sistemi, dalle distribuzioni legacy ai server aziendali più recenti.</p>
+
+  <p>Questo workshop è progettato per fornirti competenze pratiche e una chiara comprensione di come semplificare e controllare la tua infrastruttura complessa.</p>
+
+  <p>Iniziamo.</p></span>
+icon: https://www.suse.com/favicon.ico
+tags:
+- smls
+- mlm
+- prod
+- mls
+- smlm
+owner: suse
+developers:
+- raul.mahiques@suse.com
+maintenance: true
+skipping_enabled: true
+idle_timeout: 6000
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "14357775661745272430"
+enhanced_loading: true

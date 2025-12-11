@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: ucmcl4dfi1gq
+id: fkelapqkrgth
 type: challenge
 title: Automation (Optional)
 tabs:
-- id: jdlfyzxbrckx
+- id: u0y5w6ewsnm1
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -55,6 +55,11 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
@@ -120,12 +125,7 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL:
-```txt
-[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
-```
-
-
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 Setup recurring updates
@@ -192,16 +192,16 @@ We are going to create a configuration channel to make sure every system we mana
 - Let's go to `Configuration` ✈ `Channels`
 - Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 - Fill the form with the following details:
-	+ **Name:**          Uniform experience
-	+ **Label:**         uniform_experienace
-	+ **Description:**   Create a uniform experience across systems
+	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
+	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
 - Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
 Now that we have created the config channel let's populate it.
 
 - Go to `Add Files` ✈ `Create File`
 - Fill in the following details:
-	+ **Filename/Path:** /etc/motd
+	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
 This system is the property of [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]].

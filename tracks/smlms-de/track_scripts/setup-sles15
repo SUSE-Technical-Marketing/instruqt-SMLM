@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euxo pipefail
+
+rm -f /etc/machine-id ; dbus-uuidgen --ensure=/etc/machine-id
+
+# 0. Insruqt init
+#################
+
+# waits for Instruqt host bootstrap to finish
+until [ -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+  sleep 1
+done
+
+echo "`python3 -c \"import socket; print(socket.gethostbyname('smlm'))\"` smlm.aaaaa.instruqt.io" >>/etc/hosts
+
+# makes sure the registration is ok
+registercloudguest --force-new
+
+
+
+# grant remote access
+cat << EOF >> /root/.ssh/authorized_keys
+$SSH_PUB_KEY
+EOF
+
+
+echo '###################### Completed sles15 setup #################
+######################################################################'
+
+

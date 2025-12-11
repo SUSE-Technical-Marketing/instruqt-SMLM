@@ -22,6 +22,7 @@ echo "`python -c \"import socket; print(socket.gethostbyname('smlm'))\"` smlm.aa
 
 cat << EOF > /root/register.sh
 #!/bin/bash
+rm /etc/venv-salt-minion/minion.d/susemanager.conf
 while [[ ! -f /etc/venv-salt-minion/minion.d/susemanager.conf ]]; do 
   PROFILENAME='airco-dh4a-prod' SMLM_DNS="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-liberty7ltss curl -Sks --retry 50 --retry-delay 5 --retry-max-time 180 https://smlm.${_SANDBOX_ID}.instruqt.io/pub/bootstrap/generic_bootstrap.sh | SMLM_DNS="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-liberty7ltss PROFILENAME='airco-dh4a-prod' bash
   sleep 10

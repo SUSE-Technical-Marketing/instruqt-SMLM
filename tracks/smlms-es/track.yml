@@ -1,0 +1,35 @@
+slug: smlms-es
+id: w3byjk7xf3d0
+title: SUSE Multi-Linux Hands-on Workshop - Spanish
+description: |
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>A lo largo de este taller, explorará las capacidades principales de <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, nuestra solución de primera clase para gestionar diversos entornos Linux a escala, y <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+
+  <p>Aprenderá a resolver desafíos de TI del mundo real utilizando las potentes herramientas de <b style="color: #30ba78">SUSE</b> para automatizar tareas, garantizar el cumplimiento de seguridad y gestionar todo el ciclo de vida de sus sistemas—desde distribuciones heredadas hasta los servidores empresariales más recientes.</p>
+
+  <p>Este taller está diseñado para brindarle habilidades prácticas y una comprensión clara de cómo simplificar y controlar su infraestructura compleja.</p>
+
+  <p>Comencemos.</p></span>
+icon: https://www.suse.com/favicon.ico
+tags:
+- smls
+- mlm
+- prod
+- mls
+- smlm
+owner: suse
+developers:
+- raul.mahiques@suse.com
+maintenance: true
+skipping_enabled: true
+idle_timeout: 6000
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "6839343344150803245"
+enhanced_loading: true

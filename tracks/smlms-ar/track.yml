@@ -1,0 +1,35 @@
+slug: smlms-ar
+id: bgkmgdcrad0a
+title: SUSE Multi-Linux Hands-on Workshop - Arabic
+description: |
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>خلال ورشة العمل هذه، ستستكشف القدرات الأساسية لـ <b style="color: #30ba78">SUSE Multi-Linux Manager</b>، وهو الحل الأفضل في فئته لإدارة بيئات Linux المتنوعة على نطاق واسع، و <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+
+  <p>ستتعلم كيفية حل تحديات تكنولوجيا المعلومات (IT) الواقعية باستخدام أدوات <b style="color: #30ba78">SUSE</b> القوية لأتمتة المهام، وضمان الامتثال الأمني، وإدارة دورة حياة أنظمتك بالكامل—بدءاً من التوزيعات القديمة (Legacy) وصولاً إلى أحدث خوادم المؤسسات.</p>
+
+  <p>صُممت ورشة العمل هذه لتمنحك مهارات عملية وفهماً واضحاً لكيفية تبسيط البنية التحتية المعقدة لديك والتحكم فيها.</p>
+
+  <p>لنبدأ.</p></span>
+icon: https://www.suse.com/favicon.ico
+tags:
+- smls
+- mlm
+- prod
+- mls
+- smlm
+owner: suse
+developers:
+- raul.mahiques@suse.com
+maintenance: true
+skipping_enabled: true
+idle_timeout: 6000
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "13037032559965887276"
+enhanced_loading: true

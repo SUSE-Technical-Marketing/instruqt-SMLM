@@ -1,6 +1,6 @@
 slug: smlms-dev
 id: pvj7g2dhb6lj
-title: "\U0001F6A7 SUSE Multi-Linux Hands-on Workshop \U0001F6A7"
+title: "\U0001F6A7 SUSE Multi-Linux Hands-on Workshop - DEV \U0001F6A7"
 description: |
   <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Throughout this workshop, you will explore the core capabilities of <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, our best-in-class solution for managing diverse Linux environments at scale, and <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
 
@@ -18,13 +18,7 @@ tags:
 - smlm
 owner: suse
 developers:
-- roberto.isidoro@suse.com
 - raul.mahiques@suse.com
-- donald.vosburg@suse.com
-- patrick.swartz@suse.com
-- gvarela@suse.com
-- rjmateus@gmail.com
-- graham.hares@suse.com
 maintenance: true
 skipping_enabled: true
 idle_timeout: 6000
@@ -37,5 +31,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
-checksum: "14863727468155548117"
+checksum: "10986134112688892566"
 enhanced_loading: true

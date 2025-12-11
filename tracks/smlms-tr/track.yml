@@ -1,0 +1,35 @@
+slug: smlms-tr
+id: yzgca0aykjy3
+title: SUSE Multi-Linux Hands-on Workshop - Turkish
+description: |
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Bu atölye çalışması boyunca, çeşitli Linux ortamlarını geniş ölçekte yönetmek için sınıfının en iyisi çözümümüz olan <b style="color: #30ba78">SUSE Multi-Linux Manager</b>'ın ve <b style="color: #30ba78">SUSE Multi-Linux Support</b>'un temel yeteneklerini keşfedeceksiniz.</p>
+
+  <p>Görevleri otomatize etmek, güvenlik uyumluluğunu sağlamak ve eski dağıtımlardan en yeni kurumsal sunuculara kadar sistemlerinizin tüm yaşam döngüsünü yönetmek için <b style="color: #30ba78">SUSE</b>'nin güçlü araçlarını kullanarak gerçek dünyadaki BT zorluklarını nasıl çözeceğinizi öğreneceksiniz.</p>
+
+  <p>Bu atölye, size pratik beceriler kazandırmak ve karmaşık altyapınızı nasıl basitleştirip kontrol altına alacağınıza dair net bir anlayış sunmak için tasarlanmıştır.</p>
+
+  <p>Hadi başlayalım.</p></span>
+icon: https://www.suse.com/favicon.ico
+tags:
+- smls
+- mlm
+- prod
+- mls
+- smlm
+owner: suse
+developers:
+- raul.mahiques@suse.com
+maintenance: true
+skipping_enabled: true
+idle_timeout: 6000
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "15271679091947070774"
+enhanced_loading: true

@@ -1,0 +1,35 @@
+slug: smlms-hi
+id: c9p2fnufoi4l
+title: SUSE Multi-Linux Hands-on Workshop - Hindi
+description: |
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>इस वर्कशॉप के दौरान, आप <b style="color: #30ba78">SUSE Multi-Linux Manager</b> की मुख्य क्षमताओं को जानेंगे, जो बड़े पैमाने पर विविध Linux एनवायरनमेंट्स को मैनेज करने के लिए हमारा सर्वश्रेष्ठ समाधान है, और साथ ही <b style="color: #30ba78">SUSE Multi-Linux Support</b> के बारे में भी जानेंगे।</p>
+
+  <p>आप सीखेंगे कि कार्यों को स्वचालित (automate) करने, सुरक्षा अनुपालन (security compliance) सुनिश्चित करने और अपने सिस्टम के पूरे जीवनचक्र (lifecycle) को मैनेज करने के लिए—लेगासी डिस्ट्रिब्यूशन से लेकर नवीनतम एंटरप्राइज़ सर्वर तक—<b style="color: #30ba78">SUSE</b> के शक्तिशाली टूल्स का उपयोग करके वास्तविक दुनिया की IT चुनौतियों को कैसे हल किया जाए।</p>
+
+  <p>यह वर्कशॉप आपको व्यावहारिक कौशल और अपनी जटिल इन्फ्रास्ट्रक्चर को सरल और नियंत्रित करने की स्पष्ट समझ प्रदान करने के लिए डिज़ाइन किया गया है।</p>
+
+  <p>चलिए शुरू करते हैं।</p></span>
+icon: https://www.suse.com/favicon.ico
+tags:
+- smls
+- mlm
+- prod
+- mls
+- smlm
+owner: suse
+developers:
+- raul.mahiques@suse.com
+maintenance: true
+skipping_enabled: true
+idle_timeout: 6000
+timelimit: 10800
+lab_config:
+  sidebar_enabled: true
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  loadingMessages: true
+  override_challenge_layout: false
+  hideStopButton: false
+  default_layout: AssignmentLeft
+checksum: "5563970820813643876"
+enhanced_loading: true
