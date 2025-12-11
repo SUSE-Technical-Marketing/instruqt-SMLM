@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: ejxtdpb7jztq
+id: ohhrcqsqo78l
 type: challenge
-title: Lifecycle management
+title: लाइफसाइकिल मैनेजमेंट
 tabs:
-- id: vj7zqlkc0xab
+- id: g2flahefy27o
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Lifecycle management
+🌌 लाइफसाइकिल मैनेजमेंट (Lifecycle management)
 ===================================
 
 <style type="text/css">
@@ -97,35 +97,37 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/05-lifecycle.jpeg"/>
 
-In this part we will transition from individual maintenance tasks to establishing a fleet-wide, certified process for managing change. We'll explore how Content Lifecycle Management in <b class="smlmext">SUSE Multi-Linux Manager</b> provides the structure and safety our airline demands.
+इस भाग में हम व्यक्तिगत रखरखाव कार्यों से हटकर बदलाव के प्रबंधन (managing change) के लिए एक फ्लीट-व्यापी, प्रमाणित प्रक्रिया स्थापित करने की ओर बढ़ेंगे। हम पता लगाएंगे कि <b class="smlmext">SUSE Multi-Linux Manager</b> में कंटेंट लाइफसाइकिल मैनेजमेंट (Content Lifecycle Management) हमारी एयरलाइन की मांग के अनुसार संरचना और सुरक्षा कैसे प्रदान करता है।
 
 
 
-At [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], a new part isn't installed on a passenger jet the moment it arrives from the manufacturer. It goes through a rigorous certification process.
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] में, निर्माता से आते ही यात्री जेट पर कोई नया हिस्सा स्थापित नहीं किया जाता है। यह एक कठोर प्रमाणीकरण (certification) प्रक्रिया से गुजरता है।
 
-First, it's examined and tested in a controlled workshop (**Development**). Next, it's fitted to a non-commercial test aircraft and put through grueling ground and flight tests (**Quality Assurance**). Only after passing every conceivable check is it certified for installation across our active fleet (**Production**).
-
-This methodical, staged approach prevents a single faulty component from grounding a plane, ensuring the safety of our passengers and the reliability of our operations. We apply this exact same philosophy to our IT systems. A software upgrade or a new application is a "component" that, if faulty, could ground our digital operations. Content Lifecycle Management is our official certification process for all software changes.
+सबसे पहले, इसे एक नियंत्रित कार्यशाला (**Development** / विकास) में जांचा और परखा जाता है। इसके बाद, इसे एक गैर-वाणिज्यिक परीक्षण विमान में फिट किया जाता है और भीषण जमीनी और उड़ान परीक्षणों (**Quality Assurance** / गुणवत्ता आश्वासन - QA) के माध्यम से रखा जाता है। हर कल्पनीय जांच पास करने के बाद ही इसे हमारे सक्रिय बेड़े (**Production** / उत्पादन) में स्थापना के लिए प्रमाणित किया जाता है।
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+यह व्यवस्थित, चरणबद्ध दृष्टिकोण एक भी दोषपूर्ण घटक को विमान को उड़ान भरने से रोकने (grounding) से बचाता है, जिससे हमारे यात्रियों की सुरक्षा और हमारे संचालन की विश्वसनीयता सुनिश्चित होती है। हम अपने आईटी सिस्टम पर ठीक यही दर्शन लागू करते हैं। एक सॉफ़्टवेयर अपग्रेड या एक नया एप्लिकेशन एक "घटक" (component) है जो, यदि दोषपूर्ण है, तो हमारे डिजिटल संचालन को रोक सकता है। कंटेंट लाइफसाइकिल मैनेजमेंट सभी सॉफ़्टवेयर परिवर्तनों के लिए हमारी आधिकारिक प्रमाणन प्रक्रिया है।
 
-- Build a Content Lifecycle Project
 
-- Use the project to manage and certify software updates for our systems.
+
+## <b class="hovereffect">आपके उद्देश्य:</b>
+
+- एक कंटेंट लाइफसाइकिल प्रोजेक्ट (Content Lifecycle Project) बनाएं।
+
+- हमारे सिस्टम के लिए सॉफ़्टवेयर अपडेट को प्रबंधित और प्रमाणित करने के लिए प्रोजेक्ट का उपयोग करें।
 
 
 
 Lab details
 ===========
 
-Username:
+उपयोगकर्ता नाम (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+पासवर्ड (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -133,133 +135,135 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Building Our Software Certification Pathway
+हमारा सॉफ़्टवेयर प्रमाणन मार्ग बनाना
 ==============================================
 
-In this exercise, we will create a Content Lifecycle Project to control the flow of software updates. This ensures that a patch is thoroughly tested before it ever reaches our critical production servers.
+इस अभ्यास में, हम सॉफ़्टवेयर अपडेट के प्रवाह को नियंत्रित करने के लिए एक कंटेंट लाइफसाइकिल प्रोजेक्ट बनाएंगे। यह सुनिश्चित करता है कि हमारे महत्वपूर्ण उत्पादन सर्वर तक पहुंचने से पहले एक पैच का पूरी तरह से परीक्षण किया गया है।
 
 <br/>
 
-Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
+हमारा लक्ष्य एक `Dev ✈ QA ✈ Prod` पाइपलाइन बनाना है।
 
-1.  **Development (Dev):** The initial workshop. All new patches and packages arrive here first.
-2.  **Quality Assurance (QA):** The testing ground. We will promote a specific, version of the content from Dev to QA for our testing teams to validate.
-3.  **Production (Prod):** The active fleet. Only the QA-approved, certified set of patches is promoted to Production, where it can be safely applied to our live systems.
+1.  **Development (Dev):** प्रारंभिक कार्यशाला। सभी नए पैच और पैकेज पहले यहां आते हैं।
+2.  **Quality Assurance (QA):** परीक्षण का मैदान। हम अपनी परीक्षण टीमों के सत्यापन के लिए Dev से QA तक कंटेंट के एक विशिष्ट संस्करण (version) को बढ़ावा (promote) देंगे।
+3.  **Production (Prod):** सक्रिय बेड़ा। केवल QA-अनुमोदित, पैच का प्रमाणित सेट Production में बढ़ावा दिया जाता है, जहां इसे सुरक्षित रूप से हमारे लाइव सिस्टम पर लागू किया जा सकता है।
+
+
 
 <br/>
 
-## <b class="hovereffect">Create the project</b>
+## <b class="hovereffect">प्रोजेक्ट बनाएं</b>
 
-- Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
+- `Content Lifecycle` ✈ `Projects` पर नेविगेट करें और क्लिक करें ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
 
-- Fill in the project details:
+- प्रोजेक्ट विवरण भरें:
 
-- **Project Name:**
+- **Project Name** (प्रोजेक्ट का नाम):
 
 ```txt
 Airtrain SLES15 SPx
 ```
 
-- **Project Label:**
+- **Project Label** (प्रोजेक्ट लेबल):
 
 ```txt
 at-sles15_spx
 ```
 
-- **Project Description:**
+- **Project Description** (प्रोजेक्ट विवरण):
 
 ```txt
 Certified software channel for Airtrain SLES 15 systems.
 ```
 
 
-- Click ![Create](../assets/SMLM5.1/bottom-create.png)
+- क्लिक करें ![Create](../assets/SMLM5.1/bottom-create.png)
 
-Now let's populate it, click on `Attach/Detach Sources`
+अब इसे आबाद (populate) करते हैं, `Attach/Detach Sources` पर क्लिक करें
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created.png)
 
-- On **New Base Channel** select <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> and click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- **New Base Channel** पर <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> चुनें और ![Save](../assets/SMLM5.1/bottom-save.png) पर क्लिक करें
 
 <br/>
 
-## <b class="hovereffect">Create Dev environment</b>
+## <b class="hovereffect">Dev एनवायरनमेंट बनाएं</b>
 
-Create the Development Environment Lifecycle
+Development Environment Lifecycle (विकास वातावरण जीवनचक्र) बनाएं
 
-- Click on `Add Environment`
+- `Add Environment` पर क्लिक करें
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
-- Populate with the following:
+- निम्नलिखित के साथ भरें:
   * **Name:** <b class="highlightcopy">Development</b>
   * **Label:** <b class="highlightcopy">dev</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- क्लिक करें ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create QA environment</b>
+## <b class="hovereffect">QA एनवायरनमेंट बनाएं</b>
 
-Create the Quality Assurance Environment Lifecycle
+Quality Assurance Environment Lifecycle (गुणवत्ता आश्वासन वातावरण जीवनचक्र) बनाएं
 
-- Click on `Add Environment`
+- `Add Environment` पर क्लिक करें
 
-- Populate with the following:
+- निम्नलिखित के साथ भरें:
   * **Name:** <b class="highlightcopy">QA</b>
   * **Label:** <b class="highlightcopy">qa</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- क्लिक करें ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create Prod environment</b>
+## <b class="hovereffect">Prod एनवायरनमेंट बनाएं</b>
 
-Create the Production Environment Lifecycle
+Production Environment Lifecycle (उत्पादन वातावरण जीवनचक्र) बनाएं
 
-- Click on `Add Environment`
+- `Add Environment` पर क्लिक करें
 
-- Populate with the following:
+- निम्नलिखित के साथ भरें:
   * **Name:** <b class="highlightcopy">Production</b>
   * **Label:** <b class="highlightcopy">prod</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- क्लिक करें ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Populate</b>
+## <b class="hovereffect">पॉपुलेट (Populate)</b>
 
-Now we have all three environments, let's populate them with content.
+अब हमारे पास तीनों वातावरण हैं, चलिए उन्हें कंटेंट से भरते हैं।
 
-We will not use a filter in this case since <b class="sles">SLES</b> already provides stable package versions.
+हम इस मामले में फिल्टर का उपयोग नहीं करेंगे क्योंकि <b class="sles">SLES</b> पहले से ही स्थिर पैकेज संस्करण प्रदान करता है।
 
-[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]' cadence for testing is currently one month, so we will name this build after the current month, October.
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] की परीक्षण के लिए ताल (cadence) वर्तमान में एक महीने की है, इसलिए हम इस निर्माण (build) का नाम वर्तमान महीने, अक्टूबर के नाम पर रखेंगे।
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- क्लिक करें ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- In **Version Message** type
+- **Version Message** में टाइप करें
 
 ```txt
 October
 ```
 
 
-- Click on `Build`
+- `Build` पर क्लिक करें
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
+> इस प्रक्रिया में कुछ मिनट लग सकते हैं, आप 'cloning' जैसे कुछ चरण देखेंगे, लेकिन आपको यह जानकर राहत मिल सकती है कि इसके लिए बहुत अधिक स्टोरेज की आवश्यकता नहीं है। क्लोनिंग प्रक्रिया केवल पैकेज इंडेक्स पॉइंट पर लागू होती है, वास्तविक पैकेज पर नहीं।
 
 
 <br/>
 
-## <b class="hovereffect">Promoting content</b>
+## <b class="hovereffect">कंटेंट को प्रोमोट करना</b>
 
-Now, let's promote the content to further stages.
+अब, चलिए कंटेंट को अगले चरणों में प्रोमोट (promote) करते हैं।
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 1 into QA** will appear, just click `Promote` again.
+- Development और QA के बीच `Promote` बटन पर क्लिक करें
+- **Promote version 1 into QA** शीर्षक वाली एक और स्क्रीन दिखाई देगी, बस फिर से `Promote` पर क्लिक करें।
 
-Repeat the same step for Production.
+Production के लिए यही चरण दोहराएं।
 
 
   <div style='align: middle; margin: 15px;'>
@@ -268,41 +272,41 @@ Repeat the same step for Production.
 
 <br/>
 
-Upgrade our systems.
+हमारे सिस्टम को अपग्रेड करें।
 ====================
 
-Now let's try how it works.
+अब देखते हैं कि यह कैसे काम करता है।
 
-We are going to:
-- add some of our system to the new environment.
-- Create a new version of the content
-- Promote the new version and update the systems
+हम करने जा रहे हैं:
+- अपने कुछ सिस्टम को नए वातावरण में जोड़ना।
+- कंटेंट का एक नया संस्करण बनाना
+- नए संस्करण को प्रोमोट करना और सिस्टम को अपडेट करना
 
 <br/>
 
-## <b class="hovereffect">Add systems</b>
+## <b class="hovereffect">सिस्टम जोड़ें</b>
 
-Let's go to `Systems` ✈ `System List` ✈ `All`
+चलिए `Systems` ✈ `System List` ✈ `All` पर चलते हैं
 
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Software Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-qa-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+- **at-ct-qa** सिस्टम पर क्लिक करें
+- `Software` ✈ `Software Channels` पर जाएं
+- **Custom Channels** पर, **at-sles15_spx-qa-...** चैनल के लिए चेकबॉक्स चुनें और ![Next](../assets/SMLM5.1/bottom-next.png) पर क्लिक करें
+- क्लिक करें ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
 
 
-Go back to `Systems` ✈ `System List` ✈ `All`
+वापस जाएं `Systems` ✈ `System List` ✈ `All`
 
-- Filter by:
+- इसके द्वारा फ़िल्टर करें:
 
 ```txt
 at-
 ```
 
-- Select all the systems that end with **-pro**
-- Go to `Systems` ✈ `System Set Manager`
-- Go to `Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-prod-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click on 'incclude recommended' to subscribe to all the recommended channels:
+- **-pro** के साथ समाप्त होने वाले सभी सिस्टम का चयन करें
+- `Systems` ✈ `System Set Manager` पर जाएं
+- `Channels` पर जाएं
+- **Custom Channels** पर, **at-sles15_spx-prod-...** चैनल के लिए चेकबॉक्स चुनें और ![Next](../assets/SMLM5.1/bottom-next.png) पर क्लिक करें
+- सभी अनुशंसित चैनलों की सदस्यता लेने के लिए 'include recommended' पर क्लिक करें:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-next.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
@@ -313,30 +317,30 @@ at-
 
 <br/>
 
-## <b class="hovereffect">Create a new version</b>
+## <b class="hovereffect">एक नया संस्करण (version) बनाएं</b>
 
 
-A month has past and we want to continue with our stable process of upgrades.
-You have are going to create a static, unchanging copy of the software channels for the Developer team.
+एक महीना बीत चुका है और हम अपग्रेड की अपनी स्थिर प्रक्रिया को जारी रखना चाहते हैं।
+आप डेवलपर टीम के लिए सॉफ़्टवेयर चैनलों की एक स्थिर, अपरिवर्तनीय प्रति (copy) बनाने जा रहे हैं।
 
-No new patches will suddenly appear and disrupt their work.
+कोई भी नया पैच अचानक प्रकट नहीं होगा और उनके काम को बाधित नहीं करेगा।
 
-- Go back to `Content Lifecycle` ✈ `Projects` and click on the project we just created.
+- वापस जाएं `Content Lifecycle` ✈ `Projects` और उस प्रोजेक्ट पर क्लिक करें जिसे हमने अभी बनाया है।
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- क्लिक करें ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- In **Version Message** type
+- **Version Message** में टाइप करें
 
 ```txt
 November
 ```
 
 
-- Click on `Build`
+- `Build` पर क्लिक करें
 
-Notice the version number has automatically increased.
+ध्यान दें कि संस्करण संख्या स्वचालित रूप से बढ़ गई है।
 
-Now developers can do their work using the new and patched versions of libraries and applications provided by SUSE.
+अब डेवलपर्स SUSE द्वारा प्रदान की गई लाइब्रेरी और एप्लिकेशन के नए और पैच किए गए संस्करणों का उपयोग करके अपना काम कर सकते हैं।
 
 
   <div style='align: middle; margin: 15px;'>
@@ -346,28 +350,28 @@ Now developers can do their work using the new and patched versions of libraries
 
 <br/>
 
-## <b class="hovereffect">Promote content from Dev to QA</b>
+## <b class="hovereffect">Dev से QA में कंटेंट प्रोमोट करें</b>
 
-Let's assume our developers have given their approval. It's time to create a stable version for the QA team so that all the pre-production tests can be performed.
+मान लेते हैं कि हमारे डेवलपर्स ने अपनी मंजूरी दे दी है। QA टीम के लिए एक स्थिर संस्करण बनाने का समय आ गया है ताकि सभी प्री-प्रोडक्शन परीक्षण किए जा सकें।
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 2 into QA** will appear, just click `Promote` again.
+- Development और QA के बीच `Promote` बटन पर क्लिक करें
+- **Promote version 2 into QA** शीर्षक वाली एक और स्क्रीन दिखाई देगी, बस फिर से `Promote` क्लिक करें।
 
-Now let's go to our QA systems and do an upgrade.
+अब चलिए हमारे QA सिस्टम पर चलते हैं और एक अपग्रेड करते हैं।
 
 - `Systems` ✈ `System List` ✈ `All`
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Packages` ✈ `Upgrade`
-- Click on:
+- **at-ct-qa** सिस्टम पर क्लिक करें
+- `Software` ✈ `Packages` ✈ `Upgrade` पर जाएं
+- क्लिक करें:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-Now our QA engineers can perform their tests safely without disruption.
+अब हमारे QA इंजीनियर बिना किसी व्यवधान के सुरक्षित रूप से अपने परीक्षण कर सकते हैं।
 
 
 > [!NOTE]
-> We don't have enough time to see changes comming through, in a real scenario there should be new versions of packages available to promote in version 2.
+> हमारे पास परिवर्तनों को आते देखने के लिए पर्याप्त समय नहीं है, वास्तविक परिदृश्य में संस्करण 2 में प्रचारित (promote) करने के लिए पैकेजों के नए संस्करण उपलब्ध होने चाहिए।
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-promote_from_dev_to_QA.gif"/>
@@ -376,40 +380,38 @@ Now our QA engineers can perform their tests safely without disruption.
 
 <br/>
 
-## <b class="hovereffect">Promote to Production</b>
+## <b class="hovereffect">Production में प्रोमोट करें</b>
 
-The QA team has completed its rigorous testing on `v2` and has certified it as stable and safe for the main fleet. It's time to make it available to our production systems.
+QA टीम ने `v2` पर अपना कठोर परीक्षण पूरा कर लिया है और इसे मुख्य बेड़े (fleet) के लिए स्थिर और सुरक्षित के रूप में प्रमाणित किया है। अब इसे हमारे उत्पादन सिस्टम के लिए उपलब्ध कराने का समय आ गया है।
 
-We are going to repeat the same process as we did for QA on our production environment:
+हम अपने उत्पादन वातावरण पर QA के लिए की गई उसी प्रक्रिया को दोहराने जा रहे हैं:
 
-- First, promote the content.
-  This will make the new packages available to our production servers.
-  You have successfully ensured that only tested and approved updates can reach your most critical systems.
+- सबसे पहले, कंटेंट को प्रोमोट करें।
+  यह नए पैकेजों को हमारे उत्पादन सर्वर के लिए उपलब्ध कराएगा।
+  आपने सफलतापूर्वक सुनिश्चित कर लिया है कि केवल परीक्षित और अनुमोदित अपडेट ही आपके सबसे महत्वपूर्ण सिस्टम तक पहुंच सकते हैं।
 
-- Second, upgrade our Production systems, here the only difference is that we are going to schedule the upgrade for **tomorrow at 14:00** to allow for all our teams to be prepared and have a controlled process.
+- दूसरा, हमारे Production सिस्टम को अपग्रेड करें, यहाँ एकमात्र अंतर यह है कि हम **कल 14:00 बजे** के लिए अपग्रेड को शेड्यूल करने जा रहे हैं ताकि हमारी सभी टीमें तैयार रहें और एक नियंत्रित प्रक्रिया हो सके।
 
 
 <br/>
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+यह [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] के लिए महत्वपूर्ण क्यों है?
 =================================================================================
 
-- We build a series of safety gates, making it easier to implement a core principle of our operational strategy: **risk management**.
-- A single bad patch introduced into the **Dev** environment can be caught and fixed long before it has a chance to impact revenue-generating systems.
-- This process transforms patching and updates from a risky, nerve-wracking event into a predictable, routine maintenance procedure, the cornerstone of a reliable airline.
+- हम सुरक्षा द्वारों (safety gates) की एक श्रृंखला बनाते हैं, जिससे हमारी परिचालन रणनीति के मुख्य सिद्धांत को लागू करना आसान हो जाता है: **जोखिम प्रबंधन** (risk management)।
+- **Dev** वातावरण में पेश किए गए एक भी खराब पैच को राजस्व-सृजन करने वाले सिस्टम को प्रभावित करने का मौका मिलने से बहुत पहले पकड़ा और ठीक किया जा सकता है।
+- यह प्रक्रिया पैचिंग और अपडेट को एक जोखिम भरा, परेशान करने वाली घटना से एक अनुमानित, नियमित रखरखाव प्रक्रिया में बदल देती है, जो एक विश्वसनीय एयरलाइन की आधारशिला है।
 
 
 <br/>
 
-More information
+अधिक जानकारी
 ================
 
-* [Maintenance Windows](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
+* [Maintenance Windows (रखरखाव विंडोज़)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
 
-* [Patch Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
+* [Patch Management (पैच प्रबंधन)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
 
-* [Content Lifecycle Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
+* [Content Lifecycle Management (कंटेंट लाइफसाइकिल मैनेजमेंट)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
 
 * [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
-
-

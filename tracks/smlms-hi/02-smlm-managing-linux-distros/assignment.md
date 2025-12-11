@@ -1,14 +1,14 @@
 ---
 slug: smlm-managing-linux-distros
-id: 0s4wjswo2zhk
+id: ajrioagmcyud
 type: challenge
-title: Managing different Linux distributions
+title: विभिन्न Linux डिस्ट्रीब्यूशन का प्रबंधन
 tabs:
-- id: qsppgdkckld3
+- id: n9hmplsl7n6m
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: uefwdei7ywmk
+- id: 7y2jxuoqq28g
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts
@@ -17,7 +17,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Managing different Linux distributions
+🌌 विभिन्न Linux डिस्ट्रीब्यूशन का प्रबंधन
 ===================================
 
 <style type="text/css">
@@ -102,30 +102,30 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/02-managing_linux_distros.jpeg"/>
 
-Here at [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], <b class="smlmext">SUSE Multi-Linux Manager</b>  is the key to managing our diverse fleet of Linux distributions and architectures from a single pane of glass. This has helped us avoid the extra customizations that used to complicate our jobs as engineers, which in turn increased the cost and time required to maintain and implement our system policies.
+यहाँ [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] में, <b class="smlmext">SUSE Multi-Linux Manager</b> हमारे Linux डिस्ट्रीब्यूशन और आर्किटेक्चर के विविध बेड़े (fleet) को एक ही फलक (single pane of glass) से प्रबंधित करने की कुंजी है। इसने हमें उन अतिरिक्त अनुकूलन (customizations) से बचने में मदद की है जो इंजीनियरों के रूप में हमारे काम को जटिल बनाते थे, जिससे हमारी सिस्टम नीतियों को बनाए रखने और लागू करने के लिए आवश्यक लागत और समय बढ़ जाता था।
 
-With this tool, we are not locked into a single vendor, architecture, or automation platform. We are free to choose what we need for our environment and manage them all in the same way. Imagine if for every type of aircraft in our fleet, we needed a different air traffic control tower with its own language and procedures. The operational complexity would be unmanageable, and the costs would be prohibitive.
+इस उपकरण के साथ, हम किसी एक वेंडर, आर्किटेक्चर या ऑटोमेशन प्लेटफ़ॉर्म में लॉक नहीं हैं। हम अपने वातावरण के लिए जो आवश्यक है उसे चुनने और उन सभी को एक ही तरीके से प्रबंधित करने के लिए स्वतंत्र हैं। कल्पना कीजिए कि यदि हमारे बेड़े में हर प्रकार के विमान के लिए, हमें अपनी भाषा और प्रक्रियाओं के साथ एक अलग हवाई यातायात नियंत्रण टॉवर की आवश्यकता होती। परिचालन की जटिलता असहनीय होगी, और लागत निषेधात्मक होगी।
 
-We all know a certain aircraft model is better for a specific route; flying a jumbo jet for a half-hour flight is not cost-effective. The same applies to our Linux distributions. While SUSE’s own distributions are excellent, some of our applications have specific requirements. <b class="smlm">SMLM</b> ensures we are never locked in and can always integrate the best solution for the task at hand.
+हम सभी जानते हैं कि एक निश्चित विमान मॉडल एक विशिष्ट मार्ग के लिए बेहतर है; आधे घंटे की उड़ान के लिए जंबो जेट उड़ाना लागत प्रभावी नहीं है। यही बात हमारे Linux डिस्ट्रीब्यूशन पर भी लागू होती है। जबकि SUSE के अपने डिस्ट्रीब्यूशन उत्कृष्ट हैं, हमारे कुछ अनुप्रयोगों की विशिष्ट आवश्यकताएं हैं। <b class="smlm">SMLM</b> यह सुनिश्चित करता है कि हम कभी भी लॉक-इन न हों और हाथ में मौजूद कार्य के लिए हमेशा सर्वोत्तम समाधान को एकीकृत कर सकें।
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">आपके उद्देश्य:</b>
 
-- Onboard an Ubuntu 24.04 LTS system, a specialized system required for our marketing team.
+- एक Ubuntu 24.04 LTS सिस्टम को ऑनबोर्ड (Onboard) करें, जो हमारी मार्केटिंग टीम के लिए आवश्यक एक विशेष सिस्टम है।
 
-- Demonstrate how we manage this new, different system using the same tools and patching procedures as the rest of our fleet.
+- प्रदर्शित करें कि हम इस नए, अलग सिस्टम को उसी टूल और पैचिंग प्रक्रियाओं का उपयोग करके कैसे प्रबंधित करते हैं जैसे हमारे बाकी बेड़े को करते हैं।
 
 
 
 Lab details
 ===========
 
-Username:
+उपयोगकर्ता नाम (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+पासवर्ड (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -133,32 +133,32 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Onboarding Ubuntu
+Ubuntu को ऑनबोर्ड करना (Onboarding Ubuntu)
 =================
 
-A new service request has come in from our marketing department. Their graphic designers rely on a specific creative suite that is only supported on Ubuntu. We are going to onboard their system so that we can manage and ensure it meets our security and compliance standards, in the same way as we do with the others.
+हमारे मार्केटिंग विभाग से एक नया सेवा अनुरोध आया है। उनके ग्राफिक डिजाइनर एक विशिष्ट रचनात्मक सुइट (creative suite) पर भरोसा करते हैं जो केवल Ubuntu पर समर्थित है। हम उनके सिस्टम को ऑनबोर्ड करने जा रहे हैं ताकि हम इसे प्रबंधित कर सकें और सुनिश्चित कर सकें कि यह हमारे सुरक्षा और अनुपालन मानकों को पूरा करता है, उसी तरह जैसे हम दूसरों के साथ करते हैं।
 
-Let's begin.
+चलो शुरू करें।
 <br/>
 
-- Access the system terminal from the tab [button label="Ubuntu 2404 LTS" variant="success"](tab-1)
+- [button label="Ubuntu 2404 LTS" variant="success"](tab-1) टैब से सिस्टम टर्मिनल तक पहुंचें
 
-  Before we make any changes let's check where it is sourcing the packages from:
+  इससे पहले कि हम कोई बदलाव करें, आइए जांचें कि यह पैकेज कहां से प्राप्त कर रहा है:
 
 ```bash,run
 grep -v '^#\|^Types:\|Trusted:\|Architectures:' /etc/apt/sources.list.d/*
 ```
 
-This workstation is pulling software directly from public Ubuntu repositories. This presents two issues: first, we have no control over the patches being applied, which is a security concern. Second, as the marketing team reported, every time these workstations fetch updates, they can slow down the office internet connection, causing frustration for other employees.
+यह वर्कस्टेशन सीधे सार्वजनिक Ubuntu रिपॉजिटरी से सॉफ़्टवेयर खींच रहा है। यह दो समस्याएं प्रस्तुत करता है: पहला, लागू किए जा रहे पैच पर हमारा कोई नियंत्रण नहीं है, जो एक सुरक्षा चिंता है। दूसरा, जैसा कि मार्केटिंग टीम ने बताया, हर बार जब ये वर्कस्टेशन अपडेट प्राप्त करते हैं, तो वे कार्यालय के इंटरनेट कनेक्शन को धीमा कर सकते हैं, जिससे अन्य कर्मचारियों के लिए निराशा होती है।
 
 
-Let's bring this system under our management. This will solve both problems by connecting it to our internal <b class="smlmext">SUSE Multi-Linux Manager</b> instance for all software needs.
+आइए इस सिस्टम को हमारे प्रबंधन के तहत लाएं। यह सभी सॉफ़्टवेयर आवश्यकताओं के लिए इसे हमारे आंतरिक <b class="smlmext">SUSE Multi-Linux Manager</b> इंस्टेंस से जोड़कर दोनों समस्याओं का समाधान करेगा।
 
-We are going to use the [button label="web UI" variant="success"](tab-0) to do so:
+हम ऐसा करने के लिए [button label="web UI" variant="success"](tab-0) का उपयोग करने जा रहे हैं:
 
-- Under `Home` ✈ `Overview`, let's click on `Register Systems`
+- `Home` ✈ `Overview` के तहत, चलिए `Register Systems` पर क्लिक करते हैं
 
-- Fill in the following details:
+- निम्नलिखित विवरण भरें:
 
   - **Host:**
 
@@ -178,14 +178,14 @@ We are going to use the [button label="web UI" variant="success"](tab-0) to do s
   [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
   ```
 
-  - **Activation Key:**   <b class="highlightcopy">1-ubuntu2404</b>
+  - **Activation Key:** <b class="highlightcopy">1-ubuntu2404</b>
 
-- Leave the rest as it is and click on
+- बाकी को वैसे ही छोड़ दें और क्लिक करें
 
 <img style='padding: 0; margin:0; vertical-align: middle' src="../assets/SMLM5.1/bottom-bootstrap.png"/>
 
 
-- The registration process may take a couple of minutes to complete, let's go to the [button label="terminal" variant="success"](tab-1) and run the first command one more time to see what has changed:
+- पंजीकरण प्रक्रिया को पूरा होने में कुछ मिनट लग सकते हैं, चलिए [button label="terminal" variant="success"](tab-1) पर जाते हैं और यह देखने के लिए कि क्या बदला है, पहला कमांड एक बार और चलाते हैं:
 
 
 ```bash,run
@@ -193,22 +193,22 @@ echo 'Waiting for the registration to complete' ;while [[ ! -f /etc/apt/sources.
 ```
 
 
-We can see new files appeared:
+हम देख सकते हैं कि नई फाइलें दिखाई दी हैं:
 
 **/etc/apt/sources.list.d/susemanager:***
 
-They point to the system to our centrally managed and controlled channels in <b class="smlm">SMLM</b>.
+वे सिस्टम को <b class="smlm">SMLM</b> में हमारे केंद्रीय रूप से प्रबंधित और नियंत्रित चैनलों की ओर इंगित करते हैं।
 
 
-We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, has been modified to disable all the public respositories but has not been eliminated, this would allow us to roll back easily if we needed so.
-
-
-> [!NOTE]
-> Using root via SSH with password authentication for registering is just for demonstration purposes and not recommended for production.
+हम यह भी देख सकते हैं कि मूल फ़ाइल, **/etc/apt/sources.list.d/ubuntu.sources**, को सभी सार्वजनिक रिपॉजिटरी को अक्षम करने के लिए संशोधित किया गया है लेकिन हटाया नहीं गया है, यह हमें ज़रूरत पड़ने पर आसानी से वापस (roll back) जाने की अनुमति देगा।
 
 
 > [!NOTE]
-> By default we have to approve the registration of each system through the UI or via command line < salt-key -A -y >, here <b class="smlm">SMLM</b> has been configured to auto approve.
+> पंजीकरण के लिए पासवर्ड प्रमाणीकरण के साथ SSH के माध्यम से root का उपयोग करना केवल प्रदर्शन उद्देश्यों के लिए है और उत्पादन (production) के लिए अनुशंसित नहीं है।
+
+
+> [!NOTE]
+> डिफ़ॉल्ट रूप से हमें UI के माध्यम से या कमांड लाइन < salt-key -A -y > के माध्यम से प्रत्येक सिस्टम के पंजीकरण को स्वीकार करना होगा, यहाँ <b class="smlm">SMLM</b> को स्वतः स्वीकार (auto approve) करने के लिए कॉन्फ़िगर किया गया है।
 
 
   <div style='align: middle; margin: 15px;'>
@@ -219,18 +219,18 @@ We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, h
 
 
 
-Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+अब [button label="SMLM UI" variant="success"](tab-0) टैब पर स्विच करें
 
 
-- We navigate to `Systems` ✈ `System List` ✈ `All`
+- हम `Systems` ✈ `System List` ✈ `All` पर नेविगेट करते हैं
 
-  We can see the system we just registered `Ubuntu2404lts`, note by default it will be registered under the hostname.
+  हम वह सिस्टम देख सकते हैं जिसे हमने अभी पंजीकृत किया है `Ubuntu2404lts`, ध्यान दें कि डिफ़ॉल्ट रूप से यह होस्टनाम (hostname) के तहत पंजीकृत होगा।
 
-  Let's click on it, we will go directly to `Details` - `Overview` where we can see amongst other information:
+  आइए इस पर क्लिक करें, हम सीधे `Details` - `Overview` पर जाएंगे जहां हम अन्य सूचनाओं के बीच देख सकते हैं:
 
-  - The system status.
-  - All the information such as hostname, IP address, type of virtualization, Kernel used and installed products.
-  - The channels it is subscribed to.
+  - सिस्टम की स्थिति।
+  - होस्टनाम, आईपी पता, वर्चुअलाइजेशन का प्रकार, उपयोग किया गया कर्नेल और इंस्टॉल किए गए उत्पादों जैसी सभी जानकारी।
+  - वे चैनल जिन्हें इसने सब्सक्राइब किया है।
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/managing_different_linux_distros-ubuntu_overview.gif"/>
@@ -239,37 +239,37 @@ Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
 
 <br/>
 
-Managing multiple Linux distributions
+कई Linux डिस्ट्रीब्यूशन का प्रबंधन
 =====================================
 
 
-As mentioned earlier, at <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> we use different Linux distributions, like we use different airplane models and companies. This helps us to stay ahead of the competition by using the most suitable product for each of our needs.
+जैसा कि पहले बताया गया है, <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> में हम विभिन्न Linux डिस्ट्रीब्यूशन का उपयोग करते हैं, जैसे हम विभिन्न हवाई जहाज मॉडल और कंपनियों का उपयोग करते हैं। यह हमें हमारी प्रत्येक आवश्यकता के लिए सबसे उपयुक्त उत्पाद का उपयोग करके प्रतिस्पर्धा से आगे रहने में मदद करता है।
 
-With <b class="smlmext">SUSE Multi-Linux Manager</b> we can manage all of them with the same procedures, same schedules, etc.. using the same interface and mechanisms.
+<b class="smlmext">SUSE Multi-Linux Manager</b> के साथ हम उन सभी को समान प्रक्रियाओं, समान समय सारिणी, आदि के साथ प्रबंधित कर सकते हैं... समान इंटरफ़ेस और तंत्र का उपयोग करके।
 
-Below we will explore how to perform different tasks on your systems, following the same process independently of which OS our systems are running, without having to create unecessary customizations.
-
-
-## <b class="hovereffect">Add extra information</b>
+नीचे हम पता लगाएंगे कि आपके सिस्टम पर विभिन्न कार्यों को कैसे निष्पादित किया जाए, उसी प्रक्रिया का पालन करते हुए चाहे हमारे सिस्टम कोई भी OS चला रहे हों, बिना अनावश्यक अनुकूलन (customizations) बनाए।
 
 
-Let's continue with the system we just registered, we are going to add a few settings and information to it:
-
-- Let's click in `Properties`, where we will add extra information about the system and change some settings.
+## <b class="hovereffect">अतिरिक्त जानकारी जोड़ें</b>
 
 
-  - Enable Automatic application of patches:
+आइए उस सिस्टम के साथ जारी रखें जिसे हमने अभी पंजीकृत किया है, हम इसमें कुछ सेटिंग्स और जानकारी जोड़ने जा रहे हैं:
+
+- आइए `Properties` में क्लिक करें, जहां हम सिस्टम के बारे में अतिरिक्त जानकारी जोड़ेंगे और कुछ सेटिंग्स बदलेंगे।
+
+
+  - पैच के स्वचालित अनुप्रयोग को सक्षम करें (Enable Automatic application of patches):
 
   <img style='vertical-align: middle; height: 60%; width: 60%; object-fit: contain' src="../assets/SMLM5.1/option-auto_patch_update-enabled.png"/>
 
-    This will automatically patch the system when there are relevant patches.
+    प्रासंगिक पैच होने पर यह स्वचालित रूप से सिस्टम को पैच करेगा।
 
 
 
-  - Add the following details for the system:
+  - सिस्टम के लिए निम्नलिखित विवरण जोड़ें:
 
 
-| Field | Content                                                  |
+| फ़ील्ड (Field) | सामग्री (Content)                                                  |
 | ---: | :-----                                                    |
 | **Description** | <b class="highlightcopy">Multimedia workstation for graphics designers.</b> |
 | **Facility Address** | <b class="highlightcopy">Candy eye street, 1</b> |
@@ -282,26 +282,26 @@ Let's continue with the system we just registered, we are going to add a few set
 
 
 
-- Let's look at what hardware it is running on:
+- आइए देखें कि यह किस हार्डवेयर पर चल रहा है:
 
-  - Click on `Details` ✈ `Hardware`
+  - क्लिक करें `Details` ✈ `Hardware`
 
 
 <br/>
 
 > [!NOTE]
-> All this can be automated through the API.
+> यह सब API के माध्यम से स्वचालित किया जा सकता है।
 
 <br/>
 
-Now we are going to add some extra information to the system using custom keys, this information can be easily consumed in your automation scripts later on.
+अब हम कस्टम कीज़ (custom keys) का उपयोग करके सिस्टम में कुछ अतिरिक्त जानकारी जोड़ने जा रहे हैं, इस जानकारी को बाद में आपके ऑटोमेशन स्क्रिप्ट में आसानी से उपयोग किया जा सकता है।
 
 
-- Click on `Details` ✈ `Custom Info`
+- क्लिक करें `Details` ✈ `Custom Info`
 
 <img style='vertical-align: top; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Create_Value.png"/>
 
-- Click `application` and fill **value** with the following:
+- `application` पर क्लिक करें और **value** (मान) को निम्नलिखित के साथ भरें:
 
 ```text
 Logo Wings designer pro
@@ -313,22 +313,22 @@ Logo Wings designer pro
 <br/>
 
 > [!NOTE]
-> We have already create the custom key **application** for you, if you want to create you own keys it is as simple as going to: `Systems` ✈ `Custom System Info` ✈ `Create key`
+> हमने आपके लिए कस्टम की **application** पहले ही बना दी है, यदि आप अपनी खुद की कीज़ (keys) बनाना चाहते हैं तो यह उतना ही सरल है जितना कि यहाँ जाना: `Systems` ✈ `Custom System Info` ✈ `Create key`
 
 <br/><br/>
 
-Let's go back to the Systems list
+आइए Systems सूची पर वापस जाएं
 
 `Systems` ✈ `System List` ✈ `All`
 
 
-Let's click on any of the systems and go to `Details` ✈ `Custom Info`.
+आइए किसी भी सिस्टम पर क्लिक करें और `Details` ✈ `Custom Info` पर जाएं।
 
-We have already populated each system with a value,
+हमने पहले से ही प्रत्येक सिस्टम को एक मान (value) के साथ आबाद (populate) कर दिया है,
 
 <br/>
 
-Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subscribed Channels**, these are different than the ones in your Ubuntu system because they are running a different operating system.
+अब `Details` ✈ `Overview` पर जाएं और **Installed Products** और **Subscribed Channels** पर ध्यान दें, ये आपके Ubuntu सिस्टम वाले से अलग हैं क्योंकि वे एक अलग ऑपरेटिंग सिस्टम चला रहे हैं।
 
 
 
@@ -339,35 +339,35 @@ Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subsc
 <br/>
 
 
-## <b class="hovereffect">Run commands on multiple systems at once</b>
+## <b class="hovereffect">एक साथ कई सिस्टम पर कमांड चलाएं</b>
 
 
-Let's do something on all the systems we have, go back to `Systems` ✈ `System List` ✈ `All` and select all:
+आइए हमारे पास मौजूद सभी सिस्टम पर कुछ करें, `Systems` ✈ `System List` ✈ `All` पर वापस जाएं और सभी का चयन करें:
 
 <img style='vertical-align: middle; margin: 2px; height: 50%; width: 50%; object-fit: contain' src="../assets/SMLM5.1/select_all_systems.png"/>
 
-Notice the **Base Channel** column, we have systems running three different OS.
+**Base Channel** कॉलम पर ध्यान दें, हमारे पास तीन अलग-अलग OS चलाने वाले सिस्टम हैं।
 
 <br/>
 
-Having selected all the systems we want to operate let's go to perform a group action:
+संचालित करने के लिए इच्छित सभी सिस्टम का चयन करने के बाद, आइए एक समूह कार्रवाई (group action) करने चलते हैं:
 
 `Systems` ✈ `System Set Manager`
 
-Let's run a command on all of them, for that we can go to:
+आइए उन सभी पर एक कमांड चलाएं, उसके लिए हम यहां जा सकते हैं:
 
 `Misc` ✈ `Remote Command`
 
-then fill in the following details and leave the rest with the default values:
+फिर निम्नलिखित विवरण भरें और बाकी को डिफ़ॉल्ट मानों के साथ छोड़ दें:
 
 
-Script:
+स्क्रिप्ट (Script):
 
 ```bash,run
 cat /etc/os-release
 ```
 
-Don't modify the schedule, we want it to run as soon as possible, click on:
+शेड्यूल (schedule) को संशोधित न करें, हम चाहते हैं कि यह जल्द से जल्द चले, क्लिक करें:
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Schedule.png"/>
 
@@ -377,23 +377,23 @@ Don't modify the schedule, we want it to run as soon as possible, click on:
 
 <br/><br/>
 
-You will see a blue notice on the top indicating that the task has been scheduled.
+आपको शीर्ष पर एक नीला नोटिस दिखाई देगा जो दर्शाता है कि कार्य निर्धारित किया गया है।
 
-Let's go to see the results, for that we will go to:
+आइए परिणाम देखने चलते हैं, उसके लिए हम यहां जाएंगे:
 
 `Schedule` ✈ `Completed Actions`
 
-We will see a list of actions, in **Filter by Action** field type:
+हम कार्रवाइयों की एक सूची देखेंगे, **Filter by Action** फ़ील्ड में टाइप करें:
 
 ```text
 Run
 ```
-Click on the top entry that appears on the list, should be similar to this:
+सूची में दिखाई देने वाली शीर्ष प्रविष्टि पर क्लिक करें, यह इसके समान होनी चाहिए:
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/Select_complete_action_run.png"/>
 
 
-There we can go to **Completed Systems** and examine the result by clicking on the system name.
+वहां हम **Completed Systems** पर जा सकते हैं और सिस्टम नाम पर क्लिक करके परिणाम की जांच कर सकते हैं।
 
 
   <div style='align: middle; margin: 15px;'>
@@ -405,27 +405,24 @@ There we can go to **Completed Systems** and examine the result by clicking on t
 
 <br/><br/>
 
-With this we complete this part, we will see more examples of how we can manage multiple Linux systems along the workshop.
+इसके साथ हम इस भाग को पूरा करते हैं, हम वर्कशॉप के दौरान कई Linux सिस्टम को प्रबंधित करने के तरीके के और उदाहरण देखेंगे।
 
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] के लिए यह महत्वपूर्ण क्यों है?
 =================================================================================
 
-- No vendor lock-in, keep the freedom of choice and flexibility to react fast to changing markets.
+- कोई वेंडर लॉक-इन नहीं, बदलते बाजारों पर तेजी से प्रतिक्रिया करने के लिए पसंद की स्वतंत्रता और लचीलापन बनाए रखें।
 
-- Simplify and save time avoiding extra work on customizations.
+- अनुकूलन (customizations) पर अतिरिक्त काम से बचकर सरल बनाएं और समय बचाएं।
 
-- A single UI to manage all reduces the complexity and will make future troubleshooting, scaling, patching and automation much more agile and less time consuming.
+- सभी को प्रबंधित करने के लिए एक एकल UI जटिलता को कम करता है और भविष्य की समस्या निवारण (troubleshooting), स्केलिंग, पैचिंग और ऑटोमेशन को बहुत अधिक चुस्त और कम समय लेने वाला बना देगा।
 
 
 
-More information
+अधिक जानकारी
 ================
 
-For a list of supported distributions please visit:
+समर्थित डिस्ट्रीब्यूशन की सूची के लिए कृपया देखें:
 
 [SMLM - Supported Clients and Features](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/client-configuration/supported-features.html)
-
-
-

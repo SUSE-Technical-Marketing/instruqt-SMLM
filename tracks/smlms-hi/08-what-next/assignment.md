@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: swgxeykwmryd
+id: k1cbpvwcit8m
 type: challenge
-title: What's next?
+title: आगे क्या?
 tabs:
-- id: bx0oibmauanb
+- id: 9auswxrqobsg
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Conclusion: Cleared for Takeoff
+🌌 निष्कर्ष: उड़ान भरने की मंजूरी (Cleared for Takeoff)
 ==================================
 
 <style type="text/css">
@@ -97,16 +97,18 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/08-whats_next.jpeg"/>
 
-Our final approach is complete. Throughout this workshop, we've navigated the challenges of managing a diverse, mission-critical IT fleet. We've seen how <b class="smlmext">SUSE Multi-Linux Manager</b> acts as our universal control tower, providing the visibility, automation, and security required to keep Chameleon Airlines flying high.
-
-For our engineers, this means less time fighting fires and more time innovating. It means having a standardized, reliable set of tools to manage any system, from our legacy workhorses to our most modern aircraft.
-
-For our decision-makers, this translates directly to reduced operational risk, lower costs, and enhanced business agility. It's the confidence of knowing our digital infrastructure is as robust, compliant, and reliable as the aircraft in our physical fleet.
-
-We hope this session has been a valuable one. The lab environment will remain available for you to explore further, so please continue to experiment. Our flight instructors are on standby to answer any questions you may have.
+हमारा अंतिम अप्रोच (final approach) पूरा हो गया है। इस पूरे वर्कशॉप के दौरान, हमने एक विविध, मिशन-महत्वपूर्ण आईटी बेड़े (IT fleet) के प्रबंधन की चुनौतियों को नेविगेट किया है। हमने देखा है कि कैसे <b class="smlmext">SUSE Multi-Linux Manager</b> हमारे यूनिवर्सल कंट्रोल टॉवर के रूप में कार्य करता है, जो Chameleon Airlines को ऊंचाइयों पर उड़ान भरने के लिए आवश्यक दृश्यता (visibility), स्वचालन (automation) और सुरक्षा (security) प्रदान करता है।
 
 
-For those who wish to dive deeper after today's session, here are some key navigation points:
+
+हमारे इंजीनियरों के लिए, इसका मतलब है समस्याओं को सुलझाने (fighting fires) में कम समय और नवाचार (innovation) में अधिक समय। इसका मतलब है किसी भी सिस्टम को प्रबंधित करने के लिए उपकरणों का एक मानकीकृत, विश्वसनीय सेट होना, हमारे पुराने वर्कहॉर्स (legacy workhorses) से लेकर हमारे सबसे आधुनिक विमानों तक।
+
+हमारे निर्णय निर्माताओं के लिए, इसका सीधा अर्थ है कम परिचालन जोखिम, कम लागत और बढ़ी हुई व्यावसायिक चपलता (business agility)। यह यह जानने का आत्मविश्वास है कि हमारा डिजिटल बुनियादी ढांचा (digital infrastructure) उतना ही मजबूत, अनुपालन (compliant) और विश्वसनीय है जितना कि हमारे भौतिक बेड़े (physical fleet) में मौजूद विमान।
+
+हमें उम्मीद है कि यह सत्र मूल्यवान रहा है। लैब का वातावरण आपके लिए आगे और अन्वेषण करने के लिए उपलब्ध रहेगा, इसलिए कृपया प्रयोग करना जारी रखें। हमारे उड़ान प्रशिक्षक (flight instructors) आपके किसी भी प्रश्न का उत्तर देने के लिए तैयार हैं।
+
+
+जो लोग आज के सत्र के बाद और गहराई में जाना चाहते हैं, उनके लिए यहां कुछ प्रमुख नेविगेशन बिंदु दिए गए हैं:
 
 - [SUSE Multi-Linux Manager](https://www.suse.com/products/multi-linux-manager/)
 - [SUSE Multi-Linux Support](https://www.suse.com/products/multi-linux-support/)
@@ -114,4 +116,4 @@ For those who wish to dive deeper after today's session, here are some key navig
 - [SUSE Products and Solutions](https://www.suse.com/)
 
 
-It has been a pleasure to fly with you!
+आपके साथ उड़ान भरना खुशी की बात रही!
