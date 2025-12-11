@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: 5mkftmzuno7p
+id: ejxtdpb7jztq
 type: challenge
 title: Lifecycle management
 tabs:
-- id: wdxp5fjicmfm
+- id: vj7zqlkc0xab
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -55,6 +55,11 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
@@ -125,10 +130,7 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL:
-```txt
-[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
-```
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 Building Our Software Certification Pathway
@@ -151,11 +153,25 @@ Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
 - Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
 
 - Fill in the project details:
-    * **Project Name:**        "Airtrain SLES15 SPx"
 
-    * **Project Label:**       "at-sles15_spx"
+- **Project Name:**
 
-    * **Project Description:** "Certified software channel for Airtrain SLES 15 systems."
+```txt
+Airtrain SLES15 SPx
+```
+
+- **Project Label:**
+
+```txt
+at-sles15_spx
+```
+
+- **Project Description:**
+
+```txt
+Certified software channel for Airtrain SLES 15 systems.
+```
+
 
 - Click ![Create](../assets/SMLM5.1/bottom-create.png)
 
@@ -176,8 +192,8 @@ Create the Development Environment Lifecycle
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
 - Populate with the following:
-  * **Name:** 'Development'
-  * **label:** 'dev'
+  * **Name:** <b class="highlightcopy">Development</b>
+  * **Label:** <b class="highlightcopy">dev</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -190,8 +206,8 @@ Create the Quality Assurance Environment Lifecycle
 - Click on `Add Environment`
 
 - Populate with the following:
-  * **Name:** 'QA'
-  * **label:** 'qa'
+  * **Name:** <b class="highlightcopy">QA</b>
+  * **Label:** <b class="highlightcopy">qa</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -204,8 +220,8 @@ Create the Production Environment Lifecycle
 - Click on `Add Environment`
 
 - Populate with the following:
-  * **Name:** 'Production'
-  * **label:** 'prod'
+  * **Name:** <b class="highlightcopy">Production</b>
+  * **Label:** <b class="highlightcopy">prod</b>
 
 - Click on ![Save](../assets/SMLM5.1/bottom-save.png)
 
@@ -221,11 +237,17 @@ We will not use a filter in this case since <b class="sles">SLES</b> already pro
 
 - Click on ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- Fill in **Version Message** with 'October'
+- In **Version Message** type
+
+```txt
+October
+```
+
+
 - Click on `Build`
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process only creates new package database pointers and metadata, and does not duplicate the actual packages themselves.
+> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
 
 
 <br/>
@@ -270,7 +292,12 @@ Let's go to `Systems` ✈ `System List` ✈ `All`
 
 Go back to `Systems` ✈ `System List` ✈ `All`
 
-- Filter by **at-**
+- Filter by:
+
+```txt
+at-
+```
+
 - Select all the systems that end with **-pro**
 - Go to `Systems` ✈ `System Set Manager`
 - Go to `Channels`
@@ -298,7 +325,13 @@ No new patches will suddenly appear and disrupt their work.
 
 - Click on ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- Fill in **Version Message** with 'November'
+- In **Version Message** type
+
+```txt
+November
+```
+
+
 - Click on `Build`
 
 Notice the version number has automatically increased.

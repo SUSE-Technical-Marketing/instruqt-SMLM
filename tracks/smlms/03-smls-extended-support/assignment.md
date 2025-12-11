@@ -1,18 +1,18 @@
 ---
 slug: smls-extended-support
-id: toiuxfccrem6
+id: p19lqfytmc9b
 type: challenge
 title: Extended support for legacy systems
 tabs:
-- id: yul9vefh6tvz
+- id: 9xmkhkrycdlq
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: t9wd3x1kfptg
+- id: 40lnzj9nsp9b
   title: CentOS 7 QA
   type: terminal
   hostname: centos7
-- id: 3xkuol0trtxd
+- id: boawmufluo08
   title: CentOS 7 Prod
   type: terminal
   hostname: zzcentos7
@@ -63,6 +63,11 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
@@ -149,10 +154,7 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL:
-```txt
-[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
-```
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 
@@ -187,14 +189,14 @@ This is similar to the one we used to onboard Ubuntu in the previous lab, what c
 - **Profile name**: If we don't specify it will use the hostname but in this case we want it to have a more meaningful name with the same naming convention we used with Centos 7 Prod.
 
 
-Now let's run the following command on both systems ( [button label="Centos 7 QA" variant="success"](tab-1) and [button label="Centos 7 Prod" variant="success"](tab-2) ) to see what is happening when we perform the updates and apply the Liberate formula.
+**Optional:** If we are curious and want to see what happens when we upgrade and execute the Liberate formula we can run the following command on both systems ( [button label="Centos 7 QA" variant="success"](tab-1) and [button label="Centos 7 Prod" variant="success"](tab-2) ):
 
 
 ```bash,run
 journalctl -f
 ```
 
-
+And see the logs appearing in the terminals.
 
 
 <br/><br/>
@@ -202,6 +204,7 @@ journalctl -f
 
 ## <b class="hovereffect">Identify and apply updates from <b class="liberty">Liberty</b> repositories</b>
 
+This Centos 7 systems come with the latest packages provided upstream, we want to make sure new bugs are fixed and we have a friendly support person to help us when there are troubles, now we have already subscribed the Centos 7 systems to SUSE provided software repositories during the registration process, so let's patch them all:
 
 Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
 
@@ -209,6 +212,10 @@ Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
 - Go to `Systems` ✈ `System List` in the left-hand menu.
 
 - Find your host **airco-dh4a-qa** and click on it.
+
+- Select the `Software` ✈ `Packages`
+
+- Click on `Update Packages List`, this will take about a minute to complete
 
 - Select the `Software` ✈ `Patches`
 
@@ -218,7 +225,7 @@ Click on `Select All`, then `Apply Patches` in the upper right finally `Confirm`
 
 
 > [!NOTE]
-> It may take a few minutes for the patches to appear. You can force it by going to `Software` ✈ `Packages` and press `Update Package List` and wait for 1 minute.
+> It may take a couple of minutes to get the list of packages before you can see the list of patches that can be applied to the system.
 
 
 Since this may take a while, let's see what happens under the hood.
@@ -229,11 +236,11 @@ If we click on it we can see all the details, feel free to have a look, otherwis
 
 ![Successfully patched](../assets/SMLM5.1/successfully_updated_system.png)
 
-We just applied patches, there is neither migration nor upgrade.
+We just applied patches that fix bugs to the exisiting packages, this patched packages are coming directly from SUSE, this is not a migration.
 
 <br/>
 
-Let's compare it against the production system.
+Let's compare it against the production system which we haven't updated yet.
 
 Please go to `Software` ✈ `Packages` ✈ `Profiles`
 
@@ -262,8 +269,10 @@ before_liberation
 <br/><br/>
 
 
-Liberate the system
-====================
+Liberate the system (optional)
+==============================
+
+This is an **optional** step and not required to obtain support.
 
 Now let's liberate the system:
 
@@ -293,9 +302,7 @@ Let's wait for a couple of minutes for it to finish, in the mean time you can ob
 
 <br/><br/>
 
-
-Observe what has changed
-=============================================
+## <b class="hovereffect">Observe what has changed</b>
 
 
 Once it's completed let's compare the system again to see the difference, if we are not there already let's click on the system name `airco-dh4a-qa`.
@@ -322,18 +329,6 @@ The same applies to more modern versions of CentOS and RHEL, you can transform t
 <br/>
 
 
-## <b class="hovereffect">Is it a migration?</b>
-
-
-A migration involves building a brand-new server, reinstalling all applications from scratch, and carefully moving the data over, a process that is time-consuming, expensive, and fraught with risk.
-
-What we did was far more elegant. We performed an in-place upgrade.
-
-The server's identity, hostname, applications, and user data remained completely untouched. We simply changed its underlying source for updates, swapping out the end-of-life components for fully supported ones.
-
-We've successfully extended the life of our system, brought it back into security compliance, and did it all without the disruption of a full migration. That's the efficiency that keeps [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] flying high.
-
-
 
 Liberate the production server (optional)
 =========================================
@@ -347,6 +342,18 @@ We have seen how to patch and Liberate our old Centos 7 server in QA, now it's t
   Afterwards let's apply the **Liberate** formula like we did with the QA system.
 
 - Once it's completed, let's compare the system with the profile we just created, as we can see the only change has been the **centos-logos** and **centos-release** packages, the rest remains exactly the same.
+
+
+Is it a migration?
+==================
+
+A migration involves building a brand-new server, reinstalling all applications from scratch, and carefully moving the data over, a process that is time-consuming, expensive, and fraught with risk.
+
+What we did was far more elegant. We performed an in-place upgrade.
+
+The server's identity, hostname, applications, and user data remained completely untouched. We simply changed its underlying source for updates, and those end-of-life components are not fully supported ones receiving patches.
+
+We've successfully extended the life of our system, brought it back into security compliance, and did it all without the disruption of a full migration. That's the efficiency that keeps [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] flying high.
 
 
 

@@ -35,6 +35,12 @@ echo "Launching register script with nohup"
 cd /root/
 nohup /root/register.sh >>/root/registration.log &
 
+cat << EOF > /root/downloadpkg.sh
+sleep 300
+yum update --downloadonly -y
+EOF
+chmod +x /root/downloadpkg.sh
+nohup /root/downloadpkg.sh &
 
 
 

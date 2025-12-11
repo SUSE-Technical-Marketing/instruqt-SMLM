@@ -1,10 +1,10 @@
 ---
 slug: smlm-security
-id: 9a7xiirqoeu8
+id: aclbwkhzejoc
 type: challenge
 title: Security and patching
 tabs:
-- id: hbnxwyfdoo5q
+- id: 3b5zt9sllzou
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -55,6 +55,11 @@ enhanced_loading: null
   }
   .sles {
     color: #90ebcd;
+  }
+  .highlightcopy {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
   }
 
   .bottoms {
@@ -122,10 +127,7 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL:
-```txt
-[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]
-```
+<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 
@@ -135,7 +137,7 @@ Audit your systems
 
 We want to audit our production systems to make sure they are compliant.
 
-Make sure the following packages are installed:
+We have already verified the following packages are installed:
 
 - openscap-utils
 - scap-security-guide
@@ -151,8 +153,8 @@ We will be directed to the **System Set Manager Overview** page, as we saw earli
 
 - Go to `Audit` tab
 - Under `OpenSCAP` complete the form with the following details, leave the rest with the defaults:
-  - **Command-line Arguments:** --profile xccdf_org.ssgproject.content_profile_stig
-  - **Path to XCCDF document:** /usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml
+  - **Command-line Arguments:** <b class="highlightcopy">--profile xccdf_org.ssgproject.content_profile_stig</b>
+  - **Path to XCCDF document:** <b class="highlightcopy">/usr/share/xml/scap/ssg/content/ssg-sle15-ds.xml</b>
 - Press
 
 
