@@ -1,14 +1,14 @@
 slug: smlms-de
-id: hrdrzxximnj9
-title: SUSE Multi-Linux Hands-on Workshop - DE
+id: vomsz4pnapc8
+title: SUSE Multi-Linux Hands-on Workshop - German
 description: |
-  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Throughout this workshop, you will explore the core capabilities of <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, our best-in-class solution for managing diverse Linux environments at scale, and <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Im Verlauf dieses Workshops werden Sie die Kernfunktionen von <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, unserer erstklassigen Lösung zur Verwaltung vielfältiger Linux-Umgebungen im großen Maßstab, sowie von <b style="color: #30ba78">SUSE Multi-Linux Support</b> kennenlernen.</p>
 
-  <p>You will learn how to solve real-world IT challenges by using <b style="color: #30ba78">SUSE</b>'s powerful tools to automate tasks, ensure security compliance, and manage the entire lifecycle of your systems—from legacy distributions to the latest enterprise servers.</p>
+  <p>Sie erfahren, wie Sie reale IT-Herausforderungen lösen, indem Sie die leistungsstarken Tools von <b style="color: #30ba78">SUSE</b> nutzen, um Aufgaben zu automatisieren, die Sicherheits-Compliance zu gewährleisten und den gesamten Lebenszyklus Ihrer Systeme zu verwalten – von Legacy-Distributionen bis hin zu den neuesten Enterprise-Servern.</p>
 
-  <p>This workshop is designed to give you practical skills and a clear understanding of how to simplify and control your complex infrastructure.</p>
+  <p>Dieser Workshop wurde entwickelt, um Ihnen praktische Fähigkeiten und ein klares Verständnis dafür zu vermitteln, wie Sie Ihre komplexe Infrastruktur vereinfachen und kontrollieren können.</p>
 
-  <p>Let's get started.</p></span>
+  <p>Legen wir los.</p></span>
 icon: https://www.suse.com/favicon.ico
 tags:
 - smls
@@ -19,6 +19,7 @@ tags:
 owner: suse
 developers:
 - raul.mahiques@suse.com
+maintenance: true
 skipping_enabled: true
 idle_timeout: 6000
 timelimit: 10800
@@ -30,5 +31,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
+checksum: "17334561703155806088"
 enhanced_loading: true
-maintenance: true

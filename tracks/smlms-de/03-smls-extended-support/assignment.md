@@ -1,18 +1,18 @@
 ---
 slug: smls-extended-support
-id: p19lqfytmc9b
+id: hbtkbmra5kws
 type: challenge
-title: Extended support for legacy systems
+title: Erweiterter Support für Legacy-Systeme
 tabs:
-- id: 9xmkhkrycdlq
+- id: kwpt4olnzeq3
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: 40lnzj9nsp9b
+- id: amcvpvjsunny
   title: CentOS 7 QA
   type: terminal
   hostname: centos7
-- id: boawmufluo08
+- id: owmxnld5pkud
   title: CentOS 7 Prod
   type: terminal
   hostname: zzcentos7
@@ -21,7 +21,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Extended support for legacy systems
+🌌 Erweiterter Support für Legacy-Systeme
 ===================================
 
 <style type="text/css">
@@ -107,36 +107,36 @@ enhanced_loading: null
 <img style="width: 10px;" src="../assets/logos/chameleon_icon.png" />
 <img class="logos" alt="Welcome!" src="../assets/logos/03_extended_support.jpeg"/>
 
-# Extending the Life of Our Legacy Fleet
+# Verlängerung der Lebensdauer unserer Legacy-Flotte
 
-In any airline, you have older, reliable planes that have served you for years but for which you have no replacement yet. For us, a part of that legacy fleet is our CentOS 7 systems. They are stable but end-of-life, meaning they no longer receive critical security updates from their original manufacturer. For an airline, flying without support is a risk we simply cannot take.
+In jeder Fluggesellschaft gibt es ältere, zuverlässige Flugzeuge, die Ihnen seit Jahren dienen, für die Sie jedoch noch keinen Ersatz haben. Für uns ist ein Teil dieser Legacy-Flotte unsere CentOS 7 Systeme. Sie sind stabil, aber End-of-Life, was bedeutet, dass sie keine kritischen Sicherheitsupdates mehr von ihrem ursprünglichen Hersteller erhalten. Für eine Fluggesellschaft ist das Fliegen ohne Support ein Risiko, das wir einfach nicht eingehen können.
 
-The traditional solution would be a full, costly replacement of every single one.
-But what if we could perform a life-extension upgrade, modernizing them in place with minimal disruption? That is precisely the mission for this challenge. We will use the power of <b class="smlmext">SUSE Multi-Linux Manager</b> together with <b class="smlsext">SUSE Multi-Linux Support</b> to safely transition these systems and keep them in service until we can replace them with a more modern OS.
+Die traditionelle Lösung wäre ein vollständiger, kostspieliger Austausch jedes einzelnen Systems.
+Aber was wäre, wenn wir ein Upgrade zur Lebensdauerverlängerung durchführen könnten, indem wir sie vor Ort mit minimaler Unterbrechung modernisieren? Genau das ist die Mission für diese Herausforderung. Wir werden die Kraft des <b class="smlmext">SUSE Multi-Linux Manager</b> zusammen mit <b class="smlsext">SUSE Multi-Linux Support</b> nutzen, um diese Systeme sicher zu überführen und sie im Dienst zu halten, bis wir sie durch ein moderneres OS ersetzen können.
 
 
 
-## <b class="hovereffect">Our flight plan:</b>
+## <b class="hovereffect">Unser Flugplan:</b>
 
-- Examine the current legacy systems running Centos 7
+- Untersuchen der aktuellen Legacy-Systeme, auf denen Centos 7 läuft
 
-- Onboard the QA system and apply any patches available
+- Onboarden des QA-Systems und Anwenden aller verfügbaren Patches
 
-- Identify and apply updates if any.
+- Identifizieren und Anwenden von Updates, falls vorhanden.
 
-- Liberate the system with the liberate formula.
+- Befreien (Liberate) des Systems mit der Liberate-Formel.
 
-- Observe what has changed between both systems
+- Beobachten, was sich zwischen beiden Systemen geändert hat
 
-- Identify if this is a migration.
+- Identifizieren, ob es sich um eine Migration handelt.
 
 <br/>
 
-## <b class="hovereffect">Our airplanes</b>
+## <b class="hovereffect">Unsere Flugzeuge</b>
 
-- CentOS 7 QA ✈ Our test and development server.
+- CentOS 7 QA ✈ Unser Test- und Entwicklungsserver.
 
-- CentOS 7 Prod ✈ Our production server already registered in <b class="smlm">SMLM</b>
+- CentOS 7 Prod ✈ Unser Produktionsserver, der bereits im <b class="smlm">SMLM</b> registriert ist
 
 <br/><br/>
 
@@ -144,12 +144,12 @@ But what if we could perform a life-extension upgrade, modernizing them in place
 Lab details
 ===========
 
-Username:
+Benutzername (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Passwort (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -158,23 +158,23 @@ Password:
 
 
 
-Onboarding Centos 7 QA
+Onboarding von Centos 7 QA
 ======================
 
 
 
-## <b class="hovereffect">Examing the current legacy systems</b>
+## <b class="hovereffect">Untersuchung der aktuellen Legacy-Systeme</b>
 
-Access the system terminal from the tab [button label="Centos 7 QA" variant="success"](tab-1)
+Greifen Sie über den Tab [button label="Centos 7 QA" variant="success"](tab-1) auf das Systemterminal zu.
 
-Check the current version of the system:
+Überprüfen Sie die aktuelle Version des Systems:
 
 ```bash,run
 rpm -qi centos-release centos-logos
 ```
 
 
-Now run the follwing command to register the system into <b class="smlm">SMLM</b>:
+Führen Sie nun den folgenden Befehl aus, um das System im <b class="smlm">SMLM</b> zu registrieren:
 
 
 ```bash,run
@@ -182,79 +182,81 @@ curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh |
 ```
 
 
-This is similar to the one we used to onboard Ubuntu in the previous lab, what changes is:
+Dies ähnelt dem, was wir im vorherigen Labor für das Onboarding von Ubuntu verwendet haben. Was sich ändert, ist:
 
-- **Activation key**: Is a reference to the settings that will be applied to the system by default, in this case it has been created to only indicate which software channels the system will be registered to.
+- **Activation key** (Aktivierungsschlüssel): Ist eine Referenz auf die Einstellungen, die standardmäßig auf das System angewendet werden. In diesem Fall wurde er erstellt, um nur anzugeben, in welchen Softwarekanälen das System registriert wird.
 
-- **Profile name**: If we don't specify it will use the hostname but in this case we want it to have a more meaningful name with the same naming convention we used with Centos 7 Prod.
+- **Profile name** (Profilname): Wenn wir ihn nicht angeben, wird der Hostname verwendet, aber in diesem Fall möchten wir, dass er einen aussagekräftigeren Namen mit derselben Namenskonvention hat, die wir bei Centos 7 Prod verwendet haben.
 
 
-**Optional:** If we are curious and want to see what happens when we upgrade and execute the Liberate formula we can run the following command on both systems ( [button label="Centos 7 QA" variant="success"](tab-1) and [button label="Centos 7 Prod" variant="success"](tab-2) ):
+**Optional:** Wenn wir neugierig sind und sehen möchten, was passiert, wenn wir ein Upgrade durchführen und die Liberate-Formel ausführen, können wir den folgenden Befehl auf beiden Systemen ausführen ( [button label="Centos 7 QA" variant="success"](tab-1) und [button label="Centos 7 Prod" variant="success"](tab-2) ):
 
 
 ```bash,run
 journalctl -f
 ```
 
-And see the logs appearing in the terminals.
+Und sehen Sie, wie die Protokolle in den Terminals erscheinen.
 
 
 <br/><br/>
 
 
-## <b class="hovereffect">Identify and apply updates from <b class="liberty">Liberty</b> repositories</b>
+## <b class="hovereffect">Identifizieren und Anwenden von Updates aus <b class="liberty">Liberty</b> Repositories</b>
 
-This Centos 7 systems come with the latest packages provided upstream, we want to make sure new bugs are fixed and we have a friendly support person to help us when there are troubles, now we have already subscribed the Centos 7 systems to SUSE provided software repositories during the registration process, so let's patch them all:
-
-Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+Diese Centos 7 Systeme werden mit den neuesten Paketen geliefert, die Upstream bereitgestellt werden. Wir möchten sicherstellen, dass neue Fehler behoben werden und wir einen freundlichen Support-Mitarbeiter haben, der uns bei Problemen hilft. Nun haben wir die Centos 7 Systeme während des Registrierungsprozesses bereits für die von SUSE bereitgestellten Software-Repositories abonniert, also lassen Sie uns sie alle patchen:
 
 
-- Go to `Systems` ✈ `System List` in the left-hand menu.
 
-- Find your host **airco-dh4a-qa** and click on it.
+Wechseln wir nun zum [button label="SMLM UI" variant="success"](tab-0) Tab
 
-- Select the `Software` ✈ `Packages`
 
-- Click on `Update Packages List`, this will take about a minute to complete
+- Gehen Sie im linken Menü zu `Systems` ✈ `System List`.
 
-- Select the `Software` ✈ `Patches`
+- Suchen Sie Ihren Host **airco-dh4a-qa** und klicken Sie darauf.
 
-- You will see a list of available patches.
+- Wählen Sie `Software` ✈ `Packages`
 
-Click on `Select All`, then `Apply Patches` in the upper right finally `Confirm`. <b class="smlmext">SUSE Multi-Linux Manager</b> will now schedule and perform the upgrade procedure on the CentOS system.
+- Klicken Sie auf `Update Packages List`, dies dauert etwa eine Minute.
+
+- Wählen Sie `Software` ✈ `Patches`
+
+- Sie werden eine Liste der verfügbaren Patches sehen.
+
+Klicken Sie auf `Select All`, dann oben rechts auf `Apply Patches` und schließlich auf `Confirm`. Der <b class="smlmext">SUSE Multi-Linux Manager</b> wird nun den Upgrade-Vorgang auf dem CentOS-System planen und durchführen.
 
 
 > [!NOTE]
-> It may take a couple of minutes to get the list of packages before you can see the list of patches that can be applied to the system.
+> Es kann einige Minuten dauern, bis die Liste der Pakete abgerufen ist, bevor Sie die Liste der Patches sehen können, die auf das System angewendet werden können.
 
 
-Since this may take a while, let's see what happens under the hood.
-Go to `Events` tab, then to `History`, you should see a list of events that have happened since the system was registered into  <b class="smlm">SMLM</b>, in the first rows we should be able to find one event that contains something similar to *Combined Patch*.
+Da dies eine Weile dauern kann, lassen Sie uns sehen, was unter der Haube passiert.
+Gehen Sie zum Tab `Events`, dann zu `History`. Sie sollten eine Liste von Ereignissen sehen, die seit der Registrierung des Systems im <b class="smlm">SMLM</b> stattgefunden haben. In den ersten Zeilen sollten wir ein Ereignis finden können, das so etwas wie *Combined Patch* enthält.
 
 
-If we click on it we can see all the details, feel free to have a look, otherwise wait until the icon is green:
+Wenn wir darauf klicken, können wir alle Details sehen. Schauen Sie sich ruhig um, ansonsten warten Sie, bis das Symbol grün ist:
 
 ![Successfully patched](../assets/SMLM5.1/successfully_updated_system.png)
 
-We just applied patches that fix bugs to the exisiting packages, this patched packages are coming directly from SUSE, this is not a migration.
+Wir haben gerade Patches angewendet, die Fehler in den vorhandenen Paketen beheben. Diese gepatchten Pakete kommen direkt von SUSE, dies ist keine Migration.
 
 <br/>
 
-Let's compare it against the production system which we haven't updated yet.
+Vergleichen wir es mit dem Produktionssystem, das wir noch nicht aktualisiert haben.
 
-Please go to `Software` ✈ `Packages` ✈ `Profiles`
+Bitte gehen Sie zu `Software` ✈ `Packages` ✈ `Profiles`
 
-Select the system `airco-dh4a-prod`, which is the production version,  then click on:
+Wählen Sie das System `airco-dh4a-prod` aus, welches die Produktionsversion ist, und klicken Sie dann auf:
 
 ![Compare](../assets/SMLM5.1/bottom-compare.png)
 
 
-We can see most of the package versions has not changed, still the same version ( **X.X.X**-xyz ) but with a patch applied ( X.X.X-**xyz** ).
+Wir können sehen, dass sich die meisten Paketversionen nicht geändert haben, immer noch dieselbe Version ( **X.X.X**-xyz ), aber mit einem angewendeten Patch ( X.X.X-**xyz** ).
 
-Before we move onto the next secion let's create a stored profile, this will help us to see the differences more clearly after we apply the liberate formula in the next secion.
+Bevor wir zum nächsten Abschnitt übergehen, lassen Sie uns ein gespeichertes Profil erstellen. Dies wird uns helfen, die Unterschiede deutlicher zu sehen, nachdem wir im nächsten Abschnitt die Liberate-Formel angewendet haben.
 
 
-Please go to `Software` ✈ `Packages` ✈ `Profile` and click on `Create System Profile`. For the name you can call it:
+Bitte gehen Sie zu `Software` ✈ `Packages` ✈ `Profile` und klicken Sie auf `Create System Profile`. Als Namen können Sie es nennen:
 
 ```txt
 before_liberation
@@ -269,31 +271,31 @@ before_liberation
 <br/><br/>
 
 
-Liberate the system (optional)
+Das System befreien (Liberate) (optional)
 ==============================
 
-This is an **optional** step and not required to obtain support.
+Dies ist ein **optionaler** Schritt und nicht erforderlich, um Support zu erhalten.
 
-Now let's liberate the system:
+Lassen Sie uns nun das System befreien (liberate):
 
-- Go to the `Formulas` tab, search for **Liberate**, and once found, select it and click `Save` in the top right.
+- Gehen Sie zum Tab `Formulas`, suchen Sie nach **Liberate**, und sobald gefunden, wählen Sie es aus und klicken Sie oben rechts auf `Save`.
 
-You will see a message in blue on the top of the screen, scroll up if you can't see:
+Sie werden eine blaue Nachricht oben auf dem Bildschirm sehen. Scrollen Sie nach oben, wenn Sie sie nicht sehen können:
 
 ![Formula saved](../assets/SMLM5.1/formula_saved.png)
 
 
-Click on where it says `Highstate`, you will be directed to another tab (`States` ✈ `Highstate`).
+Klicken Sie dort, wo `Highstate` steht. Sie werden zu einem anderen Tab weitergeleitet (`States` ✈ `Highstate`).
 
-You can see in the summary at the bottom that the liberate formula is listed.
+Sie können in der Zusammenfassung unten sehen, dass die Liberate-Formel aufgeführt ist.
 
-To start the liberation process, click:
+Um den Befreiungsprozess zu starten, klicken Sie auf:
 
 ![Formula saved](../assets/SMLM5.1/bottom-apply_highstates.png)
 
-This will take some time, please check `Events` -> `History` , you should see an event called **Apply highstate scheduled**
+Dies wird einige Zeit dauern. Bitte überprüfen Sie `Events` -> `History`. Sie sollten ein Ereignis namens **Apply highstate scheduled** sehen.
 
-Let's wait for a couple of minutes for it to finish, in the mean time you can observe what is happening by looking at the terminal [button label="Centos 7 QA" variant="success"](tab-1).
+Lassen Sie uns ein paar Minuten warten, bis es fertig ist. In der Zwischenzeit können Sie beobachten, was passiert, indem Sie auf das Terminal [button label="Centos 7 QA" variant="success"](tab-1) schauen.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -302,24 +304,25 @@ Let's wait for a couple of minutes for it to finish, in the mean time you can ob
 
 <br/><br/>
 
-## <b class="hovereffect">Observe what has changed</b>
+## <b class="hovereffect">Beobachten, was sich geändert hat</b>
 
 
-Once it's completed let's compare the system again to see the difference, if we are not there already let's click on the system name `airco-dh4a-qa`.
+Sobald es abgeschlossen ist, vergleichen wir das System erneut, um den Unterschied zu sehen. Wenn wir nicht bereits dort sind, klicken wir auf den Systemnamen `airco-dh4a-qa`.
 
-Then go to `Software` ✈ `Packages` ✈ `Profile`
+Gehen Sie dann zu `Software` ✈ `Packages` ✈ `Profile`
 
-Under  **Compare to Stored Profile** click: ![Compare](../assets/SMLM5.1/bottom-compare.png)
+Unter **Compare to Stored Profile** klicken Sie auf: ![Compare](../assets/SMLM5.1/bottom-compare.png)
 
-We can see the only that has changed is the following packages:
+Wir können sehen, dass das Einzige, was sich geändert hat, die folgenden Pakete sind:
 
-- **centos-logos**, replaced by **sles_es-logos**
+- **centos-logos**, ersetzt durch **sles_es-logos**
 
-- **centos-release**, replaced by **sles_es-release-server**
+- **centos-release**, ersetzt durch **sles_es-release-server**
 
-The rest remains the same but now you have all the support, upgrades and patches provided by <b class="suse">SUSE</b> for <b class="liberty">Liberty Linux</b>.
+Der Rest bleibt gleich, aber jetzt haben Sie den gesamten Support, Upgrades und Patches, die von <b class="suse">SUSE</b> für <b class="liberty">Liberty Linux</b> bereitgestellt werden.
 
-The same applies to more modern versions of CentOS and RHEL, you can transform them to <b class="liberty">Liberty</b> and have them supported by <b class="suse">SUSE</b> without having to make any changes to the actual software and libraries.
+Dasselbe gilt für modernere Versionen von CentOS und RHEL. Sie können sie in <b class="liberty">Liberty</b> umwandeln und von <b class="suse">SUSE</b> unterstützen lassen, ohne Änderungen an der eigentlichen Software und den Bibliotheken vornehmen zu müssen.
+
 
 
   <div style='align: middle; margin: 15px;'>
@@ -330,46 +333,46 @@ The same applies to more modern versions of CentOS and RHEL, you can transform t
 
 
 
-Liberate the production server (optional)
+Den Produktionsserver befreien (Liberate) (optional)
 =========================================
 
-We have seen how to patch and Liberate our old Centos 7 server in QA, now it's time to do the same with the production system, but this time we will do so in a different order.
+Wir haben gesehen, wie wir unseren alten Centos 7 Server in QA patchen und befreien (Liberate). Jetzt ist es an der Zeit, dasselbe mit dem Produktionssystem zu tun, aber dieses Mal werden wir es in einer anderen Reihenfolge tun.
 
-- First, we will apply the **Liberate** formula
+- Zuerst wenden wir die **Liberate** Formel an
 
-  Let's go to our production server `airco-dh4a-prod` and `Create System Profile`
+  Gehen wir zu unserem Produktionsserver `airco-dh4a-prod` und `Create System Profile`
 
-  Afterwards let's apply the **Liberate** formula like we did with the QA system.
+  Danach wenden wir die **Liberate** Formel an, wie wir es beim QA-System getan haben.
 
-- Once it's completed, let's compare the system with the profile we just created, as we can see the only change has been the **centos-logos** and **centos-release** packages, the rest remains exactly the same.
+- Sobald es abgeschlossen ist, vergleichen wir das System mit dem Profil, das wir gerade erstellt haben. Wie wir sehen können, war die einzige Änderung die Pakete **centos-logos** und **centos-release**, der Rest bleibt genau gleich.
 
 
-Is it a migration?
+Ist es eine Migration?
 ==================
 
-A migration involves building a brand-new server, reinstalling all applications from scratch, and carefully moving the data over, a process that is time-consuming, expensive, and fraught with risk.
+Eine Migration beinhaltet den Aufbau eines brandneuen Servers, die Neuinstallation aller Anwendungen von Grund auf und das sorgfältige Übertragen der Daten – ein Prozess, der zeitaufwändig, teuer und risikoreich ist.
 
-What we did was far more elegant. We performed an in-place upgrade.
+Was wir getan haben, war weitaus eleganter. Wir haben ein In-Place-Upgrade durchgeführt.
 
-The server's identity, hostname, applications, and user data remained completely untouched. We simply changed its underlying source for updates, and those end-of-life components are not fully supported ones receiving patches.
+Die Identität des Servers, der Hostname, die Anwendungen und die Benutzerdaten blieben völlig unberührt. Wir haben einfach seine zugrunde liegende Quelle für Updates geändert, und diese End-of-Life-Komponenten sind nun vollständig unterstützte Komponenten, die Patches erhalten.
 
-We've successfully extended the life of our system, brought it back into security compliance, and did it all without the disruption of a full migration. That's the efficiency that keeps [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] flying high.
-
-
+Wir haben die Lebensdauer unseres Systems erfolgreich verlängert, es wieder in die Sicherheits-Compliance gebracht und das alles ohne die Unterbrechung einer vollständigen Migration. Das ist die Effizienz, die [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] hoch fliegen lässt.
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+
+
+Warum ist das wichtig für [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
 =================================================================================
 
-- It allows [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] to keep their running systems supported, granting them time to migrate depending on their business needs rather than the vendor needs.
+- Es ermöglicht [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], ihre laufenden Systeme unterstützt zu halten und ihnen Zeit für die Migration zu gewähren, abhängig von ihren geschäftlichen Anforderungen und nicht von den Anforderungen des Anbieters.
 
-- It mitigates the risk that implies having unsupported systems by offering extended support. This approach avoids the need for an immediate migration, everything runs as usual but now there is a group of experts that can answer your calls.
+- Es mindert das Risiko, das nicht unterstützte Systeme mit sich bringen, indem erweiterter Support angeboten wird. Dieser Ansatz vermeidet die Notwendigkeit einer sofortigen Migration; alles läuft wie gewohnt, aber jetzt gibt es eine Gruppe von Experten, die Ihre Anrufe entgegennehmen können.
 
-- It gives you the freedom to change support provider without going through lengthy migrations, and allows you to do it at scale.
+- Es gibt Ihnen die Freiheit, den Support-Anbieter zu wechseln, ohne langwierige Migrationen durchlaufen zu müssen, und ermöglicht es Ihnen, dies im großen Maßstab (at scale) zu tun.
 
 
 
-More information
+Mehr Informationen
 ================
 
 - [Registering RHEL 7 or CentOS Linux 7 with SUSE Manager](https://documentation.suse.com/liberty/7/html/suma-quickstart/art-suma-quickstart.html)
