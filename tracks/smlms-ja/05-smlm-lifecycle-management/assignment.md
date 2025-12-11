@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: ejxtdpb7jztq
+id: 7ssvzlajbykj
 type: challenge
-title: Lifecycle management
+title: ライフサイクル管理
 tabs:
-- id: vj7zqlkc0xab
+- id: lioekie5ityb
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Lifecycle management
+🌌 ライフサイクル管理
 ===================================
 
 <style type="text/css">
@@ -97,35 +97,37 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/05-lifecycle.jpeg"/>
 
-In this part we will transition from individual maintenance tasks to establishing a fleet-wide, certified process for managing change. We'll explore how Content Lifecycle Management in <b class="smlmext">SUSE Multi-Linux Manager</b> provides the structure and safety our airline demands.
+このパートでは、個々のメンテナンス作業から、変更を管理するためのフリート全体で認定されたプロセスの確立へと移行します。<b class="smlmext">SUSE Multi-Linux Manager</b> のコンテンツライフサイクル管理（Content Lifecycle Management）が、私たちの航空会社が求める構造と安全性を提供する方法を探ります。
 
 
 
-At [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], a new part isn't installed on a passenger jet the moment it arrives from the manufacturer. It goes through a rigorous certification process.
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] では、新しい部品がメーカーから到着した瞬間に旅客ジェット機に取り付けられることはありません。それは厳格な認定プロセスを経ます。
 
-First, it's examined and tested in a controlled workshop (**Development**). Next, it's fitted to a non-commercial test aircraft and put through grueling ground and flight tests (**Quality Assurance**). Only after passing every conceivable check is it certified for installation across our active fleet (**Production**).
-
-This methodical, staged approach prevents a single faulty component from grounding a plane, ensuring the safety of our passengers and the reliability of our operations. We apply this exact same philosophy to our IT systems. A software upgrade or a new application is a "component" that, if faulty, could ground our digital operations. Content Lifecycle Management is our official certification process for all software changes.
+まず、管理されたワークショップ（**開発 - Development**）で検査およびテストされます。次に、非商用のテスト用航空機に取り付けられ、過酷な地上および飛行テスト（**品質保証 - Quality Assurance**）が行われます。考えられるすべてのチェックに合格した後でのみ、アクティブなフリート全体へのインストールが認定されます（**本番 - Production**）。
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
-
-- Build a Content Lifecycle Project
-
-- Use the project to manage and certify software updates for our systems.
+この体系的で段階的なアプローチにより、たった一つの欠陥部品が飛行機を地上に釘付けにすることを防ぎ、乗客の安全と運航の信頼性を確保します。私たちは、これとまったく同じ哲学を IT システムに適用します。ソフトウェアのアップグレードや新しいアプリケーションは「部品」であり、欠陥があればデジタル運用を停止させる可能性があります。コンテンツライフサイクル管理は、すべてのソフトウェア変更に対する公式の認定プロセスです。
 
 
 
-Lab details
+## <b class="hovereffect">あなたの目標:</b>
+
+- コンテンツライフサイクルプロジェクト（Content Lifecycle Project）を構築します。
+
+- プロジェクトを使用して、システムのソフトウェア更新を管理および認定します。
+
+
+
+ラボの詳細 (Lab details)
 ===========
 
-Username:
+ユーザー名 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+パスワード (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -133,133 +135,135 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Building Our Software Certification Pathway
+ソフトウェア認定経路の構築
 ==============================================
 
-In this exercise, we will create a Content Lifecycle Project to control the flow of software updates. This ensures that a patch is thoroughly tested before it ever reaches our critical production servers.
+この演習では、ソフトウェア更新の流れを制御するためのコンテンツライフサイクルプロジェクトを作成します。これにより、パッチが重要な本番サーバーに到達する前に徹底的にテストされることが保証されます。
 
 <br/>
 
-Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
+私たちの目標は、`Dev ✈ QA ✈ Prod` パイプラインを構築することです。
 
-1.  **Development (Dev):** The initial workshop. All new patches and packages arrive here first.
-2.  **Quality Assurance (QA):** The testing ground. We will promote a specific, version of the content from Dev to QA for our testing teams to validate.
-3.  **Production (Prod):** The active fleet. Only the QA-approved, certified set of patches is promoted to Production, where it can be safely applied to our live systems.
+1.  **開発 (Development - Dev):** 最初のワークショップ。すべての新しいパッチとパッケージは最初にここに到着します。
+2.  **品質保証 (Quality Assurance - QA):** テストの場。開発環境から QA 環境へ、特定のバージョンのコンテンツをプロモート（昇格）し、テストチームが検証できるようにします。
+3.  **本番 (Production - Prod):** アクティブなフリート。QA で承認され、認定されたパッチセットのみが本番環境にプロモートされ、そこでライブシステムに安全に適用されます。
+
+
 
 <br/>
 
-## <b class="hovereffect">Create the project</b>
+## <b class="hovereffect">プロジェクトの作成</b>
 
-- Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
+- `Content Lifecycle` ✈ `Projects` に移動し、![Create Project](../assets/SMLM5.1/bottom-create_project.png) をクリックします。
 
-- Fill in the project details:
+- プロジェクトの詳細を入力します：
 
-- **Project Name:**
+- **Project Name** (プロジェクト名):
 
 ```txt
 Airtrain SLES15 SPx
 ```
 
-- **Project Label:**
+- **Project Label** (プロジェクトラベル):
 
 ```txt
 at-sles15_spx
 ```
 
-- **Project Description:**
+- **Project Description** (プロジェクトの説明):
 
 ```txt
 Certified software channel for Airtrain SLES 15 systems.
 ```
 
 
-- Click ![Create](../assets/SMLM5.1/bottom-create.png)
+- ![Create](../assets/SMLM5.1/bottom-create.png) をクリックします。
 
-Now let's populate it, click on `Attach/Detach Sources`
+次にデータを入力しましょう。`Attach/Detach Sources` をクリックします。
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created.png)
 
-- On **New Base Channel** select <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> and click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- **New Base Channel** で <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> を選択し、![Save](../assets/SMLM5.1/bottom-save.png) をクリックします。
 
 <br/>
 
-## <b class="hovereffect">Create Dev environment</b>
+## <b class="hovereffect">Dev 環境の作成</b>
 
-Create the Development Environment Lifecycle
+開発環境（Development Environment）のライフサイクルを作成します。
 
-- Click on `Add Environment`
+- `Add Environment` をクリックします。
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
-- Populate with the following:
+- 以下のように入力します：
   * **Name:** <b class="highlightcopy">Development</b>
   * **Label:** <b class="highlightcopy">dev</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- ![Save](../assets/SMLM5.1/bottom-save.png) をクリックします。
 
 <br/>
 
-## <b class="hovereffect">Create QA environment</b>
+## <b class="hovereffect">QA 環境の作成</b>
 
-Create the Quality Assurance Environment Lifecycle
+品質保証環境（Quality Assurance Environment）のライフサイクルを作成します。
 
-- Click on `Add Environment`
+- `Add Environment` をクリックします。
 
-- Populate with the following:
+- 以下のように入力します：
   * **Name:** <b class="highlightcopy">QA</b>
   * **Label:** <b class="highlightcopy">qa</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- ![Save](../assets/SMLM5.1/bottom-save.png) をクリックします。
 
 <br/>
 
-## <b class="hovereffect">Create Prod environment</b>
+## <b class="hovereffect">Prod 環境の作成</b>
 
-Create the Production Environment Lifecycle
+本番環境（Production Environment）のライフサイクルを作成します。
 
-- Click on `Add Environment`
+- `Add Environment` をクリックします。
 
-- Populate with the following:
+- 以下のように入力します：
   * **Name:** <b class="highlightcopy">Production</b>
   * **Label:** <b class="highlightcopy">prod</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- ![Save](../assets/SMLM5.1/bottom-save.png) をクリックします。
 
 <br/>
 
-## <b class="hovereffect">Populate</b>
+## <b class="hovereffect">ポピュレート（Populate）</b>
 
-Now we have all three environments, let's populate them with content.
+3つの環境がすべて整ったので、コンテンツを入力しましょう。
 
-We will not use a filter in this case since <b class="sles">SLES</b> already provides stable package versions.
+<b class="sles">SLES</b> はすでに安定したパッケージバージョンを提供しているため、このケースではフィルターを使用しません。
 
-[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]' cadence for testing is currently one month, so we will name this build after the current month, October.
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] のテストの頻度は現在1か月ごとなので、このビルドには現在の月である10月（October）の名前を付けます。
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- ![Build](../assets/SMLM5.1/bottom-build.png) をクリックします。
 
-- In **Version Message** type
+- **Version Message** に次のように入力します：
 
 ```txt
 October
 ```
 
 
-- Click on `Build`
+- `Build` をクリックします。
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
+> このプロセスには数分かかる場合があります。「cloning（クローン作成中）」などのステップが表示されますが、これには多くのストレージが必要ないことを知って安心してください。クローン作成プロセスはパッケージのインデックスポイントにのみ適用され、実際のパッケージ自体には適用されません。
 
 
 <br/>
 
-## <b class="hovereffect">Promoting content</b>
+## <b class="hovereffect">コンテンツのプロモート</b>
 
-Now, let's promote the content to further stages.
+では、コンテンツを次の段階にプロモート（昇格）させましょう。
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 1 into QA** will appear, just click `Promote` again.
+- Development と QA の間にある `Promote` ボタンをクリックします。
+- **Promote version 1 into QA** というタイトルの別の画面が表示されますので、もう一度 `Promote` をクリックします。
 
-Repeat the same step for Production.
+Production（本番）に対しても同じ手順を繰り返します。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -268,41 +272,41 @@ Repeat the same step for Production.
 
 <br/>
 
-Upgrade our systems.
+システムのアップグレード
 ====================
 
-Now let's try how it works.
+それでは、どのように機能するか試してみましょう。
 
-We are going to:
-- add some of our system to the new environment.
-- Create a new version of the content
-- Promote the new version and update the systems
+これから行うこと：
+- システムの一部を新しい環境に追加する。
+- コンテンツの新しいバージョンを作成する。
+- 新しいバージョンをプロモートし、システムを更新する。
 
 <br/>
 
-## <b class="hovereffect">Add systems</b>
+## <b class="hovereffect">システムの追加</b>
 
-Let's go to `Systems` ✈ `System List` ✈ `All`
+`Systems` ✈ `System List` ✈ `All` に移動しましょう。
 
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Software Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-qa-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+- **at-ct-qa** システムをクリックします。
+- `Software` ✈ `Software Channels` に移動します。
+- **Custom Channels** で、**at-sles15_spx-qa-...** チャンネルのチェックボックスを選択し、![Next](../assets/SMLM5.1/bottom-next.png) をクリックします。
+- ![Confirm](../assets/SMLM5.1/bottom-confirm.png) をクリックします。
 
 
-Go back to `Systems` ✈ `System List` ✈ `All`
+`Systems` ✈ `System List` ✈ `All` に戻ります。
 
-- Filter by:
+- 以下でフィルタリングします：
 
 ```txt
 at-
 ```
 
-- Select all the systems that end with **-pro**
-- Go to `Systems` ✈ `System Set Manager`
-- Go to `Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-prod-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click on 'incclude recommended' to subscribe to all the recommended channels:
+- **-pro** で終わるすべてのシステムを選択します。
+- `Systems` ✈ `System Set Manager` に移動します。
+- `Channels` に移動します。
+- **Custom Channels** で、**at-sles15_spx-prod-...** チャンネルのチェックボックスを選択し、![Next](../assets/SMLM5.1/bottom-next.png) をクリックします。
+- 'include recommended'（推奨を含める）をクリックして、すべての推奨チャンネルをサブスクライブします：
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-next.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
@@ -313,30 +317,30 @@ at-
 
 <br/>
 
-## <b class="hovereffect">Create a new version</b>
+## <b class="hovereffect">新しいバージョンの作成</b>
 
 
-A month has past and we want to continue with our stable process of upgrades.
-You have are going to create a static, unchanging copy of the software channels for the Developer team.
+1か月が経過し、安定したアップグレードプロセスを継続したいと考えています。
+開発者チームのために、ソフトウェアチャンネルの静的で変更されないコピーを作成します。
 
-No new patches will suddenly appear and disrupt their work.
+新しいパッチが突然現れて彼らの作業を中断することはありません。
 
-- Go back to `Content Lifecycle` ✈ `Projects` and click on the project we just created.
+- `Content Lifecycle` ✈ `Projects` に戻り、作成したばかりのプロジェクトをクリックします。
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- ![Build](../assets/SMLM5.1/bottom-build.png) をクリックします。
 
-- In **Version Message** type
+- **Version Message** に次のように入力します：
 
 ```txt
 November
 ```
 
 
-- Click on `Build`
+- `Build` をクリックします。
 
-Notice the version number has automatically increased.
+バージョン番号が自動的に増加したことに注目してください。
 
-Now developers can do their work using the new and patched versions of libraries and applications provided by SUSE.
+これで、開発者は SUSE が提供するライブラリやアプリケーションの新しい修正バージョンを使用して作業を行うことができます。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -346,28 +350,28 @@ Now developers can do their work using the new and patched versions of libraries
 
 <br/>
 
-## <b class="hovereffect">Promote content from Dev to QA</b>
+## <b class="hovereffect">Dev から QA へのコンテンツのプロモート</b>
 
-Let's assume our developers have given their approval. It's time to create a stable version for the QA team so that all the pre-production tests can be performed.
+開発者が承認を与えたと仮定しましょう。すべてのプリプロダクションテストを実行できるように、QA チーム用の安定バージョンを作成する時が来ました。
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 2 into QA** will appear, just click `Promote` again.
+- Development と QA の間にある `Promote` ボタンをクリックします。
+- **Promote version 2 into QA** というタイトルの別の画面が表示されますので、もう一度 `Promote` をクリックします。
 
-Now let's go to our QA systems and do an upgrade.
+それでは、QA システムに移動してアップグレードを行いましょう。
 
 - `Systems` ✈ `System List` ✈ `All`
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Packages` ✈ `Upgrade`
-- Click on:
+- **at-ct-qa** システムをクリックします。
+- `Software` ✈ `Packages` ✈ `Upgrade` に移動します。
+- 以下をクリックします：
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-Now our QA engineers can perform their tests safely without disruption.
+これで、QA エンジニアは中断することなく安全にテストを実行できます。
 
 
 > [!NOTE]
-> We don't have enough time to see changes comming through, in a real scenario there should be new versions of packages available to promote in version 2.
+> 変更が反映されるのを見る十分な時間がありませんが、実際のシナリオでは、バージョン 2 でプロモートできる新しいバージョンのパッケージが利用可能であるはずです。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-promote_from_dev_to_QA.gif"/>
@@ -376,40 +380,38 @@ Now our QA engineers can perform their tests safely without disruption.
 
 <br/>
 
-## <b class="hovereffect">Promote to Production</b>
+## <b class="hovereffect">本番へのプロモート</b>
 
-The QA team has completed its rigorous testing on `v2` and has certified it as stable and safe for the main fleet. It's time to make it available to our production systems.
+QA チームは `v2` に対する厳格なテストを完了し、メインフリートに対して安定しており安全であると認定しました。これを本番システムで利用可能にする時が来ました。
 
-We are going to repeat the same process as we did for QA on our production environment:
+本番環境に対して、QA で行ったのと同じプロセスを繰り返します：
 
-- First, promote the content.
-  This will make the new packages available to our production servers.
-  You have successfully ensured that only tested and approved updates can reach your most critical systems.
+- まず、コンテンツをプロモートします。
+  これにより、新しいパッケージが本番サーバーで利用可能になります。
+  テストされ承認された更新のみが最も重要なシステムに到達できるようにすることに成功しました。
 
-- Second, upgrade our Production systems, here the only difference is that we are going to schedule the upgrade for **tomorrow at 14:00** to allow for all our teams to be prepared and have a controlled process.
+- 次に、本番システムをアップグレードします。ここでの唯一の違いは、すべてのチームが準備を整え、制御されたプロセスを持てるように、アップグレードを **明日の 14:00** にスケジュールすることです。
 
 
 <br/>
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] にとってなぜ重要なのですか？
 =================================================================================
 
-- We build a series of safety gates, making it easier to implement a core principle of our operational strategy: **risk management**.
-- A single bad patch introduced into the **Dev** environment can be caught and fixed long before it has a chance to impact revenue-generating systems.
-- This process transforms patching and updates from a risky, nerve-wracking event into a predictable, routine maintenance procedure, the cornerstone of a reliable airline.
+- 一連の安全ゲートを構築し、運用戦略の核心原則である **リスク管理** の実装を容易にします。
+- **Dev** 環境に導入されたたった1つの悪いパッチでも、収益を生み出すシステムに影響を与えるずっと前に発見して修正できます。
+- このプロセスにより、パッチ適用と更新が、リスクを伴う神経をすり減らすイベントから、信頼できる航空会社の基礎となる予測可能なルーチンメンテナンス手順へと変わります。
 
 
 <br/>
 
-More information
+詳細情報
 ================
 
-* [Maintenance Windows](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
+* [Maintenance Windows (メンテナンスウィンドウ)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
 
-* [Patch Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
+* [Patch Management (パッチ管理)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
 
-* [Content Lifecycle Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
+* [Content Lifecycle Management (コンテンツライフサイクル管理)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
-
-
+* [SUSE Multi-Linux Manager Product Page (製品ページ)](https://www.suse.com/products/suse-manager/)

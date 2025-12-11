@@ -1,14 +1,14 @@
 ---
 slug: smlm-managing-linux-distros
-id: 0s4wjswo2zhk
+id: tvnwvtnsfyrt
 type: challenge
-title: Managing different Linux distributions
+title: 異なる Linux ディストリビューションの管理
 tabs:
-- id: qsppgdkckld3
+- id: 9umuoqsfwrfi
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: uefwdei7ywmk
+- id: mugqszey2ndx
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts
@@ -17,7 +17,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Managing different Linux distributions
+🌌 異なる Linux ディストリビューションの管理
 ===================================
 
 <style type="text/css">
@@ -102,30 +102,30 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/02-managing_linux_distros.jpeg"/>
 
-Here at [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], <b class="smlmext">SUSE Multi-Linux Manager</b>  is the key to managing our diverse fleet of Linux distributions and architectures from a single pane of glass. This has helped us avoid the extra customizations that used to complicate our jobs as engineers, which in turn increased the cost and time required to maintain and implement our system policies.
+ここ [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] では、<b class="smlmext">SUSE Multi-Linux Manager</b> が、多様な Linux ディストリビューションとアーキテクチャのフリートを単一の管理画面（Single Pane of Glass）から管理するための鍵となっています。これにより、エンジニアとしての仕事を複雑にしていた余分なカスタマイズを回避でき、その結果、システムポリシーの維持と実装に必要なコストと時間を削減できました。
 
-With this tool, we are not locked into a single vendor, architecture, or automation platform. We are free to choose what we need for our environment and manage them all in the same way. Imagine if for every type of aircraft in our fleet, we needed a different air traffic control tower with its own language and procedures. The operational complexity would be unmanageable, and the costs would be prohibitive.
+このツールを使用することで、単一のベンダー、アーキテクチャ、または自動化プラットフォームにロックインされることはありません。環境に必要なものを自由に選択し、それらすべてを同じ方法で管理できます。フリート内の航空機の種類ごとに、独自の言語と手順を持つ異なる航空管制塔が必要だとしたらと想像してみてください。運用の複雑さは管理不能になり、コストは法外なものになるでしょう。
 
-We all know a certain aircraft model is better for a specific route; flying a jumbo jet for a half-hour flight is not cost-effective. The same applies to our Linux distributions. While SUSE’s own distributions are excellent, some of our applications have specific requirements. <b class="smlm">SMLM</b> ensures we are never locked in and can always integrate the best solution for the task at hand.
-
-
-## <b class="hovereffect">Your Objectives:</b>
-
-- Onboard an Ubuntu 24.04 LTS system, a specialized system required for our marketing team.
-
-- Demonstrate how we manage this new, different system using the same tools and patching procedures as the rest of our fleet.
+特定の航空機モデルが特定のルートに適していることは誰もが知っています。30分のフライトにジャンボジェットを飛ばすのは費用対効果が高くありません。同じことが Linux ディストリビューションにも当てはまります。SUSE 独自のディストリビューションは優れていますが、一部のアプリケーションには特定の要件があります。<b class="smlm">SMLM</b> は、私たちが決してロックインされず、常にそのタスクに最適なソリューションを統合できることを保証します。
 
 
+## <b class="hovereffect">あなたの目標:</b>
 
-Lab details
+- マーケティングチームが必要とする専用システムである Ubuntu 24.04 LTS システムをオンボード（登録）します。
+
+- この新しい、異なるシステムを、他のフリートと同じツールとパッチ適用手順を使用してどのように管理するかを実演します。
+
+
+
+ラボの詳細 (Lab details)
 ===========
 
-Username:
+ユーザー名 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+パスワード (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -133,32 +133,32 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Onboarding Ubuntu
+Ubuntu のオンボード
 =================
 
-A new service request has come in from our marketing department. Their graphic designers rely on a specific creative suite that is only supported on Ubuntu. We are going to onboard their system so that we can manage and ensure it meets our security and compliance standards, in the same way as we do with the others.
+マーケティング部門から新しいサービスリクエストが届きました。彼らのグラフィックデザイナーは、Ubuntu でのみサポートされている特定のクリエイティブスイートに依存しています。私たちは彼らのシステムをオンボードし、他のシステムと同様に、セキュリティおよびコンプライアンス基準を満たしていることを管理および保証できるようにします。
 
-Let's begin.
+始めましょう。
 <br/>
 
-- Access the system terminal from the tab [button label="Ubuntu 2404 LTS" variant="success"](tab-1)
+- [button label="Ubuntu 2404 LTS" variant="success"](tab-1) タブからシステムターミナルにアクセスします。
 
-  Before we make any changes let's check where it is sourcing the packages from:
+  変更を加える前に、パッケージの取得元を確認しましょう：
 
 ```bash,run
 grep -v '^#\|^Types:\|Trusted:\|Architectures:' /etc/apt/sources.list.d/*
 ```
 
-This workstation is pulling software directly from public Ubuntu repositories. This presents two issues: first, we have no control over the patches being applied, which is a security concern. Second, as the marketing team reported, every time these workstations fetch updates, they can slow down the office internet connection, causing frustration for other employees.
+このワークステーションは、パブリックな Ubuntu リポジトリから直接ソフトウェアを取得しています。これには2つの問題があります。第一に、適用されるパッチを制御できないため、セキュリティ上の懸念があります。第二に、マーケティングチームが報告したように、これらのワークステーションが更新を取得するたびにオフィスのインターネット接続が遅くなり、他の従業員の不満の原因となる可能性があります。
 
 
-Let's bring this system under our management. This will solve both problems by connecting it to our internal <b class="smlmext">SUSE Multi-Linux Manager</b> instance for all software needs.
+このシステムを私たちの管理下に置きましょう。これにより、すべてのソフトウェアニーズに対して内部の <b class="smlmext">SUSE Multi-Linux Manager</b> インスタンスに接続することで、両方の問題が解決されます。
 
-We are going to use the [button label="web UI" variant="success"](tab-0) to do so:
+[button label="web UI" variant="success"](tab-0) を使用してこれを行います：
 
-- Under `Home` ✈ `Overview`, let's click on `Register Systems`
+- `Home` ✈ `Overview` の下で、`Register Systems` をクリックしましょう。
 
-- Fill in the following details:
+- 以下の詳細を入力します：
 
   - **Host:**
 
@@ -166,26 +166,26 @@ We are going to use the [button label="web UI" variant="success"](tab-0) to do s
   ubuntu2404lts
   ```
 
-  - **User:**
+  - **User:** (ユーザー)
 
   ```txt
   root
   ```
 
-  - **Password:**
+  - **Password:** (パスワード)
 
   ```txt
   [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
   ```
 
-  - **Activation Key:**   <b class="highlightcopy">1-ubuntu2404</b>
+  - **Activation Key:** (アクティベーションキー)   <b class="highlightcopy">1-ubuntu2404</b>
 
-- Leave the rest as it is and click on
+- 残りはそのままにして、以下をクリックします。
 
 <img style='padding: 0; margin:0; vertical-align: middle' src="../assets/SMLM5.1/bottom-bootstrap.png"/>
 
 
-- The registration process may take a couple of minutes to complete, let's go to the [button label="terminal" variant="success"](tab-1) and run the first command one more time to see what has changed:
+- 登録プロセスが完了するまで数分かかる場合があります。[button label="terminal" variant="success"](tab-1) に移動し、何が変わったかを確認するために最初のコマンドをもう一度実行しましょう：
 
 
 ```bash,run
@@ -193,22 +193,22 @@ echo 'Waiting for the registration to complete' ;while [[ ! -f /etc/apt/sources.
 ```
 
 
-We can see new files appeared:
+新しいファイルが表示されたことがわかります：
 
 **/etc/apt/sources.list.d/susemanager:***
 
-They point to the system to our centrally managed and controlled channels in <b class="smlm">SMLM</b>.
+これらはシステムを <b class="smlm">SMLM</b> 内の、一元管理および制御されたチャンネルに向けています。
 
 
-We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, has been modified to disable all the public respositories but has not been eliminated, this would allow us to roll back easily if we needed so.
-
-
-> [!NOTE]
-> Using root via SSH with password authentication for registering is just for demonstration purposes and not recommended for production.
+また、元のファイル **/etc/apt/sources.list.d/ubuntu.sources** が変更され、すべてのパブリックリポジトリが無効化されているものの、削除はされていないこともわかります。これにより、必要に応じて簡単にロールバックできます。
 
 
 > [!NOTE]
-> By default we have to approve the registration of each system through the UI or via command line < salt-key -A -y >, here <b class="smlm">SMLM</b> has been configured to auto approve.
+> 登録のためにパスワード認証付きの SSH で root を使用することは、デモンストレーション目的のみであり、本番環境では推奨されません。
+
+
+> [!NOTE]
+> デフォルトでは、UI またはコマンドライン < salt-key -A -y > を介して各システムの登録を承認する必要がありますが、ここでは <b class="smlm">SMLM</b> が自動承認するように構成されています。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -219,18 +219,18 @@ We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, h
 
 
 
-Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+では、[button label="SMLM UI" variant="success"](tab-0) タブに切り替えましょう。
 
 
-- We navigate to `Systems` ✈ `System List` ✈ `All`
+- `Systems` ✈ `System List` ✈ `All` に移動します。
 
-  We can see the system we just registered `Ubuntu2404lts`, note by default it will be registered under the hostname.
+  登録したばかりのシステム `Ubuntu2404lts` が表示されます。デフォルトではホスト名の下に登録されることに注意してください。
 
-  Let's click on it, we will go directly to `Details` - `Overview` where we can see amongst other information:
+  それをクリックすると、直接 `Details` - `Overview` に移動し、他の情報と共に以下を確認できます：
 
-  - The system status.
-  - All the information such as hostname, IP address, type of virtualization, Kernel used and installed products.
-  - The channels it is subscribed to.
+  - システムステータス。
+  - ホスト名、IP アドレス、仮想化の種類、使用されているカーネル、インストールされている製品などのすべての情報。
+  - サブスクライブしているチャンネル。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/managing_different_linux_distros-ubuntu_overview.gif"/>
@@ -239,37 +239,37 @@ Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
 
 <br/>
 
-Managing multiple Linux distributions
+複数の Linux ディストリビューションの管理
 =====================================
 
 
-As mentioned earlier, at <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> we use different Linux distributions, like we use different airplane models and companies. This helps us to stay ahead of the competition by using the most suitable product for each of our needs.
+前述のように、<b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> では、異なる飛行機モデルや会社を使用するように、異なる Linux ディストリビューションを使用しています。これは、それぞれのニーズに最も適した製品を使用することで、競争の一歩先を行くのに役立ちます。
 
-With <b class="smlmext">SUSE Multi-Linux Manager</b> we can manage all of them with the same procedures, same schedules, etc.. using the same interface and mechanisms.
+<b class="smlmext">SUSE Multi-Linux Manager</b> を使用すると、同じインターフェースとメカニズムを使用して、同じ手順、同じスケジュールなどでそれらすべてを管理できます。
 
-Below we will explore how to perform different tasks on your systems, following the same process independently of which OS our systems are running, without having to create unecessary customizations.
-
-
-## <b class="hovereffect">Add extra information</b>
+以下では、システムがどの OS を実行しているかに関係なく、同じプロセスに従って、不要なカスタマイズを作成することなく、システムでさまざまなタスクを実行する方法を探ります。
 
 
-Let's continue with the system we just registered, we are going to add a few settings and information to it:
-
-- Let's click in `Properties`, where we will add extra information about the system and change some settings.
+## <b class="hovereffect">追加情報の追加</b>
 
 
-  - Enable Automatic application of patches:
+登録したばかりのシステムを続けましょう。いくつかの設定と情報を追加します：
+
+- `Properties` をクリックしましょう。ここでシステムに関する追加情報を追加し、いくつかの設定を変更します。
+
+
+  - パッチの自動適用を有効にする (Enable Automatic application of patches):
 
   <img style='vertical-align: middle; height: 60%; width: 60%; object-fit: contain' src="../assets/SMLM5.1/option-auto_patch_update-enabled.png"/>
 
-    This will automatically patch the system when there are relevant patches.
+    これにより、関連するパッチがある場合にシステムに自動的にパッチが適用されます。
 
 
 
-  - Add the following details for the system:
+  - システムに以下の詳細を追加します：
 
 
-| Field | Content                                                  |
+| フィールド | 内容                                                  |
 | ---: | :-----                                                    |
 | **Description** | <b class="highlightcopy">Multimedia workstation for graphics designers.</b> |
 | **Facility Address** | <b class="highlightcopy">Candy eye street, 1</b> |
@@ -282,26 +282,26 @@ Let's continue with the system we just registered, we are going to add a few set
 
 
 
-- Let's look at what hardware it is running on:
+- どのハードウェアで実行されているか見てみましょう：
 
-  - Click on `Details` ✈ `Hardware`
+  - `Details` ✈ `Hardware` をクリックします。
 
 
 <br/>
 
 > [!NOTE]
-> All this can be automated through the API.
+> これらすべては API を介して自動化できます。
 
 <br/>
 
-Now we are going to add some extra information to the system using custom keys, this information can be easily consumed in your automation scripts later on.
+次に、カスタムキーを使用してシステムに追加情報を追加します。この情報は、後で自動化スクリプトで簡単に使用できます。
 
 
-- Click on `Details` ✈ `Custom Info`
+- `Details` ✈ `Custom Info` をクリックします。
 
 <img style='vertical-align: top; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Create_Value.png"/>
 
-- Click `application` and fill **value** with the following:
+- `application` をクリックし、**value** (値) を以下のように入力します：
 
 ```text
 Logo Wings designer pro
@@ -313,22 +313,22 @@ Logo Wings designer pro
 <br/>
 
 > [!NOTE]
-> We have already create the custom key **application** for you, if you want to create you own keys it is as simple as going to: `Systems` ✈ `Custom System Info` ✈ `Create key`
+> カスタムキー **application** はすでに作成されています。独自のキーを作成したい場合は、`Systems` ✈ `Custom System Info` ✈ `Create key` に移動するだけで簡単です。
 
 <br/><br/>
 
-Let's go back to the Systems list
+Systems リストに戻りましょう。
 
 `Systems` ✈ `System List` ✈ `All`
 
 
-Let's click on any of the systems and go to `Details` ✈ `Custom Info`.
+いずれかのシステムをクリックして、`Details` ✈ `Custom Info` に移動します。
 
-We have already populated each system with a value,
+すでに各システムに値を入力しています。
 
 <br/>
 
-Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subscribed Channels**, these are different than the ones in your Ubuntu system because they are running a different operating system.
+次に `Details` ✈ `Overview` に移動し、**Installed Products** と **Subscribed Channels** に注目してください。これらは異なるオペレーティングシステムを実行しているため、Ubuntu システムのものとは異なります。
 
 
 
@@ -339,26 +339,26 @@ Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subsc
 <br/>
 
 
-## <b class="hovereffect">Run commands on multiple systems at once</b>
+## <b class="hovereffect">複数のシステムでコマンドを一度に実行する</b>
 
 
-Let's do something on all the systems we have, go back to `Systems` ✈ `System List` ✈ `All` and select all:
+持っているすべてのシステムに対して何かを行いましょう。`Systems` ✈ `System List` ✈ `All` に戻り、すべて選択します：
 
 <img style='vertical-align: middle; margin: 2px; height: 50%; width: 50%; object-fit: contain' src="../assets/SMLM5.1/select_all_systems.png"/>
 
-Notice the **Base Channel** column, we have systems running three different OS.
+**Base Channel** 列に注目してください。3つの異なる OS を実行しているシステムがあります。
 
 <br/>
 
-Having selected all the systems we want to operate let's go to perform a group action:
+操作したいすべてのシステムを選択したので、グループアクションを実行しに行きましょう：
 
 `Systems` ✈ `System Set Manager`
 
-Let's run a command on all of them, for that we can go to:
+それらすべてに対してコマンドを実行しましょう。そのために以下に移動します：
 
 `Misc` ✈ `Remote Command`
 
-then fill in the following details and leave the rest with the default values:
+次に、以下の詳細を入力し、残りはデフォルト値のままにします：
 
 
 Script:
@@ -367,7 +367,7 @@ Script:
 cat /etc/os-release
 ```
 
-Don't modify the schedule, we want it to run as soon as possible, click on:
+スケジュール (Schedule) を変更しないでください。できるだけ早く実行したいので、以下をクリックします：
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Schedule.png"/>
 
@@ -377,23 +377,23 @@ Don't modify the schedule, we want it to run as soon as possible, click on:
 
 <br/><br/>
 
-You will see a blue notice on the top indicating that the task has been scheduled.
+タスクがスケジュールされたことを示す青い通知が上部に表示されます。
 
-Let's go to see the results, for that we will go to:
+結果を見に行きましょう。そのために以下に移動します：
 
 `Schedule` ✈ `Completed Actions`
 
-We will see a list of actions, in **Filter by Action** field type:
+アクションのリストが表示されます。**Filter by Action** フィールドに次のように入力します：
 
 ```text
 Run
 ```
-Click on the top entry that appears on the list, should be similar to this:
+リストに表示される一番上のエントリをクリックします。以下のようになるはずです：
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/Select_complete_action_run.png"/>
 
 
-There we can go to **Completed Systems** and examine the result by clicking on the system name.
+そこで **Completed Systems** に移動し、システム名をクリックして結果を確認できます。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -405,27 +405,24 @@ There we can go to **Completed Systems** and examine the result by clicking on t
 
 <br/><br/>
 
-With this we complete this part, we will see more examples of how we can manage multiple Linux systems along the workshop.
+これでこの部分は完了です。ワークショップを通じて、複数の Linux システムを管理する方法のさらなる例を見ていきます。
 
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] にとってなぜ重要なのか？
 =================================================================================
 
-- No vendor lock-in, keep the freedom of choice and flexibility to react fast to changing markets.
+- ベンダーロックインがなく、選択の自由と変化する市場に迅速に対応するための柔軟性を維持できます。
 
-- Simplify and save time avoiding extra work on customizations.
+- カスタマイズに関する余分な作業を回避し、簡素化して時間を節約できます。
 
-- A single UI to manage all reduces the complexity and will make future troubleshooting, scaling, patching and automation much more agile and less time consuming.
+- すべてを管理する単一の UI (UI) により複雑さが軽減され、将来のトラブルシューティング、スケーリング、パッチ適用、自動化がはるかに機敏になり、時間の消費も少なくなります。
 
 
 
-More information
+詳細情報
 ================
 
-For a list of supported distributions please visit:
+サポートされているディストリビューションのリストについては、以下をご覧ください：
 
 [SMLM - Supported Clients and Features](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/client-configuration/supported-features.html)
-
-
-

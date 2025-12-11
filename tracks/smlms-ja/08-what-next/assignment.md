@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: swgxeykwmryd
+id: hurwypgrxclc
 type: challenge
-title: What's next?
+title: 次のステップ
 tabs:
-- id: bx0oibmauanb
+- id: 1xscc8fjzu7b
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Conclusion: Cleared for Takeoff
+🌌 結論：離陸許可 (Cleared for Takeoff)
 ==================================
 
 <style type="text/css">
@@ -97,16 +97,18 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/08-whats_next.jpeg"/>
 
-Our final approach is complete. Throughout this workshop, we've navigated the challenges of managing a diverse, mission-critical IT fleet. We've seen how <b class="smlmext">SUSE Multi-Linux Manager</b> acts as our universal control tower, providing the visibility, automation, and security required to keep Chameleon Airlines flying high.
-
-For our engineers, this means less time fighting fires and more time innovating. It means having a standardized, reliable set of tools to manage any system, from our legacy workhorses to our most modern aircraft.
-
-For our decision-makers, this translates directly to reduced operational risk, lower costs, and enhanced business agility. It's the confidence of knowing our digital infrastructure is as robust, compliant, and reliable as the aircraft in our physical fleet.
-
-We hope this session has been a valuable one. The lab environment will remain available for you to explore further, so please continue to experiment. Our flight instructors are on standby to answer any questions you may have.
+最終進入（ファイナルアプローチ）が完了しました。このワークショップを通じて、私たちは多様でミッションクリティカルな IT フリート（機材）を管理するという課題を乗り越えてきました。<b class="smlmext">SUSE Multi-Linux Manager</b> が、Chameleon Airlines が高く飛び続けるために必要な可視性、自動化、セキュリティを提供する普遍的な管制塔としてどのように機能するかを見てきました。
 
 
-For those who wish to dive deeper after today's session, here are some key navigation points:
+
+エンジニアにとっては、消火活動（トラブル対応）に費やす時間が減り、イノベーションに費やす時間が増えることを意味します。レガシーな主力機から最新鋭の航空機に至るまで、あらゆるシステムを管理するための標準化された信頼性の高いツールセットを持つことを意味します。
+
+意思決定者にとっては、運用リスクの低減、コストの削減、ビジネスアジリティの向上に直結します。これは、当社のデジタルインフラストラクチャが、物理的なフリートの航空機と同様に堅牢で、コンプライアンスに準拠し、信頼性が高いという確信です。
+
+このセッションが有意義なものであったことを願っています。ラボ環境は引き続き利用可能ですので、さらに実験を続けてください。フライトインストラクターが待機しており、ご質問にお答えします。
+
+
+本日のセッションの後、さらに深く掘り下げたい方のための主要なナビゲーションポイントは以下の通りです：
 
 - [SUSE Multi-Linux Manager](https://www.suse.com/products/multi-linux-manager/)
 - [SUSE Multi-Linux Support](https://www.suse.com/products/multi-linux-support/)
@@ -114,4 +116,4 @@ For those who wish to dive deeper after today's session, here are some key navig
 - [SUSE Products and Solutions](https://www.suse.com/)
 
 
-It has been a pleasure to fly with you!
+皆様とのフライトは楽しいものでした！

@@ -1,18 +1,17 @@
 ---
 slug: smlms-intro
-id: 0iw3zqvgqtvl
+id: pea2nqarspdv
 type: challenge
-title: Welcome to SUSE Multi-Linux Hands-on Workshop!
-teaser: Welcome to SUSE Multi-Linux Hands-on Workshop! in this section we will introduce
-  you to the workshop and to its main components.
+title: SUSE Multi-Linux Hands-on Workshop へようこそ！
+teaser: SUSE Multi-Linux Hands-on Workshop へようこそ！このセクションでは、 ワークショップとその主要コンポーネントについて紹介します。
 notes:
 - type: text
   contents: |
-    # Welcome to the SUSE Multi-Linux Hands-on Workshop!
-    Please wait while we setup your lab environment.
+    # SUSE Multi-Linux Hands-on Workshop へようこそ！
+    ラボ環境をセットアップしています。少々お待ちください。
     <img class="logos" src="../assets/logos/suse_logo.svg"/>
 tabs:
-- id: vkgmrxwzdbdi
+- id: tehbx0ypuety
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -20,7 +19,7 @@ difficulty: ""
 enhanced_loading: null
 ---
 
-Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
+<b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop へようこそ
 ==================================================================
 
 <link  rel="stylesheet" href="https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/web/css/instruqt.css" type="text/css" crossorigin="anonymous" fetchpriority="high" />
@@ -68,146 +67,145 @@ Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/speci
 
 <img class="logos" alt="Welcome!" src="../assets/logos/01-welcome.jpeg"/>
 
-In this workshop you will explore some of the magic that <b class="smlmext">SUSE Multi-Linux Manager</b> (<b class="smlm">SMLM</b>) can do, it is <b class="suse">SUSE</b>'s solution to manage multiple Linux distributions at scale from a unified interface. And also will discover how can you keep your legacy production servers supported with <b class="smlsext">SUSE Multi-Linux Support</b> (<b class="smls">SMLS</b>), our professional and reliable support solution for Linux systems.
+このワークショップでは、<b class="smlmext">SUSE Multi-Linux Manager</b> (<b class="smlm">SMLM</b>) が実現する魔法の一部を体験していただきます。これは、統一されたインターフェースから複数の Linux ディストリビューションを大規模に管理するための <b class="suse">SUSE</b> のソリューションです。また、Linux システム向けのプロフェッショナルで信頼性の高いサポートソリューションである <b class="smlsext">SUSE Multi-Linux Support</b> (<b class="smls">SMLS</b>) を使用して、レガシーな本番サーバーのサポートを維持する方法についても学びます。
 
-&emsp;&emsp; You will adopt the role of an **engineer** at <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b>, an airline where every plane has a Linux server onboard.
+&emsp;&emsp; あなたは、すべての航空機に Linux サーバーを搭載している航空会社 <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> の **エンジニア** の役割を担います。
 
-&emsp;&emsp; As with any airplane component, it is critical that those servers remain stable and reliable, no matter if they are located on the ground in some datacenter or flying above the clouds ☁ ☁ ☁
-
-
-&emsp;&emsp; Some plane models will require a different Linux flavor, or a different CPU architecture. This is not an issue for <b class="smlm">SMLM</b>, you are free to choose the Linux distribution and CPU arquitecture that better suits your needs without having to give up on easy standardization and management.
+&emsp;&emsp; 航空機のあらゆるコンポーネントと同様に、それらのサーバーが地上のデータセンターにある場合でも、雲の上を飛んでいる場合でも、安定性と信頼性を維持することが重要です ☁ ☁ ☁
 
 
-&emsp;&emsp; As an engineer responsible for managing the Linux landscape you will go through some of the solutions <b class="smlm">SMLM</b> and <b class="smls">SMLS</b> offers you to ease and automate systems management and resolve exceptional problems that may occur.
+&emsp;&emsp; 一部の機体モデルでは、異なる種類の Linux や異なる CPU アーキテクチャが必要になる場合があります。これは <b class="smlm">SMLM</b> にとって問題ではありません。容易な標準化と管理を諦めることなく、ニーズに最適な Linux ディストリビューションと CPU アーキテクチャを自由に選択できます。
 
 
-Along the different challenges you will have the following tools available:
+&emsp;&emsp; Linux ランドスケープの管理を担当するエンジニアとして、システム管理を容易にして自動化し、発生する可能性のある例外的な問題を解決するために <b class="smlm">SMLM</b> と <b class="smls">SMLS</b> が提供するいくつかのソリューションを体験します。
+
+
+さまざまな課題を通じて、以下のツールを利用できます：
 
  ✈ **SUSE Multi-Linux Manager**:
-   The single pane of glass for managing your entire Linux stack.
+   Linux スタック全体を管理するための単一の管理画面（Single Pane of Glass）。
 
  ✈ **Centos 7**:
-   A legacy distribution still in use on some older aircrafts and ground systems.
+   一部の古い航空機や地上システムでまだ使用されているレガシーディストリビューション。
 
- ✈ **Ubuntu 24**: A specific Linux distribution required by our marketing department to run their graphic design applications..
+ ✈ **Ubuntu 24**: グラフィックデザインアプリケーションを実行するためにマーケティング部門が必要とする特定の Linux ディストリビューション。
 
- ✈ **SLES 15**: <b class="suse">SUSE</b>'s highly reliable, stable and secure Linux distribution that forms the backbone of our most critical systems.
-
-
+ ✈ **SLES 15**: 最も重要なシステムのバックボーンを形成する、信頼性が高く安定したセキュアな <b class="suse">SUSE</b> の Linux ディストリビューション。
 
 
 ## <b class="smlmext hovereffect">SUSE Multi-Linux Manager</b>
 
-It is a best-in-class open source infrastructure management solution for your software-defined infrastructure.
+これは、ソフトウェアデファインドインフラストラクチャのためのクラス最高のオープンソースインフラストラクチャ管理ソリューションです。
 
-&emsp;&emsp; <b class="smlmext">SUSE Multi-Linux Manager</b> was designed to help your enterprise DevOps and IT Operations teams reduce complexity and regain control of your IT assets, a single but very powerful tool to manage Linux systems across a variety of hardware architectures, hypervisors as well as container, IoT and cloud platforms.
+&emsp;&emsp; <b class="smlmext">SUSE Multi-Linux Manager</b> は、企業の DevOps および IT Operations チームが複雑さを軽減し、IT 資産の制御を取り戻すのを支援するように設計されています。これは、さまざまなハードウェアアーキテクチャ、ハイパーバイザー、およびコンテナ、IoT、クラウドプラットフォームにわたる Linux システムを管理するための、単一かつ非常に強力なツールです。
 
-&emsp;&emsp; It automates Linux server and IoT device provisioning, patching and configuration for faster, consistent and repeatable server deployment helping to optimize operations and reduce costs. And with automated monitoring, tracking, auditing and reporting of your systems, VMs, and containers across your development, test and production environments, you can ensure compliance with internal security policies and external regulations.
+&emsp;&emsp; Linux サーバーと IoT デバイスのプロビジョニング、パッチ適用、および構成を自動化し、より迅速で一貫性のある反復可能なサーバー展開を実現することで、運用の最適化とコスト削減を支援します。また、開発、テスト、本番環境全体にわたるシステム、VM、コンテナの監視、追跡、監査、レポートを自動化することで、内部セキュリティポリシーや外部規制へのコンプライアンスを確保できます。
 
 
 ## <b class="smlsext hovereffect">SUSE Multi-Linux Support</b>
 
 
-It is a comprehensive service offering technical assistance and maintenance for various Linux distributions, including your existing Red Hat Enterprise Linux (RHEL), CentOS, <b class="liberty">SUSE Liberty Linux</b>, and <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>), depending on the offering.
+これは、既存の Red Hat Enterprise Linux (RHEL)、CentOS、<b class="liberty">SUSE Liberty Linux</b>、および <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>) など、さまざまな Linux ディストリビューションに対する技術支援とメンテナンスを提供する包括的なサービスです（提供内容によります）。
 
-&emsp;&emsp; It enables organizations to manage mixed Linux environments efficiently under a single support framework.
-Depending on the package purchased, <b class="smlsext">SUSE Multi-Linux Support</b> may also include <b class="smlmext">SUSE Multi-Linux Manager</b>, a multi-Linux management tool to manage these distributions.
+&emsp;&emsp; これにより、組織は単一のサポートフレームワークの下で、混在する Linux 環境を効率的に管理できます。
+購入したパッケージによっては、<b class="smlsext">SUSE Multi-Linux Support</b> に、これらのディストリビューションを管理するためのマルチ Linux 管理ツールである <b class="smlmext">SUSE Multi-Linux Manager</b> が含まれる場合もあります。
 
 
 
- 🌅 Explore the Instruqt UI
+ 🌅 Instruqt UI の探索
 =======================
-Before we begin our first task, let's take a moment to look at Instruqt UI.
+最初のタスクを始める前に、Instruqt UI を少し見てみましょう。
 
-+ The **right side** of the screen provides you with these instructions and navigation controls.
++ 画面の **右側** には、これらの手順とナビゲーションコントロールが表示されます。
 
-+ The **left side** give you access to the various machines and services that make up our lab environment.
++ **左側** では、ラボ環境を構成するさまざまなマシンやサービスにアクセスできます。
 
-Within the Instruqt UI you can jump between the [button label="SMLM UI" variant="success"](tab-0) and the available [button label="terminals" variant="success"](tab-1) by clicking on tabs at the top of the left-side panel.
+Instruqt UI 内では、左側のパネルの上部にあるタブをクリックすることで、[button label="SMLM UI" variant="success"](tab-0) と利用可能な [button label="terminals" variant="success"](tab-1) を切り替えることができます。
 
 
 > [!NOTE]
-> No automatic reloading happens on the web UI, in some cases you may have to reload Instruqt's internal web browser to see updates.
+> Web UI では自動リロードは行われません。更新を確認するには、Instruqt の内部 Web ブラウザをリロードする必要がある場合があります。
 
 
-🛫 Logging into <b class="smlmext">SUSE Multi-Linux Manager</b> 🛫
+🛫 <b class="smlmext">SUSE Multi-Linux Manager</b> へのログイン 🛫
 ========================================
+環境に慣れていきましょう。
 
-Let's get you familiarized with the environment.
-
-- Open <b class="smlmext">SUSE Multi-Linux Manager</b> inside the lab from the [button label="SMLM UI" variant="success"](tab-0)
+- [button label="SMLM UI" variant="success"](tab-0) からラボ内の <b class="smlmext">SUSE Multi-Linux Manager</b> を開きます。
 
 
-- Log in with the following credentials:
+- 以下の認証情報でログインします：
 
-  - Username:
+  - ユーザー名:
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
-  - Password:
+  - パスワード:
 
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-If everything went well, you should see the **Overview** page in the <b class="smlmext">SUSE Multi-Linux Manager</b> UI logged in as `[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]` user.
+すべてがうまくいけば、`[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]` ユーザーとしてログインした <b class="smlmext">SUSE Multi-Linux Manager</b> UI の **Overview** ページが表示されるはずです。
 
 > [!NOTE]
-> If you wish to access <b class="smlmext">SUSE Multi-Linux Manager</b> UI directly through your browser you can do too:
+> ブラウザから直接 <b class="smlmext">SUSE Multi-Linux Manager</b> UI にアクセスしたい場合は、以下からも可能です：
 
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 > [!NOTE]
-> If the page doesn't load correctly, you may need to refresh the browser tab after the lab environment has finished starting up.
+> ページが正しく読み込まれない場合は、ラボ環境の起動が完了した後にブラウザのタブを更新する必要があるかもしれません。
 
 
-🗺 Explore <b class="smlmext">SUSE Multi-Linux Manager</b> 🗺
+
+
+🗺  <b class="smlmext">SUSE Multi-Linux Manager</b> の探索 🗺
 ======================================
 
-Before we take off, let's get familiar with the controls. This is not meant to be an exhaustive tour, but a brief overview of the key instruments we will use throughout the workshop. We encourage you to be curious and explore.
+離陸する前に、コントロールに慣れておきましょう。これは徹底的なツアーではなく、ワークショップ全体で使用する主要な機器の簡単な概要です。好奇心を持って探索することをお勧めします。
 
 
-Let's begin.
+始めましょう。
 
 
-- **Systems menu** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_systems.png"/>
+- **Systems メニュー** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_systems.png"/>
 
-  On the left-hand panel, click on `systems`. This is our fleet overview, showing every registered server. The list is small now, but it will grow as we complete our exercises.
+  左側のパネルで、`systems` をクリックします。これはフリートの概要であり、登録されているすべてのサーバーが表示されます。リストは今は小さいですが、演習を完了するにつれて大きくなります。
 
    - **System Lists**
 
-     This section provides convenient, pre-filtered views. For example, the `Out of Date`list instantly shows you which servers require updates, saving you from performing a manual search. </p>
+     このセクションでは、便利で事前にフィルタリングされたビューを提供します。たとえば、`Out of Date` リストは、更新が必要なサーバーを即座に表示するため、手動で検索する手間が省けます。</p>
 
   <br/>
 
   - **System Groups**
 
-    To organize our fleet logically, we use `System Groups`, you can categorize them based on any criteria, by doing so you can save time when applying actions or defining policies. Once created you can automatically attach systems to one or multiple groups, e.g. using `activation keys`.
+    フリートを論理的に整理するために、`System Groups` を使用します。任意の基準に基づいて分類できます。そうすることで、アクションを適用したりポリシーを定義したりする際の時間を節約できます。一度作成すると、たとえば `activation keys` を使用して、システムを 1 つまたは複数のグループに自動的にアタッチできます。
 
 
-    Feel free to try creating one now by clicking `+ Create Group`.
+    `+ Create Group` をクリックして、今すぐ作成してみてください。
 
   <br/>
 
-  - **Batch operations**
+  - **バッチ操作**
 
-    `System Set Manager` provides a powerful way to perform actions on multiple systems simultaneously.
+    `System Set Manager` は、複数のシステムに対して同時にアクションを実行するための強力な方法を提供します。
 
 
-    Instead of applying changes one by one, you can select a collection of systems, either individually from the System List or by leveraging existing System Groups, and then execute tasks across all of them in a single operation.
+    変更を 1 つずつ適用するのではなく、System List から個別に、または既存の System Groups を活用してシステムのコレクションを選択し、単一の操作ですべてのシステムに対してタスクを実行できます。
 
   <br/>
 
   - **Provisioning**
 
-    <b class="smlmext">SUSE Multi-Linux Manager</b> provides comprehensive tools for provisioning new systems and reprovisioning existing ones. This capability helps you establish a standardized and repeatable process for systems deployment.
+    <b class="smlmext">SUSE Multi-Linux Manager</b> は、新しいシステムのプロビジョニングと既存のシステムの再プロビジョニングのための包括的なツールを提供します。この機能は、システム展開のための標準化された反復可能なプロセスを確立するのに役立ちます。
 
 
-    For example, within `Autoinstallation` section you can define distributions and Kickstart/AutoYaST profiles which allows you to specify how your systems should be deployed, what software they will have installed, how the storage space will be distributed and more.
+    たとえば、`Autoinstallation` セクション内では、ディストリビューションと Kickstart/AutoYaST プロファイルを定義できます。これにより、システムをどのように展開するか、どのソフトウェアをインストールするか、ストレージ容量をどのように配分するかなどを指定できます。
 
 
-    All these simple to setup automation mechanisms can be combined with complex but more powerful automation solutions like Salt or Ansible, maintaining your freedom to choose the best solution for each challenge.
+    これらすべての簡単に設定できる自動化メカニズムは、Salt や Ansible のような複雑ですがより強力な自動化ソリューションと組み合わせることができ、各課題に最適なソリューションを選択する自由を維持できます。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -218,29 +216,27 @@ Let's begin.
 
 
 
-- **Patches menu** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_patches.png"/>
+- **Patches メニュー** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_patches.png"/>
 
   - **Patching**
 
-    One of the most common tasks in IT is to keep systems up-to-date and from time to time apply security patches in a rush!
-    Wish SMLM we can easily see a list of **relevant** pacthes, classified by type, and provided with all the information you may need to know including all the systems and packages they affect.
+    IT における最も一般的なタスクの 1 つは、システムを最新の状態に保ち、時には急いでセキュリティパッチを適用することです！
+    SMLM を使用すると、タイプ別に分類された **関連する** パッチのリストを簡単に確認でき、影響を受けるすべてのシステムやパッケージなど、知る必要のあるすべての情報が提供されます。
 
-    Beyond the vendor-supplied patches we can also create our own patches. Later on we will explore the different options we have to manage patching and regular updates accross all our fleet.
+    ベンダー提供のパッチ以外にも、独自のパッチを作成することもできます。後ほど、フリート全体でのパッチ適用と定期的な更新を管理するために利用できるさまざまなオプションについて説明します。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_patches.gif"/>
   </div>
 
 <br/>
-
-
 - **Software channels** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_software.png"/>
 
-  On `Channel List` we can see all the package channels/repositories/streams available for consumption, you can also create new software channels to organize your software or upload your own packages.
+  `Channel List` では、利用可能なすべてのパッケージチャンネル/リポジトリ/ストリームを確認できます。また、ソフトウェアを整理したり独自のパッケージをアップロードしたりするために、新しいソフトウェアチャンネルを作成することもできます。
 
-  All the channels you currently see have been retrieved by SMLM from the official sources and they can be kept in sync easily.
+  現在表示されているすべてのチャンネルは、SMLM によって公式ソースから取得されており、簡単に同期を維持できます。
 
-  In `Package Search` we are able to search for specific packages and inspect their content and metadata.
+  `Package Search` では、特定のパッケージを検索し、その内容やメタデータを検査できます。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_software.gif"/>
@@ -250,9 +246,9 @@ Let's begin.
 
 - **Configuration** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_configuration.png"/>
 
-  It is also possible to manage and apply specific configurations to systems, upon registration or afterwards, for that we can inspect `Configuration` section.
+  登録時またはその後に、特定の構成をシステムに管理および適用することも可能です。そのためには `Configuration` セクションを検査できます。
 
-  SMLM provides an easy way to easily manage revisions, deploy and compare configuration files across systems. And all can be easily grouped into configuration channels.
+  SMLM は、システム間でリビジョンを管理し、構成ファイルを展開および比較するための簡単な方法を提供します。そして、すべてを構成チャンネルに簡単にグループ化できます。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_configuration.gif"/>
@@ -262,16 +258,12 @@ Let's begin.
 
 - **Scheduling** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_schedule.png"/>
 
-  In `Schedule` we can observe and manage scheduled actions, define specific maintenance windows. This is specially useful to automate regular operations or perform canary deployments when managing many systems. We will see this in action later on during the workshop.
+  `Schedule` では、スケジュールされたアクションを監視および管理し、特定のメンテナンスウィンドウを定義できます。これは、多くのシステムを管理する際に、定期的な操作を自動化したり、カナリア展開を実行したりする場合に特に役立ちます。これについては、ワークショップの後半で実際に確認します。
 
 <br/>
 <br/>
 
-SUSE Multi-Linux Manager offers many posibilities to manage your systems, we cannot cover all of them in this workshop but, as always, feel free to ask questions and explore.
+SUSE Multi-Linux Manager はシステムを管理するための多くの可能性を提供します。このワークショップですべてを網羅することはできませんが、いつものように、自由に質問して探索してください。
 
 > [!NOTE]
-> Your user has full admin privileges so we recommend to make changes only after having finished the exercises.
-
-
-
-
+> ユーザーには完全な管理者権限があるため、演習を完了した後にのみ変更を加えることをお勧めします。

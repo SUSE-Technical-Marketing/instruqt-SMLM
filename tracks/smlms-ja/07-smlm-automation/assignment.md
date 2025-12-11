@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: fkelapqkrgth
+id: xxy4jxyx3pf7
 type: challenge
-title: Automation (Optional)
+title: 自動化 (オプション)
 tabs:
-- id: u0y5w6ewsnm1
+- id: r6gsyt2w3jtu
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Automation and configuration management
+🌌 自動化と構成管理
 ===================================
 
 <style type="text/css">
@@ -97,30 +97,30 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/07-automation.jpeg"/>
 
-In this section we are going to look at some of the options available to automate tasks.
+このセクションでは、タスクを自動化するために利用可能なオプションのいくつかを見ていきます。
 
-In this lab, we move from doing manual tasks to create some automation using some of the options we have available.
-<b class="smlmext">SUSE Multi-Linux Manager</b> acts as the "autopilot" for our IT operations, allowing us to enforce configuration standards and automate routine tasks with precision and reliability across our entire fleet.
+このラボでは、手動タスクの実行から、利用可能なオプションのいくつかを使用して自動化を作成することへと移行します。
+<b class="smlmext">SUSE Multi-Linux Manager</b> は、当社の IT 運用の「オートパイロット」として機能し、構成基準を強制し、フリート全体で日常的なタスクを正確かつ確実に自動化できるようにします。
 
-Instead of manually configuring hundreds of servers and hoping we don't miss a step, we define the process and state and reduce the human operation to define a schedule, once.
+何百ものサーバーを手動で構成し、手順を飛ばさないことを祈る代わりに、プロセスと状態を定義し、人間の操作を一度だけのスケジュール定義に減らします。
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">あなたの目標:</b>
 
-- Create a schedule that regularly perform updates on your development systems
+- 開発システムで定期的に更新を実行するスケジュールを作成します。
 
-- Create a script to show a different login banner depending on the system's environment
+- システムの環境に応じて異なるログインバナーを表示するスクリプトを作成します。
 
-Lab details
+ラボの詳細 (Lab details)
 ===========
 
-Username:
+ユーザー名 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+パスワード (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -128,34 +128,34 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Setup recurring updates
+定期的な更新のセットアップ (Setup recurring updates)
 =======================
 
-We want developers to work with the latest stable updates provided by SUSE, but we can't rely on people remembering to update their systems every day, so we are going to create a recurring schedule that does exactly that.
+開発者が SUSE によって提供される最新の安定した更新プログラムを使用して作業できるようにしたいと考えていますが、毎日システムを更新することを忘れないように人々に頼ることはできません。そのため、まさにそれを行う定期的なスケジュールを作成します。
 
 
-We are going to apply this to all the systems in the dev group so that this doesn't have to be done on every system.
+これを dev グループ内のすべてのシステムに適用して、すべてのシステムでこれを行う必要がないようにします。
 
-- Let's go to `Systems` ✈ `System Groups`
-- Click on `dev` group.
+- `Systems` ✈ `System Groups` に移動しましょう。
+- `dev` グループをクリックします。
 
-We just noticed it has no systems assigned, let's add one.
+システムが割り当てられていないことに気付きました。追加しましょう。
 
-- click on `Target Systems` and select `sles15`
-- then click on ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
+- `Target Systems` をクリックし、`sles15` を選択します。
+- その後、![Add Systems](../assets/SMLM5.1/bottom-add_system.png) をクリックします。
 
-Now that we have a system let's create the recurring action.
+システムができたので、定期的なアクションを作成しましょう。
 
-- Go to `Recurring Actions`
-- Click on ![Create](../assets/SMLM5.1/bottom-create.png)
-- Now let's populate the form with the following details:
+- `Recurring Actions` に移動します。
+- ![Create](../assets/SMLM5.1/bottom-create.png) をクリックします。
+- 以下の詳細でフォームに入力しましょう：
 	+ **Action Type:** 'Custom state'
  	+ **Schedule Name:** 'Update Dev systems'
 	+ **Daily:** '03:00'
-	+ **Configure states to execute:** Make sure **uptodate:** is selected
+	+ **Configure states to execute:** **uptodate:** が選択されていることを確認してください
 	![uptodate Selected](../assets/SMLM5.1/uptodate_selected.png)
 
-- Click on
+- 以下をクリックします：
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
 <img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-save_changes.png"/>
@@ -169,9 +169,9 @@ Now that we have a system let's create the recurring action.
 
 
 
-To observe our list of recurring actions we can go to `Schedule` ✈ `Recurring Actions`
+定期的なアクションのリストを確認するには、`Schedule` ✈ `Recurring Actions` に移動します。
 
-Now all the dev systems will be updated daily at 3am UTC time.
+これで、すべての開発システムは毎日 UTC 時間の午前 3 時に更新されます。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -183,24 +183,26 @@ Now all the dev systems will be updated daily at 3am UTC time.
 
 
 
-Make sure every system has a login message
+すべてのシステムにログインメッセージがあることを確認する
 ==========================================
 
 
-We are going to create a configuration channel to make sure every system we manage contains an adequate login message.
+管理するすべてのシステムに適切なログインメッセージが含まれていることを確認するために、構成チャンネルを作成します。
 
-- Let's go to `Configuration` ✈ `Channels`
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
-- Fill the form with the following details:
-	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
-	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
-	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
-Now that we have created the config channel let's populate it.
 
-- Go to `Add Files` ✈ `Create File`
-- Fill in the following details:
+- `Configuration` ✈ `Channels` に移動しましょう。
+- ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png) をクリックします。
+- 以下の詳細でフォームに入力します：
+	+ **Name:** <b class="highlightcopy">Uniform experience</b>
+	+ **Label:** <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:** <b class="highlightcopy">Create a uniform experience across systems</b>
+- ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png) をクリックします。
+
+構成チャンネルを作成したので、データを入力しましょう。
+
+- `Add Files` ✈ `Create File` に移動します。
+- 以下の詳細を入力します：
 	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
@@ -219,15 +221,15 @@ No applications running on this server
 </pre>
 
 
-- Click on ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
+- ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png) をクリックします。
 
-Now let's subscribe every system in the organization to the new configuration channel.
+それでは、組織内のすべてのシステムを新しい構成チャンネルにサブスクライブしましょう。
 
-- let's go to `Admin` ✈ `Organizations`
-- Click on organization **Organization** (This is the default organization)
-- Go to `States` and select the channel we just created.
+- `Admin` ✈ `Organizations` に移動しましょう。
+- **Organization** という組織をクリックします（これがデフォルトの組織です）。
+- `States` に移動し、作成したばかりのチャンネルを選択します。
 ![Uniform experience selected](../assets/SMLM5.1/selected_univorm_experience_Configurationchannel.png)
-- Click on
+- 以下をクリックします：
 
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
@@ -241,20 +243,20 @@ Now let's subscribe every system in the organization to the new configuration ch
 </p>
 
 
-This won't happen immediately, let's check the systems. We are going to run a simple command via the web UI, if run too early, you may see systems with the old message and systems which already got the file updated.
+これはすぐには起こりません。システムを確認しましょう。Web UI を介して簡単なコマンドを実行します。実行が早すぎると、古いメッセージが表示されるシステムと、ファイルがすでに更新されたシステムが表示される場合があります。
 
-- Let's go to `Salt` ✈ `Remote Commands`
-- Type the following:
+- `Salt` ✈ `Remote Commands` に移動しましょう。
+- 以下を入力します：
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd.png)
-- Click on `Find targets`
-- You should see a list of systems click on `Run command`
+- `Find targets` をクリックします。
+- システムのリストが表示されるはずです。`Run command` をクリックしてください。
 
-Now you should see something like this:
+次のような画面が表示されるはずです：
 
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd_first_result.png)
 
 > [!NOTE]
-> This process may take a couple of minutes, if you don't see the MOTD please re run the command after a few minutes.
+> このプロセスには数分かかる場合があります。MOTD が表示されない場合は、数分後にコマンドを再実行してください。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -264,36 +266,33 @@ Now you should see something like this:
 <br/>
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] にとってなぜ重要なのですか？
 =================================================================================
 
 
 
-- When managing 1000s of systems we cannot afford to do everything one by one, tasks need to be automated so we manage cattle, not pets.
-
-- By defining the "correct state" we eliminate configuration drift. Every server in the fleet operates from the same playbook, just like every pilot uses the same checklist.
-
-
-- Tasks that would take hours to perform manually across hundreds of servers are completed in minutes. This frees up our engineers to work on innovation and improvement, not repetitive manual labor.
-
-
-- Automation is the ultimate defense against human error. A forgotten step or a typo during manual configuration can lead to an outage. An automated, tested process executes perfectly every time, enhancing the reliability and security of our entire airline.
+- 数千のシステムを管理する場合、すべてを 1 つずつ行う余裕はありません。タスクを自動化して、ペットではなく家畜 (cattle) として管理する必要があります。
 
 
 
+- 「正しい状態」を定義することで、構成ドリフト (configuration drift) を排除します。すべてのパイロットが同じチェックリストを使用するのと同じように、フリート内のすべてのサーバーは同じプレイブックから動作します。
 
-More information
+
+
+- 何百ものサーバーで手動で実行するのに数時間かかるタスクが、数分で完了します。これにより、エンジニアは反復的な手作業ではなく、革新と改善に取り組むことができます。
+
+
+- 自動化はヒューマンエラーに対する究極の防御策です。手動構成中に手順を忘れたり、タイプミスをしたりすると、停止につながる可能性があります。自動化され、テストされたプロセスは毎回完璧に実行され、航空会社全体の信頼性とセキュリティを向上させます。
+
+
+
+
+詳細情報
 ================
 
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
+* [SUSE Multi-Linux Manager 製品ページ](https://www.suse.com/products/suse-manager/)
 
-* [Ansible Integration](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
+* [Ansible 統合](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
 
-* [Salt Guide](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)
-
-
-
-
-
-
+* [Salt ガイド](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)

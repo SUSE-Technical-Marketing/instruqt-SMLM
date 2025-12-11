@@ -1,14 +1,14 @@
 ---
 slug: smlm-simplify-upgrade-sles
-id: fhbwdlwedspg
+id: jrlbaehx5ovc
 type: challenge
-title: Simple and reliable maintenance
+title: シンプルで信頼性の高いメンテナンス
 tabs:
-- id: f65eokpjct0l
+- id: vydrbxyk4x63
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: pounuhkwnzab
+- id: w1tsdcptj7kj
   title: SLES 15
   type: terminal
   hostname: sles15
@@ -17,7 +17,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Simple and reliable maintenance
+🌌 シンプルで信頼性の高いメンテナンス
 ===================================
 
 <style type="text/css">
@@ -99,30 +99,32 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/04-upgrade.jpeg"/>
 
-So far, we’ve focused on managing the diversity of our mixed fleet and even extending the life of our legacy systems. Now, we turn our attention to the core of our airline: our flagship <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>) systems.
+これまでは、混合フリートの多様性の管理や、レガシーシステムの寿命延長に焦点を当ててきました。今度は、航空会社の中核である主力システム <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>) に目を向けます。
 
 
-Think of these as our state-of-the-art, long-haul jets. Their reliability is paramount, and keeping them in peak condition involves regular, planned service patching and upgrades. This next exercise is exactly that: we're going to walk through the process of a version upgrade, a common task in managing the lifecycle of any critical system.
-
-And while we're using SLES as the example, remember the key principle of our universal control tower: the process you're about to perform is the same one you would use for any other Linux distribution. The interface and the methodology do not change.
-
-
-## <b class="hovereffect">Your Objectives:</b>
-
-- Onboard a new SLES 15 SP5 system to serve as our test aircraft.
-- Perform a mayor service upgrade from SP5 to SP6.
+これらを、最新鋭の長距離ジェット機だと考えてください。それらの信頼性は最優先事項であり、最高の状態を維持するには、定期的かつ計画的なサービスパッチの適用とアップグレードが必要です。次の演習はまさにそれです。重要なシステムのライフサイクル管理における一般的なタスクである、バージョンアップグレードのプロセスを順を追って説明します。
 
 
 
-Lab details
+そして、例として SLES を使用していますが、ユニバーサルコントロールタワーの重要な原則を忘れないでください。これから実行するプロセスは、他のどの Linux ディストリビューションでも使用するものと同じです。インターフェースと方法は変わりません。
+
+
+## <b class="hovereffect">あなたの目標:</b>
+
+- テスト用航空機として機能する新しい SLES 15 SP5 システムをオンボード（登録）します。
+- SP5 から SP6 へのメジャーサービスアップグレードを実行します。
+
+
+
+ラボの詳細 (Lab details)
 ===========
 
-Username:
+ユーザー名 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+パスワード (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -134,55 +136,57 @@ Password:
 
 
 
-Onboarding and preparation
+オンボードと準備 (Onboarding and preparation)
 ==========================
 
-Access the system terminal from the tab [button label="SLES 15" variant="success"](tab-1)
+[button label="SLES 15" variant="success"](tab-1) タブからシステムターミナルにアクセスします。
 
 
-Let's register the system within <b class="smlm">SMLM</b> as **sles15**
+システムを **sles15** として <b class="smlm">SMLM</b> 内に登録しましょう。
 
 ```bash,run
 curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp5 bash ; echo "Wait 45 seconds for it to finish"; sleep 45
 ```
 
 
-Now, let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+では、[button label="SMLM UI" variant="success"](tab-0) タブに切り替えましょう。
 
 
-Executing the upgrade
+アップグレードの実行 (Executing the upgrade)
 =====================
 
-We should see it soon on the list of systems, let's go to `Systems` ✈ `System List` ✈ `All`, please click refresh on the internal browser if you don't see it.
+システムのリストにすぐに表示されるはずです。`Systems` ✈ `System List` ✈ `All` に移動しましょう。表示されない場合は、内部ブラウザの更新をクリックしてください。
 
 
-Let's click on it and go to `Software` ✈ `Packages` ✈ `Upgrade`.
+それをクリックして、`Software` ✈ `Packages` ✈ `Upgrade` に移動しましょう。
 
 
-To ensure a smooth migration is best to apply the latests updates.
+スムーズな移行を確実にするには、最新の更新プログラムを適用するのが最善です。
 
 
 
-<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">Click on </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">以下をクリックしてください： </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-This may take some time to complete.
+これには完了するまで時間がかかる場合があります。
 
 <br/>
 
 
-## <b class="hovereffect">Product migration</b>
+## <b class="hovereffect">製品の移行 (Product migration)</b>
 
 
-Once it finish, please go to `Software` ✈ `Product Migration`
+完了したら、`Software` ✈ `Product Migration` に移動してください。
 
-<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">You will see a section called **Target Products**. Ensure that <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #90ebcd">SUSE Linux Enterprise Server 15 SP6 x86_64</b> is selected, then press: </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; vertical-align: middle; display:block; align:left; padding: 0px;" src="../assets/SMLM5.1/bottom-select_channels.png"/></p>
 
-You will be shown a confirmation screen with a summary and aditional options. Leave the defaults as they are and click: ![Schedule Migration](../assets/SMLM5.1/bottom-schedule_migration.png)
 
-The system will ask you to do a dry run first, ignore it and press: ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">**Target Products** というセクションが表示されます。<b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #90ebcd">SUSE Linux Enterprise Server 15 SP6 x86_64</b> が選択されていることを確認し、以下を押します： </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; vertical-align: middle; display:block; align:left; padding: 0px;" src="../assets/SMLM5.1/bottom-select_channels.png"/></p>
 
-This will take some time. To monitor the status, go to `Events` ✈ `History` and watch for the **Product Migration** event. Once its status icon turns green, the migration is completed. You can verify this by navigating to `Software` ✈ `Software Channels` and confirming the system is now subscribed to the new SP6 channels.
+要約と追加オプションを含む確認画面が表示されます。デフォルトのままにして、以下をクリックします： ![Schedule Migration](../assets/SMLM5.1/bottom-schedule_migration.png)
+
+システムは最初にドライラン（予行演習）を行うように求めますが、無視して以下を押します： ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+
+これには時間がかかります。ステータスを監視するには、`Events` ✈ `History` に移動し、**Product Migration** イベントを監視します。ステータスアイコンが緑色になったら、移行は完了です。`Software` ✈ `Software Channels` に移動し、システムが新しい SP6 チャンネルにサブスクライブされていることを確認することで、これを検証できます。
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/04-simple_and_reliable_maintenance-executing_the_upgrade.gif"/>
@@ -190,51 +194,53 @@ This will take some time. To monitor the status, go to `Events` ✈ `History` an
 
 <br/>
 
-## <b class="hovereffect">Post-Migration Reboot</b>
+## <b class="hovereffect">移行後の再起動 (Post-Migration Reboot)</b>
 
-- Navigate back to `Systems` ✈ `System List` ✈ `All`
+- `Systems` ✈ `System List` ✈ `All` に戻ります。
 
-- Notice that the `sles15` system now has a reboot icon next to it:
+- `sles15` システムの横に再起動アイコンが表示されていることに注目してください：
 
 ![Needs reboot icon](../assets/SMLM5.1/icon_needs_reboot.png)
 
-  This indicates a reboot is required, usually due to a mayor kernel update.
+  これは、通常はメジャーなカーネル更新のために、再起動が必要であることを示しています。
 
-- Click on it, we will see something similar to this:
+- それをクリックすると、次のようなものが表示されます：
 
 ![Needs reboot message](../assets/SMLM5.1/system_requires_a_reboot.png)
 
-- Click on `Schedule System Reboot` and in the following screen click on ![Reboot System](../assets/SMLM5.1/bottom-reboot_system.png)
+- `Schedule System Reboot` をクリックし、次の画面で ![Reboot System](../assets/SMLM5.1/bottom-reboot_system.png) をクリックします。
 
 > [!NOTE]
-> The reboot won't happen immediatly.
+> 再起動はすぐには行われません。
 
 <br/>
 
 
-## <b class="hovereffect">The importance of Scheduling</b>
+## <b class="hovereffect">スケジューリングの重要性 (The importance of Scheduling)</b>
 
-We have scheduled these actions to happen immediately, but this is not always desirable. <b class="smlm">SMLM</b> supports the creation of Maintenance Windows ( `Schedule` ✈ `Maintenance Windows` ) which allows you to ensure the mayor events like reboots onlye occur during those pre-approved periods .
+これらのアクションをすぐに実行するようにスケジュールしましたが、これが常に望ましいとは限りません。<b class="smlm">SMLM</b> はメンテナンスウィンドウ（Maintenance Windows）の作成（`Schedule` ✈ `Maintenance Windows`）をサポートしており、再起動のような主要なイベントが、事前に承認された期間中にのみ発生するようにすることができます。
 
-Scheduling is especially useful for production systems, as it allows for carefully planned changes on groups of systems and even phased "canary" deployments.
+
+
+スケジューリングは、本番システムにとって特に有用であり、システムグループに対する慎重に計画された変更や、段階的な「カナリア」展開さえも可能にします。
 
 <br/>
 
 > [!NOTE]
-> It is possible to do kernel live patching with KLP, it makes it possible to apply the latest security updates to Linux kernels without rebooting.
+> KLP を使用してカーネルライブパッチを行うことが可能であり、再起動せずに Linux カーネルに最新のセキュリティ更新プログラムを適用できます。
 
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] にとってなぜ重要なのですか？
 =================================================================================
 
-- System upgrades and other routine tasks must be simple and repeatable, otherwise, we risk making costly mistakes. With these tools, we can control precisely when and where we perform actions, scheduling critical maintenance for our fleet with confidence.
+- システムアップグレードやその他のルーチンタスクは、シンプルで反復可能でなければなりません。そうでないと、高価なミスを犯すリスクがあります。これらのツールを使用すると、アクションを実行する日時と場所を正確に制御でき、フリートの重要なメンテナンスを自信を持ってスケジュールできます。
 
 
-- We can control when and where we perform actions, and schedule maintenance operations on our grounded fleet.
+- いつどこでアクションを実行するかを制御し、地上にあるフリートのメンテナンス作業をスケジュールできます。
 
 
-More information
+詳細情報
 ================
 
 - [Live kernel patching with KLP](https://documentation.suse.com/en-us/sles/15-SP7/html/SLES-all/cha-klp.html)

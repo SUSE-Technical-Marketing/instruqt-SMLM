@@ -1,18 +1,18 @@
 ---
 slug: smls-extended-support
-id: p19lqfytmc9b
+id: xktadpzrfsdo
 type: challenge
-title: Extended support for legacy systems
+title: レガシーシステムの延長サポート
 tabs:
-- id: 9xmkhkrycdlq
+- id: llnwgs5vczql
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: 40lnzj9nsp9b
+- id: mux2en07s4zk
   title: CentOS 7 QA
   type: terminal
   hostname: centos7
-- id: boawmufluo08
+- id: yc993ysckxiy
   title: CentOS 7 Prod
   type: terminal
   hostname: zzcentos7
@@ -21,7 +21,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Extended support for legacy systems
+🌌 レガシーシステムの延長サポート
 ===================================
 
 <style type="text/css">
@@ -107,49 +107,49 @@ enhanced_loading: null
 <img style="width: 10px;" src="../assets/logos/chameleon_icon.png" />
 <img class="logos" alt="Welcome!" src="../assets/logos/03_extended_support.jpeg"/>
 
-# Extending the Life of Our Legacy Fleet
+# レガシーフリートの寿命を延ばす
 
-In any airline, you have older, reliable planes that have served you for years but for which you have no replacement yet. For us, a part of that legacy fleet is our CentOS 7 systems. They are stable but end-of-life, meaning they no longer receive critical security updates from their original manufacturer. For an airline, flying without support is a risk we simply cannot take.
+どの航空会社にも、長年役立ってきた信頼できる古い飛行機がありますが、まだ代替機がない場合があります。私たちにとって、そのレガシーフリートの一部は CentOS 7 システムです。それらは安定していますが、寿命（end-of-life）を迎えており、元の製造元から重要なセキュリティ更新プログラムを受け取れなくなっています。航空会社にとって、サポートなしで飛行することは、決して冒すことのできないリスクです。
 
-The traditional solution would be a full, costly replacement of every single one.
-But what if we could perform a life-extension upgrade, modernizing them in place with minimal disruption? That is precisely the mission for this challenge. We will use the power of <b class="smlmext">SUSE Multi-Linux Manager</b> together with <b class="smlsext">SUSE Multi-Linux Support</b> to safely transition these systems and keep them in service until we can replace them with a more modern OS.
+従来の解決策は、すべてを完全に、かつコストをかけて交換することでした。
+しかし、最小限の中断でそれらをその場で近代化する、寿命延長アップグレードを実行できるとしたらどうでしょうか？ それこそが、この課題の使命です。<b class="smlmext">SUSE Multi-Linux Manager</b> の力と <b class="smlsext">SUSE Multi-Linux Support</b> を併用して、これらのシステムを安全に移行し、より現代的な OS に置き換えることができるまでサービスを維持します。
 
 
 
-## <b class="hovereffect">Our flight plan:</b>
+## <b class="hovereffect">フライトプラン:</b>
 
-- Examine the current legacy systems running Centos 7
+- Centos 7 を実行している現在のレガシーシステムを調査する
 
-- Onboard the QA system and apply any patches available
+- QA システムをオンボード（登録）し、利用可能なパッチを適用する
 
-- Identify and apply updates if any.
+- 更新があれば特定して適用する
 
-- Liberate the system with the liberate formula.
+- liberate フォーミュラを使用してシステムを解放（Liberate）する
 
-- Observe what has changed between both systems
+- 両方のシステム間で何が変わったかを観察する
 
-- Identify if this is a migration.
+- これが移行（マイグレーション）であるかどうかを特定する
 
 <br/>
 
-## <b class="hovereffect">Our airplanes</b>
+## <b class="hovereffect">私たちの飛行機</b>
 
-- CentOS 7 QA ✈ Our test and development server.
+- CentOS 7 QA ✈ 私たちのテストおよび開発サーバー。
 
-- CentOS 7 Prod ✈ Our production server already registered in <b class="smlm">SMLM</b>
+- CentOS 7 Prod ✈ すでに <b class="smlm">SMLM</b> に登録されている本番サーバー
 
 <br/><br/>
 
 
-Lab details
+ラボの詳細 (Lab details)
 ===========
 
-Username:
+ユーザー名 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+パスワード (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -158,23 +158,23 @@ Password:
 
 
 
-Onboarding Centos 7 QA
+Centos 7 QA のオンボード (Onboarding Centos 7 QA)
 ======================
 
 
 
-## <b class="hovereffect">Examing the current legacy systems</b>
+## <b class="hovereffect">現在のレガシーシステムの調査</b>
 
-Access the system terminal from the tab [button label="Centos 7 QA" variant="success"](tab-1)
+[button label="Centos 7 QA" variant="success"](tab-1) タブからシステムターミナルにアクセスします。
 
-Check the current version of the system:
+システムの現在のバージョンを確認します：
 
 ```bash,run
 rpm -qi centos-release centos-logos
 ```
 
 
-Now run the follwing command to register the system into <b class="smlm">SMLM</b>:
+次に、以下のコマンドを実行してシステムを <b class="smlm">SMLM</b> に登録します：
 
 
 ```bash,run
@@ -182,79 +182,81 @@ curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh |
 ```
 
 
-This is similar to the one we used to onboard Ubuntu in the previous lab, what changes is:
+これは前のラボで Ubuntu をオンボードするために使用したものと似ていますが、変更点は次のとおりです：
 
-- **Activation key**: Is a reference to the settings that will be applied to the system by default, in this case it has been created to only indicate which software channels the system will be registered to.
+- **Activation key** (アクティベーションキー): デフォルトでシステムに適用される設定への参照です。この場合、システムが登録されるソフトウェアチャンネルのみを示すために作成されています。
 
-- **Profile name**: If we don't specify it will use the hostname but in this case we want it to have a more meaningful name with the same naming convention we used with Centos 7 Prod.
+- **Profile name** (プロファイル名): 指定しない場合、ホスト名が使用されますが、この場合は Centos 7 Prod で使用したのと同じ命名規則を持つ、より意味のある名前にしたいと考えています。
 
 
-**Optional:** If we are curious and want to see what happens when we upgrade and execute the Liberate formula we can run the following command on both systems ( [button label="Centos 7 QA" variant="success"](tab-1) and [button label="Centos 7 Prod" variant="success"](tab-2) ):
+**オプション:** 好奇心があり、アップグレードして Liberate フォーミュラを実行したときに何が起こるかを確認したい場合は、両方のシステム（ [button label="Centos 7 QA" variant="success"](tab-1) および [button label="Centos 7 Prod" variant="success"](tab-2) ）で以下のコマンドを実行できます：
 
 
 ```bash,run
 journalctl -f
 ```
 
-And see the logs appearing in the terminals.
+そして、ターミナルに表示されるログを確認します。
 
 
 <br/><br/>
 
 
-## <b class="hovereffect">Identify and apply updates from <b class="liberty">Liberty</b> repositories</b>
+## <b class="hovereffect"><b class="liberty">Liberty</b> リポジトリからの更新の特定と適用</b>
 
-This Centos 7 systems come with the latest packages provided upstream, we want to make sure new bugs are fixed and we have a friendly support person to help us when there are troubles, now we have already subscribed the Centos 7 systems to SUSE provided software repositories during the registration process, so let's patch them all:
-
-Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+この Centos 7 システムには、アップストリームで提供される最新のパッケージが付属しています。新しいバグが修正されていることを確認し、トラブルが発生したときに助けてくれる親切なサポート担当者がいるようにしたいと考えています。登録プロセス中に Centos 7 システムを SUSE 提供のソフトウェアリポジトリにすでにサブスクライブしているので、すべてにパッチを適用しましょう：
 
 
-- Go to `Systems` ✈ `System List` in the left-hand menu.
 
-- Find your host **airco-dh4a-qa** and click on it.
+それでは、[button label="SMLM UI" variant="success"](tab-0) タブに切り替えましょう。
 
-- Select the `Software` ✈ `Packages`
 
-- Click on `Update Packages List`, this will take about a minute to complete
+- 左側のメニューの `Systems` ✈ `System List` に移動します。
 
-- Select the `Software` ✈ `Patches`
+- ホスト **airco-dh4a-qa** を見つけてクリックします。
 
-- You will see a list of available patches.
+- `Software` ✈ `Packages` を選択します。
 
-Click on `Select All`, then `Apply Patches` in the upper right finally `Confirm`. <b class="smlmext">SUSE Multi-Linux Manager</b> will now schedule and perform the upgrade procedure on the CentOS system.
+- `Update Packages List` をクリックします。完了するまで約1分かかります。
+
+- `Software` ✈ `Patches` を選択します。
+
+- 利用可能なパッチのリストが表示されます。
+
+`Select All` をクリックし、次に右上の `Apply Patches` をクリックして、最後に `Confirm` をクリックします。<b class="smlmext">SUSE Multi-Linux Manager</b> は、CentOS システムでのアップグレード手順をスケジュールし、実行します。
 
 
 > [!NOTE]
-> It may take a couple of minutes to get the list of packages before you can see the list of patches that can be applied to the system.
+> システムに適用できるパッチのリストが表示される前に、パッケージのリストを取得するのに数分かかる場合があります。
 
 
-Since this may take a while, let's see what happens under the hood.
-Go to `Events` tab, then to `History`, you should see a list of events that have happened since the system was registered into  <b class="smlm">SMLM</b>, in the first rows we should be able to find one event that contains something similar to *Combined Patch*.
+これには時間がかかる場合があるため、裏側で何が起こっているかを見てみましょう。
+`Events` タブに移動し、次に `History` に移動します。システムが <b class="smlm">SMLM</b> に登録されてから発生したイベントのリストが表示されます。最初の数行に、*Combined Patch* に類似した内容を含むイベントが見つかるはずです。
 
 
-If we click on it we can see all the details, feel free to have a look, otherwise wait until the icon is green:
+それをクリックするとすべての詳細を確認できます。自由に見て回ってください。そうでなければ、アイコンが緑色になるまで待ちます：
 
 ![Successfully patched](../assets/SMLM5.1/successfully_updated_system.png)
 
-We just applied patches that fix bugs to the exisiting packages, this patched packages are coming directly from SUSE, this is not a migration.
+既存のパッケージのバグを修正するパッチを適用したばかりです。これらのパッチが適用されたパッケージは SUSE から直接提供されていますが、これは移行（マイグレーション）ではありません。
 
 <br/>
 
-Let's compare it against the production system which we haven't updated yet.
+まだ更新していない本番システムと比較してみましょう。
 
-Please go to `Software` ✈ `Packages` ✈ `Profiles`
+`Software` ✈ `Packages` ✈ `Profiles` に移動してください。
 
-Select the system `airco-dh4a-prod`, which is the production version,  then click on:
+本番バージョンであるシステム `airco-dh4a-prod` を選択し、以下をクリックします：
 
 ![Compare](../assets/SMLM5.1/bottom-compare.png)
 
 
-We can see most of the package versions has not changed, still the same version ( **X.X.X**-xyz ) but with a patch applied ( X.X.X-**xyz** ).
+ほとんどのパッケージバージョンは変更されておらず、同じバージョン（ **X.X.X**-xyz ）のままですが、パッチが適用されている（ X.X.X-**xyz** ）ことがわかります。
 
-Before we move onto the next secion let's create a stored profile, this will help us to see the differences more clearly after we apply the liberate formula in the next secion.
+次のセクションに進む前に、保存されたプロファイルを作成しましょう。これは、次のセクションで liberate フォーミュラを適用した後の違いをより明確に確認するのに役立ちます。
 
 
-Please go to `Software` ✈ `Packages` ✈ `Profile` and click on `Create System Profile`. For the name you can call it:
+`Software` ✈ `Packages` ✈ `Profile` に移動し、`Create System Profile` をクリックしてください。名前は次のようにすることができます：
 
 ```txt
 before_liberation
@@ -269,31 +271,31 @@ before_liberation
 <br/><br/>
 
 
-Liberate the system (optional)
+システムの解放 (Liberate)（オプション）
 ==============================
 
-This is an **optional** step and not required to obtain support.
+これは **オプション** のステップであり、サポートを受けるために必須ではありません。
 
-Now let's liberate the system:
+それでは、システムを解放（Liberate）しましょう：
 
-- Go to the `Formulas` tab, search for **Liberate**, and once found, select it and click `Save` in the top right.
+- `Formulas` タブに移動し、**Liberate** を検索します。見つかったら選択し、右上の `Save` をクリックします。
 
-You will see a message in blue on the top of the screen, scroll up if you can't see:
+画面上部に青いメッセージが表示されます。見えない場合は上にスクロールしてください：
 
 ![Formula saved](../assets/SMLM5.1/formula_saved.png)
 
 
-Click on where it says `Highstate`, you will be directed to another tab (`States` ✈ `Highstate`).
+`Highstate` と書かれている場所をクリックすると、別のタブ（`States` ✈ `Highstate`）に移動します。
 
-You can see in the summary at the bottom that the liberate formula is listed.
+下部の概要に liberate フォーミュラがリストされていることがわかります。
 
-To start the liberation process, click:
+解放プロセスを開始するには、以下をクリックします：
 
 ![Formula saved](../assets/SMLM5.1/bottom-apply_highstates.png)
 
-This will take some time, please check `Events` -> `History` , you should see an event called **Apply highstate scheduled**
+これには時間がかかります。`Events` -> `History` を確認してください。**Apply highstate scheduled** というイベントが表示されるはずです。
 
-Let's wait for a couple of minutes for it to finish, in the mean time you can observe what is happening by looking at the terminal [button label="Centos 7 QA" variant="success"](tab-1).
+終了するまで数分待ちましょう。その間、ターミナル [button label="Centos 7 QA" variant="success"](tab-1) を見て何が起こっているか観察できます。
 
 
   <div style='align: middle; margin: 15px;'>
@@ -302,24 +304,25 @@ Let's wait for a couple of minutes for it to finish, in the mean time you can ob
 
 <br/><br/>
 
-## <b class="hovereffect">Observe what has changed</b>
+## <b class="hovereffect">何が変わったかを観察する</b>
 
 
-Once it's completed let's compare the system again to see the difference, if we are not there already let's click on the system name `airco-dh4a-qa`.
+完了したら、システムを再度比較して違いを確認しましょう。まだそこにいない場合は、システム名 `airco-dh4a-qa` をクリックします。
 
-Then go to `Software` ✈ `Packages` ✈ `Profile`
+次に `Software` ✈ `Packages` ✈ `Profile` に移動します。
 
-Under  **Compare to Stored Profile** click: ![Compare](../assets/SMLM5.1/bottom-compare.png)
+**Compare to Stored Profile** の下で以下をクリックします： ![Compare](../assets/SMLM5.1/bottom-compare.png)
 
-We can see the only that has changed is the following packages:
+変更されたのは以下のパッケージのみであることがわかります：
 
-- **centos-logos**, replaced by **sles_es-logos**
+- **centos-logos** が **sles_es-logos** に置き換えられました
 
-- **centos-release**, replaced by **sles_es-release-server**
+- **centos-release** が **sles_es-release-server** に置き換えられました
 
-The rest remains the same but now you have all the support, upgrades and patches provided by <b class="suse">SUSE</b> for <b class="liberty">Liberty Linux</b>.
+残りは同じままですが、<b class="liberty">Liberty Linux</b> 用に <b class="suse">SUSE</b> が提供するすべてのサポート、アップグレード、およびパッチを利用できるようになりました。
 
-The same applies to more modern versions of CentOS and RHEL, you can transform them to <b class="liberty">Liberty</b> and have them supported by <b class="suse">SUSE</b> without having to make any changes to the actual software and libraries.
+同じことが CentOS や RHEL のより新しいバージョンにも当てはまります。実際のソフトウェアやライブラリに変更を加えることなく、それらを <b class="liberty">Liberty</b> に変換し、<b class="suse">SUSE</b> のサポートを受けることができます。
+
 
 
   <div style='align: middle; margin: 15px;'>
@@ -330,46 +333,46 @@ The same applies to more modern versions of CentOS and RHEL, you can transform t
 
 
 
-Liberate the production server (optional)
+本番サーバーの解放 (Liberate)（オプション）
 =========================================
 
-We have seen how to patch and Liberate our old Centos 7 server in QA, now it's time to do the same with the production system, but this time we will do so in a different order.
+QA で古い Centos 7 サーバーにパッチを適用して解放する方法を見ました。次は本番システムで同じことを行う番ですが、今回は異なる順序で行います。
 
-- First, we will apply the **Liberate** formula
+- まず、**Liberate** フォーミュラを適用します。
 
-  Let's go to our production server `airco-dh4a-prod` and `Create System Profile`
+  本番サーバー `airco-dh4a-prod` に移動し、`Create System Profile` を行いましょう。
 
-  Afterwards let's apply the **Liberate** formula like we did with the QA system.
+  その後、QA システムで行ったように **Liberate** フォーミュラを適用しましょう。
 
-- Once it's completed, let's compare the system with the profile we just created, as we can see the only change has been the **centos-logos** and **centos-release** packages, the rest remains exactly the same.
+- 完了したら、作成したばかりのプロファイルとシステムを比較しましょう。ご覧のとおり、唯一の変更は **centos-logos** と **centos-release** パッケージであり、残りはまったく同じままです。
 
 
-Is it a migration?
+これは移行（マイグレーション）ですか？
 ==================
 
-A migration involves building a brand-new server, reinstalling all applications from scratch, and carefully moving the data over, a process that is time-consuming, expensive, and fraught with risk.
+移行には、まったく新しいサーバーの構築、すべてのアプリケーションのゼロからの再インストール、データの慎重な移動が含まれます。これは時間がかかり、高価で、リスクを伴うプロセスです。
 
-What we did was far more elegant. We performed an in-place upgrade.
+私たちが行ったことは、はるかにエレガントでした。私たちはインプレースアップグレード（in-place upgrade）を実行しました。
 
-The server's identity, hostname, applications, and user data remained completely untouched. We simply changed its underlying source for updates, and those end-of-life components are not fully supported ones receiving patches.
+サーバーのアイデンティティ、ホスト名、アプリケーション、およびユーザーデータは完全に手つかずのままでした。単に更新の基礎となるソースを変更しただけであり、それらの寿命を迎えたコンポーネントは、パッチを受け取る完全にサポートされたコンポーネントになりました。
 
-We've successfully extended the life of our system, brought it back into security compliance, and did it all without the disruption of a full migration. That's the efficiency that keeps [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] flying high.
-
-
+私たちはシステムの寿命を延ばし、セキュリティコンプライアンスを回復させ、完全な移行による中断なしにすべてを行いました。それが [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] を高く飛ばし続ける効率性です。
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+
+
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] にとってなぜ重要なのですか？
 =================================================================================
 
-- It allows [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] to keep their running systems supported, granting them time to migrate depending on their business needs rather than the vendor needs.
+- [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] が稼働中のシステムをサポートし続けることを可能にし、ベンダーのニーズではなくビジネスのニーズに応じて移行するための時間を与えます。
 
-- It mitigates the risk that implies having unsupported systems by offering extended support. This approach avoids the need for an immediate migration, everything runs as usual but now there is a group of experts that can answer your calls.
+- 延長サポートを提供することで、サポートされていないシステムを持つことによるリスクを軽減します。このアプローチは、即時の移行の必要性を回避し、すべてが通常どおり実行されますが、今ではあなたの電話に応答できる専門家グループがいます。
 
-- It gives you the freedom to change support provider without going through lengthy migrations, and allows you to do it at scale.
+- 長い移行を経ることなくサポートプロバイダーを変更する自由を与え、それを大規模に行うことができます。
 
 
 
-More information
+詳細情報
 ================
 
 - [Registering RHEL 7 or CentOS Linux 7 with SUSE Manager](https://documentation.suse.com/liberty/7/html/suma-quickstart/art-suma-quickstart.html)
