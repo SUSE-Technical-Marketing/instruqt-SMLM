@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: fkelapqkrgth
+id: fpnmzlxefbsr
 type: challenge
-title: Automation (Optional)
+title: অটোমেশন (ঐচ্ছিক)
 tabs:
-- id: u0y5w6ewsnm1
+- id: zbhpp5cfs36q
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Automation and configuration management
+🌌 অটোমেশন এবং কনফিগারেশন ম্যানেজমেন্ট (Automation and configuration management)
 ===================================
 
 <style type="text/css">
@@ -97,30 +97,30 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/07-automation.jpeg"/>
 
-In this section we are going to look at some of the options available to automate tasks.
+এই বিভাগে আমরা কাজগুলি স্বয়ংক্রিয় করার জন্য উপলব্ধ কিছু বিকল্প দেখতে যাচ্ছি।
 
-In this lab, we move from doing manual tasks to create some automation using some of the options we have available.
-<b class="smlmext">SUSE Multi-Linux Manager</b> acts as the "autopilot" for our IT operations, allowing us to enforce configuration standards and automate routine tasks with precision and reliability across our entire fleet.
+এই ল্যাবে, আমরা ম্যানুয়াল কাজ করা থেকে সরে এসে আমাদের কাছে উপলব্ধ কিছু বিকল্প ব্যবহার করে কিছু অটোমেশন তৈরি করব।
+<b class="smlmext">SUSE Multi-Linux Manager</b> আমাদের আইটি অপারেশনগুলির জন্য "অটোপাইলট" হিসেবে কাজ করে, যা আমাদের কনফিগারেশন মানগুলি প্রয়োগ করতে এবং আমাদের সম্পূর্ণ ফ্লিট জুড়ে নির্ভুলতা এবং নির্ভরযোগ্যতার সাথে রুটিন কাজগুলি স্বয়ংক্রিয় করতে দেয়।
 
-Instead of manually configuring hundreds of servers and hoping we don't miss a step, we define the process and state and reduce the human operation to define a schedule, once.
+শত শত সার্ভার ম্যানুয়ালি কনফিগার করা এবং আশা করা যে আমরা কোনো ধাপ মিস করব না, তার পরিবর্তে আমরা প্রক্রিয়া এবং অবস্থা (state) সংজ্ঞায়িত করি এবং মানুষের অপারেশন কমিয়ে একবার একটি সময়সূচী (schedule) নির্ধারণ করি।
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">আপনার উদ্দেশ্য:</b>
 
-- Create a schedule that regularly perform updates on your development systems
+- একটি শিডিউল তৈরি করুন যা আপনার ডেভেলপমেন্ট সিস্টেমে নিয়মিত আপডেট সম্পাদন করে।
 
-- Create a script to show a different login banner depending on the system's environment
+- সিস্টেমের এনভায়রনমেন্টের উপর ভিত্তি করে একটি ভিন্ন লগইন ব্যানার দেখানোর জন্য একটি স্ক্রিপ্ট তৈরি করুন।
 
-Lab details
+ল্যাবের বিবরণ (Lab details)
 ===========
 
-Username:
+ব্যবহারকারীর নাম (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+পাসওয়ার্ড (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -128,34 +128,34 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Setup recurring updates
+পুনরাবৃত্তিমূলক আপডেট সেটআপ করুন (Setup recurring updates)
 =======================
 
-We want developers to work with the latest stable updates provided by SUSE, but we can't rely on people remembering to update their systems every day, so we are going to create a recurring schedule that does exactly that.
+আমরা চাই ডেভেলপাররা SUSE দ্বারা প্রদত্ত সর্বশেষ স্থিতিশীল আপডেটগুলির সাথে কাজ করুক, কিন্তু আমরা প্রতিদিন তাদের সিস্টেম আপডেট করার কথা মনে রাখার জন্য মানুষের উপর নির্ভর করতে পারি না, তাই আমরা একটি পুনরাবৃত্তিমূলক শিডিউল তৈরি করতে যাচ্ছি যা ঠিক তাই করে।
 
 
-We are going to apply this to all the systems in the dev group so that this doesn't have to be done on every system.
+আমরা dev গ্রুপের সমস্ত সিস্টেমে এটি প্রয়োগ করতে যাচ্ছি যাতে প্রতিটি সিস্টেমে এটি করতে না হয়।
 
-- Let's go to `Systems` ✈ `System Groups`
-- Click on `dev` group.
+- আসুন `Systems` ✈ `System Groups` -এ যাই
+- `dev` গ্রুপে ক্লিক করুন।
 
-We just noticed it has no systems assigned, let's add one.
+আমরা লক্ষ্য করলাম এতে কোনো সিস্টেম বরাদ্দ করা নেই, আসুন একটি যোগ করি।
 
-- click on `Target Systems` and select `sles15`
-- then click on ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
+- `Target Systems` -এ ক্লিক করুন এবং `sles15` নির্বাচন করুন
+- তারপর ক্লিক করুন ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
 
-Now that we have a system let's create the recurring action.
+এখন যেহেতু আমাদের একটি সিস্টেম আছে, আসুন পুনরাবৃত্তিমূলক অ্যাকশনটি তৈরি করি।
 
-- Go to `Recurring Actions`
-- Click on ![Create](../assets/SMLM5.1/bottom-create.png)
-- Now let's populate the form with the following details:
+- `Recurring Actions` -এ যান
+- ক্লিক করুন ![Create](../assets/SMLM5.1/bottom-create.png)
+- এখন আসুন নিম্নলিখিত বিবরণ দিয়ে ফর্মটি পূরণ করি:
 	+ **Action Type:** 'Custom state'
  	+ **Schedule Name:** 'Update Dev systems'
 	+ **Daily:** '03:00'
-	+ **Configure states to execute:** Make sure **uptodate:** is selected
+	+ **Configure states to execute:** নিশ্চিত করুন **uptodate:** নির্বাচিত আছে
 	![uptodate Selected](../assets/SMLM5.1/uptodate_selected.png)
 
-- Click on
+- ক্লিক করুন
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
 <img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-save_changes.png"/>
@@ -169,9 +169,9 @@ Now that we have a system let's create the recurring action.
 
 
 
-To observe our list of recurring actions we can go to `Schedule` ✈ `Recurring Actions`
+আমাদের পুনরাবৃত্তিমূলক অ্যাকশনগুলির তালিকা পর্যবেক্ষণ করতে আমরা `Schedule` ✈ `Recurring Actions` -এ যেতে পারি।
 
-Now all the dev systems will be updated daily at 3am UTC time.
+এখন সমস্ত dev সিস্টেম প্রতিদিন UTC সময় রাত ৩টায় আপডেট হবে।
 
 
   <div style='align: middle; margin: 15px;'>
@@ -183,24 +183,26 @@ Now all the dev systems will be updated daily at 3am UTC time.
 
 
 
-Make sure every system has a login message
+নিশ্চিত করুন যে প্রতিটি সিস্টেমে একটি লগইন মেসেজ আছে
 ==========================================
 
 
-We are going to create a configuration channel to make sure every system we manage contains an adequate login message.
+আমরা একটি কনফিগারেশন চ্যানেল তৈরি করতে যাচ্ছি যাতে নিশ্চিত করা যায় যে আমাদের ম্যানেজ করা প্রতিটি সিস্টেমে একটি উপযুক্ত লগইন মেসেজ রয়েছে।
 
-- Let's go to `Configuration` ✈ `Channels`
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
-- Fill the form with the following details:
-	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
-	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
-	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
-Now that we have created the config channel let's populate it.
 
-- Go to `Add Files` ✈ `Create File`
-- Fill in the following details:
+- আসুন `Configuration` ✈ `Channels` -এ যাই
+- ক্লিক করুন ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+- নিম্নলিখিত বিবরণ দিয়ে ফর্মটি পূরণ করুন:
+	+ **Name:** <b class="highlightcopy">Uniform experience</b>
+	+ **Label:** <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:** <b class="highlightcopy">Create a uniform experience across systems</b>
+- ক্লিক করুন ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+
+এখন যেহেতু আমরা কনফিগ চ্যানেল তৈরি করেছি, আসুন এটি পপুলেট করি।
+
+- `Add Files` ✈ `Create File` -এ যান
+- নিম্নলিখিত বিবরণ পূরণ করুন:
 	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
@@ -219,15 +221,15 @@ No applications running on this server
 </pre>
 
 
-- Click on ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
+- ক্লিক করুন ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
 
-Now let's subscribe every system in the organization to the new configuration channel.
+এখন অর্গানাইজেশনের প্রতিটি সিস্টেমকে নতুন কনফিগারেশন চ্যানেলে সাবস্ক্রাইব করা যাক।
 
-- let's go to `Admin` ✈ `Organizations`
-- Click on organization **Organization** (This is the default organization)
-- Go to `States` and select the channel we just created.
+- আসুন `Admin` ✈ `Organizations` -এ যাই
+- অর্গানাইজেশন **Organization** -এ ক্লিক করুন (এটি ডিফল্ট অর্গানাইজেশন)
+- `States` -এ যান এবং আমরা এইমাত্র তৈরি করা চ্যানেলটি নির্বাচন করুন।
 ![Uniform experience selected](../assets/SMLM5.1/selected_univorm_experience_Configurationchannel.png)
-- Click on
+- ক্লিক করুন
 
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
@@ -241,20 +243,20 @@ Now let's subscribe every system in the organization to the new configuration ch
 </p>
 
 
-This won't happen immediately, let's check the systems. We are going to run a simple command via the web UI, if run too early, you may see systems with the old message and systems which already got the file updated.
+এটি অবিলম্বে ঘটবে না, আসুন সিস্টেমগুলি পরীক্ষা করি। আমরা ওয়েব UI এর মাধ্যমে একটি সাধারণ কমান্ড চালাতে যাচ্ছি, যদি খুব তাড়াতাড়ি চালানো হয়, আপনি পুরানো মেসেজ সহ সিস্টেম এবং যেগুলি ইতিমধ্যে ফাইল আপডেট পেয়েছে সেগুলি দেখতে পারেন।
 
-- Let's go to `Salt` ✈ `Remote Commands`
-- Type the following:
+- আসুন `Salt` ✈ `Remote Commands` -এ যাই
+- নিম্নলিখিতটি টাইপ করুন:
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd.png)
-- Click on `Find targets`
-- You should see a list of systems click on `Run command`
+- `Find targets` -এ ক্লিক করুন
+- আপনার সিস্টেমের একটি তালিকা দেখা উচিত, `Run command` -এ ক্লিক করুন
 
-Now you should see something like this:
+এখন আপনার এইরকম কিছু দেখা উচিত:
 
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd_first_result.png)
 
 > [!NOTE]
-> This process may take a couple of minutes, if you don't see the MOTD please re run the command after a few minutes.
+> এই প্রক্রিয়াটি কয়েক মিনিট সময় নিতে পারে, যদি আপনি MOTD না দেখেন তবে দয়া করে কয়েক মিনিট পরে কমান্ডটি পুনরায় চালান।
 
 
   <div style='align: middle; margin: 15px;'>
@@ -264,36 +266,33 @@ Now you should see something like this:
 <br/>
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+এটি [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] এর জন্য কেন গুরুত্বপূর্ণ?
 =================================================================================
 
 
 
-- When managing 1000s of systems we cannot afford to do everything one by one, tasks need to be automated so we manage cattle, not pets.
-
-- By defining the "correct state" we eliminate configuration drift. Every server in the fleet operates from the same playbook, just like every pilot uses the same checklist.
-
-
-- Tasks that would take hours to perform manually across hundreds of servers are completed in minutes. This frees up our engineers to work on innovation and improvement, not repetitive manual labor.
-
-
-- Automation is the ultimate defense against human error. A forgotten step or a typo during manual configuration can lead to an outage. An automated, tested process executes perfectly every time, enhancing the reliability and security of our entire airline.
+- হাজার হাজার সিস্টেম ম্যানেজ করার সময় আমরা সবকিছু এক এক করে করার সামর্থ্য রাখি না, কাজগুলি স্বয়ংক্রিয় হতে হবে যাতে আমরা গবাদি পশু (cattle) ম্যানেজ করি, পোষা প্রাণী (pets) নয়।
 
 
 
+- "সঠিক অবস্থা" (correct state) সংজ্ঞায়িত করে আমরা কনফিগারেশন ড্রিফট (configuration drift) দূর করি। ফ্লিটের প্রতিটি সার্ভার একই প্লেবুক থেকে কাজ করে, ঠিক যেমন প্রতিটি পাইলট একই চেকলিস্ট ব্যবহার করে।
 
-More information
+
+
+- যে কাজগুলি শত শত সার্ভার জুড়ে ম্যানুয়ালি সম্পাদন করতে কয়েক ঘন্টা সময় লাগত তা কয়েক মিনিটের মধ্যে সম্পন্ন হয়। এটি আমাদের ইঞ্জিনিয়ারদের উদ্ভাবন এবং উন্নতিতে কাজ করার জন্য মুক্ত করে, পুনরাবৃত্তিমূলক কায়িক শ্রমের জন্য নয়।
+
+
+- অটোমেশন হলো মানুষের ভুলের (human error) বিরুদ্ধে চূড়ান্ত প্রতিরক্ষা। ম্যানুয়াল কনফিগারেশনের সময় একটি ভুলে যাওয়া ধাপ বা একটি টাইপো বিভ্রাটের (outage) কারণ হতে পারে। একটি স্বয়ংক্রিয়, পরীক্ষিত প্রক্রিয়া প্রতিবার নিখুঁতভাবে সম্পাদিত হয়, যা আমাদের সমগ্র এয়ারলাইনের নির্ভরযোগ্যতা এবং নিরাপত্তা বৃদ্ধি করে।
+
+
+
+
+আরও তথ্য
 ================
 
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
+* [SUSE Multi-Linux Manager পণ্য পৃষ্ঠা](https://www.suse.com/products/suse-manager/)
 
-* [Ansible Integration](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
+* [Ansible ইন্টিগ্রেশন](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
 
-* [Salt Guide](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)
-
-
-
-
-
-
+* [Salt গাইড](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)

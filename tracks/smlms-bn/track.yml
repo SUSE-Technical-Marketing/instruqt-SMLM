@@ -1,14 +1,14 @@
 slug: smlms-bn
-id: hrdrzxximnj9
-title: SUSE Multi-Linux Hands-on Workshop - BN
+id: xbu4ltldnvoy
+title: SUSE Multi-Linux Hands-on Workshop - Bengali
 description: |
-  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Throughout this workshop, you will explore the core capabilities of <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, our best-in-class solution for managing diverse Linux environments at scale, and <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>এই ওয়ার্কশপ জুড়ে, আপনি <b style="color: #30ba78">SUSE Multi-Linux Manager</b>-এর মূল সক্ষমতাগুলো অন্বেষণ করবেন, যা ব্যাপকভাবে বিচিত্র লিনাক্স এনভায়রনমেন্ট ম্যানেজ করার জন্য আমাদের সেরা সল্যুশন, এবং <b style="color: #30ba78">SUSE Multi-Linux Support</b> সম্পর্কে জানবেন।</p>
 
-  <p>You will learn how to solve real-world IT challenges by using <b style="color: #30ba78">SUSE</b>'s powerful tools to automate tasks, ensure security compliance, and manage the entire lifecycle of your systems—from legacy distributions to the latest enterprise servers.</p>
+  <p>আপনি শিখবেন কীভাবে <b style="color: #30ba78">SUSE</b>-এর শক্তিশালী টুলগুলো ব্যবহার করে বাস্তব জীবনের আইটি চ্যালেঞ্জগুলো সমাধান করা যায়। এর মাধ্যমে আপনি টাস্ক অটোমেশন, সিকিউরিটি কমপ্লায়েন্স নিশ্চিত করা এবং লিগ্যাসি ডিস্ট্রিবিউশন থেকে শুরু করে লেটেস্ট এন্টারপ্রাইজ সার্ভার পর্যন্ত—আপনার সিস্টেমের পুরো লাইফসাইকেল ম্যানেজ করতে পারবেন।</p>
 
-  <p>This workshop is designed to give you practical skills and a clear understanding of how to simplify and control your complex infrastructure.</p>
+  <p>এই ওয়ার্কশপটি এমনভাবে ডিজাইন করা হয়েছে যাতে আপনি ব্যবহারিক দক্ষতা এবং আপনার জটিল ইনফ্রাস্ট্রাকচারকে কীভাবে সহজ ও নিয়ন্ত্রণ করা যায় সে সম্পর্কে একটি পরিষ্কার ধারণা পেতে পারেন।</p>
 
-  <p>Let's get started.</p></span>
+  <p>চলুন শুরু করা যাক।</p></span>
 icon: https://www.suse.com/favicon.ico
 tags:
 - smls
@@ -19,6 +19,7 @@ tags:
 owner: suse
 developers:
 - raul.mahiques@suse.com
+maintenance: true
 skipping_enabled: true
 idle_timeout: 6000
 timelimit: 10800
@@ -30,5 +31,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
+checksum: "12212637597201173722"
 enhanced_loading: true
-maintenance: true
