@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: fkelapqkrgth
+id: qb3ggxihhd0u
 type: challenge
-title: Automation (Optional)
+title: Automazione (Opzionale)
 tabs:
-- id: u0y5w6ewsnm1
+- id: jjxdu9d0ynk1
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Automation and configuration management
+🌌 Automazione e gestione della configurazione
 ===================================
 
 <style type="text/css">
@@ -97,25 +97,25 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/07-automation.jpeg"/>
 
-In this section we are going to look at some of the options available to automate tasks.
+In questa sezione esamineremo alcune delle opzioni disponibili per automatizzare le attività.
 
-In this lab, we move from doing manual tasks to create some automation using some of the options we have available.
-<b class="smlmext">SUSE Multi-Linux Manager</b> acts as the "autopilot" for our IT operations, allowing us to enforce configuration standards and automate routine tasks with precision and reliability across our entire fleet.
+In questo laboratorio, passiamo dall'esecuzione di attività manuali alla creazione di automazioni utilizzando alcune delle opzioni che abbiamo a disposizione.
+<b class="smlmext">SUSE Multi-Linux Manager</b> agisce come il "pilota automatico" per le nostre operazioni IT, consentendoci di imporre standard di configurazione e automatizzare le attività di routine con precisione e affidabilità su tutta la nostra flotta.
 
-Instead of manually configuring hundreds of servers and hoping we don't miss a step, we define the process and state and reduce the human operation to define a schedule, once.
+Invece di configurare manualmente centinaia di server sperando di non perdere un passaggio, definiamo il processo e lo stato e riduciamo l'operazione umana alla definizione di una pianificazione, una volta sola.
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">I Tuoi Obiettivi:</b>
 
-- Create a schedule that regularly perform updates on your development systems
+- Creare una pianificazione che esegua regolarmente aggiornamenti sui tuoi sistemi di sviluppo.
 
-- Create a script to show a different login banner depending on the system's environment
+- Creare uno script per mostrare un banner di accesso diverso a seconda dell'ambiente del sistema.
 
-Lab details
+Dettagli del laboratorio (Lab details)
 ===========
 
-Username:
+Nome utente (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
@@ -125,37 +125,37 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+URL di <b class="smlm">SMLM</b>: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Setup recurring updates
+Configurare aggiornamenti ricorrenti (Setup recurring updates)
 =======================
 
-We want developers to work with the latest stable updates provided by SUSE, but we can't rely on people remembering to update their systems every day, so we are going to create a recurring schedule that does exactly that.
+Vogliamo che gli sviluppatori lavorino con gli ultimi aggiornamenti stabili forniti da SUSE, ma non possiamo fare affidamento sul fatto che le persone si ricordino di aggiornare i loro sistemi ogni giorno, quindi creeremo una pianificazione ricorrente che fa esattamente questo.
 
 
-We are going to apply this to all the systems in the dev group so that this doesn't have to be done on every system.
+Applicheremo questo a tutti i sistemi nel gruppo dev in modo che non debba essere fatto su ogni sistema.
 
-- Let's go to `Systems` ✈ `System Groups`
-- Click on `dev` group.
+- Andiamo su `Systems` ✈ `System Groups`
+- Clicca sul gruppo `dev`.
 
-We just noticed it has no systems assigned, let's add one.
+Abbiamo appena notato che non ha sistemi assegnati, aggiungiamone uno.
 
-- click on `Target Systems` and select `sles15`
-- then click on ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
+- Clicca su `Target Systems` e seleziona `sles15`
+- Poi clicca su ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
 
-Now that we have a system let's create the recurring action.
+Ora che abbiamo un sistema, creiamo l'azione ricorrente.
 
-- Go to `Recurring Actions`
-- Click on ![Create](../assets/SMLM5.1/bottom-create.png)
-- Now let's populate the form with the following details:
+- Vai su `Recurring Actions`
+- Clicca su ![Create](../assets/SMLM5.1/bottom-create.png)
+- Ora popoliamo il modulo con i seguenti dettagli:
 	+ **Action Type:** 'Custom state'
  	+ **Schedule Name:** 'Update Dev systems'
 	+ **Daily:** '03:00'
-	+ **Configure states to execute:** Make sure **uptodate:** is selected
+	+ **Configure states to execute:** Assicurati che **uptodate:** sia selezionato
 	![uptodate Selected](../assets/SMLM5.1/uptodate_selected.png)
 
-- Click on
+- Clicca su
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
 <img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-save_changes.png"/>
@@ -169,9 +169,9 @@ Now that we have a system let's create the recurring action.
 
 
 
-To observe our list of recurring actions we can go to `Schedule` ✈ `Recurring Actions`
+Per osservare il nostro elenco di azioni ricorrenti possiamo andare su `Schedule` ✈ `Recurring Actions`
 
-Now all the dev systems will be updated daily at 3am UTC time.
+Ora tutti i sistemi dev verranno aggiornati quotidianamente alle 3 del mattino, orario UTC.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -183,24 +183,26 @@ Now all the dev systems will be updated daily at 3am UTC time.
 
 
 
-Make sure every system has a login message
+Assicurati che ogni sistema abbia un messaggio di accesso
 ==========================================
 
 
-We are going to create a configuration channel to make sure every system we manage contains an adequate login message.
+Stiamo per creare un canale di configurazione per assicurarci che ogni sistema che gestiamo contenga un messaggio di accesso adeguato.
 
-- Let's go to `Configuration` ✈ `Channels`
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
-- Fill the form with the following details:
-	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
-	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
-	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
-Now that we have created the config channel let's populate it.
 
-- Go to `Add Files` ✈ `Create File`
-- Fill in the following details:
+- Andiamo su `Configuration` ✈ `Channels`
+- Clicca su ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+- Compila il modulo con i seguenti dettagli:
+	+ **Name:** <b class="highlightcopy">Uniform experience</b>
+	+ **Label:** <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:** <b class="highlightcopy">Create a uniform experience across systems</b>
+- Clicca su ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+
+Ora che abbiamo creato il canale di configurazione, popoliamolo.
+
+- Vai su `Add Files` ✈ `Create File`
+- Compila i seguenti dettagli:
 	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
@@ -219,15 +221,15 @@ No applications running on this server
 </pre>
 
 
-- Click on ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
+- Clicca su ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
 
-Now let's subscribe every system in the organization to the new configuration channel.
+Ora iscriviamo ogni sistema nell'organizzazione al nuovo canale di configurazione.
 
-- let's go to `Admin` ✈ `Organizations`
-- Click on organization **Organization** (This is the default organization)
-- Go to `States` and select the channel we just created.
+- andiamo su `Admin` ✈ `Organizations`
+- Clicca sull'organizzazione **Organization** (Questa è l'organizzazione predefinita)
+- Vai su `States` e seleziona il canale che abbiamo appena creato.
 ![Uniform experience selected](../assets/SMLM5.1/selected_univorm_experience_Configurationchannel.png)
-- Click on
+- Clicca su
 
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
@@ -241,20 +243,20 @@ Now let's subscribe every system in the organization to the new configuration ch
 </p>
 
 
-This won't happen immediately, let's check the systems. We are going to run a simple command via the web UI, if run too early, you may see systems with the old message and systems which already got the file updated.
+Questo non accadrà immediatamente, controlliamo i sistemi. Eseguiremo un semplice comando tramite l'interfaccia web; se eseguito troppo presto, potresti vedere sistemi con il vecchio messaggio e sistemi che hanno già ottenuto il file aggiornato.
 
-- Let's go to `Salt` ✈ `Remote Commands`
-- Type the following:
+- Andiamo su `Salt` ✈ `Remote Commands`
+- Digita quanto segue:
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd.png)
-- Click on `Find targets`
-- You should see a list of systems click on `Run command`
+- Clicca su `Find targets`
+- Dovresti vedere un elenco di sistemi, clicca su `Run command`
 
-Now you should see something like this:
+Ora dovresti vedere qualcosa simile a questo:
 
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd_first_result.png)
 
 > [!NOTE]
-> This process may take a couple of minutes, if you don't see the MOTD please re run the command after a few minutes.
+> Questo processo potrebbe richiedere un paio di minuti, se non vedi il MOTD per favore riesegui il comando dopo qualche minuto.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -264,36 +266,33 @@ Now you should see something like this:
 <br/>
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+Perché è importante per [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
 =================================================================================
 
 
 
-- When managing 1000s of systems we cannot afford to do everything one by one, tasks need to be automated so we manage cattle, not pets.
-
-- By defining the "correct state" we eliminate configuration drift. Every server in the fleet operates from the same playbook, just like every pilot uses the same checklist.
-
-
-- Tasks that would take hours to perform manually across hundreds of servers are completed in minutes. This frees up our engineers to work on innovation and improvement, not repetitive manual labor.
-
-
-- Automation is the ultimate defense against human error. A forgotten step or a typo during manual configuration can lead to an outage. An automated, tested process executes perfectly every time, enhancing the reliability and security of our entire airline.
+- Quando si gestiscono migliaia di sistemi non possiamo permetterci di fare tutto uno per uno, le attività devono essere automatizzate in modo da gestire "bestiame" (cattle), non "animali domestici" (pets).
 
 
 
+- Definendo lo "stato corretto" eliminiamo la deriva della configurazione (configuration drift). Ogni server nella flotta opera dallo stesso playbook, proprio come ogni pilota usa la stessa checklist.
 
-More information
+
+
+- Le attività che richiederebbero ore per essere eseguite manualmente su centinaia di server vengono completate in pochi minuti. Questo libera i nostri ingegneri per lavorare sull'innovazione e il miglioramento, non sul lavoro manuale ripetitivo.
+
+
+- L'automazione è la difesa definitiva contro l'errore umano. Un passaggio dimenticato o un errore di battitura durante la configurazione manuale può portare a un'interruzione. Un processo automatizzato e testato viene eseguito perfettamente ogni volta, migliorando l'affidabilità e la sicurezza dell'intera nostra compagnia aerea.
+
+
+
+
+Maggiori informazioni
 ================
 
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
+* [Pagina del Prodotto SUSE Multi-Linux Manager](https://www.suse.com/products/suse-manager/)
 
-* [Ansible Integration](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
+* [Integrazione Ansible](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
 
-* [Salt Guide](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)
-
-
-
-
-
-
+* [Guida Salt](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)

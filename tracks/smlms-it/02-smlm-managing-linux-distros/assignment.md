@@ -1,14 +1,14 @@
 ---
 slug: smlm-managing-linux-distros
-id: 0s4wjswo2zhk
+id: ahazgpqip3us
 type: challenge
-title: Managing different Linux distributions
+title: Gestione di diverse distribuzioni Linux
 tabs:
-- id: qsppgdkckld3
+- id: sx74rakwc3bn
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: uefwdei7ywmk
+- id: ux6pgmsidisx
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts
@@ -17,7 +17,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Managing different Linux distributions
+🌌 Gestione di diverse distribuzioni Linux
 ===================================
 
 <style type="text/css">
@@ -102,25 +102,27 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/02-managing_linux_distros.jpeg"/>
 
-Here at [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], <b class="smlmext">SUSE Multi-Linux Manager</b>  is the key to managing our diverse fleet of Linux distributions and architectures from a single pane of glass. This has helped us avoid the extra customizations that used to complicate our jobs as engineers, which in turn increased the cost and time required to maintain and implement our system policies.
+Qui alla [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], <b class="smlmext">SUSE Multi-Linux Manager</b> è la chiave per gestire la nostra flotta diversificata di distribuzioni Linux e architetture da un pannello di controllo unico (single pane of glass). Questo ci ha aiutato a evitare le personalizzazioni extra che complicavano il nostro lavoro di ingegneri, il che a sua volta aumentava i costi e il tempo necessari per mantenere e implementare le nostre policy di sistema.
 
-With this tool, we are not locked into a single vendor, architecture, or automation platform. We are free to choose what we need for our environment and manage them all in the same way. Imagine if for every type of aircraft in our fleet, we needed a different air traffic control tower with its own language and procedures. The operational complexity would be unmanageable, and the costs would be prohibitive.
-
-We all know a certain aircraft model is better for a specific route; flying a jumbo jet for a half-hour flight is not cost-effective. The same applies to our Linux distributions. While SUSE’s own distributions are excellent, some of our applications have specific requirements. <b class="smlm">SMLM</b> ensures we are never locked in and can always integrate the best solution for the task at hand.
-
-
-## <b class="hovereffect">Your Objectives:</b>
-
-- Onboard an Ubuntu 24.04 LTS system, a specialized system required for our marketing team.
-
-- Demonstrate how we manage this new, different system using the same tools and patching procedures as the rest of our fleet.
+Con questo strumento, non siamo bloccati in un singolo fornitore, architettura o piattaforma di automazione. Siamo liberi di scegliere ciò di cui abbiamo bisogno per il nostro ambiente e gestirli tutti allo stesso modo. Immagina se per ogni tipo di aereo nella nostra flotta avessimo bisogno di una torre di controllo del traffico aereo diversa con la propria lingua e procedure. La complessità operativa sarebbe ingestibile e i costi sarebbero proibitivi.
 
 
 
-Lab details
+Sappiamo tutti che un certo modello di aereo è migliore per una rotta specifica; far volare un jumbo jet per un volo di mezz'ora non è conveniente. Lo stesso vale per le nostre distribuzioni Linux. Mentre le distribuzioni proprie di SUSE sono eccellenti, alcune delle nostre applicazioni hanno requisiti specifici. <b class="smlm">SMLM</b> assicura che non siamo mai bloccati (vendor lock-in) e possiamo sempre integrare la soluzione migliore per il compito da svolgere.
+
+
+## <b class="hovereffect">I Tuoi Obiettivi:</b>
+
+- Integrare (Onboard) un sistema Ubuntu 24.04 LTS, un sistema specializzato richiesto dal nostro team di marketing.
+
+- Dimostrare come gestiamo questo sistema nuovo e diverso utilizzando gli stessi strumenti e procedure di patching del resto della nostra flotta.
+
+
+
+Dettagli del laboratorio
 ===========
 
-Username:
+Nome utente (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
@@ -130,35 +132,36 @@ Password:
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+URL di <b class="smlm">SMLM</b>: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Onboarding Ubuntu
+Integrazione di Ubuntu (Onboarding)
 =================
 
-A new service request has come in from our marketing department. Their graphic designers rely on a specific creative suite that is only supported on Ubuntu. We are going to onboard their system so that we can manage and ensure it meets our security and compliance standards, in the same way as we do with the others.
+È arrivata una nuova richiesta di servizio dal nostro dipartimento di marketing. I loro grafici si affidano a una suite creativa specifica che è supportata solo su Ubuntu. Integreremo il loro sistema in modo da poterlo gestire e garantire che soddisfi i nostri standard di sicurezza e conformità, allo stesso modo in cui facciamo con gli altri.
 
-Let's begin.
+Iniziamo.
 <br/>
 
-- Access the system terminal from the tab [button label="Ubuntu 2404 LTS" variant="success"](tab-1)
+- Accedi al terminale del sistema dalla scheda [button label="Ubuntu 2404 LTS" variant="success"](tab-1)
 
-  Before we make any changes let's check where it is sourcing the packages from:
+  Prima di apportare qualsiasi modifica, controlliamo da dove sta recuperando i pacchetti:
 
 ```bash,run
 grep -v '^#\|^Types:\|Trusted:\|Architectures:' /etc/apt/sources.list.d/*
 ```
 
-This workstation is pulling software directly from public Ubuntu repositories. This presents two issues: first, we have no control over the patches being applied, which is a security concern. Second, as the marketing team reported, every time these workstations fetch updates, they can slow down the office internet connection, causing frustration for other employees.
+Questa workstation sta scaricando software direttamente dai repository pubblici di Ubuntu. Questo presenta due problemi: primo, non abbiamo alcun controllo sulle patch applicate, il che è una preoccupazione per la sicurezza. Secondo, come riportato dal team di marketing, ogni volta che queste workstation recuperano aggiornamenti, possono rallentare la connessione internet dell'ufficio, causando frustrazione agli altri dipendenti.
 
 
-Let's bring this system under our management. This will solve both problems by connecting it to our internal <b class="smlmext">SUSE Multi-Linux Manager</b> instance for all software needs.
 
-We are going to use the [button label="web UI" variant="success"](tab-0) to do so:
+Portiamo questo sistema sotto la nostra gestione. Questo risolverà entrambi i problemi collegandolo alla nostra istanza interna di <b class="smlmext">SUSE Multi-Linux Manager</b> per tutte le esigenze software.
 
-- Under `Home` ✈ `Overview`, let's click on `Register Systems`
+Useremo la [button label="web UI" variant="success"](tab-0) per farlo:
 
-- Fill in the following details:
+- Sotto `Home` ✈ `Overview`, clicchiamo su `Register Systems`
+
+- Compila i seguenti dettagli:
 
   - **Host:**
 
@@ -166,7 +169,7 @@ We are going to use the [button label="web UI" variant="success"](tab-0) to do s
   ubuntu2404lts
   ```
 
-  - **User:**
+  - **User:** (Utente)
 
   ```txt
   root
@@ -178,14 +181,14 @@ We are going to use the [button label="web UI" variant="success"](tab-0) to do s
   [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
   ```
 
-  - **Activation Key:**   <b class="highlightcopy">1-ubuntu2404</b>
+  - **Activation Key:** (Chiave di attivazione)   <b class="highlightcopy">1-ubuntu2404</b>
 
-- Leave the rest as it is and click on
+- Lascia il resto così com'è e clicca su
 
 <img style='padding: 0; margin:0; vertical-align: middle' src="../assets/SMLM5.1/bottom-bootstrap.png"/>
 
 
-- The registration process may take a couple of minutes to complete, let's go to the [button label="terminal" variant="success"](tab-1) and run the first command one more time to see what has changed:
+- Il processo di registrazione potrebbe richiedere un paio di minuti per essere completato, andiamo sul [button label="terminal" variant="success"](tab-1) ed eseguiamo il primo comando ancora una volta per vedere cosa è cambiato:
 
 
 ```bash,run
@@ -193,22 +196,22 @@ echo 'Waiting for the registration to complete' ;while [[ ! -f /etc/apt/sources.
 ```
 
 
-We can see new files appeared:
+Possiamo vedere che sono apparsi nuovi file:
 
 **/etc/apt/sources.list.d/susemanager:***
 
-They point to the system to our centrally managed and controlled channels in <b class="smlm">SMLM</b>.
+Puntano il sistema verso i nostri canali gestiti e controllati centralmente in <b class="smlm">SMLM</b>.
 
 
-We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, has been modified to disable all the public respositories but has not been eliminated, this would allow us to roll back easily if we needed so.
-
-
-> [!NOTE]
-> Using root via SSH with password authentication for registering is just for demonstration purposes and not recommended for production.
+Possiamo anche vedere che il file originale, **/etc/apt/sources.list.d/ubuntu.sources**, è stato modificato per disabilitare tutti i repository pubblici ma non è stato eliminato, questo ci permetterebbe di fare un rollback facilmente se ne avessimo bisogno.
 
 
 > [!NOTE]
-> By default we have to approve the registration of each system through the UI or via command line < salt-key -A -y >, here <b class="smlm">SMLM</b> has been configured to auto approve.
+> Usare root via SSH con autenticazione tramite password per la registrazione è solo a scopo dimostrativo e non è raccomandato per la produzione.
+
+
+> [!NOTE]
+> Per impostazione predefinita dobbiamo approvare la registrazione di ogni sistema tramite la UI o via riga di comando < salt-key -A -y >, qui <b class="smlm">SMLM</b> è stato configurato per approvare automaticamente.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -219,18 +222,18 @@ We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, h
 
 
 
-Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+Ora passiamo alla scheda [button label="SMLM UI" variant="success"](tab-0)
 
 
-- We navigate to `Systems` ✈ `System List` ✈ `All`
+- Navighiamo su `Systems` ✈ `System List` ✈ `All`
 
-  We can see the system we just registered `Ubuntu2404lts`, note by default it will be registered under the hostname.
+  Possiamo vedere il sistema che abbiamo appena registrato `Ubuntu2404lts`, nota che per impostazione predefinita sarà registrato sotto l'hostname.
 
-  Let's click on it, we will go directly to `Details` - `Overview` where we can see amongst other information:
+  Clicchiamoci sopra, andremo direttamente a `Details` - `Overview` dove possiamo vedere tra le altre informazioni:
 
-  - The system status.
-  - All the information such as hostname, IP address, type of virtualization, Kernel used and installed products.
-  - The channels it is subscribed to.
+  - Lo stato del sistema.
+  - Tutte le informazioni come hostname, indirizzo IP, tipo di virtualizzazione, Kernel utilizzato e prodotti installati.
+  - I canali a cui è sottoscritto.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/managing_different_linux_distros-ubuntu_overview.gif"/>
@@ -239,37 +242,37 @@ Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
 
 <br/>
 
-Managing multiple Linux distributions
+Gestione di diverse distribuzioni Linux
 =====================================
 
 
-As mentioned earlier, at <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> we use different Linux distributions, like we use different airplane models and companies. This helps us to stay ahead of the competition by using the most suitable product for each of our needs.
+Come menzionato prima, presso <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> usiamo diverse distribuzioni Linux, così come usiamo diversi modelli di aerei e compagnie. Questo ci aiuta a rimanere un passo avanti rispetto alla concorrenza utilizzando il prodotto più adatto per ciascuna delle nostre esigenze.
 
-With <b class="smlmext">SUSE Multi-Linux Manager</b> we can manage all of them with the same procedures, same schedules, etc.. using the same interface and mechanisms.
+Con <b class="smlmext">SUSE Multi-Linux Manager</b> possiamo gestirle tutte con le stesse procedure, gli stessi programmi, ecc., utilizzando la stessa interfaccia e meccanismi.
 
-Below we will explore how to perform different tasks on your systems, following the same process independently of which OS our systems are running, without having to create unecessary customizations.
-
-
-## <b class="hovereffect">Add extra information</b>
+Di seguito esploreremo come eseguire diverse attività sui tuoi sistemi, seguendo lo stesso processo indipendentemente dal sistema operativo che i nostri sistemi stanno eseguendo, senza dover creare personalizzazioni non necessarie.
 
 
-Let's continue with the system we just registered, we are going to add a few settings and information to it:
-
-- Let's click in `Properties`, where we will add extra information about the system and change some settings.
+## <b class="hovereffect">Aggiungi informazioni extra</b>
 
 
-  - Enable Automatic application of patches:
+Continuiamo con il sistema che abbiamo appena registrato, aggiungeremo alcune impostazioni e informazioni ad esso:
+
+- Clicchiamo su `Properties`, dove aggiungeremo informazioni extra sul sistema e modificheremo alcune impostazioni.
+
+
+  - Abilita l'applicazione automatica delle patch (Enable Automatic application of patches):
 
   <img style='vertical-align: middle; height: 60%; width: 60%; object-fit: contain' src="../assets/SMLM5.1/option-auto_patch_update-enabled.png"/>
 
-    This will automatically patch the system when there are relevant patches.
+    Questo applicherà automaticamente le patch al sistema quando ci sono patch rilevanti.
 
 
 
-  - Add the following details for the system:
+  - Aggiungi i seguenti dettagli per il sistema:
 
 
-| Field | Content                                                  |
+| Campo (Field) | Contenuto (Content)                                                  |
 | ---: | :-----                                                    |
 | **Description** | <b class="highlightcopy">Multimedia workstation for graphics designers.</b> |
 | **Facility Address** | <b class="highlightcopy">Candy eye street, 1</b> |
@@ -282,26 +285,26 @@ Let's continue with the system we just registered, we are going to add a few set
 
 
 
-- Let's look at what hardware it is running on:
+- Vediamo su quale hardware sta girando:
 
-  - Click on `Details` ✈ `Hardware`
+  - Clicca su `Details` ✈ `Hardware`
 
 
 <br/>
 
 > [!NOTE]
-> All this can be automated through the API.
+> Tutto questo può essere automatizzato tramite l'API.
 
 <br/>
 
-Now we are going to add some extra information to the system using custom keys, this information can be easily consumed in your automation scripts later on.
+Ora aggiungeremo alcune informazioni extra al sistema utilizzando chiavi personalizzate, queste informazioni possono essere facilmente consumate nei tuoi script di automazione in seguito.
 
 
-- Click on `Details` ✈ `Custom Info`
+- Clicca su `Details` ✈ `Custom Info`
 
 <img style='vertical-align: top; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Create_Value.png"/>
 
-- Click `application` and fill **value** with the following:
+- Clicca su `application` e compila **value** (valore) con quanto segue:
 
 ```text
 Logo Wings designer pro
@@ -313,22 +316,22 @@ Logo Wings designer pro
 <br/>
 
 > [!NOTE]
-> We have already create the custom key **application** for you, if you want to create you own keys it is as simple as going to: `Systems` ✈ `Custom System Info` ✈ `Create key`
+> Abbiamo già creato la chiave personalizzata **application** per te, se vuoi creare le tue chiavi è semplice come andare su: `Systems` ✈ `Custom System Info` ✈ `Create key`
 
 <br/><br/>
 
-Let's go back to the Systems list
+Torniamo all'elenco Systems
 
 `Systems` ✈ `System List` ✈ `All`
 
 
-Let's click on any of the systems and go to `Details` ✈ `Custom Info`.
+Clicchiamo su uno qualsiasi dei sistemi e andiamo su `Details` ✈ `Custom Info`.
 
-We have already populated each system with a value,
+Abbiamo già popolato ogni sistema con un valore,
 
 <br/>
 
-Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subscribed Channels**, these are different than the ones in your Ubuntu system because they are running a different operating system.
+Ora vai su `Details` ✈ `Overview` e nota **Installed Products** e **Subscribed Channels**, questi sono diversi da quelli nel tuo sistema Ubuntu perché stanno eseguendo un sistema operativo diverso.
 
 
 
@@ -339,26 +342,26 @@ Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subsc
 <br/>
 
 
-## <b class="hovereffect">Run commands on multiple systems at once</b>
+## <b class="hovereffect">Esegui comandi su più sistemi contemporaneamente</b>
 
 
-Let's do something on all the systems we have, go back to `Systems` ✈ `System List` ✈ `All` and select all:
+Facciamo qualcosa su tutti i sistemi che abbiamo, torna su `Systems` ✈ `System List` ✈ `All` e seleziona tutto:
 
 <img style='vertical-align: middle; margin: 2px; height: 50%; width: 50%; object-fit: contain' src="../assets/SMLM5.1/select_all_systems.png"/>
 
-Notice the **Base Channel** column, we have systems running three different OS.
+Nota la colonna **Base Channel**, abbiamo sistemi che eseguono tre OS diversi.
 
 <br/>
 
-Having selected all the systems we want to operate let's go to perform a group action:
+Dopo aver selezionato tutti i sistemi su cui vogliamo operare, andiamo a eseguire un'azione di gruppo:
 
 `Systems` ✈ `System Set Manager`
 
-Let's run a command on all of them, for that we can go to:
+Eseguiamo un comando su tutti loro, per questo possiamo andare su:
 
 `Misc` ✈ `Remote Command`
 
-then fill in the following details and leave the rest with the default values:
+quindi compila i seguenti dettagli e lascia il resto con i valori predefiniti:
 
 
 Script:
@@ -367,7 +370,7 @@ Script:
 cat /etc/os-release
 ```
 
-Don't modify the schedule, we want it to run as soon as possible, click on:
+Non modificare la pianificazione (schedule), vogliamo che venga eseguita il prima possibile, clicca su:
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Schedule.png"/>
 
@@ -377,23 +380,23 @@ Don't modify the schedule, we want it to run as soon as possible, click on:
 
 <br/><br/>
 
-You will see a blue notice on the top indicating that the task has been scheduled.
+Vedrai un avviso blu in alto che indica che l'attività è stata pianificata.
 
-Let's go to see the results, for that we will go to:
+Andiamo a vedere i risultati, per questo andremo su:
 
 `Schedule` ✈ `Completed Actions`
 
-We will see a list of actions, in **Filter by Action** field type:
+Vedremo un elenco di azioni, nel campo **Filter by Action** digita:
 
 ```text
 Run
 ```
-Click on the top entry that appears on the list, should be similar to this:
+Clicca sulla voce in alto che appare nell'elenco, dovrebbe essere simile a questa:
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/Select_complete_action_run.png"/>
 
 
-There we can go to **Completed Systems** and examine the result by clicking on the system name.
+Lì possiamo andare su **Completed Systems** ed esaminare il risultato cliccando sul nome del sistema.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -405,27 +408,24 @@ There we can go to **Completed Systems** and examine the result by clicking on t
 
 <br/><br/>
 
-With this we complete this part, we will see more examples of how we can manage multiple Linux systems along the workshop.
+Con questo completiamo questa parte, vedremo altri esempi di come possiamo gestire più sistemi Linux durante il workshop.
 
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+Perché è importante per [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
 =================================================================================
 
-- No vendor lock-in, keep the freedom of choice and flexibility to react fast to changing markets.
+- Nessun vendor lock-in, mantieni la libertà di scelta e la flessibilità per reagire velocemente ai mercati in evoluzione.
 
-- Simplify and save time avoiding extra work on customizations.
+- Semplifica e risparmia tempo evitando lavoro extra sulle personalizzazioni.
 
-- A single UI to manage all reduces the complexity and will make future troubleshooting, scaling, patching and automation much more agile and less time consuming.
+- Un'unica UI per gestire tutto riduce la complessità e renderà il futuro troubleshooting, scaling, patching e automazione molto più agili e meno dispendiosi in termini di tempo.
 
 
 
-More information
+Maggiori informazioni
 ================
 
-For a list of supported distributions please visit:
+Per un elenco delle distribuzioni supportate visita:
 
 [SMLM - Supported Clients and Features](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/client-configuration/supported-features.html)
-
-
-
