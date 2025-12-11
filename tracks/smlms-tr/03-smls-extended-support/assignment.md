@@ -1,18 +1,18 @@
 ---
 slug: smls-extended-support
-id: p19lqfytmc9b
+id: nurgewpmnmlc
 type: challenge
-title: Extended support for legacy systems
+title: Eski (legacy) sistemler için genişletilmiş destek
 tabs:
-- id: 9xmkhkrycdlq
+- id: rtbmsxhyyvvj
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: 40lnzj9nsp9b
+- id: zdoyoiqteas4
   title: CentOS 7 QA
   type: terminal
   hostname: centos7
-- id: boawmufluo08
+- id: 1afftqochlvv
   title: CentOS 7 Prod
   type: terminal
   hostname: zzcentos7
@@ -21,7 +21,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Extended support for legacy systems
+🌌 Eski (legacy) sistemler için genişletilmiş destek
 ===================================
 
 <style type="text/css">
@@ -107,49 +107,49 @@ enhanced_loading: null
 <img style="width: 10px;" src="../assets/logos/chameleon_icon.png" />
 <img class="logos" alt="Welcome!" src="../assets/logos/03_extended_support.jpeg"/>
 
-# Extending the Life of Our Legacy Fleet
+# Eski (Legacy) Filomuzun Ömrünü Uzatma
 
-In any airline, you have older, reliable planes that have served you for years but for which you have no replacement yet. For us, a part of that legacy fleet is our CentOS 7 systems. They are stable but end-of-life, meaning they no longer receive critical security updates from their original manufacturer. For an airline, flying without support is a risk we simply cannot take.
+Herhangi bir havayolu şirketinde, size yıllarca hizmet etmiş ancak henüz yerine yenisini koyamadığınız eski, güvenilir uçaklarınız vardır. Bizim için, bu eski filonun bir parçası CentOS 7 sistemlerimizdir. Kararlıdırlar ancak ömürlerini tamamlamışlardır (end-of-life), bu da artık orijinal üreticilerinden kritik güvenlik güncellemelerini almadıkları anlamına gelir. Bir havayolu şirketi için, desteksiz uçmak, göze alamayacağımız bir risktir.
 
-The traditional solution would be a full, costly replacement of every single one.
-But what if we could perform a life-extension upgrade, modernizing them in place with minimal disruption? That is precisely the mission for this challenge. We will use the power of <b class="smlmext">SUSE Multi-Linux Manager</b> together with <b class="smlsext">SUSE Multi-Linux Support</b> to safely transition these systems and keep them in service until we can replace them with a more modern OS.
+Geleneksel çözüm, her birinin tam ve maliyetli bir değişimi olacaktır.
+Ancak, minimum kesinti ile yerinde modernize ederek bir ömür uzatma yükseltmesi gerçekleştirebilseydik ne olurdu? İşte bu zorluğun misyonu tam olarak budur. Bu sistemleri güvenli bir şekilde geçirmek ve daha modern bir işletim sistemi (OS) ile değiştirene kadar hizmette tutmak için <b class="smlmext">SUSE Multi-Linux Manager</b>'ın gücünü <b class="smlsext">SUSE Multi-Linux Support</b> ile birlikte kullanacağız.
 
 
 
-## <b class="hovereffect">Our flight plan:</b>
+## <b class="hovereffect">Uçuş planımız:</b>
 
-- Examine the current legacy systems running Centos 7
+- Centos 7 çalıştıran mevcut eski sistemleri inceleyin
 
-- Onboard the QA system and apply any patches available
+- QA sistemini dahil edin (Onboard) ve mevcut yamaları uygulayın
 
-- Identify and apply updates if any.
+- Varsa güncellemeleri belirleyin ve uygulayın.
 
-- Liberate the system with the liberate formula.
+- Sistemi liberate formülü ile serbest bırakın (Liberate).
 
-- Observe what has changed between both systems
+- Her iki sistem arasında nelerin değiştiğini gözlemleyin
 
-- Identify if this is a migration.
+- Bunun bir geçiş (migration) olup olmadığını belirleyin.
 
 <br/>
 
-## <b class="hovereffect">Our airplanes</b>
+## <b class="hovereffect">Uçaklarımız</b>
 
-- CentOS 7 QA ✈ Our test and development server.
+- CentOS 7 QA ✈ Test ve geliştirme sunucumuz.
 
-- CentOS 7 Prod ✈ Our production server already registered in <b class="smlm">SMLM</b>
+- CentOS 7 Prod ✈ <b class="smlm">SMLM</b>'e zaten kayıtlı üretim sunucumuz
 
 <br/><br/>
 
 
-Lab details
+Laboratuvar detayları (Lab details)
 ===========
 
-Username:
+Kullanıcı Adı (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Şifre (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -158,23 +158,23 @@ Password:
 
 
 
-Onboarding Centos 7 QA
+Centos 7 QA'yı Dahil Etme (Onboarding Centos 7 QA)
 ======================
 
 
 
-## <b class="hovereffect">Examing the current legacy systems</b>
+## <b class="hovereffect">Mevcut eski sistemleri inceleme</b>
 
-Access the system terminal from the tab [button label="Centos 7 QA" variant="success"](tab-1)
+[button label="Centos 7 QA" variant="success"](tab-1) sekmesinden sistem terminaline erişin
 
-Check the current version of the system:
+Sistemin mevcut sürümünü kontrol edin:
 
 ```bash,run
 rpm -qi centos-release centos-logos
 ```
 
 
-Now run the follwing command to register the system into <b class="smlm">SMLM</b>:
+Şimdi sistemi <b class="smlm">SMLM</b>'e kaydetmek için aşağıdaki komutu çalıştırın:
 
 
 ```bash,run
@@ -182,79 +182,81 @@ curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh |
 ```
 
 
-This is similar to the one we used to onboard Ubuntu in the previous lab, what changes is:
+Bu, önceki laboratuvarda Ubuntu'yu dahil etmek için kullandığımıza benzerdir, değişen şudur:
 
-- **Activation key**: Is a reference to the settings that will be applied to the system by default, in this case it has been created to only indicate which software channels the system will be registered to.
+- **Activation key** (Aktivasyon anahtarı): Varsayılan olarak sisteme uygulanacak ayarlara bir referanstır, bu durumda sadece sistemin hangi yazılım kanallarına kaydedileceğini belirtmek için oluşturulmuştur.
 
-- **Profile name**: If we don't specify it will use the hostname but in this case we want it to have a more meaningful name with the same naming convention we used with Centos 7 Prod.
+- **Profile name** (Profil adı): Belirtmezsek ana bilgisayar adını (hostname) kullanır ancak bu durumda Centos 7 Prod ile kullandığımız aynı adlandırma kuralına sahip daha anlamlı bir isme sahip olmasını istiyoruz.
 
 
-**Optional:** If we are curious and want to see what happens when we upgrade and execute the Liberate formula we can run the following command on both systems ( [button label="Centos 7 QA" variant="success"](tab-1) and [button label="Centos 7 Prod" variant="success"](tab-2) ):
+**İsteğe Bağlı:** Merak ediyorsak ve yükseltme yapıp Liberate formülünü çalıştırdığımızda ne olacağını görmek istiyorsak, her iki sistemde de ( [button label="Centos 7 QA" variant="success"](tab-1) ve [button label="Centos 7 Prod" variant="success"](tab-2) ) aşağıdaki komutu çalıştırabiliriz:
 
 
 ```bash,run
 journalctl -f
 ```
 
-And see the logs appearing in the terminals.
+Ve terminallerde görünen günlükleri (logs) görün.
 
 
 <br/><br/>
 
 
-## <b class="hovereffect">Identify and apply updates from <b class="liberty">Liberty</b> repositories</b>
+## <b class="hovereffect"><b class="liberty">Liberty</b> depolarından güncellemeleri belirleyin ve uygulayın</b>
 
-This Centos 7 systems come with the latest packages provided upstream, we want to make sure new bugs are fixed and we have a friendly support person to help us when there are troubles, now we have already subscribed the Centos 7 systems to SUSE provided software repositories during the registration process, so let's patch them all:
-
-Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+Bu Centos 7 sistemleri, yukarı akışta (upstream) sağlanan en son paketlerle gelir, yeni hataların düzeltildiğinden ve sorun olduğunda bize yardımcı olacak dost canlısı bir destek personeline sahip olduğumuzdan emin olmak istiyoruz, şimdi kayıt işlemi sırasında Centos 7 sistemlerini SUSE tarafından sağlanan yazılım depolarına zaten abone yaptık, bu yüzden hepsini yamalayalım:
 
 
-- Go to `Systems` ✈ `System List` in the left-hand menu.
 
-- Find your host **airco-dh4a-qa** and click on it.
+Şimdi [button label="SMLM UI" variant="success"](tab-0) sekmesine geçelim
 
-- Select the `Software` ✈ `Packages`
 
-- Click on `Update Packages List`, this will take about a minute to complete
+- Sol menüdeki `Systems` ✈ `System List` yolunu izleyin.
 
-- Select the `Software` ✈ `Patches`
+- Ana bilgisayarınız **airco-dh4a-qa**'yı bulun ve üzerine tıklayın.
 
-- You will see a list of available patches.
+- `Software` ✈ `Packages` seçeneğini seçin
 
-Click on `Select All`, then `Apply Patches` in the upper right finally `Confirm`. <b class="smlmext">SUSE Multi-Linux Manager</b> will now schedule and perform the upgrade procedure on the CentOS system.
+- `Update Packages List` üzerine tıklayın, bunun tamamlanması yaklaşık bir dakika sürecektir
+
+- `Software` ✈ `Patches` seçeneğini seçin
+
+- Mevcut yamaların bir listesini göreceksiniz.
+
+`Select All`'a tıklayın, ardından sağ üstteki `Apply Patches`'a ve son olarak `Confirm`'e tıklayın. <b class="smlmext">SUSE Multi-Linux Manager</b> şimdi CentOS sisteminde yükseltme prosedürünü planlayacak ve gerçekleştirecektir.
 
 
 > [!NOTE]
-> It may take a couple of minutes to get the list of packages before you can see the list of patches that can be applied to the system.
+> Sisteme uygulanabilecek yamaların listesini görebilmeniz için paket listesinin alınması birkaç dakika sürebilir.
 
 
-Since this may take a while, let's see what happens under the hood.
-Go to `Events` tab, then to `History`, you should see a list of events that have happened since the system was registered into  <b class="smlm">SMLM</b>, in the first rows we should be able to find one event that contains something similar to *Combined Patch*.
+Bu biraz zaman alabileceğinden, kaputun altında neler olduğuna bakalım.
+`Events` sekmesine, ardından `History`'ye gidin, sistem <b class="smlm">SMLM</b>'e kaydedildiğinden beri gerçekleşen olayların bir listesini görmelisiniz, ilk satırlarda *Combined Patch*'e benzer bir şey içeren bir olay bulabilmeliyiz.
 
 
-If we click on it we can see all the details, feel free to have a look, otherwise wait until the icon is green:
+Üzerine tıklarsak tüm detayları görebiliriz, göz atmaktan çekinmeyin, aksi takdirde simge yeşil olana kadar bekleyin:
 
 ![Successfully patched](../assets/SMLM5.1/successfully_updated_system.png)
 
-We just applied patches that fix bugs to the exisiting packages, this patched packages are coming directly from SUSE, this is not a migration.
+Mevcut paketlerdeki hataları düzelten yamaları az önce uyguladık, bu yamalanmış paketler doğrudan SUSE'den geliyor, bu bir geçiş (migration) değildir.
 
 <br/>
 
-Let's compare it against the production system which we haven't updated yet.
+Bunu henüz güncellemediğimiz üretim sistemiyle karşılaştıralım.
 
-Please go to `Software` ✈ `Packages` ✈ `Profiles`
+Lütfen `Software` ✈ `Packages` ✈ `Profiles` yolunu izleyin
 
-Select the system `airco-dh4a-prod`, which is the production version,  then click on:
+Üretim sürümü olan `airco-dh4a-prod` sistemini seçin, ardından şuna tıklayın:
 
 ![Compare](../assets/SMLM5.1/bottom-compare.png)
 
 
-We can see most of the package versions has not changed, still the same version ( **X.X.X**-xyz ) but with a patch applied ( X.X.X-**xyz** ).
+Çoğu paket sürümünün değişmediğini, hala aynı sürüm ( **X.X.X**-xyz ) olduğunu ancak bir yama uygulandığını ( X.X.X-**xyz** ) görebiliriz.
 
-Before we move onto the next secion let's create a stored profile, this will help us to see the differences more clearly after we apply the liberate formula in the next secion.
+Bir sonraki bölüme geçmeden önce, saklanan bir profil (stored profile) oluşturalım, bu, bir sonraki bölümde liberate formülünü uyguladıktan sonra farklılıkları daha net görmemize yardımcı olacaktır.
 
 
-Please go to `Software` ✈ `Packages` ✈ `Profile` and click on `Create System Profile`. For the name you can call it:
+Lütfen `Software` ✈ `Packages` ✈ `Profile` yolunu izleyin ve `Create System Profile` üzerine tıklayın. İsim olarak şunu verebilirsiniz:
 
 ```txt
 before_liberation
@@ -269,31 +271,31 @@ before_liberation
 <br/><br/>
 
 
-Liberate the system (optional)
+Sistemi serbest bırakın (Liberate) (isteğe bağlı)
 ==============================
 
-This is an **optional** step and not required to obtain support.
+Bu **isteğe bağlı** bir adımdır ve destek almak için gerekli değildir.
 
-Now let's liberate the system:
+Şimdi sistemi serbest bırakalım (liberate):
 
-- Go to the `Formulas` tab, search for **Liberate**, and once found, select it and click `Save` in the top right.
+- `Formulas` sekmesine gidin, **Liberate**'i arayın ve bulunduğunda onu seçin ve sağ üstteki `Save` düğmesine tıklayın.
 
-You will see a message in blue on the top of the screen, scroll up if you can't see:
+Ekranın üst kısmında mavi renkte bir mesaj göreceksiniz, göremiyorsanız yukarı kaydırın:
 
 ![Formula saved](../assets/SMLM5.1/formula_saved.png)
 
 
-Click on where it says `Highstate`, you will be directed to another tab (`States` ✈ `Highstate`).
+`Highstate` yazan yere tıklayın, başka bir sekmeye yönlendirileceksiniz (`States` ✈ `Highstate`).
 
-You can see in the summary at the bottom that the liberate formula is listed.
+Alt kısımdaki özette liberate formülünün listelendiğini görebilirsiniz.
 
-To start the liberation process, click:
+Serbest bırakma (liberation) sürecini başlatmak için tıklayın:
 
 ![Formula saved](../assets/SMLM5.1/bottom-apply_highstates.png)
 
-This will take some time, please check `Events` -> `History` , you should see an event called **Apply highstate scheduled**
+Bu biraz zaman alacaktır, lütfen `Events` -> `History`'yi kontrol edin, **Apply highstate scheduled** adlı bir olay görmelisiniz.
 
-Let's wait for a couple of minutes for it to finish, in the mean time you can observe what is happening by looking at the terminal [button label="Centos 7 QA" variant="success"](tab-1).
+Bitmesi için birkaç dakika bekleyelim, bu arada terminal [button label="Centos 7 QA" variant="success"](tab-1)'e bakarak neler olduğunu gözlemleyebilirsiniz.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -302,24 +304,25 @@ Let's wait for a couple of minutes for it to finish, in the mean time you can ob
 
 <br/><br/>
 
-## <b class="hovereffect">Observe what has changed</b>
+## <b class="hovereffect">Neyin değiştiğini gözlemleyin</b>
 
 
-Once it's completed let's compare the system again to see the difference, if we are not there already let's click on the system name `airco-dh4a-qa`.
+Tamamlandığında, farkı görmek için sistemi tekrar karşılaştıralım, eğer zaten orada değilsek `airco-dh4a-qa` sistem adına tıklayalım.
 
-Then go to `Software` ✈ `Packages` ✈ `Profile`
+Ardından `Software` ✈ `Packages` ✈ `Profile` yolunu izleyin
 
-Under  **Compare to Stored Profile** click: ![Compare](../assets/SMLM5.1/bottom-compare.png)
+**Compare to Stored Profile** altında şuna tıklayın: ![Compare](../assets/SMLM5.1/bottom-compare.png)
 
-We can see the only that has changed is the following packages:
+Değişen tek şeyin aşağıdaki paketler olduğunu görebiliriz:
 
-- **centos-logos**, replaced by **sles_es-logos**
+- **centos-logos**, **sles_es-logos** ile değiştirildi
 
-- **centos-release**, replaced by **sles_es-release-server**
+- **centos-release**, **sles_es-release-server** ile değiştirildi
 
-The rest remains the same but now you have all the support, upgrades and patches provided by <b class="suse">SUSE</b> for <b class="liberty">Liberty Linux</b>.
+Gerisi aynı kalır ancak artık <b class="liberty">Liberty Linux</b> için <b class="suse">SUSE</b> tarafından sağlanan tüm desteğe, yükseltmelere ve yamalara sahipsiniz.
 
-The same applies to more modern versions of CentOS and RHEL, you can transform them to <b class="liberty">Liberty</b> and have them supported by <b class="suse">SUSE</b> without having to make any changes to the actual software and libraries.
+Aynı durum CentOS ve RHEL'in daha modern sürümleri için de geçerlidir, bunları <b class="liberty">Liberty</b>'ye dönüştürebilir ve gerçek yazılım ve kütüphanelerde herhangi bir değişiklik yapmak zorunda kalmadan <b class="suse">SUSE</b> tarafından desteklenmesini sağlayabilirsiniz.
+
 
 
   <div style='align: middle; margin: 15px;'>
@@ -330,49 +333,49 @@ The same applies to more modern versions of CentOS and RHEL, you can transform t
 
 
 
-Liberate the production server (optional)
+Üretim sunucusunu serbest bırakın (Liberate) (isteğe bağlı)
 =========================================
 
-We have seen how to patch and Liberate our old Centos 7 server in QA, now it's time to do the same with the production system, but this time we will do so in a different order.
+QA'deki eski Centos 7 sunucumuzu nasıl yamalayacağımızı ve serbest bırakacağımızı (Liberate) gördük, şimdi aynısını üretim sistemiyle yapma zamanı, ancak bu sefer farklı bir sırayla yapacağız.
 
-- First, we will apply the **Liberate** formula
+- İlk olarak, **Liberate** formülünü uygulayacağız
 
-  Let's go to our production server `airco-dh4a-prod` and `Create System Profile`
+  Üretim sunucumuz `airco-dh4a-prod`'a gidelim ve `Create System Profile` yapalım
 
-  Afterwards let's apply the **Liberate** formula like we did with the QA system.
+  Sonrasında QA sisteminde yaptığımız gibi **Liberate** formülünü uygulayalım.
 
-- Once it's completed, let's compare the system with the profile we just created, as we can see the only change has been the **centos-logos** and **centos-release** packages, the rest remains exactly the same.
+- Tamamlandığında, sistemi az önce oluşturduğumuz profille karşılaştıralım, görebileceğimiz gibi tek değişiklik **centos-logos** ve **centos-release** paketleri oldu, gerisi tamamen aynı kaldı.
 
 
-Is it a migration?
+Bu bir geçiş (migration) mi?
 ==================
 
-A migration involves building a brand-new server, reinstalling all applications from scratch, and carefully moving the data over, a process that is time-consuming, expensive, and fraught with risk.
+Bir geçiş; yepyeni bir sunucu oluşturmayı, tüm uygulamaları sıfırdan yeniden yüklemeyi ve verileri dikkatlice taşımayı içerir; bu zaman alıcı, pahalı ve risk dolu bir süreçtir.
 
-What we did was far more elegant. We performed an in-place upgrade.
+Yaptığımız şey çok daha zarifti. Yerinde yükseltme (in-place upgrade) gerçekleştirdik.
 
-The server's identity, hostname, applications, and user data remained completely untouched. We simply changed its underlying source for updates, and those end-of-life components are not fully supported ones receiving patches.
+Sunucunun kimliği, ana bilgisayar adı, uygulamaları ve kullanıcı verileri tamamen dokunulmadan kaldı. Sadece güncellemeler için temel kaynağını değiştirdik ve bu ömrünü tamamlamış bileşenler artık yama alan, tam desteklenen bileşenler oldu.
 
-We've successfully extended the life of our system, brought it back into security compliance, and did it all without the disruption of a full migration. That's the efficiency that keeps [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] flying high.
-
-
+Sistemimizin ömrünü başarıyla uzattık, güvenlik uyumluluğuna geri döndürdük ve tüm bunları tam bir geçişin kesintisi olmadan yaptık. İşte [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]'u yükseklerde uçuran verimlilik budur.
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+
+
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] için bu neden önemlidir?
 =================================================================================
 
-- It allows [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] to keep their running systems supported, granting them time to migrate depending on their business needs rather than the vendor needs.
+- [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]'un çalışan sistemlerini desteklenen durumda tutmasına olanak tanır, satıcı ihtiyaçları yerine iş ihtiyaçlarına bağlı olarak geçiş yapmak için onlara zaman tanır.
 
-- It mitigates the risk that implies having unsupported systems by offering extended support. This approach avoids the need for an immediate migration, everything runs as usual but now there is a group of experts that can answer your calls.
+- Genişletilmiş destek sunarak desteklenmeyen sistemlere sahip olmanın getirdiği riski azaltır. Bu yaklaşım, acil bir geçiş ihtiyacını ortadan kaldırır, her şey her zamanki gibi çalışır ancak artık çağrılarınıza cevap verebilecek bir grup uzman vardır.
 
-- It gives you the freedom to change support provider without going through lengthy migrations, and allows you to do it at scale.
+- Uzun geçişlerden geçmeden destek sağlayıcısını değiştirme özgürlüğü verir ve bunu ölçekli (at scale) bir şekilde yapmanıza olanak tanır.
 
 
 
-More information
+Daha fazla bilgi
 ================
 
-- [Registering RHEL 7 or CentOS Linux 7 with SUSE Manager](https://documentation.suse.com/liberty/7/html/suma-quickstart/art-suma-quickstart.html)
-- [Running OpenSCAP compliance scans for SUSE Multi-Linux Support 7](https://documentation.suse.com/liberty/7/html/compliance-scans/art-compliance-scans.html)
-- [Registering CentOS Linux 7 with the SUSE Customer Center](https://documentation.suse.com/liberty/7/html/quickstart-scc/art-quickstart-scc.html)
+- [RHEL 7 veya CentOS Linux 7'yi SUSE Manager ile Kaydetme](https://documentation.suse.com/liberty/7/html/suma-quickstart/art-suma-quickstart.html)
+- [SUSE Multi-Linux Support 7 için OpenSCAP uyumluluk taramalarını çalıştırma](https://documentation.suse.com/liberty/7/html/compliance-scans/art-compliance-scans.html)
+- [CentOS Linux 7'yi SUSE Customer Center ile Kaydetme](https://documentation.suse.com/liberty/7/html/quickstart-scc/art-quickstart-scc.html)
 - [SUSE Multi-Linux Support 9](https://documentation.suse.com/liberty/9/)

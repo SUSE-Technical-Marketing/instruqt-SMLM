@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: fkelapqkrgth
+id: adwvwfhmlhbq
 type: challenge
-title: Automation (Optional)
+title: Otomasyon (İsteğe Bağlı)
 tabs:
-- id: u0y5w6ewsnm1
+- id: n1sprltinyjn
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Automation and configuration management
+🌌 Otomasyon ve yapılandırma yönetimi
 ===================================
 
 <style type="text/css">
@@ -97,30 +97,30 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/07-automation.jpeg"/>
 
-In this section we are going to look at some of the options available to automate tasks.
+Bu bölümde, görevleri otomatikleştirmek için mevcut olan bazı seçeneklere bakacağız.
 
-In this lab, we move from doing manual tasks to create some automation using some of the options we have available.
-<b class="smlmext">SUSE Multi-Linux Manager</b> acts as the "autopilot" for our IT operations, allowing us to enforce configuration standards and automate routine tasks with precision and reliability across our entire fleet.
+Bu laboratuvarda, manuel görevleri yapmaktan, mevcut olan bazı seçenekleri kullanarak otomasyon oluşturmaya geçiyoruz.
+<b class="smlmext">SUSE Multi-Linux Manager</b>, BT operasyonlarımız için "otopilot" görevi görerek, yapılandırma standartlarını uygulamamıza ve rutin görevleri tüm filomuzda hassasiyet ve güvenilirlikle otomatikleştirmemize olanak tanır.
 
-Instead of manually configuring hundreds of servers and hoping we don't miss a step, we define the process and state and reduce the human operation to define a schedule, once.
+Yüzlerce sunucuyu manuel olarak yapılandırmak ve bir adımı kaçırmamayı ummak yerine, süreci ve durumu tanımlarız ve insan operasyonunu sadece bir kez bir zamanlama tanımlamaya indirgeriz.
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">Hedefleriniz:</b>
 
-- Create a schedule that regularly perform updates on your development systems
+- Geliştirme sistemlerinizde düzenli olarak güncellemeler gerçekleştiren bir zamanlama oluşturun.
 
-- Create a script to show a different login banner depending on the system's environment
+- Sistemin ortamına bağlı olarak farklı bir oturum açma başlığı (banner) göstermek için bir komut dosyası oluşturun.
 
-Lab details
+Laboratuvar detayları (Lab details)
 ===========
 
-Username:
+Kullanıcı Adı (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Şifre (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -128,34 +128,34 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Setup recurring updates
+Yinelenen güncellemeleri ayarlama (Setup recurring updates)
 =======================
 
-We want developers to work with the latest stable updates provided by SUSE, but we can't rely on people remembering to update their systems every day, so we are going to create a recurring schedule that does exactly that.
+Geliştiricilerin SUSE tarafından sağlanan en son kararlı güncellemelerle çalışmasını istiyoruz, ancak insanların sistemlerini her gün güncellemeyi hatırlamalarına güvenemeyiz, bu yüzden tam olarak bunu yapan yinelenen bir zamanlama oluşturacağız.
 
 
-We are going to apply this to all the systems in the dev group so that this doesn't have to be done on every system.
+Bunu dev grubundaki tüm sistemlere uygulayacağız, böylece her sistemde ayrı ayrı yapılmasına gerek kalmayacak.
 
-- Let's go to `Systems` ✈ `System Groups`
-- Click on `dev` group.
+- `Systems` ✈ `System Groups` yoluna gidelim.
+- `dev` grubuna tıklayın.
 
-We just noticed it has no systems assigned, let's add one.
+Atanmış hiçbir sistemi olmadığını fark ettik, bir tane ekleyelim.
 
-- click on `Target Systems` and select `sles15`
-- then click on ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
+- `Target Systems` üzerine tıklayın ve `sles15`'i seçin
+- ardından ![Add Systems](../assets/SMLM5.1/bottom-add_system.png) üzerine tıklayın.
 
-Now that we have a system let's create the recurring action.
+Artık bir sistemimiz olduğuna göre, yinelenen eylemi oluşturalım.
 
-- Go to `Recurring Actions`
-- Click on ![Create](../assets/SMLM5.1/bottom-create.png)
-- Now let's populate the form with the following details:
-	+ **Action Type:** 'Custom state'
- 	+ **Schedule Name:** 'Update Dev systems'
-	+ **Daily:** '03:00'
-	+ **Configure states to execute:** Make sure **uptodate:** is selected
+- `Recurring Actions`'a gidin
+- ![Create](../assets/SMLM5.1/bottom-create.png) üzerine tıklayın
+- Şimdi formu aşağıdaki ayrıntılarla dolduralım:
+	+ **Action Type (Eylem Türü):** 'Custom state'
+ 	+ **Schedule Name (Zamanlama Adı):** 'Update Dev systems'
+	+ **Daily (Günlük):** '03:00'
+	+ **Configure states to execute (Yürütülecek durumları yapılandırın):** **uptodate:** seçeneğinin seçili olduğundan emin olun
 	![uptodate Selected](../assets/SMLM5.1/uptodate_selected.png)
 
-- Click on
+- Şuna tıklayın:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
 <img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-save_changes.png"/>
@@ -169,9 +169,9 @@ Now that we have a system let's create the recurring action.
 
 
 
-To observe our list of recurring actions we can go to `Schedule` ✈ `Recurring Actions`
+Yinelenen eylemler listemizi gözlemlemek için `Schedule` ✈ `Recurring Actions` yoluna gidebiliriz.
 
-Now all the dev systems will be updated daily at 3am UTC time.
+Artık tüm dev sistemleri günlük olarak UTC saatiyle 03:00'te güncellenecek.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -183,24 +183,26 @@ Now all the dev systems will be updated daily at 3am UTC time.
 
 
 
-Make sure every system has a login message
+Her sistemin bir oturum açma mesajına sahip olduğundan emin olun
 ==========================================
 
 
-We are going to create a configuration channel to make sure every system we manage contains an adequate login message.
+Yönettiğimiz her sistemin uygun bir oturum açma mesajı içerdiğinden emin olmak için bir yapılandırma kanalı oluşturacağız.
 
-- Let's go to `Configuration` ✈ `Channels`
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
-- Fill the form with the following details:
-	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
-	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
-	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
-Now that we have created the config channel let's populate it.
 
-- Go to `Add Files` ✈ `Create File`
-- Fill in the following details:
+- `Configuration` ✈ `Channels` yoluna gidelim.
+- ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png) üzerine tıklayın.
+- Formu aşağıdaki ayrıntılarla doldurun:
+	+ **Name:** <b class="highlightcopy">Uniform experience</b>
+	+ **Label:** <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:** <b class="highlightcopy">Create a uniform experience across systems</b>
+- ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png) üzerine tıklayın.
+
+Yapılandırma kanalını oluşturduğumuza göre şimdi dolduralım.
+
+- `Add Files` ✈ `Create File` yoluna gidin.
+- Aşağıdaki ayrıntıları doldurun:
 	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
@@ -219,15 +221,15 @@ No applications running on this server
 </pre>
 
 
-- Click on ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
+- ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png) üzerine tıklayın.
 
-Now let's subscribe every system in the organization to the new configuration channel.
+Şimdi organizasyondaki her sistemi yeni yapılandırma kanalına abone yapalım.
 
-- let's go to `Admin` ✈ `Organizations`
-- Click on organization **Organization** (This is the default organization)
-- Go to `States` and select the channel we just created.
+- `Admin` ✈ `Organizations` yoluna gidelim.
+- **Organization** organizasyonuna tıklayın (Bu varsayılan organizasyondur).
+- `States`'e gidin ve az önce oluşturduğumuz kanalı seçin.
 ![Uniform experience selected](../assets/SMLM5.1/selected_univorm_experience_Configurationchannel.png)
-- Click on
+- Şuna tıklayın:
 
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
@@ -241,20 +243,20 @@ Now let's subscribe every system in the organization to the new configuration ch
 </p>
 
 
-This won't happen immediately, let's check the systems. We are going to run a simple command via the web UI, if run too early, you may see systems with the old message and systems which already got the file updated.
+Bu hemen gerçekleşmeyecek, sistemleri kontrol edelim. Web arayüzü üzerinden basit bir komut çalıştıracağız; çok erken çalıştırılırsa, eski mesajı olan sistemleri ve dosyanın güncellendiği sistemleri görebilirsiniz.
 
-- Let's go to `Salt` ✈ `Remote Commands`
-- Type the following:
+- `Salt` ✈ `Remote Commands` yoluna gidelim.
+- Aşağıdakini yazın:
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd.png)
-- Click on `Find targets`
-- You should see a list of systems click on `Run command`
+- `Find targets` üzerine tıklayın.
+- Sistemlerin bir listesini görmelisiniz, `Run command` üzerine tıklayın.
 
-Now you should see something like this:
+Şimdi şuna benzer bir şey görmelisiniz:
 
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd_first_result.png)
 
 > [!NOTE]
-> This process may take a couple of minutes, if you don't see the MOTD please re run the command after a few minutes.
+> Bu işlem birkaç dakika sürebilir, MOTD'yi görmezseniz lütfen birkaç dakika sonra komutu yeniden çalıştırın.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -264,36 +266,33 @@ Now you should see something like this:
 <br/>
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] için bu neden önemlidir?
 =================================================================================
 
 
 
-- When managing 1000s of systems we cannot afford to do everything one by one, tasks need to be automated so we manage cattle, not pets.
-
-- By defining the "correct state" we eliminate configuration drift. Every server in the fleet operates from the same playbook, just like every pilot uses the same checklist.
-
-
-- Tasks that would take hours to perform manually across hundreds of servers are completed in minutes. This frees up our engineers to work on innovation and improvement, not repetitive manual labor.
-
-
-- Automation is the ultimate defense against human error. A forgotten step or a typo during manual configuration can lead to an outage. An automated, tested process executes perfectly every time, enhancing the reliability and security of our entire airline.
+- Binlerce sistemi yönetirken her şeyi tek tek yapma lüksümüz yok, görevlerin otomatize edilmesi gerekiyor ki evcil hayvanları (pets) değil, sığırları (cattle) yönetelim.
 
 
 
+- "Doğru durumu" tanımlayarak yapılandırma sapmasını (configuration drift) ortadan kaldırıyoruz. Filodaki her sunucu, tıpkı her pilotun aynı kontrol listesini kullanması gibi, aynı oyun kitabından çalışır.
 
-More information
+
+
+- Yüzlerce sunucuda manuel olarak yapılması saatler sürecek görevler dakikalar içinde tamamlanır. Bu, mühendislerimizi tekrarlayan el emeği yerine yenilik ve iyileştirme üzerinde çalışmaları için özgürleştirir.
+
+
+- Otomasyon, insan hatasına karşı nihai savunmadır. Manuel yapılandırma sırasında unutulan bir adım veya yazım hatası bir kesintiye yol açabilir. Otomatik, test edilmiş bir süreç her seferinde mükemmel bir şekilde yürütülür ve tüm havayolu şirketimizin güvenilirliğini ve güvenliğini artırır.
+
+
+
+
+Daha fazla bilgi
 ================
 
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
+* [SUSE Multi-Linux Manager Ürün Sayfası](https://www.suse.com/products/suse-manager/)
 
-* [Ansible Integration](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
+* [Ansible Entegrasyonu](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
 
-* [Salt Guide](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)
-
-
-
-
-
-
+* [Salt Kılavuzu](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)

@@ -1,14 +1,14 @@
 ---
 slug: smlm-managing-linux-distros
-id: 0s4wjswo2zhk
+id: 92sy5mozvui0
 type: challenge
-title: Managing different Linux distributions
+title: Farklı Linux dağıtımlarını yönetme
 tabs:
-- id: qsppgdkckld3
+- id: iyim5rsieilj
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: uefwdei7ywmk
+- id: lagoprgdnggp
   title: Ubuntu 2404 LTS
   type: terminal
   hostname: ubuntu2404lts
@@ -17,7 +17,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Managing different Linux distributions
+🌌 Farklı Linux dağıtımlarını yönetme
 ===================================
 
 <style type="text/css">
@@ -102,30 +102,30 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/02-managing_linux_distros.jpeg"/>
 
-Here at [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], <b class="smlmext">SUSE Multi-Linux Manager</b>  is the key to managing our diverse fleet of Linux distributions and architectures from a single pane of glass. This has helped us avoid the extra customizations that used to complicate our jobs as engineers, which in turn increased the cost and time required to maintain and implement our system policies.
+Burada [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] içinde, <b class="smlmext">SUSE Multi-Linux Manager</b>, çeşitli Linux dağıtımları ve mimarileri filomuzu tek bir cam panelden (single pane of glass) yönetmenin anahtarıdır. Bu, mühendisler olarak işlerimizi zorlaştıran ekstra özelleştirmelerden kaçınmamıza yardımcı oldu, bu da sistem politikalarımızı sürdürmek ve uygulamak için gereken maliyeti ve zamanı artırıyordu.
 
-With this tool, we are not locked into a single vendor, architecture, or automation platform. We are free to choose what we need for our environment and manage them all in the same way. Imagine if for every type of aircraft in our fleet, we needed a different air traffic control tower with its own language and procedures. The operational complexity would be unmanageable, and the costs would be prohibitive.
+Bu araçla, tek bir satıcıya, mimariye veya otomasyon platformuna kilitli değiliz. Ortamımız için neye ihtiyacımız olduğunu seçmekte ve hepsini aynı şekilde yönetmekte özgürüz. Filomuzdaki her uçak tipi için, kendi dili ve prosedürleri olan farklı bir hava trafik kontrol kulesine ihtiyacımız olduğunu hayal edin. Operasyonel karmaşıklık yönetilemez olurdu ve maliyetler engelleyici olurdu.
 
-We all know a certain aircraft model is better for a specific route; flying a jumbo jet for a half-hour flight is not cost-effective. The same applies to our Linux distributions. While SUSE’s own distributions are excellent, some of our applications have specific requirements. <b class="smlm">SMLM</b> ensures we are never locked in and can always integrate the best solution for the task at hand.
-
-
-## <b class="hovereffect">Your Objectives:</b>
-
-- Onboard an Ubuntu 24.04 LTS system, a specialized system required for our marketing team.
-
-- Demonstrate how we manage this new, different system using the same tools and patching procedures as the rest of our fleet.
+Hepimiz belirli bir uçak modelinin belirli bir rota için daha iyi olduğunu biliyoruz; yarım saatlik bir uçuş için jumbo jet uçurmak maliyet açısından verimli değildir. Aynısı Linux dağıtımlarımız için de geçerlidir. SUSE'nin kendi dağıtımları mükemmel olsa da, bazı uygulamalarımızın özel gereksinimleri vardır. <b class="smlm">SMLM</b>, asla kilitli kalmamamızı (vendor lock-in) ve eldeki görev için her zaman en iyi çözümü entegre edebilmemizi sağlar.
 
 
+## <b class="hovereffect">Hedefleriniz:</b>
 
-Lab details
+- Pazarlama ekibimiz tarafından ihtiyaç duyulan özel bir sistem olan bir Ubuntu 24.04 LTS sistemini dahil edin (Onboard).
+
+- Bu yeni, farklı sistemi, filomuzun geri kalanıyla aynı araçları ve yama prosedürlerini kullanarak nasıl yönettiğimizi gösterin.
+
+
+
+Laboratuvar detayları (Lab details)
 ===========
 
-Username:
+Kullanıcı Adı (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Şifre (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -133,32 +133,32 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Onboarding Ubuntu
+Ubuntu'yu Dahil Etme (Onboarding Ubuntu)
 =================
 
-A new service request has come in from our marketing department. Their graphic designers rely on a specific creative suite that is only supported on Ubuntu. We are going to onboard their system so that we can manage and ensure it meets our security and compliance standards, in the same way as we do with the others.
+Pazarlama departmanımızdan yeni bir hizmet talebi geldi. Grafik tasarımcıları, yalnızca Ubuntu üzerinde desteklenen belirli bir yaratıcı süite güveniyor. Sistemlerini dahil edeceğiz, böylece yönetebilir ve diğerleriyle yaptığımız gibi güvenlik ve uyumluluk standartlarımızı karşıladığından emin olabiliriz.
 
-Let's begin.
+Hadi başlayalım.
 <br/>
 
-- Access the system terminal from the tab [button label="Ubuntu 2404 LTS" variant="success"](tab-1)
+- [button label="Ubuntu 2404 LTS" variant="success"](tab-1) sekmesinden sistem terminaline erişin
 
-  Before we make any changes let's check where it is sourcing the packages from:
+  Herhangi bir değişiklik yapmadan önce paketleri nereden sağladığını kontrol edelim:
 
 ```bash,run
 grep -v '^#\|^Types:\|Trusted:\|Architectures:' /etc/apt/sources.list.d/*
 ```
 
-This workstation is pulling software directly from public Ubuntu repositories. This presents two issues: first, we have no control over the patches being applied, which is a security concern. Second, as the marketing team reported, every time these workstations fetch updates, they can slow down the office internet connection, causing frustration for other employees.
+Bu iş istasyonu yazılımı doğrudan genel Ubuntu depolarından çekiyor. Bu iki sorun teşkil ediyor: birincisi, uygulanan yamalar üzerinde hiçbir kontrolümüz yok, bu da bir güvenlik endişesidir. İkincisi, pazarlama ekibinin bildirdiği gibi, bu iş istasyonları her güncelleme aldığında ofis internet bağlantısını yavaşlatabilir ve diğer çalışanlar için hayal kırıklığına neden olabilir.
 
 
-Let's bring this system under our management. This will solve both problems by connecting it to our internal <b class="smlmext">SUSE Multi-Linux Manager</b> instance for all software needs.
+Bu sistemi yönetimimiz altına alalım. Bu, tüm yazılım ihtiyaçları için onu dahili <b class="smlmext">SUSE Multi-Linux Manager</b> örneğimize bağlayarak her iki sorunu da çözecektir.
 
-We are going to use the [button label="web UI" variant="success"](tab-0) to do so:
+Bunu yapmak için [button label="web UI" variant="success"](tab-0) kullanacağız:
 
-- Under `Home` ✈ `Overview`, let's click on `Register Systems`
+- `Home` ✈ `Overview` altında, `Register Systems` üzerine tıklayalım
 
-- Fill in the following details:
+- Aşağıdaki detayları doldurun:
 
   - **Host:**
 
@@ -166,26 +166,26 @@ We are going to use the [button label="web UI" variant="success"](tab-0) to do s
   ubuntu2404lts
   ```
 
-  - **User:**
+  - **User:** (Kullanıcı)
 
   ```txt
   root
   ```
 
-  - **Password:**
+  - **Password:** (Şifre)
 
   ```txt
   [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
   ```
 
-  - **Activation Key:**   <b class="highlightcopy">1-ubuntu2404</b>
+  - **Activation Key:** (Aktivasyon Anahtarı)   <b class="highlightcopy">1-ubuntu2404</b>
 
-- Leave the rest as it is and click on
+- Gerisini olduğu gibi bırakın ve şuna tıklayın
 
 <img style='padding: 0; margin:0; vertical-align: middle' src="../assets/SMLM5.1/bottom-bootstrap.png"/>
 
 
-- The registration process may take a couple of minutes to complete, let's go to the [button label="terminal" variant="success"](tab-1) and run the first command one more time to see what has changed:
+- Kayıt işleminin tamamlanması birkaç dakika sürebilir, [button label="terminal" variant="success"](tab-1)'e gidelim ve neyin değiştiğini görmek için ilk komutu bir kez daha çalıştıralım:
 
 
 ```bash,run
@@ -193,22 +193,22 @@ echo 'Waiting for the registration to complete' ;while [[ ! -f /etc/apt/sources.
 ```
 
 
-We can see new files appeared:
+Yeni dosyaların göründüğünü görebiliriz:
 
 **/etc/apt/sources.list.d/susemanager:***
 
-They point to the system to our centrally managed and controlled channels in <b class="smlm">SMLM</b>.
+Sistemi <b class="smlm">SMLM</b> içindeki merkezi olarak yönetilen ve kontrol edilen kanallarımıza yönlendirirler.
 
 
-We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, has been modified to disable all the public respositories but has not been eliminated, this would allow us to roll back easily if we needed so.
-
-
-> [!NOTE]
-> Using root via SSH with password authentication for registering is just for demonstration purposes and not recommended for production.
+Ayrıca orijinal dosyanın, **/etc/apt/sources.list.d/ubuntu.sources**, tüm genel depoları devre dışı bırakacak şekilde değiştirildiğini ancak silinmediğini görebiliriz, bu da gerekirse kolayca geri almamızı (roll back) sağlar.
 
 
 > [!NOTE]
-> By default we have to approve the registration of each system through the UI or via command line < salt-key -A -y >, here <b class="smlm">SMLM</b> has been configured to auto approve.
+> Kayıt için şifre doğrulaması ile SSH üzerinden root kullanmak sadece gösterim amaçlıdır ve üretim (production) için önerilmez.
+
+
+> [!NOTE]
+> Varsayılan olarak her sistemin kaydını UI veya komut satırı < salt-key -A -y > üzerinden onaylamamız gerekir, burada <b class="smlm">SMLM</b> otomatik onaylama (auto approve) için yapılandırılmıştır.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -219,18 +219,18 @@ We can also see the original file, **/etc/apt/sources.list.d/ubuntu.sources**, h
 
 
 
-Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+Şimdi [button label="SMLM UI" variant="success"](tab-0) sekmesine geçelim
 
 
-- We navigate to `Systems` ✈ `System List` ✈ `All`
+- `Systems` ✈ `System List` ✈ `All` yolunu izliyoruz
 
-  We can see the system we just registered `Ubuntu2404lts`, note by default it will be registered under the hostname.
+  Az önce kaydettiğimiz `Ubuntu2404lts` sistemini görebiliriz, varsayılan olarak ana bilgisayar adı (hostname) altında kaydedileceğini unutmayın.
 
-  Let's click on it, we will go directly to `Details` - `Overview` where we can see amongst other information:
+  Üzerine tıklayalım, doğrudan diğer bilgilerin yanı sıra şunları görebileceğimiz `Details` - `Overview` bölümüne gideceğiz:
 
-  - The system status.
-  - All the information such as hostname, IP address, type of virtualization, Kernel used and installed products.
-  - The channels it is subscribed to.
+  - Sistem durumu.
+  - Ana bilgisayar adı, IP adresi, sanallaştırma türü, kullanılan Çekirdek (Kernel) ve yüklü ürünler gibi tüm bilgiler.
+  - Abone olduğu kanallar.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/managing_different_linux_distros-ubuntu_overview.gif"/>
@@ -239,37 +239,37 @@ Now let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
 
 <br/>
 
-Managing multiple Linux distributions
+Birden fazla Linux dağıtımını yönetme
 =====================================
 
 
-As mentioned earlier, at <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b> we use different Linux distributions, like we use different airplane models and companies. This helps us to stay ahead of the competition by using the most suitable product for each of our needs.
+Daha önce belirtildiği gibi, <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b>'da, farklı uçak modelleri ve şirketleri kullandığımız gibi farklı Linux dağıtımları kullanıyoruz. Bu, ihtiyaçlarımızın her biri için en uygun ürünü kullanarak rekabette önde kalmamıza yardımcı olur.
 
-With <b class="smlmext">SUSE Multi-Linux Manager</b> we can manage all of them with the same procedures, same schedules, etc.. using the same interface and mechanisms.
+<b class="smlmext">SUSE Multi-Linux Manager</b> ile hepsini aynı prosedürler, aynı programlar vb. ile aynı arayüz ve mekanizmaları kullanarak yönetebiliriz.
 
-Below we will explore how to perform different tasks on your systems, following the same process independently of which OS our systems are running, without having to create unecessary customizations.
-
-
-## <b class="hovereffect">Add extra information</b>
+Aşağıda, sistemlerimizin hangi işletim sistemini (OS) çalıştırdığından bağımsız olarak aynı süreci izleyerek, gereksiz özelleştirmeler oluşturmak zorunda kalmadan sistemlerinizde farklı görevlerin nasıl gerçekleştirileceğini keşfedeceğiz.
 
 
-Let's continue with the system we just registered, we are going to add a few settings and information to it:
-
-- Let's click in `Properties`, where we will add extra information about the system and change some settings.
+## <b class="hovereffect">Ek bilgi ekleyin</b>
 
 
-  - Enable Automatic application of patches:
+Az önce kaydettiğimiz sistemle devam edelim, ona birkaç ayar ve bilgi ekleyeceğiz:
+
+- Sistem hakkında ek bilgiler ekleyeceğimiz ve bazı ayarları değiştireceğimiz `Properties`'e tıklayalım.
+
+
+  - Yamaların otomatik uygulanmasını etkinleştir (Enable Automatic application of patches):
 
   <img style='vertical-align: middle; height: 60%; width: 60%; object-fit: contain' src="../assets/SMLM5.1/option-auto_patch_update-enabled.png"/>
 
-    This will automatically patch the system when there are relevant patches.
+    Bu, ilgili yamalar olduğunda sisteme otomatik olarak yama uygulayacaktır.
 
 
 
-  - Add the following details for the system:
+  - Sistem için aşağıdaki detayları ekleyin:
 
 
-| Field | Content                                                  |
+| Alan (Field) | İçerik (Content)                                                  |
 | ---: | :-----                                                    |
 | **Description** | <b class="highlightcopy">Multimedia workstation for graphics designers.</b> |
 | **Facility Address** | <b class="highlightcopy">Candy eye street, 1</b> |
@@ -282,26 +282,26 @@ Let's continue with the system we just registered, we are going to add a few set
 
 
 
-- Let's look at what hardware it is running on:
+- Hangi donanım üzerinde çalıştığına bakalım:
 
-  - Click on `Details` ✈ `Hardware`
+  - `Details` ✈ `Hardware` üzerine tıklayın
 
 
 <br/>
 
 > [!NOTE]
-> All this can be automated through the API.
+> Bütün bunlar API aracılığıyla otomatikleştirilebilir.
 
 <br/>
 
-Now we are going to add some extra information to the system using custom keys, this information can be easily consumed in your automation scripts later on.
+Şimdi özel anahtarlar (custom keys) kullanarak sisteme bazı ek bilgiler ekleyeceğiz, bu bilgiler daha sonra otomasyon komut dosyalarınızda (scripts) kolayca kullanılabilir.
 
 
-- Click on `Details` ✈ `Custom Info`
+- `Details` ✈ `Custom Info` üzerine tıklayın
 
 <img style='vertical-align: top; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Create_Value.png"/>
 
-- Click `application` and fill **value** with the following:
+- `application` üzerine tıklayın ve **value** (değer) kısmını şununla doldurun:
 
 ```text
 Logo Wings designer pro
@@ -313,22 +313,22 @@ Logo Wings designer pro
 <br/>
 
 > [!NOTE]
-> We have already create the custom key **application** for you, if you want to create you own keys it is as simple as going to: `Systems` ✈ `Custom System Info` ✈ `Create key`
+> Sizin için özel anahtar **application**'ı zaten oluşturduk, kendi anahtarlarınızı oluşturmak istiyorsanız şu adrese gitmek kadar basittir: `Systems` ✈ `Custom System Info` ✈ `Create key`
 
 <br/><br/>
 
-Let's go back to the Systems list
+Systems listesine geri dönelim
 
 `Systems` ✈ `System List` ✈ `All`
 
 
-Let's click on any of the systems and go to `Details` ✈ `Custom Info`.
+Sistemlerden herhangi birine tıklayalım ve `Details` ✈ `Custom Info`'ya gidelim.
 
-We have already populated each system with a value,
+Her sistemi zaten bir değerle doldurduk,
 
 <br/>
 
-Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subscribed Channels**, these are different than the ones in your Ubuntu system because they are running a different operating system.
+Şimdi `Details` ✈ `Overview`'a gidin ve **Installed Products** ve **Subscribed Channels**'a dikkat edin, bunlar farklı bir işletim sistemi çalıştırdıkları için Ubuntu sisteminizdekilerden farklıdır.
 
 
 
@@ -339,35 +339,35 @@ Now go to `Details` ✈ `Overview` and notice **Installed Products** and **Subsc
 <br/>
 
 
-## <b class="hovereffect">Run commands on multiple systems at once</b>
+## <b class="hovereffect">Birden fazla sistemde aynı anda komut çalıştırın</b>
 
 
-Let's do something on all the systems we have, go back to `Systems` ✈ `System List` ✈ `All` and select all:
+Sahip olduğumuz tüm sistemlerde bir şeyler yapalım, `Systems` ✈ `System List` ✈ `All`'a geri dönün ve hepsini seçin:
 
 <img style='vertical-align: middle; margin: 2px; height: 50%; width: 50%; object-fit: contain' src="../assets/SMLM5.1/select_all_systems.png"/>
 
-Notice the **Base Channel** column, we have systems running three different OS.
+**Base Channel** sütununa dikkat edin, üç farklı işletim sistemi çalıştıran sistemlerimiz var.
 
 <br/>
 
-Having selected all the systems we want to operate let's go to perform a group action:
+İşlem yapmak istediğimiz tüm sistemleri seçtikten sonra bir grup eylemi gerçekleştirmeye gidelim:
 
 `Systems` ✈ `System Set Manager`
 
-Let's run a command on all of them, for that we can go to:
+Hepsinde bir komut çalıştıralım, bunun için şuraya gidebiliriz:
 
 `Misc` ✈ `Remote Command`
 
-then fill in the following details and leave the rest with the default values:
+ardından aşağıdaki detayları doldurun ve gerisini varsayılan değerlerle bırakın:
 
 
-Script:
+Komut Dosyası (Script):
 
 ```bash,run
 cat /etc/os-release
 ```
 
-Don't modify the schedule, we want it to run as soon as possible, click on:
+Zamanlamayı (schedule) değiştirmeyin, mümkün olan en kısa sürede çalışmasını istiyoruz, şuna tıklayın:
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/bottom-Schedule.png"/>
 
@@ -377,23 +377,23 @@ Don't modify the schedule, we want it to run as soon as possible, click on:
 
 <br/><br/>
 
-You will see a blue notice on the top indicating that the task has been scheduled.
+Üst kısımda görevin zamanlandığını belirten mavi bir bildirim göreceksiniz.
 
-Let's go to see the results, for that we will go to:
+Sonuçları görmeye gidelim, bunun için şuraya gideceğiz:
 
 `Schedule` ✈ `Completed Actions`
 
-We will see a list of actions, in **Filter by Action** field type:
+Bir eylemler listesi göreceğiz, **Filter by Action** alanına şunu yazın:
 
 ```text
 Run
 ```
-Click on the top entry that appears on the list, should be similar to this:
+Listede görünen en üstteki girişe tıklayın, şuna benzer olmalıdır:
 
 <img style='vertical-align: middle; margin: 2px; object-fit: contain' src="../assets/SMLM5.1/Select_complete_action_run.png"/>
 
 
-There we can go to **Completed Systems** and examine the result by clicking on the system name.
+Orada **Completed Systems**'a gidebilir ve sistem adına tıklayarak sonucu inceleyebiliriz.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -405,27 +405,24 @@ There we can go to **Completed Systems** and examine the result by clicking on t
 
 <br/><br/>
 
-With this we complete this part, we will see more examples of how we can manage multiple Linux systems along the workshop.
+Bununla bu kısmı tamamlıyoruz, çalıştay boyunca birden fazla Linux sistemini nasıl yönetebileceğimize dair daha fazla örnek göreceğiz.
 
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] için bu neden önemlidir?
 =================================================================================
 
-- No vendor lock-in, keep the freedom of choice and flexibility to react fast to changing markets.
+- Satıcı kilidi (vendor lock-in) yok, değişen pazarlara hızlı tepki vermek için seçim özgürlüğünü ve esnekliği koruyun.
 
-- Simplify and save time avoiding extra work on customizations.
+- Özelleştirmeler üzerinde ekstra işten kaçınarak basitleştirin ve zamandan tasarruf edin.
 
-- A single UI to manage all reduces the complexity and will make future troubleshooting, scaling, patching and automation much more agile and less time consuming.
+- Her şeyi yönetmek için tek bir UI, karmaşıklığı azaltır ve gelecekteki sorun giderme (troubleshooting), ölçeklendirme, yama uygulama ve otomasyonu çok daha çevik ve daha az zaman alıcı hale getirir.
 
 
 
-More information
+Daha fazla bilgi
 ================
 
-For a list of supported distributions please visit:
+Desteklenen dağıtımların bir listesi için lütfen ziyaret edin:
 
 [SMLM - Supported Clients and Features](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/client-configuration/supported-features.html)
-
-
-

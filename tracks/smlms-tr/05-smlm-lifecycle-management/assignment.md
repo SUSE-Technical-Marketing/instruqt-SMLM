@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: ejxtdpb7jztq
+id: zksrqkgljah5
 type: challenge
-title: Lifecycle management
+title: Yaşam döngüsü yönetimi
 tabs:
-- id: vj7zqlkc0xab
+- id: atopi6jd0yaj
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Lifecycle management
+🌌 Yaşam döngüsü yönetimi (Lifecycle management)
 ===================================
 
 <style type="text/css">
@@ -97,35 +97,37 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/05-lifecycle.jpeg"/>
 
-In this part we will transition from individual maintenance tasks to establishing a fleet-wide, certified process for managing change. We'll explore how Content Lifecycle Management in <b class="smlmext">SUSE Multi-Linux Manager</b> provides the structure and safety our airline demands.
+Bu bölümde, bireysel bakım görevlerinden, değişikliği yönetmek için filo çapında, sertifikalı bir süreç oluşturmaya geçeceğiz. <b class="smlmext">SUSE Multi-Linux Manager</b> içindeki İçerik Yaşam Döngüsü Yönetimi'nin (Content Lifecycle Management), havayolu şirketimizin talep ettiği yapıyı ve güvenliği nasıl sağladığını keşfedeceğiz.
 
 
 
-At [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], a new part isn't installed on a passenger jet the moment it arrives from the manufacturer. It goes through a rigorous certification process.
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]'da, yeni bir parça üreticiden geldiği anda bir yolcu jetine takılmaz. Titiz bir sertifikasyon sürecinden geçer.
 
-First, it's examined and tested in a controlled workshop (**Development**). Next, it's fitted to a non-commercial test aircraft and put through grueling ground and flight tests (**Quality Assurance**). Only after passing every conceivable check is it certified for installation across our active fleet (**Production**).
-
-This methodical, staged approach prevents a single faulty component from grounding a plane, ensuring the safety of our passengers and the reliability of our operations. We apply this exact same philosophy to our IT systems. A software upgrade or a new application is a "component" that, if faulty, could ground our digital operations. Content Lifecycle Management is our official certification process for all software changes.
+İlk olarak, kontrollü bir atölyede incelenir ve test edilir (**Geliştirme / Development**). Daha sonra, ticari olmayan bir test uçağına takılır ve zorlu yer ve uçuş testlerinden geçirilir (**Kalite Güvencesi / Quality Assurance - QA**). Ancak akla gelebilecek her türlü kontrolden geçtikten sonra aktif filomuzda kurulum için sertifikalandırılır (**Üretim / Production**).
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
-
-- Build a Content Lifecycle Project
-
-- Use the project to manage and certify software updates for our systems.
+Bu metodik, aşamalı yaklaşım, tek bir hatalı bileşenin bir uçağı yerde tutmasını önleyerek yolcularımızın güvenliğini ve operasyonlarımızın güvenilirliğini sağlar. Aynı felsefeyi BT sistemlerimize de uyguluyoruz. Bir yazılım yükseltmesi veya yeni bir uygulama, hatalı olması durumunda dijital operasyonlarımızı durdurabilecek bir "bileşen"dir. İçerik Yaşam Döngüsü Yönetimi, tüm yazılım değişiklikleri için resmi sertifikasyon sürecimizdir.
 
 
 
-Lab details
+## <b class="hovereffect">Hedefleriniz:</b>
+
+- Bir İçerik Yaşam Döngüsü Projesi (Content Lifecycle Project) oluşturun.
+
+- Projeyi, sistemlerimiz için yazılım güncellemelerini yönetmek ve sertifikalandırmak üzere kullanın.
+
+
+
+Laboratuvar detayları (Lab details)
 ===========
 
-Username:
+Kullanıcı Adı (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Şifre (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -133,133 +135,135 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Building Our Software Certification Pathway
+Yazılım Sertifikasyon Yolumuzu Oluşturma
 ==============================================
 
-In this exercise, we will create a Content Lifecycle Project to control the flow of software updates. This ensures that a patch is thoroughly tested before it ever reaches our critical production servers.
+Bu alıştırmada, yazılım güncellemelerinin akışını kontrol etmek için bir İçerik Yaşam Döngüsü Projesi oluşturacağız. Bu, bir yamanın kritik üretim sunucularımıza ulaşmadan önce iyice test edilmesini sağlar.
 
 <br/>
 
-Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
+Hedefimiz bir `Dev ✈ QA ✈ Prod` boru hattı (pipeline) oluşturmaktır.
 
-1.  **Development (Dev):** The initial workshop. All new patches and packages arrive here first.
-2.  **Quality Assurance (QA):** The testing ground. We will promote a specific, version of the content from Dev to QA for our testing teams to validate.
-3.  **Production (Prod):** The active fleet. Only the QA-approved, certified set of patches is promoted to Production, where it can be safely applied to our live systems.
+1.  **Geliştirme (Dev):** İlk atölye. Tüm yeni yamalar ve paketler önce buraya gelir.
+2.  **Kalite Güvencesi (QA):** Test sahası. Test ekiplerimizin doğrulaması için içeriğin belirli bir sürümünü Dev'den QA'ya yükselteceğiz (promote).
+3.  **Üretim (Prod):** Aktif filo. Yalnızca QA onaylı, sertifikalı yama seti Üretime (Production) yükseltilir ve burada canlı sistemlerimize güvenle uygulanabilir.
+
+
 
 <br/>
 
-## <b class="hovereffect">Create the project</b>
+## <b class="hovereffect">Projeyi oluşturun</b>
 
-- Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
+- `Content Lifecycle` ✈ `Projects` yolunu izleyin ve ![Create Project](../assets/SMLM5.1/bottom-create_project.png)'e tıklayın.
 
-- Fill in the project details:
+- Proje detaylarını doldurun:
 
-- **Project Name:**
+- **Project Name** (Proje Adı):
 
 ```txt
 Airtrain SLES15 SPx
 ```
 
-- **Project Label:**
+- **Project Label** (Proje Etiketi):
 
 ```txt
 at-sles15_spx
 ```
 
-- **Project Description:**
+- **Project Description** (Proje Açıklaması):
 
 ```txt
 Certified software channel for Airtrain SLES 15 systems.
 ```
 
 
-- Click ![Create](../assets/SMLM5.1/bottom-create.png)
+- ![Create](../assets/SMLM5.1/bottom-create.png)'e tıklayın.
 
-Now let's populate it, click on `Attach/Detach Sources`
+Şimdi dolduralım, `Attach/Detach Sources`'a tıklayın.
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created.png)
 
-- On **New Base Channel** select <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> and click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- **New Base Channel** üzerinde <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b>'ü seçin ve ![Save](../assets/SMLM5.1/bottom-save.png)'e tıklayın.
 
 <br/>
 
-## <b class="hovereffect">Create Dev environment</b>
+## <b class="hovereffect">Dev ortamını oluşturun</b>
 
-Create the Development Environment Lifecycle
+Geliştirme Ortamı Yaşam Döngüsünü (Development Environment Lifecycle) oluşturun
 
-- Click on `Add Environment`
+- `Add Environment`'a tıklayın.
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
-- Populate with the following:
+- Aşağıdakilerle doldurun:
   * **Name:** <b class="highlightcopy">Development</b>
   * **Label:** <b class="highlightcopy">dev</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- ![Save](../assets/SMLM5.1/bottom-save.png)'e tıklayın.
 
 <br/>
 
-## <b class="hovereffect">Create QA environment</b>
+## <b class="hovereffect">QA ortamını oluşturun</b>
 
-Create the Quality Assurance Environment Lifecycle
+Kalite Güvencesi Ortamı Yaşam Döngüsünü (Quality Assurance Environment Lifecycle) oluşturun
 
-- Click on `Add Environment`
+- `Add Environment`'a tıklayın.
 
-- Populate with the following:
+- Aşağıdakilerle doldurun:
   * **Name:** <b class="highlightcopy">QA</b>
   * **Label:** <b class="highlightcopy">qa</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- ![Save](../assets/SMLM5.1/bottom-save.png)'e tıklayın.
 
 <br/>
 
-## <b class="hovereffect">Create Prod environment</b>
+## <b class="hovereffect">Prod ortamını oluşturun</b>
 
-Create the Production Environment Lifecycle
+Üretim Ortamı Yaşam Döngüsünü (Production Environment Lifecycle) oluşturun
 
-- Click on `Add Environment`
+- `Add Environment`'a tıklayın.
 
-- Populate with the following:
+- Aşağıdakilerle doldurun:
   * **Name:** <b class="highlightcopy">Production</b>
   * **Label:** <b class="highlightcopy">prod</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- ![Save](../assets/SMLM5.1/bottom-save.png)'e tıklayın.
 
 <br/>
 
-## <b class="hovereffect">Populate</b>
+## <b class="hovereffect">Doldur (Populate)</b>
 
-Now we have all three environments, let's populate them with content.
+Şimdi üç ortamımız da var, onları içerikle dolduralım.
 
-We will not use a filter in this case since <b class="sles">SLES</b> already provides stable package versions.
+<b class="sles">SLES</b> zaten kararlı paket sürümleri sağladığı için bu durumda bir filtre kullanmayacağız.
 
-[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]' cadence for testing is currently one month, so we will name this build after the current month, October.
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]'un test etme sıklığı şu anda bir aydır, bu nedenle bu derlemeyi (build) mevcut ay olan Ekim (October) adıyla adlandıracağız.
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- ![Build](../assets/SMLM5.1/bottom-build.png)'e tıklayın.
 
-- In **Version Message** type
+- **Version Message** kısmına şunu yazın:
 
 ```txt
 October
 ```
 
 
-- Click on `Build`
+- `Build`'e tıklayın.
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
+> Bu işlem birkaç dakika sürebilir, 'cloning' (klonlama) gibi bazı adımlar göreceksiniz, ancak bunun çok fazla depolama alanı gerektirmediğini bilmek sizi rahatlatabilir. Klonlama işlemi gerçek paketlerin kendilerine değil, yalnızca paket indeks noktalarına uygulanır.
 
 
 <br/>
 
-## <b class="hovereffect">Promoting content</b>
+## <b class="hovereffect">İçeriği yükseltme (Promoting)</b>
 
-Now, let's promote the content to further stages.
+Şimdi, içeriği sonraki aşamalara yükseltelim (promote).
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 1 into QA** will appear, just click `Promote` again.
+- Development ve QA arasındaki `Promote` düğmesine tıklayın.
+- **Promote version 1 into QA** başlıklı başka bir ekran görünecektir, tekrar `Promote`'a tıklayın.
 
-Repeat the same step for Production.
+Production (Üretim) için aynı adımı tekrarlayın.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -268,41 +272,41 @@ Repeat the same step for Production.
 
 <br/>
 
-Upgrade our systems.
+Sistemlerimizi yükseltin.
 ====================
 
-Now let's try how it works.
+Şimdi nasıl çalıştığını deneyelim.
 
-We are going to:
-- add some of our system to the new environment.
-- Create a new version of the content
-- Promote the new version and update the systems
+Şunları yapacağız:
+- Sistemlerimizden bazılarını yeni ortama eklemek.
+- İçeriğin yeni bir sürümünü oluşturmak.
+- Yeni sürümü yükseltmek (promote) ve sistemleri güncellemek.
 
 <br/>
 
-## <b class="hovereffect">Add systems</b>
+## <b class="hovereffect">Sistemleri ekle</b>
 
-Let's go to `Systems` ✈ `System List` ✈ `All`
+`Systems` ✈ `System List` ✈ `All` yoluna gidelim.
 
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Software Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-qa-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+- **at-ct-qa** sistemine tıklayın.
+- `Software` ✈ `Software Channels` yoluna gidin.
+- **Custom Channels** üzerinde, **at-sles15_spx-qa-...** kanalı için onay kutusunu seçin ve ![Next](../assets/SMLM5.1/bottom-next.png)'e tıklayın.
+- ![Confirm](../assets/SMLM5.1/bottom-confirm.png)'e tıklayın.
 
 
-Go back to `Systems` ✈ `System List` ✈ `All`
+`Systems` ✈ `System List` ✈ `All` yoluna geri dönün.
 
-- Filter by:
+- Şuna göre filtreleyin:
 
 ```txt
 at-
 ```
 
-- Select all the systems that end with **-pro**
-- Go to `Systems` ✈ `System Set Manager`
-- Go to `Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-prod-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click on 'incclude recommended' to subscribe to all the recommended channels:
+- **-pro** ile biten tüm sistemleri seçin.
+- `Systems` ✈ `System Set Manager` yoluna gidin.
+- `Channels` yoluna gidin.
+- **Custom Channels** üzerinde, **at-sles15_spx-prod-...** kanalı için onay kutusunu seçin ve ![Next](../assets/SMLM5.1/bottom-next.png)'e tıklayın.
+- Önerilen tüm kanallara abone olmak için 'include recommended' (önerilenleri dahil et) seçeneğine tıklayın:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-next.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
@@ -313,30 +317,30 @@ at-
 
 <br/>
 
-## <b class="hovereffect">Create a new version</b>
+## <b class="hovereffect">Yeni bir sürüm oluşturun</b>
 
 
-A month has past and we want to continue with our stable process of upgrades.
-You have are going to create a static, unchanging copy of the software channels for the Developer team.
+Bir ay geçti ve kararlı yükseltme sürecimize devam etmek istiyoruz.
+Geliştirici ekibi için yazılım kanallarının statik, değişmeyen bir kopyasını oluşturacaksınız.
 
-No new patches will suddenly appear and disrupt their work.
+Hiçbir yeni yama aniden ortaya çıkıp çalışmalarını bozmayacak.
 
-- Go back to `Content Lifecycle` ✈ `Projects` and click on the project we just created.
+- `Content Lifecycle` ✈ `Projects` yoluna geri dönün ve az önce oluşturduğumuz projeye tıklayın.
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- ![Build](../assets/SMLM5.1/bottom-build.png)'e tıklayın.
 
-- In **Version Message** type
+- **Version Message** kısmına şunu yazın:
 
 ```txt
 November
 ```
 
 
-- Click on `Build`
+- `Build`'e tıklayın.
 
-Notice the version number has automatically increased.
+Sürüm numarasının otomatik olarak arttığına dikkat edin.
 
-Now developers can do their work using the new and patched versions of libraries and applications provided by SUSE.
+Artık geliştiriciler, SUSE tarafından sağlanan kütüphanelerin ve uygulamaların yeni ve yamalanmış sürümlerini kullanarak işlerini yapabilirler.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -346,28 +350,28 @@ Now developers can do their work using the new and patched versions of libraries
 
 <br/>
 
-## <b class="hovereffect">Promote content from Dev to QA</b>
+## <b class="hovereffect">İçeriği Dev'den QA'ya yükseltin</b>
 
-Let's assume our developers have given their approval. It's time to create a stable version for the QA team so that all the pre-production tests can be performed.
+Geliştiricilerimizin onay verdiğini varsayalım. Tüm üretim öncesi testlerin yapılabilmesi için QA ekibi için kararlı bir sürüm oluşturma zamanı geldi.
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 2 into QA** will appear, just click `Promote` again.
+- Development ve QA arasındaki `Promote` düğmesine tıklayın.
+- **Promote version 2 into QA** başlıklı başka bir ekran görünecektir, tekrar `Promote`'a tıklayın.
 
-Now let's go to our QA systems and do an upgrade.
+Şimdi QA sistemlerimize gidelim ve bir yükseltme yapalım.
 
 - `Systems` ✈ `System List` ✈ `All`
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Packages` ✈ `Upgrade`
-- Click on:
+- **at-ct-qa** sistemine tıklayın.
+- `Software` ✈ `Packages` ✈ `Upgrade` yoluna gidin.
+- Şuna tıklayın:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-Now our QA engineers can perform their tests safely without disruption.
+Artık QA mühendislerimiz testlerini kesinti olmadan güvenle gerçekleştirebilirler.
 
 
 > [!NOTE]
-> We don't have enough time to see changes comming through, in a real scenario there should be new versions of packages available to promote in version 2.
+> Değişikliklerin geldiğini görmek için yeterli zamanımız yok, gerçek bir senaryoda sürüm 2'de yükseltilebilecek paketlerin yeni sürümleri mevcut olmalıdır.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-promote_from_dev_to_QA.gif"/>
@@ -376,40 +380,38 @@ Now our QA engineers can perform their tests safely without disruption.
 
 <br/>
 
-## <b class="hovereffect">Promote to Production</b>
+## <b class="hovereffect">Production'a Yükseltin</b>
 
-The QA team has completed its rigorous testing on `v2` and has certified it as stable and safe for the main fleet. It's time to make it available to our production systems.
+QA ekibi `v2` üzerindeki titiz testlerini tamamladı ve ana filo için kararlı ve güvenli olduğunu onayladı. Şimdi bunu üretim sistemlerimizin kullanımına sunma zamanı.
 
-We are going to repeat the same process as we did for QA on our production environment:
+QA için yaptığımız işlemin aynısını üretim ortamımızda tekrarlayacağız:
 
-- First, promote the content.
-  This will make the new packages available to our production servers.
-  You have successfully ensured that only tested and approved updates can reach your most critical systems.
+- İlk olarak, içeriği yükseltin (promote).
+  Bu, yeni paketleri üretim sunucularımızın kullanımına sunacaktır.
+  Yalnızca test edilmiş ve onaylanmış güncellemelerin en kritik sistemlerinize ulaşabileceğini başarıyla garanti ettiniz.
 
-- Second, upgrade our Production systems, here the only difference is that we are going to schedule the upgrade for **tomorrow at 14:00** to allow for all our teams to be prepared and have a controlled process.
+- İkinci olarak, Üretim sistemlerimizi yükseltin (upgrade), buradaki tek fark, tüm ekiplerimizin hazırlıklı olmasını ve kontrollü bir sürece sahip olmasını sağlamak için yükseltmeyi **yarın saat 14:00**'e planlayacak olmamızdır.
 
 
 <br/>
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] için bu neden önemlidir?
 =================================================================================
 
-- We build a series of safety gates, making it easier to implement a core principle of our operational strategy: **risk management**.
-- A single bad patch introduced into the **Dev** environment can be caught and fixed long before it has a chance to impact revenue-generating systems.
-- This process transforms patching and updates from a risky, nerve-wracking event into a predictable, routine maintenance procedure, the cornerstone of a reliable airline.
+- Bir dizi güvenlik kapısı inşa ediyoruz, bu da operasyonel stratejimizin temel bir ilkesini uygulamayı kolaylaştırıyor: **risk yönetimi**.
+- **Dev** ortamına giren tek bir kötü yama, gelir getiren sistemleri etkileme şansı bulmadan çok önce yakalanıp düzeltilebilir.
+- Bu süreç, yama ve güncellemeleri riskli, sinir bozucu bir olaydan, güvenilir bir havayolu şirketinin temel taşı olan öngörülebilir, rutin bir bakım prosedürüne dönüştürür.
 
 
 <br/>
 
-More information
+Daha fazla bilgi
 ================
 
-* [Maintenance Windows](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
+* [Bakım Pencereleri (Maintenance Windows)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
 
-* [Patch Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
+* [Yama Yönetimi (Patch Management)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
 
-* [Content Lifecycle Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
+* [İçerik Yaşam Döngüsü Yönetimi (Content Lifecycle Management)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
-
-
+* [SUSE Multi-Linux Manager Ürün Sayfası](https://www.suse.com/products/suse-manager/)

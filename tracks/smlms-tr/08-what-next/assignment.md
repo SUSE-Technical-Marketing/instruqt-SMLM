@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: swgxeykwmryd
+id: njy3fynm6yoy
 type: challenge
-title: What's next?
+title: Sırada ne var?
 tabs:
-- id: bx0oibmauanb
+- id: 8sdihfqirk04
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Conclusion: Cleared for Takeoff
+🌌 Sonuç: Kalkış İzni Verildi (Cleared for Takeoff)
 ==================================
 
 <style type="text/css">
@@ -97,21 +97,23 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/08-whats_next.jpeg"/>
 
-Our final approach is complete. Throughout this workshop, we've navigated the challenges of managing a diverse, mission-critical IT fleet. We've seen how <b class="smlmext">SUSE Multi-Linux Manager</b> acts as our universal control tower, providing the visibility, automation, and security required to keep Chameleon Airlines flying high.
-
-For our engineers, this means less time fighting fires and more time innovating. It means having a standardized, reliable set of tools to manage any system, from our legacy workhorses to our most modern aircraft.
-
-For our decision-makers, this translates directly to reduced operational risk, lower costs, and enhanced business agility. It's the confidence of knowing our digital infrastructure is as robust, compliant, and reliable as the aircraft in our physical fleet.
-
-We hope this session has been a valuable one. The lab environment will remain available for you to explore further, so please continue to experiment. Our flight instructors are on standby to answer any questions you may have.
+Son yaklaşmamız (final approach) tamamlandı. Bu atölye çalışması boyunca, çeşitli ve görev açısından kritik bir BT filosunu yönetmenin zorluklarını ele aldık. <b class="smlmext">SUSE Multi-Linux Manager</b>'ın, Chameleon Airlines'ın yükseklerde uçmasını sağlamak için gereken görünürlüğü, otomasyonu ve güvenliği sağlayan evrensel kontrol kulemiz olarak nasıl hareket ettiğini gördük.
 
 
-For those who wish to dive deeper after today's session, here are some key navigation points:
+
+Mühendislerimiz için bu, yangın söndürmeye (acil sorunları çözmeye) daha az, inovasyona daha fazla zaman ayırmak anlamına gelir. Eski iş yükü taşıyıcılarımızdan en modern uçaklarımıza kadar herhangi bir sistemi yönetmek için standartlaştırılmış, güvenilir bir araç setine sahip olmak demektir.
+
+Karar vericilerimiz için bu, doğrudan azaltılmış operasyonel risk, daha düşük maliyetler ve gelişmiş iş çevikliği anlamına gelir. Dijital altyapımızın, fiziksel filomuzdaki uçaklar kadar sağlam, uyumlu ve güvenilir olduğunu bilmenin verdiği güvendir.
+
+Bu oturumun değerli geçtiğini umuyoruz. Laboratuvar ortamı daha fazla keşfetmeniz için açık kalacaktır, bu yüzden lütfen denemeye devam edin. Uçuş eğitmenlerimiz sorularınızı yanıtlamak için hazır bekliyor.
+
+
+Bugünkü oturumdan sonra daha derinlemesine incelemek isteyenler için işte bazı önemli navigasyon noktaları:
 
 - [SUSE Multi-Linux Manager](https://www.suse.com/products/multi-linux-manager/)
 - [SUSE Multi-Linux Support](https://www.suse.com/products/multi-linux-support/)
 - [SUSE Linux Enterprise Server](https://www.suse.com/products/server/)
-- [SUSE Products and Solutions](https://www.suse.com/)
+- [SUSE Ürünleri ve Çözümleri](https://www.suse.com/)
 
 
-It has been a pleasure to fly with you!
+Sizinle uçmak bir zevkti!
