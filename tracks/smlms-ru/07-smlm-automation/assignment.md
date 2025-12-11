@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: fkelapqkrgth
+id: mf6zwzkvfqzh
 type: challenge
-title: Automation (Optional)
+title: Автоматизация (необязательно)
 tabs:
-- id: u0y5w6ewsnm1
+- id: rydp0ovxwjed
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Automation and configuration management
+🌌 Автоматизация и управление конфигурацией
 ===================================
 
 <style type="text/css">
@@ -97,65 +97,65 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/07-automation.jpeg"/>
 
-In this section we are going to look at some of the options available to automate tasks.
+В этом разделе мы рассмотрим некоторые доступные варианты автоматизации задач.
 
-In this lab, we move from doing manual tasks to create some automation using some of the options we have available.
-<b class="smlmext">SUSE Multi-Linux Manager</b> acts as the "autopilot" for our IT operations, allowing us to enforce configuration standards and automate routine tasks with precision and reliability across our entire fleet.
+В этой лабораторной работе мы переходим от выполнения задач вручную к созданию автоматизации с использованием некоторых имеющихся у нас опций.
+<b class="smlmext">SUSE Multi-Linux Manager</b> действует как «автопилот» для наших ИТ-операций, позволяя нам внедрять стандарты конфигурации и автоматизировать рутинные задачи с точностью и надежностью во всем нашем флоте.
 
-Instead of manually configuring hundreds of servers and hoping we don't miss a step, we define the process and state and reduce the human operation to define a schedule, once.
+Вместо того чтобы вручную настраивать сотни серверов и надеяться, что мы не пропустим ни одного шага, мы определяем процесс и состояние и сводим человеческие операции к определению расписания — один раз.
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">Ваши цели:</b>
 
-- Create a schedule that regularly perform updates on your development systems
+- Создать расписание, которое регулярно выполняет обновления на ваших системах разработки.
 
-- Create a script to show a different login banner depending on the system's environment
+- Создать скрипт для отображения различного баннера при входе в систему в зависимости от среды системы.
 
-Lab details
+Детали лаборатории (Lab details)
 ===========
 
-Username:
+Имя пользователя (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Пароль (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+URL <b class="smlm">SMLM</b>: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Setup recurring updates
+Настройка повторяющихся обновлений (Setup recurring updates)
 =======================
 
-We want developers to work with the latest stable updates provided by SUSE, but we can't rely on people remembering to update their systems every day, so we are going to create a recurring schedule that does exactly that.
+Мы хотим, чтобы разработчики работали с последними стабильными обновлениями, предоставляемыми SUSE, но мы не можем полагаться на то, что люди будут помнить о необходимости обновлять свои системы каждый день, поэтому мы создадим повторяющееся расписание, которое делает именно это.
 
 
-We are going to apply this to all the systems in the dev group so that this doesn't have to be done on every system.
+Мы применим это ко всем системам в группе dev, чтобы это не нужно было делать на каждой системе отдельно.
 
-- Let's go to `Systems` ✈ `System Groups`
-- Click on `dev` group.
+- Перейдите в `Systems` ✈ `System Groups`
+- Нажмите на группу `dev`.
 
-We just noticed it has no systems assigned, let's add one.
+Мы только что заметили, что ей не назначены системы, давайте добавим одну.
 
-- click on `Target Systems` and select `sles15`
-- then click on ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
+- Нажмите на `Target Systems` и выберите `sles15`
+- Затем нажмите на ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
 
-Now that we have a system let's create the recurring action.
+Теперь, когда у нас есть система, давайте создадим повторяющееся действие.
 
-- Go to `Recurring Actions`
-- Click on ![Create](../assets/SMLM5.1/bottom-create.png)
-- Now let's populate the form with the following details:
-	+ **Action Type:** 'Custom state'
- 	+ **Schedule Name:** 'Update Dev systems'
-	+ **Daily:** '03:00'
-	+ **Configure states to execute:** Make sure **uptodate:** is selected
+- Перейдите в `Recurring Actions`
+- Нажмите на ![Create](../assets/SMLM5.1/bottom-create.png)
+- Теперь заполним форму следующими данными:
+	+ **Action Type (Тип действия):** 'Custom state'
+ 	+ **Schedule Name (Имя расписания):** 'Update Dev systems'
+	+ **Daily (Ежедневно):** '03:00'
+	+ **Configure states to execute (Настроить состояния для выполнения):** Убедитесь, что выбрано **uptodate:**
 	![uptodate Selected](../assets/SMLM5.1/uptodate_selected.png)
 
-- Click on
+- Нажмите на
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
 <img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-save_changes.png"/>
@@ -169,9 +169,9 @@ Now that we have a system let's create the recurring action.
 
 
 
-To observe our list of recurring actions we can go to `Schedule` ✈ `Recurring Actions`
+Чтобы просмотреть наш список повторяющихся действий, мы можем перейти в `Schedule` ✈ `Recurring Actions`
 
-Now all the dev systems will be updated daily at 3am UTC time.
+Теперь все системы dev будут обновляться ежедневно в 3 часа ночи по времени UTC.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -183,24 +183,26 @@ Now all the dev systems will be updated daily at 3am UTC time.
 
 
 
-Make sure every system has a login message
+Убедитесь, что у каждой системы есть сообщение при входе
 ==========================================
 
 
-We are going to create a configuration channel to make sure every system we manage contains an adequate login message.
+Мы собираемся создать канал конфигурации, чтобы убедиться, что каждая система, которой мы управляем, содержит соответствующее сообщение при входе в систему (login message).
 
-- Let's go to `Configuration` ✈ `Channels`
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
-- Fill the form with the following details:
-	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
-	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
-	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
-Now that we have created the config channel let's populate it.
 
-- Go to `Add Files` ✈ `Create File`
-- Fill in the following details:
+- Перейдите в `Configuration` ✈ `Channels`
+- Нажмите на ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+- Заполните форму следующими данными:
+	+ **Name:** <b class="highlightcopy">Uniform experience</b>
+	+ **Label:** <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:** <b class="highlightcopy">Create a uniform experience across systems</b>
+- Нажмите на ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+
+Теперь, когда мы создали канал конфигурации, давайте заполним его.
+
+- Перейдите в `Add Files` ✈ `Create File`
+- Заполните следующие данные:
 	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
@@ -219,15 +221,15 @@ No applications running on this server
 </pre>
 
 
-- Click on ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
+- Нажмите на ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
 
-Now let's subscribe every system in the organization to the new configuration channel.
+Теперь давайте подпишем каждую систему в организации на новый канал конфигурации.
 
-- let's go to `Admin` ✈ `Organizations`
-- Click on organization **Organization** (This is the default organization)
-- Go to `States` and select the channel we just created.
+- перейдите в `Admin` ✈ `Organizations`
+- Нажмите на организацию **Organization** (Это организация по умолчанию)
+- Перейдите в `States` и выберите канал, который мы только что создали.
 ![Uniform experience selected](../assets/SMLM5.1/selected_univorm_experience_Configurationchannel.png)
-- Click on
+- Нажмите на
 
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
@@ -241,20 +243,20 @@ Now let's subscribe every system in the organization to the new configuration ch
 </p>
 
 
-This won't happen immediately, let's check the systems. We are going to run a simple command via the web UI, if run too early, you may see systems with the old message and systems which already got the file updated.
+Это не произойдет мгновенно, давайте проверим системы. Мы запустим простую команду через веб-интерфейс; если запустить слишком рано, вы можете увидеть системы со старым сообщением и системы, у которых файл уже обновлен.
 
-- Let's go to `Salt` ✈ `Remote Commands`
-- Type the following:
+- Перейдите в `Salt` ✈ `Remote Commands`
+- Введите следующее:
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd.png)
-- Click on `Find targets`
-- You should see a list of systems click on `Run command`
+- Нажмите на `Find targets`
+- Вы должны увидеть список систем, нажмите на `Run command`
 
-Now you should see something like this:
+Теперь вы должны увидеть что-то вроде этого:
 
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd_first_result.png)
 
 > [!NOTE]
-> This process may take a couple of minutes, if you don't see the MOTD please re run the command after a few minutes.
+> Этот процесс может занять пару минут, если вы не видите MOTD, пожалуйста, запустите команду повторно через несколько минут.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -264,36 +266,33 @@ Now you should see something like this:
 <br/>
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+Почему это важно для [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
 =================================================================================
 
 
 
-- When managing 1000s of systems we cannot afford to do everything one by one, tasks need to be automated so we manage cattle, not pets.
-
-- By defining the "correct state" we eliminate configuration drift. Every server in the fleet operates from the same playbook, just like every pilot uses the same checklist.
-
-
-- Tasks that would take hours to perform manually across hundreds of servers are completed in minutes. This frees up our engineers to work on innovation and improvement, not repetitive manual labor.
-
-
-- Automation is the ultimate defense against human error. A forgotten step or a typo during manual configuration can lead to an outage. An automated, tested process executes perfectly every time, enhancing the reliability and security of our entire airline.
+- При управлении тысячами систем мы не можем позволить себе делать все по одному, задачи должны быть автоматизированы, чтобы мы управляли «стадом» (cattle), а не «домашними питомцами» (pets).
 
 
 
+- Определяя «правильное состояние» (correct state), мы устраняем дрейф конфигурации (configuration drift). Каждый сервер во флоте работает по одной и той же инструкции, так же как каждый пилот использует один и тот же контрольный список.
 
-More information
+
+
+- Задачи, выполнение которых вручную на сотнях серверов заняло бы часы, выполняются за минуты. Это освобождает наших инженеров для работы над инновациями и улучшениями, а не для повторяющегося ручного труда.
+
+
+- Автоматизация — это лучшая защита от человеческого фактора. Забытый шаг или опечатка во время ручной настройки могут привести к сбою. Автоматизированный, протестированный процесс выполняется идеально каждый раз, повышая надежность и безопасность всей нашей авиакомпании.
+
+
+
+
+Дополнительная информация
 ================
 
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
+* [Страница продукта SUSE Multi-Linux Manager](https://www.suse.com/products/suse-manager/)
 
-* [Ansible Integration](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
+* [Интеграция Ansible](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
 
-* [Salt Guide](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)
-
-
-
-
-
-
+* [Руководство по Salt](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)q

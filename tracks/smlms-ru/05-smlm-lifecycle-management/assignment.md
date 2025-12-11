@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: ejxtdpb7jztq
+id: sb2p1dfk1boa
 type: challenge
-title: Lifecycle management
+title: Управление жизненным циклом
 tabs:
-- id: vj7zqlkc0xab
+- id: s0zm9xdqun6s
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Lifecycle management
+🌌 Управление жизненным циклом (Lifecycle management)
 ===================================
 
 <style type="text/css">
@@ -97,169 +97,173 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/05-lifecycle.jpeg"/>
 
-In this part we will transition from individual maintenance tasks to establishing a fleet-wide, certified process for managing change. We'll explore how Content Lifecycle Management in <b class="smlmext">SUSE Multi-Linux Manager</b> provides the structure and safety our airline demands.
+В этой части мы перейдем от индивидуальных задач по обслуживанию к созданию сертифицированного процесса управления изменениями в масштабах всего флота. Мы изучим, как управление жизненным циклом контента (Content Lifecycle Management) в <b class="smlmext">SUSE Multi-Linux Manager</b> обеспечивает структуру и безопасность, которые требуются нашей авиакомпании.
 
 
 
-At [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], a new part isn't installed on a passenger jet the moment it arrives from the manufacturer. It goes through a rigorous certification process.
+В [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] новая деталь не устанавливается на пассажирский самолет сразу после прибытия от производителя. Она проходит строгий процесс сертификации.
 
-First, it's examined and tested in a controlled workshop (**Development**). Next, it's fitted to a non-commercial test aircraft and put through grueling ground and flight tests (**Quality Assurance**). Only after passing every conceivable check is it certified for installation across our active fleet (**Production**).
-
-This methodical, staged approach prevents a single faulty component from grounding a plane, ensuring the safety of our passengers and the reliability of our operations. We apply this exact same philosophy to our IT systems. A software upgrade or a new application is a "component" that, if faulty, could ground our digital operations. Content Lifecycle Management is our official certification process for all software changes.
+Сначала ее осматривают и тестируют в контролируемой мастерской (**Разработка / Development**). Затем ее устанавливают на некоммерческий испытательный самолет и подвергают изнурительным наземным и летным испытаниям (**Контроль качества / Quality Assurance - QA**). Только после прохождения всех мыслимых проверок она сертифицируется для установки на наш активный флот (**Производство / Production**).
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
-
-- Build a Content Lifecycle Project
-
-- Use the project to manage and certify software updates for our systems.
+Этот методичный, поэтапный подход предотвращает ситуацию, когда один неисправный компонент может приковать самолет к земле, обеспечивая безопасность наших пассажиров и надежность наших операций. Мы применяем ту же философию к нашим ИТ-системам. Обновление программного обеспечения или новое приложение — это «компонент», который, если он неисправен, может остановить наши цифровые операции. Управление жизненным циклом контента — это наш официальный процесс сертификации для всех изменений программного обеспечения.
 
 
 
-Lab details
+## <b class="hovereffect">Ваши цели:</b>
+
+- Создать проект жизненного цикла контента (Content Lifecycle Project).
+
+- Использовать проект для управления и сертификации обновлений программного обеспечения для наших систем.
+
+
+
+Детали лаборатории (Lab details)
 ===========
 
-Username:
+Имя пользователя (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Пароль (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+URL <b class="smlm">SMLM</b>: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Building Our Software Certification Pathway
+Построение нашего пути сертификации ПО
 ==============================================
 
-In this exercise, we will create a Content Lifecycle Project to control the flow of software updates. This ensures that a patch is thoroughly tested before it ever reaches our critical production servers.
+В этом упражнении мы создадим проект жизненного цикла контента для контроля потока обновлений программного обеспечения. Это гарантирует, что исправление будет тщательно протестировано, прежде чем оно попадет на наши критически важные производственные серверы.
 
 <br/>
 
-Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
+Наша цель — построить конвейер `Dev ✈ QA ✈ Prod`.
 
-1.  **Development (Dev):** The initial workshop. All new patches and packages arrive here first.
-2.  **Quality Assurance (QA):** The testing ground. We will promote a specific, version of the content from Dev to QA for our testing teams to validate.
-3.  **Production (Prod):** The active fleet. Only the QA-approved, certified set of patches is promoted to Production, where it can be safely applied to our live systems.
+1.  **Разработка (Development - Dev):** Начальная мастерская. Все новые исправления и пакеты попадают сюда первыми.
+2.  **Контроль качества (Quality Assurance - QA):** Испытательный полигон. Мы продвинем (promote) конкретную версию контента из Dev в QA для проверки нашими командами тестирования.
+3.  **Производство (Production - Prod):** Активный флот. Только одобренный QA и сертифицированный набор исправлений продвигается в Production, где его можно безопасно применить к нашим рабочим системам.
+
+
 
 <br/>
 
-## <b class="hovereffect">Create the project</b>
+## <b class="hovereffect">Создание проекта</b>
 
-- Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
+- Перейдите в `Content Lifecycle` ✈ `Projects` и нажмите ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
 
-- Fill in the project details:
+- Заполните детали проекта:
 
-- **Project Name:**
+- **Project Name** (Имя проекта):
 
 ```txt
 Airtrain SLES15 SPx
 ```
 
-- **Project Label:**
+- **Project Label** (Метка проекта):
 
 ```txt
 at-sles15_spx
 ```
 
-- **Project Description:**
+- **Project Description** (Описание проекта):
 
 ```txt
 Certified software channel for Airtrain SLES 15 systems.
 ```
 
 
-- Click ![Create](../assets/SMLM5.1/bottom-create.png)
+- Нажмите ![Create](../assets/SMLM5.1/bottom-create.png)
 
-Now let's populate it, click on `Attach/Detach Sources`
+Теперь давайте заполним его, нажмите `Attach/Detach Sources`
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created.png)
 
-- On **New Base Channel** select <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> and click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- В **New Base Channel** выберите <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> и нажмите ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create Dev environment</b>
+## <b class="hovereffect">Создание среды Dev</b>
 
-Create the Development Environment Lifecycle
+Создайте жизненный цикл среды разработки (Development Environment Lifecycle)
 
-- Click on `Add Environment`
+- Нажмите `Add Environment`
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
-- Populate with the following:
+- Заполните следующим образом:
   * **Name:** <b class="highlightcopy">Development</b>
   * **Label:** <b class="highlightcopy">dev</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- Нажмите ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create QA environment</b>
+## <b class="hovereffect">Создание среды QA</b>
 
-Create the Quality Assurance Environment Lifecycle
+Создайте жизненный цикл среды контроля качества (Quality Assurance Environment Lifecycle)
 
-- Click on `Add Environment`
+- Нажмите `Add Environment`
 
-- Populate with the following:
+- Заполните следующим образом:
   * **Name:** <b class="highlightcopy">QA</b>
   * **Label:** <b class="highlightcopy">qa</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- Нажмите ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create Prod environment</b>
+## <b class="hovereffect">Создание среды Prod</b>
 
-Create the Production Environment Lifecycle
+Создайте жизненный цикл производственной среды (Production Environment Lifecycle)
 
-- Click on `Add Environment`
+- Нажмите `Add Environment`
 
-- Populate with the following:
+- Заполните следующим образом:
   * **Name:** <b class="highlightcopy">Production</b>
   * **Label:** <b class="highlightcopy">prod</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- Нажмите ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Populate</b>
+## <b class="hovereffect">Заполнение (Populate)</b>
 
-Now we have all three environments, let's populate them with content.
+Теперь у нас есть все три среды, давайте наполним их контентом.
 
-We will not use a filter in this case since <b class="sles">SLES</b> already provides stable package versions.
+В данном случае мы не будем использовать фильтр, так как <b class="sles">SLES</b> уже предоставляет стабильные версии пакетов.
 
-[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]' cadence for testing is currently one month, so we will name this build after the current month, October.
+Ритм тестирования в [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] в настоящее время составляет один месяц, поэтому мы назовем эту сборку (build) в честь текущего месяца, Октябрь (October).
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- Нажмите ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- In **Version Message** type
+- В **Version Message** введите:
 
 ```txt
 October
 ```
 
 
-- Click on `Build`
+- Нажмите `Build`
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
+> Этот процесс может занять пару минут, вы увидите некоторые шаги, такие как 'cloning' (клонирование), но вам может быть приятно узнать, что это не требует много места для хранения. Процесс клонирования применяется только к точкам индекса пакетов, а не к самим фактическим пакетам.
 
 
 <br/>
 
-## <b class="hovereffect">Promoting content</b>
+## <b class="hovereffect">Продвижение контента</b>
 
-Now, let's promote the content to further stages.
+Теперь давайте продвинем (promote) контент на следующие этапы.
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 1 into QA** will appear, just click `Promote` again.
+- Нажмите кнопку `Promote` между Development и QA.
+- Появится другой экран с заголовком **Promote version 1 into QA**, просто нажмите `Promote` снова.
 
-Repeat the same step for Production.
+Повторите тот же шаг для Production.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -268,41 +272,41 @@ Repeat the same step for Production.
 
 <br/>
 
-Upgrade our systems.
+Обновление наших систем.
 ====================
 
-Now let's try how it works.
+Теперь давайте попробуем, как это работает.
 
-We are going to:
-- add some of our system to the new environment.
-- Create a new version of the content
-- Promote the new version and update the systems
+Мы собираемся:
+- добавить некоторые из наших систем в новую среду.
+- Создать новую версию контента.
+- Продвинуть новую версию и обновить системы.
 
 <br/>
 
-## <b class="hovereffect">Add systems</b>
+## <b class="hovereffect">Добавление систем</b>
 
-Let's go to `Systems` ✈ `System List` ✈ `All`
+Перейдите в `Systems` ✈ `System List` ✈ `All`
 
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Software Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-qa-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+- Нажмите на систему **at-ct-qa**
+- Перейдите в `Software` ✈ `Software Channels`
+- В **Custom Channels** установите флажок для канала **at-sles15_spx-qa-...** и нажмите ![Next](../assets/SMLM5.1/bottom-next.png)
+- Нажмите ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
 
 
-Go back to `Systems` ✈ `System List` ✈ `All`
+Вернитесь в `Systems` ✈ `System List` ✈ `All`
 
-- Filter by:
+- Отфильтруйте по:
 
 ```txt
 at-
 ```
 
-- Select all the systems that end with **-pro**
-- Go to `Systems` ✈ `System Set Manager`
-- Go to `Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-prod-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click on 'incclude recommended' to subscribe to all the recommended channels:
+- Выберите все системы, которые заканчиваются на **-pro**
+- Перейдите в `Systems` ✈ `System Set Manager`
+- Перейдите в `Channels`
+- В **Custom Channels** установите флажок для канала **at-sles15_spx-prod-...** и нажмите ![Next](../assets/SMLM5.1/bottom-next.png)
+- Нажмите 'include recommended' (включить рекомендуемые), чтобы подписаться на все рекомендуемые каналы:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-next.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
@@ -313,30 +317,30 @@ at-
 
 <br/>
 
-## <b class="hovereffect">Create a new version</b>
+## <b class="hovereffect">Создание новой версии</b>
 
 
-A month has past and we want to continue with our stable process of upgrades.
-You have are going to create a static, unchanging copy of the software channels for the Developer team.
+Прошел месяц, и мы хотим продолжить наш стабильный процесс обновлений.
+Вы собираетесь создать статичную, неизменяемую копию каналов программного обеспечения для команды разработчиков.
 
-No new patches will suddenly appear and disrupt their work.
+Никакие новые исправления не появятся внезапно и не нарушат их работу.
 
-- Go back to `Content Lifecycle` ✈ `Projects` and click on the project we just created.
+- Вернитесь в `Content Lifecycle` ✈ `Projects` и нажмите на проект, который мы только что создали.
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- Нажмите ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- In **Version Message** type
+- В **Version Message** введите:
 
 ```txt
 November
 ```
 
 
-- Click on `Build`
+- Нажмите `Build`
 
-Notice the version number has automatically increased.
+Обратите внимание, что номер версии автоматически увеличился.
 
-Now developers can do their work using the new and patched versions of libraries and applications provided by SUSE.
+Теперь разработчики могут выполнять свою работу, используя новые и исправленные версии библиотек и приложений, предоставляемые SUSE.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -346,28 +350,28 @@ Now developers can do their work using the new and patched versions of libraries
 
 <br/>
 
-## <b class="hovereffect">Promote content from Dev to QA</b>
+## <b class="hovereffect">Продвижение контента из Dev в QA</b>
 
-Let's assume our developers have given their approval. It's time to create a stable version for the QA team so that all the pre-production tests can be performed.
+Предположим, что наши разработчики дали свое одобрение. Пришло время создать стабильную версию для команды QA, чтобы можно было выполнить все предпроизводственные тесты.
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 2 into QA** will appear, just click `Promote` again.
+- Нажмите кнопку `Promote` между Development и QA.
+- Появится другой экран с заголовком **Promote version 2 into QA**, просто нажмите `Promote` снова.
 
-Now let's go to our QA systems and do an upgrade.
+Теперь давайте перейдем к нашим системам QA и выполним обновление.
 
 - `Systems` ✈ `System List` ✈ `All`
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Packages` ✈ `Upgrade`
-- Click on:
+- Нажмите на систему **at-ct-qa**
+- Перейдите в `Software` ✈ `Packages` ✈ `Upgrade`
+- Нажмите на:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-Now our QA engineers can perform their tests safely without disruption.
+Теперь наши инженеры QA могут выполнять свои тесты безопасно и без перерывов.
 
 
 > [!NOTE]
-> We don't have enough time to see changes comming through, in a real scenario there should be new versions of packages available to promote in version 2.
+> У нас недостаточно времени, чтобы увидеть поступление изменений; в реальном сценарии должны быть доступны новые версии пакетов для продвижения в версии 2.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-promote_from_dev_to_QA.gif"/>
@@ -376,40 +380,38 @@ Now our QA engineers can perform their tests safely without disruption.
 
 <br/>
 
-## <b class="hovereffect">Promote to Production</b>
+## <b class="hovereffect">Продвижение в Production</b>
 
-The QA team has completed its rigorous testing on `v2` and has certified it as stable and safe for the main fleet. It's time to make it available to our production systems.
+Команда QA завершила тщательное тестирование `v2` и сертифицировала ее как стабильную и безопасную для основного флота. Пришло время сделать ее доступной для наших производственных систем.
 
-We are going to repeat the same process as we did for QA on our production environment:
+Мы собираемся повторить тот же процесс, что и для QA, в нашей производственной среде:
 
-- First, promote the content.
-  This will make the new packages available to our production servers.
-  You have successfully ensured that only tested and approved updates can reach your most critical systems.
+- Во-первых, продвиньте контент.
+  Это сделает новые пакеты доступными для наших производственных серверов.
+  Вы успешно гарантировали, что только протестированные и одобренные обновления могут попасть на ваши самые важные системы.
 
-- Second, upgrade our Production systems, here the only difference is that we are going to schedule the upgrade for **tomorrow at 14:00** to allow for all our teams to be prepared and have a controlled process.
+- Во-вторых, обновите наши системы Production; единственная разница здесь в том, что мы запланируем обновление на **завтра в 14:00**, чтобы все наши команды были готовы и процесс был контролируемым.
 
 
 <br/>
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+Почему это важно для [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
 =================================================================================
 
-- We build a series of safety gates, making it easier to implement a core principle of our operational strategy: **risk management**.
-- A single bad patch introduced into the **Dev** environment can be caught and fixed long before it has a chance to impact revenue-generating systems.
-- This process transforms patching and updates from a risky, nerve-wracking event into a predictable, routine maintenance procedure, the cornerstone of a reliable airline.
+- Мы строим ряд барьеров безопасности, облегчая реализацию основного принципа нашей операционной стратегии: **управление рисками**.
+- Одно плохое исправление, введенное в среду **Dev**, может быть обнаружено и исправлено задолго до того, как оно сможет повлиять на системы, приносящие доход.
+- Этот процесс превращает установку исправлений и обновлений из рискованного, нервного события в предсказуемую, рутинную процедуру обслуживания — краеугольный камень надежной авиакомпании.
 
 
 <br/>
 
-More information
+Дополнительная информация
 ================
 
-* [Maintenance Windows](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
+* [Окна обслуживания (Maintenance Windows)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
 
-* [Patch Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
+* [Управление исправлениями (Patch Management)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
 
-* [Content Lifecycle Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
+* [Управление жизненным циклом контента (Content Lifecycle Management)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
-
-
+* [Страница продукта SUSE Multi-Linux Manager](https://www.suse.com/products/suse-manager/)

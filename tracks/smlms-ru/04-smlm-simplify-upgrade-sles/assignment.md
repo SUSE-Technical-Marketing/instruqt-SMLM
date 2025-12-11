@@ -1,14 +1,14 @@
 ---
 slug: smlm-simplify-upgrade-sles
-id: fhbwdlwedspg
+id: xf7xjyvxy4v5
 type: challenge
-title: Simple and reliable maintenance
+title: Простое и надежное обслуживание
 tabs:
-- id: f65eokpjct0l
+- id: frey8geuynhg
   title: SMLM UI
   type: browser
   hostname: smlm-www
-- id: pounuhkwnzab
+- id: 2n4jtxdpwmly
   title: SLES 15
   type: terminal
   hostname: sles15
@@ -17,7 +17,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Simple and reliable maintenance
+🌌 Простое и надежное обслуживание
 ===================================
 
 <style type="text/css">
@@ -99,90 +99,94 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/04-upgrade.jpeg"/>
 
-So far, we’ve focused on managing the diversity of our mixed fleet and even extending the life of our legacy systems. Now, we turn our attention to the core of our airline: our flagship <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>) systems.
+До сих пор мы были сосредоточены на управлении разнообразием нашего смешанного флота и даже на продлении срока службы наших устаревших систем. Теперь мы обращаем внимание на ядро нашей авиакомпании: наши флагманские системы <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>).
 
 
-Think of these as our state-of-the-art, long-haul jets. Their reliability is paramount, and keeping them in peak condition involves regular, planned service patching and upgrades. This next exercise is exactly that: we're going to walk through the process of a version upgrade, a common task in managing the lifecycle of any critical system.
-
-And while we're using SLES as the example, remember the key principle of our universal control tower: the process you're about to perform is the same one you would use for any other Linux distribution. The interface and the methodology do not change.
-
-
-## <b class="hovereffect">Your Objectives:</b>
-
-- Onboard a new SLES 15 SP5 system to serve as our test aircraft.
-- Perform a mayor service upgrade from SP5 to SP6.
+Думайте о них как о наших самых современных дальнемагистральных самолетах. Их надежность имеет первостепенное значение, и поддержание их в отличном состоянии включает в себя регулярное, плановое сервисное обновление и установку исправлений. Следующее упражнение именно об этом: мы пройдем процесс обновления версии, что является обычной задачей при управлении жизненным циклом любой критически важной системы.
 
 
 
-Lab details
+И хотя мы используем SLES в качестве примера, помните ключевой принцип нашей универсальной диспетчерской вышки: процесс, который вы собираетесь выполнить, — это тот же самый процесс, который вы бы использовали для любого другого дистрибутива Linux. Интерфейс и методология не меняются.
+
+
+## <b class="hovereffect">Ваши цели:</b>
+
+- Подключить (Onboard) новую систему SLES 15 SP5, которая будет служить нашим испытательным самолетом.
+- Выполнить крупное сервисное обновление (mayor service upgrade) с SP5 до SP6.
+
+
+
+Детали лаборатории (Lab details)
 ===========
 
-Username:
+Имя пользователя (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+Пароль (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+URL <b class="smlm">SMLM</b>: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 
 
 
 
-Onboarding and preparation
+Подключение и подготовка (Onboarding and preparation)
 ==========================
 
-Access the system terminal from the tab [button label="SLES 15" variant="success"](tab-1)
+Получите доступ к терминалу системы из вкладки [button label="SLES 15" variant="success"](tab-1)
 
 
-Let's register the system within <b class="smlm">SMLM</b> as **sles15**
+Давайте зарегистрируем систему внутри <b class="smlm">SMLM</b> как **sles15**
 
 ```bash,run
 curl -Sks "smlm.${_SANDBOX_ID}.instruqt.io"/pub/bootstrap/generic_bootstrap.sh | HOSTNAME="smlm.${_SANDBOX_ID}.instruqt.io" ACTIVATION_KEYS=1-sles15sp5 bash ; echo "Wait 45 seconds for it to finish"; sleep 45
 ```
 
 
-Now, let's switch to the [button label="SMLM UI" variant="success"](tab-0) tab
+Теперь давайте переключимся на вкладку [button label="SMLM UI" variant="success"](tab-0)
 
 
-Executing the upgrade
+Выполнение обновления (Executing the upgrade)
 =====================
 
-We should see it soon on the list of systems, let's go to `Systems` ✈ `System List` ✈ `All`, please click refresh on the internal browser if you don't see it.
+Мы должны скоро увидеть ее в списке систем, давайте перейдем в `Systems` ✈ `System List` ✈ `All`, пожалуйста, нажмите «обновить» во внутреннем браузере, если вы ее не видите.
 
 
-Let's click on it and go to `Software` ✈ `Packages` ✈ `Upgrade`.
+Давайте нажмем на нее и перейдем в `Software` ✈ `Packages` ✈ `Upgrade`.
 
 
-To ensure a smooth migration is best to apply the latests updates.
+Чтобы обеспечить плавную миграцию, лучше всего применить последние обновления.
 
 
 
-<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">Click on </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">Нажмите на </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-This may take some time to complete.
+Это может занять некоторое время.
 
 <br/>
 
 
-## <b class="hovereffect">Product migration</b>
+## <b class="hovereffect">Миграция продукта (Product migration)</b>
 
 
-Once it finish, please go to `Software` ✈ `Product Migration`
+Как только это завершится, пожалуйста, перейдите в `Software` ✈ `Product Migration`
 
-<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">You will see a section called **Target Products**. Ensure that <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #90ebcd">SUSE Linux Enterprise Server 15 SP6 x86_64</b> is selected, then press: </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; vertical-align: middle; display:block; align:left; padding: 0px;" src="../assets/SMLM5.1/bottom-select_channels.png"/></p>
 
-You will be shown a confirmation screen with a summary and aditional options. Leave the defaults as they are and click: ![Schedule Migration](../assets/SMLM5.1/bottom-schedule_migration.png)
 
-The system will ask you to do a dry run first, ignore it and press: ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+<p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;">Вы увидите раздел под названием **Target Products**. Убедитесь, что выбран <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #90ebcd">SUSE Linux Enterprise Server 15 SP6 x86_64</b>, затем нажмите: </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; vertical-align: middle; display:block; align:left; padding: 0px;" src="../assets/SMLM5.1/bottom-select_channels.png"/></p>
 
-This will take some time. To monitor the status, go to `Events` ✈ `History` and watch for the **Product Migration** event. Once its status icon turns green, the migration is completed. You can verify this by navigating to `Software` ✈ `Software Channels` and confirming the system is now subscribed to the new SP6 channels.
+Вам будет показан экран подтверждения со сводкой и дополнительными опциями. Оставьте значения по умолчанию как есть и нажмите: ![Schedule Migration](../assets/SMLM5.1/bottom-schedule_migration.png)
+
+Система попросит вас сначала выполнить пробный запуск (dry run), проигнорируйте это и нажмите: ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+
+Это займет некоторое время. Чтобы отслеживать статус, перейдите в `Events` ✈ `History` и наблюдайте за событием **Product Migration**. Как только иконка статуса станет зеленой, миграция завершена. Вы можете проверить это, перейдя в `Software` ✈ `Software Channels` и убедившись, что система теперь подписана на новые каналы SP6.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/04-simple_and_reliable_maintenance-executing_the_upgrade.gif"/>
@@ -190,51 +194,53 @@ This will take some time. To monitor the status, go to `Events` ✈ `History` an
 
 <br/>
 
-## <b class="hovereffect">Post-Migration Reboot</b>
+## <b class="hovereffect">Перезагрузка после миграции (Post-Migration Reboot)</b>
 
-- Navigate back to `Systems` ✈ `System List` ✈ `All`
+- Вернитесь в `Systems` ✈ `System List` ✈ `All`
 
-- Notice that the `sles15` system now has a reboot icon next to it:
+- Обратите внимание, что рядом с системой `sles15` теперь есть иконка перезагрузки:
 
 ![Needs reboot icon](../assets/SMLM5.1/icon_needs_reboot.png)
 
-  This indicates a reboot is required, usually due to a mayor kernel update.
+  Это указывает на то, что требуется перезагрузка, обычно из-за крупного обновления ядра.
 
-- Click on it, we will see something similar to this:
+- Нажмите на нее, мы увидим что-то похожее на это:
 
 ![Needs reboot message](../assets/SMLM5.1/system_requires_a_reboot.png)
 
-- Click on `Schedule System Reboot` and in the following screen click on ![Reboot System](../assets/SMLM5.1/bottom-reboot_system.png)
+- Нажмите на `Schedule System Reboot` и на следующем экране нажмите на ![Reboot System](../assets/SMLM5.1/bottom-reboot_system.png)
 
 > [!NOTE]
-> The reboot won't happen immediatly.
+> Перезагрузка не произойдет немедленно.
 
 <br/>
 
 
-## <b class="hovereffect">The importance of Scheduling</b>
+## <b class="hovereffect">Важность планирования (Scheduling)</b>
 
-We have scheduled these actions to happen immediately, but this is not always desirable. <b class="smlm">SMLM</b> supports the creation of Maintenance Windows ( `Schedule` ✈ `Maintenance Windows` ) which allows you to ensure the mayor events like reboots onlye occur during those pre-approved periods .
+Мы запланировали выполнение этих действий немедленно, но это не всегда желательно. <b class="smlm">SMLM</b> поддерживает создание окон обслуживания (Maintenance Windows) (`Schedule` ✈ `Maintenance Windows`), что позволяет гарантировать, что крупные события, такие как перезагрузки, происходят только в эти заранее утвержденные периоды.
 
-Scheduling is especially useful for production systems, as it allows for carefully planned changes on groups of systems and even phased "canary" deployments.
+
+
+Планирование особенно полезно для производственных систем, поскольку оно позволяет тщательно планировать изменения в группах систем и даже выполнять поэтапные «канареечные» (canary) развертывания.
 
 <br/>
 
 > [!NOTE]
-> It is possible to do kernel live patching with KLP, it makes it possible to apply the latest security updates to Linux kernels without rebooting.
+> Можно выполнять установку исправлений ядра «на лету» (live patching) с помощью KLP; это позволяет применять последние обновления безопасности к ядрам Linux без перезагрузки.
 
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+Почему это важно для [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
 =================================================================================
 
-- System upgrades and other routine tasks must be simple and repeatable, otherwise, we risk making costly mistakes. With these tools, we can control precisely when and where we perform actions, scheduling critical maintenance for our fleet with confidence.
+- Обновления системы и другие рутинные задачи должны быть простыми и повторяемыми, иначе мы рискуем совершить дорогостоящие ошибки. С помощью этих инструментов мы можем точно контролировать, когда и где мы выполняем действия, с уверенностью планируя критически важное обслуживание для нашего флота.
 
 
-- We can control when and where we perform actions, and schedule maintenance operations on our grounded fleet.
+- Мы можем контролировать, когда и где мы выполняем действия, и планировать операции по техническому обслуживанию нашего наземного флота.
 
 
-More information
+Дополнительная информация
 ================
 
 - [Live kernel patching with KLP](https://documentation.suse.com/en-us/sles/15-SP7/html/SLES-all/cha-klp.html)
