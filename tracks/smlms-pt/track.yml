@@ -1,14 +1,14 @@
 slug: smlms-pt
-id: hrdrzxximnj9
-title: SUSE Multi-Linux Hands-on Workshop - PT
+id: il1d3uqckwsv
+title: SUSE Multi-Linux Hands-on Workshop - Portuguese
 description: |
-  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Throughout this workshop, you will explore the core capabilities of <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, our best-in-class solution for managing diverse Linux environments at scale, and <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Ao longo deste workshop, você explorará as principais capacidades do <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, nossa solução de primeira linha para gerenciar diversos ambientes Linux em escala, e o <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
 
-  <p>You will learn how to solve real-world IT challenges by using <b style="color: #30ba78">SUSE</b>'s powerful tools to automate tasks, ensure security compliance, and manage the entire lifecycle of your systems—from legacy distributions to the latest enterprise servers.</p>
+  <p>Você aprenderá a resolver desafios de TI do mundo real utilizando as ferramentas poderosas da <b style="color: #30ba78">SUSE</b> para automatizar tarefas, garantir a conformidade de segurança e gerenciar todo o ciclo de vida de seus sistemas—desde distribuições legadas até os servidores corporativos mais recentes.</p>
 
-  <p>This workshop is designed to give you practical skills and a clear understanding of how to simplify and control your complex infrastructure.</p>
+  <p>Este workshop foi projetado para lhe dar habilidades práticas e uma compreensão clara de como simplificar e controlar sua infraestrutura complexa.</p>
 
-  <p>Let's get started.</p></span>
+  <p>Vamos começar.</p></span>
 icon: https://www.suse.com/favicon.ico
 tags:
 - smls
@@ -19,6 +19,7 @@ tags:
 owner: suse
 developers:
 - raul.mahiques@suse.com
+maintenance: true
 skipping_enabled: true
 idle_timeout: 6000
 timelimit: 10800
@@ -30,5 +31,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
+checksum: "14225843335058288385"
 enhanced_loading: true
-maintenance: true

@@ -10,7 +10,7 @@ virtualmachines:
 #  image: suse/smlm-pro-retired
   shell: /bin/bash
   environment:
-    COMPANY_NAME: Chameleon Airlines
+    COMPANY_NAME: Linhas Aéreas Camaleão
     SMLM_ORGNAME: chamaleonair
     FQDN_SMLM: smlm.${_SANDBOX_ID}.instruqt.io
 #    SMLM_SCRIPTS_URL:  https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/scripts/smlm/
