@@ -1,10 +1,10 @@
 ---
 slug: smlm-lifecycle-management
-id: ejxtdpb7jztq
+id: 0wnestvryhk4
 type: challenge
-title: Lifecycle management
+title: إدارة دورة الحياة
 tabs:
-- id: vj7zqlkc0xab
+- id: rfxsaf7hmc2l
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Lifecycle management
+🌌 إدارة دورة الحياة (Lifecycle management)
 ===================================
 
 <style type="text/css">
@@ -97,169 +97,173 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/05-lifecycle.jpeg"/>
 
-In this part we will transition from individual maintenance tasks to establishing a fleet-wide, certified process for managing change. We'll explore how Content Lifecycle Management in <b class="smlmext">SUSE Multi-Linux Manager</b> provides the structure and safety our airline demands.
+في هذا الجزء سننتقل من مهام الصيانة الفردية إلى إنشاء عملية معتمدة على مستوى الأسطول لإدارة التغيير. سنستكشف كيف توفر إدارة دورة حياة المحتوى (Content Lifecycle Management) في <b class="smlmext">SUSE Multi-Linux Manager</b> الهيكلية والأمان الذي تتطلبه شركة الطيران الخاصة بنا.
 
 
 
-At [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]], a new part isn't installed on a passenger jet the moment it arrives from the manufacturer. It goes through a rigorous certification process.
+في [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]، لا يتم تثبيت قطعة جديدة على طائرة ركاب في اللحظة التي تصل فيها من الشركة المصنعة. بل تمر بعملية اعتماد صارمة.
 
-First, it's examined and tested in a controlled workshop (**Development**). Next, it's fitted to a non-commercial test aircraft and put through grueling ground and flight tests (**Quality Assurance**). Only after passing every conceivable check is it certified for installation across our active fleet (**Production**).
-
-This methodical, staged approach prevents a single faulty component from grounding a plane, ensuring the safety of our passengers and the reliability of our operations. We apply this exact same philosophy to our IT systems. A software upgrade or a new application is a "component" that, if faulty, could ground our digital operations. Content Lifecycle Management is our official certification process for all software changes.
+أولاً، يتم فحصها واختبارها في ورشة عمل خاضعة للرقابة (**التطوير / Development**). بعد ذلك، يتم تركيبها على طائرة اختبار غير تجارية وتخضع لاختبارات أرضية وطيران شاقة (**ضمان الجودة / Quality Assurance - QA**). فقط بعد اجتياز كل فحص يمكن تصوره، يتم اعتمادها للتثبيت عبر أسطولنا النشط (**الإنتاج / Production**).
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
-
-- Build a Content Lifecycle Project
-
-- Use the project to manage and certify software updates for our systems.
+يمنع هذا النهج المنهجي والمرحلي أي مكون معيب واحد من إيقاف طائرة عن الطيران، مما يضمن سلامة ركابنا وموثوقية عملياتنا. نحن نطبق نفس الفلسفة تمامًا على أنظمة تكنولوجيا المعلومات لدينا. ترقية البرنامج أو التطبيق الجديد هو "مكون" يمكن أن يوقف عملياتنا الرقمية إذا كان معيبًا. إدارة دورة حياة المحتوى هي عملية الاعتماد الرسمية لدينا لجميع تغييرات البرامج.
 
 
 
-Lab details
+## <b class="hovereffect">أهدافك:</b>
+
+- بناء مشروع دورة حياة المحتوى (Content Lifecycle Project).
+
+- استخدام المشروع لإدارة واعتماد تحديثات البرامج لأنظمتنا.
+
+
+
+تفاصيل المختبر (Lab details)
 ===========
 
-Username:
+اسم المستخدم (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+كلمة المرور (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+رابط <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Building Our Software Certification Pathway
+بناء مسار اعتماد البرمجيات الخاص بنا
 ==============================================
 
-In this exercise, we will create a Content Lifecycle Project to control the flow of software updates. This ensures that a patch is thoroughly tested before it ever reaches our critical production servers.
+في هذا التمرين، سنقوم بإنشاء مشروع دورة حياة المحتوى للتحكم في تدفق تحديثات البرامج. يضمن هذا أن يتم اختبار التصحيح (patch) بدقة قبل أن يصل إلى خوادم الإنتاج الحيوية لدينا.
 
 <br/>
 
-Our goal is to build a `Dev ✈ QA ✈ Prod` pipeline.
+هدفنا هو بناء خط أنابيب `Dev ✈ QA ✈ Prod`.
 
-1.  **Development (Dev):** The initial workshop. All new patches and packages arrive here first.
-2.  **Quality Assurance (QA):** The testing ground. We will promote a specific, version of the content from Dev to QA for our testing teams to validate.
-3.  **Production (Prod):** The active fleet. Only the QA-approved, certified set of patches is promoted to Production, where it can be safely applied to our live systems.
+1.  **التطوير (Development - Dev):** ورشة العمل الأولية. تصل جميع التصحيحات والحزم الجديدة هنا أولاً.
+2.  **ضمان الجودة (Quality Assurance - QA):** أرض الاختبار. سنقوم بترويج (promote) إصدار محدد من المحتوى من Dev إلى QA ليقوم فريق الاختبار لدينا بالتحقق منه.
+3.  **الإنتاج (Production - Prod):** الأسطول النشط. يتم ترويج مجموعة التصحيحات المعتمدة والموافق عليها من قبل QA فقط إلى الإنتاج (Production)، حيث يمكن تطبيقها بأمان على أنظمتنا الحية.
+
+
 
 <br/>
 
-## <b class="hovereffect">Create the project</b>
+## <b class="hovereffect">إنشاء المشروع</b>
 
-- Navigate to `Content Lifecycle` ✈ `Projects` and click ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
+- انتقل إلى `Content Lifecycle` ✈ `Projects` وانقر على ![Create Project](../assets/SMLM5.1/bottom-create_project.png)
 
-- Fill in the project details:
+- املأ تفاصيل المشروع:
 
-- **Project Name:**
+- **Project Name** (اسم المشروع):
 
 ```txt
 Airtrain SLES15 SPx
 ```
 
-- **Project Label:**
+- **Project Label** (تسمية المشروع):
 
 ```txt
 at-sles15_spx
 ```
 
-- **Project Description:**
+- **Project Description** (وصف المشروع):
 
 ```txt
 Certified software channel for Airtrain SLES 15 systems.
 ```
 
 
-- Click ![Create](../assets/SMLM5.1/bottom-create.png)
+- انقر على ![Create](../assets/SMLM5.1/bottom-create.png)
 
-Now let's populate it, click on `Attach/Detach Sources`
+الآن دعنا نملأه، انقر على `Attach/Detach Sources`
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created.png)
 
-- On **New Base Channel** select <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> and click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- في **New Base Channel** حدد <b class="sles">SLE-Product-SLES15-SP6-Pool for x86_64</b> وانقر على ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create Dev environment</b>
+## <b class="hovereffect">إنشاء بيئة التطوير (Dev)</b>
 
-Create the Development Environment Lifecycle
+إنشاء دورة حياة بيئة التطوير
 
-- Click on `Add Environment`
+- انقر على `Add Environment`
 
 ![Create](../assets/SMLM5.1/content_lifecycle_just_created_environment_lifecycle.png)
 
-- Populate with the following:
+- املأ بالآتي:
   * **Name:** <b class="highlightcopy">Development</b>
   * **Label:** <b class="highlightcopy">dev</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- انقر على ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create QA environment</b>
+## <b class="hovereffect">إنشاء بيئة ضمان الجودة (QA)</b>
 
-Create the Quality Assurance Environment Lifecycle
+إنشاء دورة حياة بيئة ضمان الجودة
 
-- Click on `Add Environment`
+- انقر على `Add Environment`
 
-- Populate with the following:
+- املأ بالآتي:
   * **Name:** <b class="highlightcopy">QA</b>
   * **Label:** <b class="highlightcopy">qa</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- انقر على ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Create Prod environment</b>
+## <b class="hovereffect">إنشاء بيئة الإنتاج (Prod)</b>
 
-Create the Production Environment Lifecycle
+إنشاء دورة حياة بيئة الإنتاج
 
-- Click on `Add Environment`
+- انقر على `Add Environment`
 
-- Populate with the following:
+- املأ بالآتي:
   * **Name:** <b class="highlightcopy">Production</b>
   * **Label:** <b class="highlightcopy">prod</b>
 
-- Click on ![Save](../assets/SMLM5.1/bottom-save.png)
+- انقر على ![Save](../assets/SMLM5.1/bottom-save.png)
 
 <br/>
 
-## <b class="hovereffect">Populate</b>
+## <b class="hovereffect">تعبئة المحتوى (Populate)</b>
 
-Now we have all three environments, let's populate them with content.
+الآن لدينا البيئات الثلاث، دعنا نملأها بالمحتوى.
 
-We will not use a filter in this case since <b class="sles">SLES</b> already provides stable package versions.
+لن نستخدم مرشحًا (filter) في هذه الحالة لأن <b class="sles">SLES</b> يوفر بالفعل إصدارات حزم مستقرة.
 
-[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]' cadence for testing is currently one month, so we will name this build after the current month, October.
+إيقاع الاختبار في [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]] هو حاليًا شهر واحد، لذلك سنقوم بتسمية هذا البناء (build) باسم الشهر الحالي، أكتوبر (October).
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- انقر على ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- In **Version Message** type
+- في **Version Message** اكتب
 
 ```txt
 October
 ```
 
 
-- Click on `Build`
+- انقر على `Build`
 
 > [!NOTE]
-> This process may take a couple of minutes, you will see some steps like 'cloning', but you might be relieved to know that this doesn't require a lot of storage. The cloning process applies only to the package index points, not the actual packages themselves
+> قد تستغرق هذه العملية بضع دقائق، سترى بعض الخطوات مثل 'cloning' (الاستنساخ)، ولكن قد تشعر بالارتياح لمعرفة أن هذا لا يتطلب الكثير من التخزين. تنطبق عملية الاستنساخ فقط على نقاط فهرس الحزمة، وليس الحزم الفعلية نفسها.
 
 
 <br/>
 
-## <b class="hovereffect">Promoting content</b>
+## <b class="hovereffect">ترويج المحتوى (Promoting)</b>
 
-Now, let's promote the content to further stages.
+الآن، دعنا نقوم بترويج المحتوى إلى المراحل التالية.
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 1 into QA** will appear, just click `Promote` again.
+- انقر على زر `Promote` بين Development و QA
+- ستظهر شاشة أخرى بعنوان **Promote version 1 into QA**، فقط انقر فوق `Promote` مرة أخرى.
 
-Repeat the same step for Production.
+كرر نفس الخطوة لبيئة الإنتاج (Production).
 
 
   <div style='align: middle; margin: 15px;'>
@@ -268,41 +272,41 @@ Repeat the same step for Production.
 
 <br/>
 
-Upgrade our systems.
+ترقية أنظمتنا.
 ====================
 
-Now let's try how it works.
+الآن دعنا نجرب كيف يعمل الأمر.
 
-We are going to:
-- add some of our system to the new environment.
-- Create a new version of the content
-- Promote the new version and update the systems
+سنقوم بما يلي:
+- إضافة بعض أنظمتنا إلى البيئة الجديدة.
+- إنشاء إصدار جديد من المحتوى.
+- ترويج الإصدار الجديد وتحديث الأنظمة.
 
 <br/>
 
-## <b class="hovereffect">Add systems</b>
+## <b class="hovereffect">إضافة أنظمة</b>
 
-Let's go to `Systems` ✈ `System List` ✈ `All`
+لنذهب إلى `Systems` ✈ `System List` ✈ `All`
 
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Software Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-qa-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
+- انقر على نظام **at-ct-qa**
+- اذهب إلى `Software` ✈ `Software Channels`
+- في **Custom Channels**، حدد مربع الاختيار لقناة **at-sles15_spx-qa-...** وانقر على ![Next](../assets/SMLM5.1/bottom-next.png)
+- انقر على ![Confirm](../assets/SMLM5.1/bottom-confirm.png)
 
 
-Go back to `Systems` ✈ `System List` ✈ `All`
+عُد إلى `Systems` ✈ `System List` ✈ `All`
 
-- Filter by:
+- قم بالتصفية حسب:
 
 ```txt
 at-
 ```
 
-- Select all the systems that end with **-pro**
-- Go to `Systems` ✈ `System Set Manager`
-- Go to `Channels`
-- On **Custom Channels**, select the checkbox for the **at-sles15_spx-prod-...** channel and click ![Next](../assets/SMLM5.1/bottom-next.png)
-- Click on 'incclude recommended' to subscribe to all the recommended channels:
+- حدد جميع الأنظمة التي تنتهي بـ **-pro**
+- اذهب إلى `Systems` ✈ `System Set Manager`
+- اذهب إلى `Channels`
+- في **Custom Channels**، حدد مربع الاختيار لقناة **at-sles15_spx-prod-...** وانقر على ![Next](../assets/SMLM5.1/bottom-next.png)
+- انقر على 'include recommended' للاشتراك في جميع القنوات الموصى بها:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-next.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
@@ -313,30 +317,30 @@ at-
 
 <br/>
 
-## <b class="hovereffect">Create a new version</b>
+## <b class="hovereffect">إنشاء إصدار جديد</b>
 
 
-A month has past and we want to continue with our stable process of upgrades.
-You have are going to create a static, unchanging copy of the software channels for the Developer team.
+لقد مر شهر ونريد الاستمرار في عملية التحديث المستقرة لدينا.
+أنت بصدد إنشاء نسخة ثابتة وغير متغيرة من قنوات البرامج لفريق المطورين.
 
-No new patches will suddenly appear and disrupt their work.
+لن تظهر أي تصحيحات جديدة فجأة وتعطل عملهم.
 
-- Go back to `Content Lifecycle` ✈ `Projects` and click on the project we just created.
+- عُد إلى `Content Lifecycle` ✈ `Projects` وانقر على المشروع الذي أنشأناه للتو.
 
-- Click on ![Build](../assets/SMLM5.1/bottom-build.png)
+- انقر على ![Build](../assets/SMLM5.1/bottom-build.png)
 
-- In **Version Message** type
+- في **Version Message** اكتب
 
 ```txt
 November
 ```
 
 
-- Click on `Build`
+- انقر على `Build`
 
-Notice the version number has automatically increased.
+لاحظ أن رقم الإصدار قد زاد تلقائيًا.
 
-Now developers can do their work using the new and patched versions of libraries and applications provided by SUSE.
+الآن يمكن للمطورين القيام بعملهم باستخدام الإصدارات الجديدة والمصححة من المكتبات والتطبيقات التي توفرها SUSE.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -346,28 +350,28 @@ Now developers can do their work using the new and patched versions of libraries
 
 <br/>
 
-## <b class="hovereffect">Promote content from Dev to QA</b>
+## <b class="hovereffect">ترويج المحتوى من Dev إلى QA</b>
 
-Let's assume our developers have given their approval. It's time to create a stable version for the QA team so that all the pre-production tests can be performed.
+لنفتراض أن المطورين قد أعطوا موافقتهم. حان الوقت لإنشاء إصدار مستقر لفريق QA حتى يتمكنوا من إجراء جميع اختبارات ما قبل الإنتاج.
 
-- Click on the `Promote` bottom between Development and QA
-- Another screen with the title **Promote version 2 into QA** will appear, just click `Promote` again.
+- انقر على زر `Promote` بين Development و QA
+- ستظهر شاشة أخرى بعنوان **Promote version 2 into QA**، فقط انقر فوق `Promote` مرة أخرى.
 
-Now let's go to our QA systems and do an upgrade.
+الآن دعنا نذهب إلى أنظمة QA ونقوم بالترقية.
 
 - `Systems` ✈ `System List` ✈ `All`
-- Click on **at-ct-qa** system
-- Go to `Software` ✈ `Packages` ✈ `Upgrade`
-- Click on:
+- انقر على نظام **at-ct-qa**
+- اذهب إلى `Software` ✈ `Packages` ✈ `Upgrade`
+- انقر على:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;"><img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-select_all.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:center;"><img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:center;" src="../assets/SMLM5.1/bottom-upgrade_packages.png"/></p> ✈ <p style="margin: 1px; padding: 1px;vertical-align: middle;display:inline-block; align:right;"> <img style="margin: 1px; padding: 1px;vertical-align: middle; display:block; align:right;" src="../assets/SMLM5.1/bottom-confirm.png"/></p>
 
 
-Now our QA engineers can perform their tests safely without disruption.
+الآن يمكن لمهندسي ضمان الجودة (QA) إجراء اختباراتهم بأمان دون انقطاع.
 
 
 > [!NOTE]
-> We don't have enough time to see changes comming through, in a real scenario there should be new versions of packages available to promote in version 2.
+> ليس لدينا ما يكفي من الوقت لرؤية التغييرات تصل، في سيناريو حقيقي يجب أن تكون هناك إصدارات جديدة من الحزم متاحة للترويج في الإصدار 2.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/videos/05-lifecycle_management-promote_from_dev_to_QA.gif"/>
@@ -376,40 +380,38 @@ Now our QA engineers can perform their tests safely without disruption.
 
 <br/>
 
-## <b class="hovereffect">Promote to Production</b>
+## <b class="hovereffect">الترويج إلى الإنتاج (Promote to Production)</b>
 
-The QA team has completed its rigorous testing on `v2` and has certified it as stable and safe for the main fleet. It's time to make it available to our production systems.
+أكمل فريق QA اختباراته الصارمة على `v2` واعتمدها على أنها مستقرة وآمنة للأسطول الرئيسي. حان الوقت لإتاحتها لأنظمة الإنتاج لدينا.
 
-We are going to repeat the same process as we did for QA on our production environment:
+سنكرر نفس العملية التي قمنا بها لـ QA في بيئة الإنتاج لدينا:
 
-- First, promote the content.
-  This will make the new packages available to our production servers.
-  You have successfully ensured that only tested and approved updates can reach your most critical systems.
+- أولاً، قم بترويج المحتوى.
+  سيؤدي هذا إلى إتاحة الحزم الجديدة لخوادم الإنتاج لدينا.
+  لقد نجحت في ضمان أن التحديثات المختبرة والمعتمدة فقط هي التي يمكن أن تصل إلى أنظمتك الأكثر أهمية.
 
-- Second, upgrade our Production systems, here the only difference is that we are going to schedule the upgrade for **tomorrow at 14:00** to allow for all our teams to be prepared and have a controlled process.
+- ثانيًا، قم بترقية أنظمة الإنتاج (Production) لدينا، والفرق الوحيد هنا هو أننا سنجدول الترقية إلى **غدًا في الساعة 14:00** للسماح لجميع فرقنا بالاستعداد والحصول على عملية خاضعة للرقابة.
 
 
 <br/>
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+لماذا هذا مهم لـ [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]؟
 =================================================================================
 
-- We build a series of safety gates, making it easier to implement a core principle of our operational strategy: **risk management**.
-- A single bad patch introduced into the **Dev** environment can be caught and fixed long before it has a chance to impact revenue-generating systems.
-- This process transforms patching and updates from a risky, nerve-wracking event into a predictable, routine maintenance procedure, the cornerstone of a reliable airline.
+- نحن نبني سلسلة من بوابات الأمان، مما يسهل تنفيذ مبدأ أساسي لاستراتيجيتنا التشغيلية: **إدارة المخاطر**.
+- يمكن اكتشاف أي تصحيح سيء واحد يتم إدخاله في بيئة **Dev** وإصلاحه قبل وقت طويل من أن تتاح له الفرصة للتأثير على الأنظمة المدرة للدخل.
+- تحول هذه العملية الترقيع والتحديثات من حدث محفوف بالمخاطر ومثير للأعصاب إلى إجراء صيانة روتيني يمكن التنبؤ به، وهو حجر الزاوية لشركة طيران موثوقة.
 
 
 <br/>
 
-More information
+مزيد من المعلومات
 ================
 
-* [Maintenance Windows](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
+* [نوافذ الصيانة (Maintenance Windows)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/maintenance-windows.html)
 
-* [Patch Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
+* [إدارة التصحيح (Patch Management)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/patch-management.html)
 
-* [Content Lifecycle Management](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
+* [إدارة دورة حياة المحتوى (Content Lifecycle Management)](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/content-lifecycle.html)
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
-
-
+* [صفحة منتج SUSE Multi-Linux Manager](https://www.suse.com/products/suse-manager/)

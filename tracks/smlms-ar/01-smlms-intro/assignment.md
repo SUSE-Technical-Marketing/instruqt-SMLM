@@ -1,18 +1,18 @@
 ---
 slug: smlms-intro
-id: 0iw3zqvgqtvl
+id: wuis5qjowo43
 type: challenge
-title: Welcome to SUSE Multi-Linux Hands-on Workshop!
-teaser: Welcome to SUSE Multi-Linux Hands-on Workshop! in this section we will introduce
-  you to the workshop and to its main components.
+title: مرحبًا بكم في SUSE Multi-Linux Hands-on Workshop!
+teaser: مرحبًا بكم في SUSE Multi-Linux Hands-on Workshop! في هذا القسم سنقدم لكم ورشة
+  العمل ومكوناتها الرئيسية.
 notes:
 - type: text
   contents: |
-    # Welcome to the SUSE Multi-Linux Hands-on Workshop!
-    Please wait while we setup your lab environment.
+    # مرحبًا بكم في SUSE Multi-Linux Hands-on Workshop!
+    يرجى الانتظار بينما نقوم بإعداد بيئة المختبر الخاصة بك.
     <img class="logos" src="../assets/logos/suse_logo.svg"/>
 tabs:
-- id: vkgmrxwzdbdi
+- id: m7evrmx85bfv
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -20,7 +20,7 @@ difficulty: ""
 enhanced_loading: null
 ---
 
-Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
+مرحبًا بكم في <b style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE'); color: #30ba78">SUSE</b> Multi-Linux Hands-on Workshop
 ==================================================================
 
 <link  rel="stylesheet" href="https://raw.githubusercontent.com/SUSE-Technical-Marketing/lab-setup/refs/heads/develop/web/css/instruqt.css" type="text/css" crossorigin="anonymous" fetchpriority="high" />
@@ -68,146 +68,146 @@ Welcome to <b style="font-family: suse; src: url('https://fonts.google.com/speci
 
 <img class="logos" alt="Welcome!" src="../assets/logos/01-welcome.jpeg"/>
 
-In this workshop you will explore some of the magic that <b class="smlmext">SUSE Multi-Linux Manager</b> (<b class="smlm">SMLM</b>) can do, it is <b class="suse">SUSE</b>'s solution to manage multiple Linux distributions at scale from a unified interface. And also will discover how can you keep your legacy production servers supported with <b class="smlsext">SUSE Multi-Linux Support</b> (<b class="smls">SMLS</b>), our professional and reliable support solution for Linux systems.
 
-&emsp;&emsp; You will adopt the role of an **engineer** at <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b>, an airline where every plane has a Linux server onboard.
+في ورشة العمل هذه، ستستكشفون بعض السحر الذي يمكن لـ <b class="smlmext">SUSE Multi-Linux Manager</b> (<b class="smlm">SMLM</b>) القيام به؛ إنه حل <b class="suse">SUSE</b> لإدارة توزيعات Linux متعددة على نطاق واسع من واجهة موحدة. وستكتشفون أيضًا كيف يمكنكم الحفاظ على خوادم الإنتاج القديمة (legacy) مدعومة باستخدام <b class="smlsext">SUSE Multi-Linux Support</b> (<b class="smls">SMLS</b>)، وهو حل الدعم المهني والموثوق لدينا لأنظمة Linux.
 
-&emsp;&emsp; As with any airplane component, it is critical that those servers remain stable and reliable, no matter if they are located on the ground in some datacenter or flying above the clouds ☁ ☁ ☁
+&emsp;&emsp; ستتبنون دور **مهندس (engineer)** في <b class="companyname">[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]</b>، وهي شركة طيران حيث توجد على متن كل طائرة خادم Linux.
 
-
-&emsp;&emsp; Some plane models will require a different Linux flavor, or a different CPU architecture. This is not an issue for <b class="smlm">SMLM</b>, you are free to choose the Linux distribution and CPU arquitecture that better suits your needs without having to give up on easy standardization and management.
+&emsp;&emsp; كما هو الحال مع أي مكون من مكونات الطائرة، من الضروري أن تظل هذه الخوادم مستقرة وموثوقة، بغض النظر عما إذا كانت موجودة على الأرض في مركز بيانات ما أو تحلق فوق السحاب ☁ ☁ ☁
 
 
-&emsp;&emsp; As an engineer responsible for managing the Linux landscape you will go through some of the solutions <b class="smlm">SMLM</b> and <b class="smls">SMLS</b> offers you to ease and automate systems management and resolve exceptional problems that may occur.
+&emsp;&emsp; ستتطلب بعض نماذج الطائرات نكهة Linux مختلفة، أو بنية CPU مختلفة. هذه ليست مشكلة بالنسبة لـ <b class="smlm">SMLM</b>؛ فأنتم أحرار في اختيار توزيعة Linux وبنية CPU التي تناسب احتياجاتكم بشكل أفضل دون الحاجة إلى التخلي عن السهولة في المعايرة والإدارة.
 
 
-Along the different challenges you will have the following tools available:
+&emsp;&emsp; كمهندس مسؤول عن إدارة مشهد Linux، ستمرون ببعض الحلول التي يقدمها لكم <b class="smlm">SMLM</b> و <b class="smls">SMLS</b> لتسهيل وأتمتة إدارة الأنظمة وحل المشكلات الاستثنائية التي قد تحدث.
+
+
+خلال التحديات المختلفة، ستكون لديكم الأدوات التالية متاحة:
 
  ✈ **SUSE Multi-Linux Manager**:
-   The single pane of glass for managing your entire Linux stack.
+   لوحة التحكم الموحدة (single pane of glass) لإدارة كامل الـ Linux stack الخاص بكم.
 
  ✈ **Centos 7**:
-   A legacy distribution still in use on some older aircrafts and ground systems.
+   توزيعة قديمة (legacy) لا تزال قيد الاستخدام في بعض الطائرات القديمة والأنظمة الأرضية.
 
- ✈ **Ubuntu 24**: A specific Linux distribution required by our marketing department to run their graphic design applications..
+ ✈ **Ubuntu 24**: توزيعة Linux محددة يطلبها قسم التسويق لدينا لتشغيل تطبيقات التصميم الجرافيكي الخاصة بهم.
 
- ✈ **SLES 15**: <b class="suse">SUSE</b>'s highly reliable, stable and secure Linux distribution that forms the backbone of our most critical systems.
-
-
+ ✈ **SLES 15**: توزيعة Linux عالية الموثوقية والاستقرار والأمان من <b class="suse">SUSE</b> والتي تشكل العمود الفقري لأكثر أنظمتنا أهمية.
 
 
 ## <b class="smlmext hovereffect">SUSE Multi-Linux Manager</b>
 
-It is a best-in-class open source infrastructure management solution for your software-defined infrastructure.
+إنه حل إدارة بنية تحتية مفتوح المصدر هو الأفضل في فئته للبنية التحتية المعرفة بالبرمجيات الخاصة بكم.
 
-&emsp;&emsp; <b class="smlmext">SUSE Multi-Linux Manager</b> was designed to help your enterprise DevOps and IT Operations teams reduce complexity and regain control of your IT assets, a single but very powerful tool to manage Linux systems across a variety of hardware architectures, hypervisors as well as container, IoT and cloud platforms.
+&emsp;&emsp; تم تصميم <b class="smlmext">SUSE Multi-Linux Manager</b> لمساعدة فرق DevOps و IT Operations في مؤسستكم على تقليل التعقيد واستعادة السيطرة على أصول تكنولوجيا المعلومات الخاصة بكم، وهي أداة واحدة ولكنها قوية جدًا لإدارة أنظمة Linux عبر مجموعة متنوعة من معماريات الأجهزة، والـ hypervisors وكذلك الحاويات (containers)، و IoT ومنصات السحابة.
 
-&emsp;&emsp; It automates Linux server and IoT device provisioning, patching and configuration for faster, consistent and repeatable server deployment helping to optimize operations and reduce costs. And with automated monitoring, tracking, auditing and reporting of your systems, VMs, and containers across your development, test and production environments, you can ensure compliance with internal security policies and external regulations.
+&emsp;&emsp; إنه يؤتمت عملية التوفير (provisioning)، والترقيع (patching)، والتهيئة (configuration) لخوادم Linux وأجهزة IoT من أجل نشر خوادم أسرع ومتسق وقابل للتكرار، مما يساعد على تحسين العمليات وتقليل التكاليف. ومع المراقبة المؤتمتة، والتتبع، والتدقيق، وإعداد التقارير لأنظمتكم، والـ VMs، والحاويات عبر بيئات التطوير والاختبار والإنتاج الخاصة بكم، يمكنكم ضمان الامتثال لسياسات الأمان الداخلية واللوائح الخارجية.
 
 
 ## <b class="smlsext hovereffect">SUSE Multi-Linux Support</b>
 
 
-It is a comprehensive service offering technical assistance and maintenance for various Linux distributions, including your existing Red Hat Enterprise Linux (RHEL), CentOS, <b class="liberty">SUSE Liberty Linux</b>, and <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>), depending on the offering.
+إنها خدمة شاملة تقدم المساعدة التقنية والصيانة لمختلف توزيعات Linux، بما في ذلك Red Hat Enterprise Linux (RHEL) الحالية لديكم، و CentOS، و <b class="liberty">SUSE Liberty Linux</b>، و <b class="sles">SUSE Linux Enterprise Server</b> (<b class="sles">SLES</b>)، اعتمادًا على العرض.
 
-&emsp;&emsp; It enables organizations to manage mixed Linux environments efficiently under a single support framework.
-Depending on the package purchased, <b class="smlsext">SUSE Multi-Linux Support</b> may also include <b class="smlmext">SUSE Multi-Linux Manager</b>, a multi-Linux management tool to manage these distributions.
+&emsp;&emsp; إنها تمكن المؤسسات من إدارة بيئات Linux المختلطة بكفاءة تحت إطار دعم واحد.
+اعتمادًا على الحزمة التي تم شراؤها، قد يتضمن <b class="smlsext">SUSE Multi-Linux Support</b> أيضًا <b class="smlmext">SUSE Multi-Linux Manager</b>، وهي أداة إدارة multi-Linux لإدارة هذه التوزيعات.
 
 
 
- 🌅 Explore the Instruqt UI
+ 🌅 استكشف Instruqt UI
 =======================
-Before we begin our first task, let's take a moment to look at Instruqt UI.
+قبل أن نبدأ مهمتنا الأولى، دعونا نأخذ لحظة للنظر في Instruqt UI.
 
-+ The **right side** of the screen provides you with these instructions and navigation controls.
++ يوفر لكم **الجانب الأيمن** من الشاشة هذه التعليمات وعناصر التحكم في التنقل.
 
-+ The **left side** give you access to the various machines and services that make up our lab environment.
++ يمنحكم **الجانب الأيسر** الوصول إلى مختلف الآلات والخدمات التي تشكل بيئة المختبر الخاصة بنا.
 
-Within the Instruqt UI you can jump between the [button label="SMLM UI" variant="success"](tab-0) and the available [button label="terminals" variant="success"](tab-1) by clicking on tabs at the top of the left-side panel.
+داخل Instruqt UI يمكنكم التنقل بين [button label="SMLM UI" variant="success"](tab-0) و [button label="terminals" variant="success"](tab-1) المتاحة عن طريق النقر على علامات التبويب في الجزء العلوي من اللوحة اليسرى.
 
 
 > [!NOTE]
-> No automatic reloading happens on the web UI, in some cases you may have to reload Instruqt's internal web browser to see updates.
+> لا يحدث إعادة تحميل تلقائي على واجهة الويب (Web UI)، في بعض الحالات قد تضطرون إلى إعادة تحميل متصفح الويب الداخلي لـ Instruqt لرؤية التحديثات.
 
 
-🛫 Logging into <b class="smlmext">SUSE Multi-Linux Manager</b> 🛫
+🛫 تسجيل الدخول إلى <b class="smlmext">SUSE Multi-Linux Manager</b> 🛫
 ========================================
+دعونا نطلعكم على البيئة.
 
-Let's get you familiarized with the environment.
-
-- Open <b class="smlmext">SUSE Multi-Linux Manager</b> inside the lab from the [button label="SMLM UI" variant="success"](tab-0)
+- افتح <b class="smlmext">SUSE Multi-Linux Manager</b> داخل المختبر من [button label="SMLM UI" variant="success"](tab-0)
 
 
-- Log in with the following credentials:
+- سجل الدخول باستخدام بيانات الاعتماد التالية:
 
-  - Username:
+  - اسم المستخدم (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
-  - Password:
+  - كلمة المرور (Password):
 
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-If everything went well, you should see the **Overview** page in the <b class="smlmext">SUSE Multi-Linux Manager</b> UI logged in as `[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]` user.
+إذا سارت الأمور على ما يرام، يجب أن تروا صفحة **Overview** في واجهة المستخدم <b class="smlmext">SUSE Multi-Linux Manager</b> بعد تسجيل الدخول كمستخدم `[[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]`.
 
 > [!NOTE]
-> If you wish to access <b class="smlmext">SUSE Multi-Linux Manager</b> UI directly through your browser you can do too:
+> إذا كنتم ترغبون في الوصول إلى واجهة المستخدم <b class="smlmext">SUSE Multi-Linux Manager</b> مباشرة من خلال متصفحكم، يمكنكم القيام بذلك أيضًا:
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+رابط <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
 > [!NOTE]
-> If the page doesn't load correctly, you may need to refresh the browser tab after the lab environment has finished starting up.
+> إذا لم يتم تحميل الصفحة بشكل صحيح، فقد تحتاجون إلى تحديث علامة تبويب المتصفح بعد انتهاء بيئة المختبر من البدء.
 
 
-🗺 Explore <b class="smlmext">SUSE Multi-Linux Manager</b> 🗺
+
+
+🗺  استكشف <b class="smlmext">SUSE Multi-Linux Manager</b> 🗺
 ======================================
 
-Before we take off, let's get familiar with the controls. This is not meant to be an exhaustive tour, but a brief overview of the key instruments we will use throughout the workshop. We encourage you to be curious and explore.
+قبل أن ننطلق، دعونا نتعرف على عناصر التحكم. هذه ليست جولة شاملة، ولكنها نظرة عامة موجزة على الأدوات الرئيسية التي سنستخدمها طوال ورشة العمل. نحن نشجعكم على الفضول والاستكشاف.
 
 
-Let's begin.
+لنبدأ.
 
 
-- **Systems menu** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_systems.png"/>
+- **قائمة Systems** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_systems.png"/>
 
-  On the left-hand panel, click on `systems`. This is our fleet overview, showing every registered server. The list is small now, but it will grow as we complete our exercises.
+  على اللوحة اليسرى، انقروا على `systems`. هذه نظرة عامة على أسطولنا، وتظهر كل خادم مسجل. القائمة صغيرة الآن، لكنها ستنمو مع إكمالنا لتماريننا.
 
    - **System Lists**
 
-     This section provides convenient, pre-filtered views. For example, the `Out of Date`list instantly shows you which servers require updates, saving you from performing a manual search. </p>
+     يوفر هذا القسم طرق عرض مريحة ومصفاة مسبقًا. على سبيل المثال، تظهر لك قائمة `Out of Date` على الفور الخوادم التي تتطلب تحديثات، مما يوفر عليك إجراء بحث يدوي. </p>
 
   <br/>
 
   - **System Groups**
 
-    To organize our fleet logically, we use `System Groups`, you can categorize them based on any criteria, by doing so you can save time when applying actions or defining policies. Once created you can automatically attach systems to one or multiple groups, e.g. using `activation keys`.
+    لتنظيم أسطولنا منطقيًا، نستخدم `System Groups`؛ يمكنكم تصنيفها بناءً على أي معيار. من خلال القيام بذلك، يمكنكم توفير الوقت عند تطبيق الإجراءات أو تحديد السياسات. بمجرد إنشائها، يمكنكم إرفاق الأنظمة تلقائيًا بمجموعة واحدة أو مجموعات متعددة، على سبيل المثال باستخدام `activation keys`.
 
 
-    Feel free to try creating one now by clicking `+ Create Group`.
+    لا تترددوا في محاولة إنشاء واحدة الآن بالنقر فوق `+ Create Group`.
 
   <br/>
 
-  - **Batch operations**
+  - **عمليات الدفعات (Batch operations)**
 
-    `System Set Manager` provides a powerful way to perform actions on multiple systems simultaneously.
+    يوفر `System Set Manager` طريقة قوية لتنفيذ الإجراءات على أنظمة متعددة في وقت واحد.
 
 
-    Instead of applying changes one by one, you can select a collection of systems, either individually from the System List or by leveraging existing System Groups, and then execute tasks across all of them in a single operation.
+    بدلاً من تطبيق التغييرات واحدة تلو الأخرى، يمكنكم تحديد مجموعة من الأنظمة، إما بشكل فردي من System List أو الاستفادة من System Groups الموجودة، ثم تنفيذ المهام عبرها جميعًا في عملية واحدة.
 
   <br/>
 
   - **Provisioning**
 
-    <b class="smlmext">SUSE Multi-Linux Manager</b> provides comprehensive tools for provisioning new systems and reprovisioning existing ones. This capability helps you establish a standardized and repeatable process for systems deployment.
+    يوفر <b class="smlmext">SUSE Multi-Linux Manager</b> أدوات شاملة لتوفير أنظمة جديدة وإعادة توفير الأنظمة الحالية. تساعدكم هذه القدرة على إنشاء عملية موحدة وقابلة للتكرار لنشر الأنظمة.
 
 
-    For example, within `Autoinstallation` section you can define distributions and Kickstart/AutoYaST profiles which allows you to specify how your systems should be deployed, what software they will have installed, how the storage space will be distributed and more.
+    على سبيل المثال، داخل قسم `Autoinstallation`، يمكنكم تحديد التوزيعات وملفات تعريف Kickstart/AutoYaST مما يسمح لكم بتحديد كيفية نشر أنظمتكم، وما هي البرامج التي سيتم تثبيتها، وكيف سيتم توزيع مساحة التخزين والمزيد.
 
 
-    All these simple to setup automation mechanisms can be combined with complex but more powerful automation solutions like Salt or Ansible, maintaining your freedom to choose the best solution for each challenge.
+    يمكن دمج كل آليات الأتمتة البسيطة في الإعداد هذه مع حلول أتمتة معقدة ولكنها أكثر قوة مثل Salt أو Ansible، مع الحفاظ على حريتكم في اختيار الحل الأفضل لكل تحد.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -218,29 +218,27 @@ Let's begin.
 
 
 
-- **Patches menu** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_patches.png"/>
+- **قائمة Patches** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_patches.png"/>
 
   - **Patching**
 
-    One of the most common tasks in IT is to keep systems up-to-date and from time to time apply security patches in a rush!
-    Wish SMLM we can easily see a list of **relevant** pacthes, classified by type, and provided with all the information you may need to know including all the systems and packages they affect.
+    واحدة من أكثر المهام شيوعًا في تكنولوجيا المعلومات هي الحفاظ على الأنظمة محدثة وتطبيق تصحيحات الأمان (security patches) في عجلة من أمرنا من وقت لآخر!
+    مع SMLM يمكننا بسهولة رؤية قائمة بالتصحيحات **ذات الصلة**، مصنفة حسب النوع، ومزودة بجميع المعلومات التي قد تحتاجون لمعرفتها بما في ذلك جميع الأنظمة والحزم التي تؤثر عليها.
 
-    Beyond the vendor-supplied patches we can also create our own patches. Later on we will explore the different options we have to manage patching and regular updates accross all our fleet.
+    بالإضافة إلى التصحيحات المقدمة من البائع، يمكننا أيضًا إنشاء تصحيحات خاصة بنا. لاحقًا سنستكشف الخيارات المختلفة المتاحة لنا لإدارة الترقيع والتحديثات المنتظمة عبر جميع أسطولنا.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_patches.gif"/>
   </div>
 
 <br/>
+- **قنوات البرمجيات (Software channels)** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_software.png"/>
 
+  في `Channel List` يمكننا رؤية جميع قنوات/مستودعات/تدفقات الحزم المتاحة للاستهلاك؛ يمكنكم أيضًا إنشاء قنوات برمجيات جديدة لتنظيم برامجكم أو رفع الحزم الخاصة بكم.
 
-- **Software channels** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_software.png"/>
+  تم استرداد جميع القنوات التي ترونها حاليًا بواسطة SMLM من المصادر الرسمية ويمكن إبقاؤها متزامنة بسهولة.
 
-  On `Channel List` we can see all the package channels/repositories/streams available for consumption, you can also create new software channels to organize your software or upload your own packages.
-
-  All the channels you currently see have been retrieved by SMLM from the official sources and they can be kept in sync easily.
-
-  In `Package Search` we are able to search for specific packages and inspect their content and metadata.
+  في `Package Search` نحن قادرون على البحث عن حزم محددة وفحص محتواها والبيانات الوصفية الخاصة بها.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_software.gif"/>
@@ -250,9 +248,9 @@ Let's begin.
 
 - **Configuration** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_configuration.png"/>
 
-  It is also possible to manage and apply specific configurations to systems, upon registration or afterwards, for that we can inspect `Configuration` section.
+  من الممكن أيضًا إدارة وتطبيق تكوينات محددة على الأنظمة، عند التسجيل أو بعد ذلك؛ لذلك يمكننا فحص قسم `Configuration`.
 
-  SMLM provides an easy way to easily manage revisions, deploy and compare configuration files across systems. And all can be easily grouped into configuration channels.
+  يوفر SMLM طريقة سهلة لإدارة المراجعات بسهولة، ونشر ومقارنة ملفات التكوين عبر الأنظمة. ويمكن تجميع الكل بسهولة في قنوات تكوين.
 
   <div style='align: middle; margin: 15px;'>
     <img class="animatedgif" src="../assets/SMLM5.1/introduction_configuration.gif"/>
@@ -262,16 +260,12 @@ Let's begin.
 
 - **Scheduling** <img class="bottoms" src="../assets/SMLM5.1/left_column_-_schedule.png"/>
 
-  In `Schedule` we can observe and manage scheduled actions, define specific maintenance windows. This is specially useful to automate regular operations or perform canary deployments when managing many systems. We will see this in action later on during the workshop.
+  في `Schedule` يمكننا مراقبة وإدارة الإجراءات المجدولة، وتحديد نوافذ صيانة محددة. هذا مفيد بشكل خاص لأتمتة العمليات المنتظمة أو إجراء عمليات نشر الكناري (canary deployments) عند إدارة العديد من الأنظمة. سنرى هذا قيد العمل لاحقًا خلال ورشة العمل.
 
 <br/>
 <br/>
 
-SUSE Multi-Linux Manager offers many posibilities to manage your systems, we cannot cover all of them in this workshop but, as always, feel free to ask questions and explore.
+يوفر SUSE Multi-Linux Manager العديد من الإمكانيات لإدارة أنظمتكم؛ لا يمكننا تغطيتها جميعًا في ورشة العمل هذه ولكن، كما هو الحال دائمًا، لا تترددوا في طرح الأسئلة والاستكشاف.
 
 > [!NOTE]
-> Your user has full admin privileges so we recommend to make changes only after having finished the exercises.
-
-
-
-
+> يتمتع المستخدم الخاص بكم بامتيازات مسؤول (admin) كاملة، لذا نوصي بإجراء التغييرات فقط بعد الانتهاء من التمارين.

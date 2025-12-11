@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: fkelapqkrgth
+id: yvbhqwdqcvkd
 type: challenge
-title: Automation (Optional)
+title: الأتمتة (اختياري)
 tabs:
-- id: u0y5w6ewsnm1
+- id: 56gyyv4q1lea
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Automation and configuration management
+🌌 الأتمتة وإدارة التكوين
 ===================================
 
 <style type="text/css">
@@ -97,65 +97,65 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/07-automation.jpeg"/>
 
-In this section we are going to look at some of the options available to automate tasks.
+في هذا القسم سننظر في بعض الخيارات المتاحة لأتمتة المهام.
 
-In this lab, we move from doing manual tasks to create some automation using some of the options we have available.
-<b class="smlmext">SUSE Multi-Linux Manager</b> acts as the "autopilot" for our IT operations, allowing us to enforce configuration standards and automate routine tasks with precision and reliability across our entire fleet.
+في هذا المختبر، ننتقل من أداء المهام اليدوية إلى إنشاء بعض الأتمتة باستخدام بعض الخيارات المتاحة لدينا.
+يعمل <b class="smlmext">SUSE Multi-Linux Manager</b> بمثابة "الطيار الآلي" لعمليات تكنولوجيا المعلومات لدينا، مما يسمح لنا بفرض معايير التكوين وأتمتة المهام الروتينية بدقة وموثوقية عبر أسطولنا بالكامل.
 
-Instead of manually configuring hundreds of servers and hoping we don't miss a step, we define the process and state and reduce the human operation to define a schedule, once.
+بدلاً من تكوين مئات الخوادم يدويًا والأمل في ألا نفوت أي خطوة، نحدد العملية والحالة ونقلل من التشغيل البشري لتحديد جدول زمني، مرة واحدة.
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">أهدافك:</b>
 
-- Create a schedule that regularly perform updates on your development systems
+- إنشاء جدول زمني يقوم بإجراء تحديثات بانتظام على أنظمة التطوير الخاصة بك.
 
-- Create a script to show a different login banner depending on the system's environment
+- إنشاء برنامج نصي لإظهار شعار تسجيل دخول مختلف حسب بيئة النظام.
 
-Lab details
+تفاصيل المختبر (Lab details)
 ===========
 
-Username:
+اسم المستخدم (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+كلمة المرور (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
 
-<b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
+رابط <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Setup recurring updates
+إعداد التحديثات المتكررة (Setup recurring updates)
 =======================
 
-We want developers to work with the latest stable updates provided by SUSE, but we can't rely on people remembering to update their systems every day, so we are going to create a recurring schedule that does exactly that.
+نريد من المطورين العمل بأحدث التحديثات المستقرة التي تقدمها SUSE، ولكن لا يمكننا الاعتماد على تذكر الأشخاص لتحديث أنظمتهم كل يوم، لذلك سنقوم بإنشاء جدول زمني متكرر يقوم بذلك بالضبط.
 
 
-We are going to apply this to all the systems in the dev group so that this doesn't have to be done on every system.
+سنقوم بتطبيق هذا على جميع الأنظمة في مجموعة dev حتى لا يتوجب القيام بذلك على كل نظام على حدة.
 
-- Let's go to `Systems` ✈ `System Groups`
-- Click on `dev` group.
+- لنذهب إلى `Systems` ✈ `System Groups`
+- انقر على مجموعة `dev`.
 
-We just noticed it has no systems assigned, let's add one.
+لقد لاحظنا للتو أنه لا توجد أنظمة مخصصة لها، دعنا نضيف واحداً.
 
-- click on `Target Systems` and select `sles15`
-- then click on ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
+- انقر على `Target Systems` وحدد `sles15`
+- ثم انقر على ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
 
-Now that we have a system let's create the recurring action.
+الآن بعد أن أصبح لدينا نظام، دعنا ننشئ الإجراء المتكرر.
 
-- Go to `Recurring Actions`
-- Click on ![Create](../assets/SMLM5.1/bottom-create.png)
-- Now let's populate the form with the following details:
-	+ **Action Type:** 'Custom state'
- 	+ **Schedule Name:** 'Update Dev systems'
-	+ **Daily:** '03:00'
-	+ **Configure states to execute:** Make sure **uptodate:** is selected
+- اذهب إلى `Recurring Actions`
+- انقر على ![Create](../assets/SMLM5.1/bottom-create.png)
+- الآن دعنا نملأ النموذج بالتفاصيل التالية:
+	+ **Action Type (نوع الإجراء):** 'Custom state'
+ 	+ **Schedule Name (اسم الجدول):** 'Update Dev systems'
+	+ **Daily (يومياً):** '03:00'
+	+ **Configure states to execute (تكوين الحالات للتنفيذ):** تأكد من تحديد **uptodate:**
 	![uptodate Selected](../assets/SMLM5.1/uptodate_selected.png)
 
-- Click on
+- انقر على
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
 <img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-save_changes.png"/>
@@ -169,9 +169,9 @@ Now that we have a system let's create the recurring action.
 
 
 
-To observe our list of recurring actions we can go to `Schedule` ✈ `Recurring Actions`
+لمراقبة قائمتنا للإجراءات المتكررة يمكننا الذهاب إلى `Schedule` ✈ `Recurring Actions`
 
-Now all the dev systems will be updated daily at 3am UTC time.
+الآن سيتم تحديث جميع أنظمة dev يومياً في الساعة 3 صباحاً بتوقيت UTC.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -183,24 +183,26 @@ Now all the dev systems will be updated daily at 3am UTC time.
 
 
 
-Make sure every system has a login message
+تأكد من أن كل نظام لديه رسالة تسجيل دخول
 ==========================================
 
 
-We are going to create a configuration channel to make sure every system we manage contains an adequate login message.
+سنقوم بإنشاء قناة تكوين (configuration channel) للتأكد من أن كل نظام نديره يحتوي على رسالة تسجيل دخول مناسبة.
 
-- Let's go to `Configuration` ✈ `Channels`
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
-- Fill the form with the following details:
-	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
-	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
-	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
-Now that we have created the config channel let's populate it.
 
-- Go to `Add Files` ✈ `Create File`
-- Fill in the following details:
+- لنذهب إلى `Configuration` ✈ `Channels`
+- انقر على ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+- املأ النموذج بالتفاصيل التالية:
+	+ **Name:** <b class="highlightcopy">Uniform experience</b>
+	+ **Label:** <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:** <b class="highlightcopy">Create a uniform experience across systems</b>
+- انقر على ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
+
+الآن بعد أن أنشأنا قناة التكوين، دعنا نملأها.
+
+- اذهب إلى `Add Files` ✈ `Create File`
+- املأ التفاصيل التالية:
 	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
@@ -219,15 +221,15 @@ No applications running on this server
 </pre>
 
 
-- Click on ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
+- انقر على ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
 
-Now let's subscribe every system in the organization to the new configuration channel.
+الآن دعنا نشترك في كل نظام في المؤسسة في قناة التكوين الجديدة.
 
-- let's go to `Admin` ✈ `Organizations`
-- Click on organization **Organization** (This is the default organization)
-- Go to `States` and select the channel we just created.
+- لنذهب إلى `Admin` ✈ `Organizations`
+- انقر على منظمة **Organization** (هذه هي المنظمة الافتراضية)
+- اذهب إلى `States` وحدد القناة التي أنشأناها للتو.
 ![Uniform experience selected](../assets/SMLM5.1/selected_univorm_experience_Configurationchannel.png)
-- Click on
+- انقر على
 
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
@@ -241,20 +243,20 @@ Now let's subscribe every system in the organization to the new configuration ch
 </p>
 
 
-This won't happen immediately, let's check the systems. We are going to run a simple command via the web UI, if run too early, you may see systems with the old message and systems which already got the file updated.
+لن يحدث هذا على الفور، دعنا نتحقق من الأنظمة. سنقوم بتشغيل أمر بسيط عبر واجهة الويب، إذا تم تشغيله مبكراً جداً، فقد ترى أنظمة بها الرسالة القديمة وأنظمة تم تحديث الملف بها بالفعل.
 
-- Let's go to `Salt` ✈ `Remote Commands`
-- Type the following:
+- لنذهب إلى `Salt` ✈ `Remote Commands`
+- اكتب ما يلي:
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd.png)
-- Click on `Find targets`
-- You should see a list of systems click on `Run command`
+- انقر على `Find targets`
+- يجب أن ترى قائمة بالأنظمة، انقر على `Run command`
 
-Now you should see something like this:
+الآن يجب أن ترى شيئاً مثل هذا:
 
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd_first_result.png)
 
 > [!NOTE]
-> This process may take a couple of minutes, if you don't see the MOTD please re run the command after a few minutes.
+> قد تستغرق هذه العملية بضع دقائق، إذا لم ترَ MOTD يرجى إعادة تشغيل الأمر بعد بضع دقائق.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -264,36 +266,33 @@ Now you should see something like this:
 <br/>
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+لماذا هذا مهم لـ [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]؟
 =================================================================================
 
 
 
-- When managing 1000s of systems we cannot afford to do everything one by one, tasks need to be automated so we manage cattle, not pets.
-
-- By defining the "correct state" we eliminate configuration drift. Every server in the fleet operates from the same playbook, just like every pilot uses the same checklist.
-
-
-- Tasks that would take hours to perform manually across hundreds of servers are completed in minutes. This frees up our engineers to work on innovation and improvement, not repetitive manual labor.
-
-
-- Automation is the ultimate defense against human error. A forgotten step or a typo during manual configuration can lead to an outage. An automated, tested process executes perfectly every time, enhancing the reliability and security of our entire airline.
+- عند إدارة آلاف الأنظمة، لا يمكننا تحمل القيام بكل شيء واحداً تلو الآخر، يجب أتمتة المهام حتى ندير القطيع (cattle)، وليس الحيوانات الأليفة (pets).
 
 
 
+- من خلال تحديد "الحالة الصحيحة" (correct state) نقضي على انحراف التكوين (configuration drift). يعمل كل خادم في الأسطول من نفس الدليل، تماماً كما يستخدم كل طيار نفس قائمة المراجعة.
 
-More information
+
+
+- المهام التي قد تستغرق ساعات للقيام بها يدوياً عبر مئات الخوادم تكتمل في دقائق. هذا يحرر مهندسينا للعمل على الابتكار والتحسين، وليس العمل اليدوي المتكرر.
+
+
+- الأتمتة هي الدفاع النهائي ضد الخطأ البشري. خطوة منسية أو خطأ مطبعي أثناء التكوين اليدوي يمكن أن يؤدي إلى انقطاع الخدمة. تنفذ العملية المؤتمتة والمُختبرة بشكل مثالي في كل مرة، مما يعزز موثوقية وأمن شركة الطيران بأكملها.
+
+
+
+
+مزيد من المعلومات
 ================
 
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
+* [صفحة منتج SUSE Multi-Linux Manager](https://www.suse.com/products/suse-manager/)
 
-* [Ansible Integration](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
+* [تكامل Ansible](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
 
-* [Salt Guide](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)
-
-
-
-
-
-
+* [دليل Salt](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)

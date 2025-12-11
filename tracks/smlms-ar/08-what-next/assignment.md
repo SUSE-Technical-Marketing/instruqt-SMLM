@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: swgxeykwmryd
+id: rzccr1fdoclq
 type: challenge
-title: What's next?
+title: ماذا بعد؟
 tabs:
-- id: bx0oibmauanb
+- id: jv8gjtk5tarh
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Conclusion: Cleared for Takeoff
+🌌 الخاتمة: مُصرح بالإقلاع (Cleared for Takeoff)
 ==================================
 
 <style type="text/css">
@@ -97,21 +97,23 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/08-whats_next.jpeg"/>
 
-Our final approach is complete. Throughout this workshop, we've navigated the challenges of managing a diverse, mission-critical IT fleet. We've seen how <b class="smlmext">SUSE Multi-Linux Manager</b> acts as our universal control tower, providing the visibility, automation, and security required to keep Chameleon Airlines flying high.
-
-For our engineers, this means less time fighting fires and more time innovating. It means having a standardized, reliable set of tools to manage any system, from our legacy workhorses to our most modern aircraft.
-
-For our decision-makers, this translates directly to reduced operational risk, lower costs, and enhanced business agility. It's the confidence of knowing our digital infrastructure is as robust, compliant, and reliable as the aircraft in our physical fleet.
-
-We hope this session has been a valuable one. The lab environment will remain available for you to explore further, so please continue to experiment. Our flight instructors are on standby to answer any questions you may have.
+اكتمل نهجنا النهائي. خلال ورشة العمل هذه، قمنا بمواجهة تحديات إدارة أسطول تكنولوجيا معلومات متنوع وحيوي للمهمة. لقد رأينا كيف يعمل <b class="smlmext">SUSE Multi-Linux Manager</b> كبرج تحكم عالمي لدينا، موفراً الرؤية، والأتمتة، والأمان المطلوب للحفاظ على تحليق خطوط حرباء الجوية (Chameleon Airlines) عالياً.
 
 
-For those who wish to dive deeper after today's session, here are some key navigation points:
+
+بالنسبة لمهندسينا، هذا يعني وقتًا أقل في إخماد الحرائق (حل المشاكل العاجلة) ووقتًا أكثر في الابتكار. إنه يعني امتلاك مجموعة أدوات قياسية وموثوقة لإدارة أي نظام، من أنظمتنا القديمة الأساسية إلى أحدث طائراتنا.
+
+بالنسبة لصناع القرار لدينا، يترجم هذا مباشرة إلى تقليل المخاطر التشغيلية، وخفض التكاليف، وتعزيز مرونة الأعمال. إنها الثقة بمعرفة أن بنيتنا التحتية الرقمية قوية، ومتوافقة، وموثوقة تمامًا مثل الطائرات في أسطولنا المادي.
+
+نأمل أن تكون هذه الجلسة ذات قيمة. ستظل بيئة المختبر متاحة لك لاستكشافها بشكل أكبر، لذا يرجى الاستمرار في التجربة. مدربو الطيران لدينا على أهبة الاستعداد للإجابة على أي أسئلة قد تكون لديك.
+
+
+لأولئك الذين يرغبون في التعمق أكثر بعد جلسة اليوم، إليك بعض نقاط التنقل الرئيسية:
 
 - [SUSE Multi-Linux Manager](https://www.suse.com/products/multi-linux-manager/)
-- [SUSE Multi-Linux Support](https://www.suse.com/products/multi-linux-support/)
+- [دعم SUSE Multi-Linux](https://www.suse.com/products/multi-linux-support/)
 - [SUSE Linux Enterprise Server](https://www.suse.com/products/server/)
-- [SUSE Products and Solutions](https://www.suse.com/)
+- [منتجات وحلول SUSE](https://www.suse.com/)
 
 
-It has been a pleasure to fly with you!
+كان من دواعي سرورنا الطيران معكم!
