@@ -1,10 +1,10 @@
 ---
 slug: smlm-automation
-id: fkelapqkrgth
+id: usdep4sycxi2
 type: challenge
-title: Automation (Optional)
+title: 자동화 (선택 사항)
 tabs:
-- id: u0y5w6ewsnm1
+- id: rj2brv6kitnr
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Automation and configuration management
+🌌 자동화 및 구성 관리
 ===================================
 
 <style type="text/css">
@@ -97,30 +97,30 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/07-automation.jpeg"/>
 
-In this section we are going to look at some of the options available to automate tasks.
+이 섹션에서는 작업을 자동화하는 데 사용할 수 있는 몇 가지 옵션을 살펴보겠습니다.
 
-In this lab, we move from doing manual tasks to create some automation using some of the options we have available.
-<b class="smlmext">SUSE Multi-Linux Manager</b> acts as the "autopilot" for our IT operations, allowing us to enforce configuration standards and automate routine tasks with precision and reliability across our entire fleet.
+이 실습에서는 수동 작업을 수행하는 것에서 벗어나, 우리가 사용할 수 있는 몇 가지 옵션을 사용하여 자동화를 생성하는 단계로 넘어갑니다.
+<b class="smlmext">SUSE Multi-Linux Manager</b>는 IT 운영을 위한 "자동 조종 장치(autopilot)" 역할을 하여, 전체 자산(fleet)에 걸쳐 구성 표준을 시행하고 일상적인 작업을 정밀하고 신뢰성 있게 자동화할 수 있도록 합니다.
 
-Instead of manually configuring hundreds of servers and hoping we don't miss a step, we define the process and state and reduce the human operation to define a schedule, once.
+수백 대의 서버를 수동으로 구성하면서 단계를 놓치지 않기를 바라는 대신, 프로세스와 상태를 정의하고 사람의 작업을 줄여 스케줄을 단 한 번 정의합니다.
 
 
 
-## <b class="hovereffect">Your Objectives:</b>
+## <b class="hovereffect">여러분의 목표:</b>
 
-- Create a schedule that regularly perform updates on your development systems
+- 개발 시스템에서 정기적으로 업데이트를 수행하는 스케줄을 생성합니다.
 
-- Create a script to show a different login banner depending on the system's environment
+- 시스템 환경에 따라 다른 로그인 배너를 표시하는 스크립트를 생성합니다.
 
 Lab details
 ===========
 
-Username:
+사용자 이름 (Username):
 ```txt
 [[ Instruqt-Var key="SMLM_USERNAME" hostname="zbastion" ]]
 ```
 
-Password:
+비밀번호 (Password):
 ```txt
 [[ Instruqt-Var key="UNIVERSAL_PWD" hostname="zbastion" ]]
 ```
@@ -128,34 +128,34 @@ Password:
 <b class="smlm">SMLM</b> URL: <a href="[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]">[[ Instruqt-Var key="SMLM_URL" hostname="zbastion" ]]</a>
 
 
-Setup recurring updates
+반복 업데이트 설정 (Setup recurring updates)
 =======================
 
-We want developers to work with the latest stable updates provided by SUSE, but we can't rely on people remembering to update their systems every day, so we are going to create a recurring schedule that does exactly that.
+우리는 개발자들이 SUSE에서 제공하는 최신 안정 업데이트로 작업하기를 원하지만, 사람들이 매일 시스템을 업데이트하는 것을 기억할 것이라고 기대할 수는 없습니다. 따라서 정확히 그 작업을 수행하는 반복 스케줄을 생성할 것입니다.
 
 
-We are going to apply this to all the systems in the dev group so that this doesn't have to be done on every system.
+이것을 dev 그룹의 모든 시스템에 적용하여 각 시스템에서 개별적으로 수행할 필요가 없도록 하겠습니다.
 
-- Let's go to `Systems` ✈ `System Groups`
-- Click on `dev` group.
+- `Systems` ✈ `System Groups`로 이동합시다.
+- `dev` 그룹을 클릭합니다.
 
-We just noticed it has no systems assigned, let's add one.
+시스템이 할당되지 않은 것을 확인했습니다. 하나 추가해 봅시다.
 
-- click on `Target Systems` and select `sles15`
-- then click on ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)
+- `Target Systems`를 클릭하고 `sles15`를 선택합니다.
+- 그런 다음 ![Add Systems](../assets/SMLM5.1/bottom-add_system.png)을 클릭합니다.
 
-Now that we have a system let's create the recurring action.
+이제 시스템이 생겼으므로 반복 작업(recurring action)을 생성해 봅시다.
 
-- Go to `Recurring Actions`
-- Click on ![Create](../assets/SMLM5.1/bottom-create.png)
-- Now let's populate the form with the following details:
+- `Recurring Actions`로 이동합니다.
+- ![Create](../assets/SMLM5.1/bottom-create.png)을 클릭합니다.
+- 이제 다음 세부 정보로 양식을 채워봅시다:
 	+ **Action Type:** 'Custom state'
  	+ **Schedule Name:** 'Update Dev systems'
 	+ **Daily:** '03:00'
-	+ **Configure states to execute:** Make sure **uptodate:** is selected
+	+ **Configure states to execute:** **uptodate:**가 선택되어 있는지 확인하십시오.
 	![uptodate Selected](../assets/SMLM5.1/uptodate_selected.png)
 
-- Click on
+- 다음을 클릭합니다:
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
 <img style="margin: 1px; padding: 1px; vertical-align: middle; display:block; align:left;" src="../assets/SMLM5.1/bottom-save_changes.png"/>
@@ -169,9 +169,9 @@ Now that we have a system let's create the recurring action.
 
 
 
-To observe our list of recurring actions we can go to `Schedule` ✈ `Recurring Actions`
+반복 작업 목록을 확인하려면 `Schedule` ✈ `Recurring Actions`로 이동하면 됩니다.
 
-Now all the dev systems will be updated daily at 3am UTC time.
+이제 모든 개발(dev) 시스템은 매일 UTC 시간으로 오전 3시에 업데이트됩니다.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -183,24 +183,26 @@ Now all the dev systems will be updated daily at 3am UTC time.
 
 
 
-Make sure every system has a login message
+모든 시스템에 로그인 메시지가 있는지 확인
 ==========================================
 
 
-We are going to create a configuration channel to make sure every system we manage contains an adequate login message.
+우리가 관리하는 모든 시스템에 적절한 로그인 메시지가 포함되어 있는지 확인하기 위해 구성 채널(configuration channel)을 생성할 것입니다.
 
-- Let's go to `Configuration` ✈ `Channels`
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
-- Fill the form with the following details:
-	+ **Name:**          <b class="highlightcopy">Uniform experience</b>
-	+ **Label:**         <b class="highlightcopy">uniform_experienace</b>
-	+ **Description:**   <b class="highlightcopy">Create a uniform experience across systems</b>
-- Click on ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)
 
-Now that we have created the config channel let's populate it.
 
-- Go to `Add Files` ✈ `Create File`
-- Fill in the following details:
+- `Configuration` ✈ `Channels`로 이동합시다.
+- ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)을 클릭합니다.
+- 다음 세부 정보로 양식을 채웁니다:
+	+ **Name:** <b class="highlightcopy">Uniform experience</b>
+	+ **Label:** <b class="highlightcopy">uniform_experienace</b>
+	+ **Description:** <b class="highlightcopy">Create a uniform experience across systems</b>
+- ![Create Config Channel](../assets/SMLM5.1/bottom-create_config_channel.png)을 클릭합니다.
+
+이제 구성 채널을 생성했으므로 채워보겠습니다.
+
+- `Add Files` ✈ `Create File`로 이동합니다.
+- 다음 세부 정보를 입력합니다:
 	+ **Filename/Path:** <b class="highlightcopy">/etc/motd</b>
 	+ **File Contents:**
 <pre>
@@ -219,15 +221,15 @@ No applications running on this server
 </pre>
 
 
-- Click on ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)
+- ![Create Configuration File](../assets/SMLM5.1/bottom-create_configuration_file.png)을 클릭합니다.
 
-Now let's subscribe every system in the organization to the new configuration channel.
+이제 조직 내의 모든 시스템이 새 구성 채널을 구독하도록 합시다.
 
-- let's go to `Admin` ✈ `Organizations`
-- Click on organization **Organization** (This is the default organization)
-- Go to `States` and select the channel we just created.
+- `Admin` ✈ `Organizations`로 이동합시다.
+- **Organization** 조직을 클릭합니다 (이것이 기본 조직입니다).
+- `States`로 이동하여 방금 생성한 채널을 선택합니다.
 ![Uniform experience selected](../assets/SMLM5.1/selected_univorm_experience_Configurationchannel.png)
-- Click on
+- 다음을 클릭합니다:
 
 
 <p style="margin: 1px; padding: 1px; vertical-align: middle; display:inline-block; align:left;"> </p><p style="margin: 1px; padding: 1px;vertical-align: middle; display:inline-block; align:left;">
@@ -241,20 +243,20 @@ Now let's subscribe every system in the organization to the new configuration ch
 </p>
 
 
-This won't happen immediately, let's check the systems. We are going to run a simple command via the web UI, if run too early, you may see systems with the old message and systems which already got the file updated.
+이 작업은 즉시 수행되지 않습니다. 시스템을 확인해 봅시다. 웹 UI를 통해 간단한 명령을 실행할 것입니다. 너무 일찍 실행하면 이전 메시지가 있는 시스템과 파일이 이미 업데이트된 시스템을 볼 수 있습니다.
 
-- Let's go to `Salt` ✈ `Remote Commands`
-- Type the following:
+- `Salt` ✈ `Remote Commands`로 이동합시다.
+- 다음을 입력합니다:
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd.png)
-- Click on `Find targets`
-- You should see a list of systems click on `Run command`
+- `Find targets`를 클릭합니다.
+- 시스템 목록이 보일 것입니다. `Run command`를 클릭하십시오.
 
-Now you should see something like this:
+이제 다음과 같은 내용을 볼 수 있을 것입니다:
 
 ![cat /etc/motd - sles15](../assets/SMLM5.1/run_cat_etcmotd_first_result.png)
 
 > [!NOTE]
-> This process may take a couple of minutes, if you don't see the MOTD please re run the command after a few minutes.
+> 이 프로세스는 몇 분 정도 걸릴 수 있습니다. MOTD가 보이지 않으면 몇 분 후에 명령을 다시 실행해 주십시오.
 
 
   <div style='align: middle; margin: 15px;'>
@@ -264,36 +266,33 @@ Now you should see something like this:
 <br/>
 
 
-Why is it important for [[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]?
+[[ Instruqt-Var key="COMPANY_NAME" hostname="zbastion" ]]에 이것이 왜 중요한가요?
 =================================================================================
 
 
 
-- When managing 1000s of systems we cannot afford to do everything one by one, tasks need to be automated so we manage cattle, not pets.
-
-- By defining the "correct state" we eliminate configuration drift. Every server in the fleet operates from the same playbook, just like every pilot uses the same checklist.
-
-
-- Tasks that would take hours to perform manually across hundreds of servers are completed in minutes. This frees up our engineers to work on innovation and improvement, not repetitive manual labor.
-
-
-- Automation is the ultimate defense against human error. A forgotten step or a typo during manual configuration can lead to an outage. An automated, tested process executes perfectly every time, enhancing the reliability and security of our entire airline.
+- 수천 개의 시스템을 관리할 때 모든 것을 하나씩 수행할 여유가 없습니다. 작업을 자동화하여 반려동물(pets)이 아닌 가축(cattle)처럼 관리해야 합니다.
 
 
 
+- "올바른 상태(correct state)"를 정의함으로써 구성 드리프트(configuration drift)를 제거합니다. 모든 조종사가 동일한 체크리스트를 사용하는 것처럼, 자산(fleet)의 모든 서버는 동일한 플레이북으로 작동합니다.
 
-More information
+
+
+- 수백 대의 서버에서 수동으로 수행하는 데 몇 시간이 걸리던 작업이 몇 분 만에 완료됩니다. 이를 통해 엔지니어는 반복적인 수작업이 아닌 혁신과 개선 작업에 집중할 수 있습니다.
+
+
+- 자동화는 사람의 실수에 대한 궁극적인 방어책입니다. 수동 구성 중에 단계를 잊어버리거나 오타를 내면 중단이 발생할 수 있습니다. 자동화되고 테스트된 프로세스는 매번 완벽하게 실행되어 전체 항공사의 신뢰성과 보안을 향상시킵니다.
+
+
+
+
+추가 정보
 ================
 
 
-* [SUSE Multi-Linux Manager Product Page](https://www.suse.com/products/suse-manager/)
+* [SUSE Multi-Linux Manager 제품 페이지](https://www.suse.com/products/suse-manager/)
 
-* [Ansible Integration](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
+* [Ansible 통합](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/administration/ansible-integration.html)
 
-* [Salt Guide](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)
-
-
-
-
-
-
+* [Salt 가이드](https://documentation.suse.com/multi-linux-manager/5.1/en/docs/specialized-guides/salt/salt-overview.html)

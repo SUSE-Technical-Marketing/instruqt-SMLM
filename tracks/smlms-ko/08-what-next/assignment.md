@@ -1,10 +1,10 @@
 ---
 slug: what-next
-id: swgxeykwmryd
+id: bkmbpdg3tfpr
 type: challenge
-title: What's next?
+title: 다음은 무엇인가요?
 tabs:
-- id: bx0oibmauanb
+- id: tbtxkuzpxozo
   title: SMLM UI
   type: browser
   hostname: smlm-www
@@ -13,7 +13,7 @@ timelimit: 6000
 enhanced_loading: null
 ---
 
-🌌 Conclusion: Cleared for Takeoff
+🌌 결론: 이륙 허가 완료 (Cleared for Takeoff)
 ==================================
 
 <style type="text/css">
@@ -97,21 +97,23 @@ enhanced_loading: null
 
 <img class="logos" alt="Welcome!" src="../assets/logos/08-whats_next.jpeg"/>
 
-Our final approach is complete. Throughout this workshop, we've navigated the challenges of managing a diverse, mission-critical IT fleet. We've seen how <b class="smlmext">SUSE Multi-Linux Manager</b> acts as our universal control tower, providing the visibility, automation, and security required to keep Chameleon Airlines flying high.
-
-For our engineers, this means less time fighting fires and more time innovating. It means having a standardized, reliable set of tools to manage any system, from our legacy workhorses to our most modern aircraft.
-
-For our decision-makers, this translates directly to reduced operational risk, lower costs, and enhanced business agility. It's the confidence of knowing our digital infrastructure is as robust, compliant, and reliable as the aircraft in our physical fleet.
-
-We hope this session has been a valuable one. The lab environment will remain available for you to explore further, so please continue to experiment. Our flight instructors are on standby to answer any questions you may have.
+최종 접근(final approach)이 완료되었습니다. 이 워크숍을 통해 우리는 다양하고 미션 크리티컬한 IT 자산(fleet)을 관리하는 과제를 해결해 왔습니다. 우리는 <b class="smlmext">SUSE Multi-Linux Manager</b>가 어떻게 Chameleon Airlines를 높이 비상하게 유지하는 데 필요한 가시성, 자동화 및 보안을 제공하는 보편적인 관제탑 역할을 하는지 보았습니다.
 
 
-For those who wish to dive deeper after today's session, here are some key navigation points:
+
+엔지니어에게 이는 화재 진압(긴급 문제 해결)에 소요되는 시간을 줄이고 혁신에 더 많은 시간을 할애할 수 있음을 의미합니다. 이는 레거시 워크호스(구형 주력 장비)부터 최신 항공기에 이르기까지 모든 시스템을 관리할 수 있는 표준화되고 신뢰할 수 있는 도구 세트를 갖추는 것을 의미합니다.
+
+의사 결정권자에게 이는 운영 리스크 감소, 비용 절감 및 비즈니스 민첩성 향상으로 직결됩니다. 이는 우리의 디지털 인프라가 물리적 항공기만큼 견고하고 규정을 준수하며 신뢰할 수 있다는 확신입니다.
+
+이 세션이 유익한 시간이 되었기를 바랍니다. 실습 환경은 계속 탐색할 수 있도록 열려 있으니 계속 실험해 보시기 바랍니다. 비행 교관들이 여러분의 질문에 답변하기 위해 대기하고 있습니다.
+
+
+오늘 세션 이후에 더 깊이 알아보고 싶은 분들을 위한 몇 가지 주요 안내 사항은 다음과 같습니다:
 
 - [SUSE Multi-Linux Manager](https://www.suse.com/products/multi-linux-manager/)
 - [SUSE Multi-Linux Support](https://www.suse.com/products/multi-linux-support/)
 - [SUSE Linux Enterprise Server](https://www.suse.com/products/server/)
-- [SUSE Products and Solutions](https://www.suse.com/)
+- [SUSE 제품 및 솔루션](https://www.suse.com/)
 
 
-It has been a pleasure to fly with you!
+여러분과 함께 비행하게 되어 즐거웠습니다!

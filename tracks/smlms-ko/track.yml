@@ -1,14 +1,14 @@
 slug: smlms-ko
-id: hrdrzxximnj9
-title: SUSE Multi-Linux Hands-on Workshop - KO
+id: ybcehy54fl5z
+title: SUSE Multi-Linux Hands-on Workshop - Korean
 description: |
-  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>Throughout this workshop, you will explore the core capabilities of <b style="color: #30ba78">SUSE Multi-Linux Manager</b>, our best-in-class solution for managing diverse Linux environments at scale, and <b style="color: #30ba78">SUSE Multi-Linux Support</b></p>
+  <span style="font-family: suse; src: url('https://fonts.google.com/specimen/SUSE');"><p>이 워크샵을 통해 대규모의 다양한 Linux 환경을 관리하기 위한 동급 최고의 솔루션인 <b style="color: #30ba78">SUSE Multi-Linux Manager</b>와 <b style="color: #30ba78">SUSE Multi-Linux Support</b>의 핵심 기능을 살펴보게 됩니다.</p>
 
-  <p>You will learn how to solve real-world IT challenges by using <b style="color: #30ba78">SUSE</b>'s powerful tools to automate tasks, ensure security compliance, and manage the entire lifecycle of your systems—from legacy distributions to the latest enterprise servers.</p>
+  <p>작업을 자동화하고, 보안 규정 준수를 보장하며, 레거시 배포판에서 최신 엔터프라이즈 서버에 이르기까지 시스템의 전체 수명 주기를 관리하는 <b style="color: #30ba78">SUSE</b>의 강력한 도구를 사용하여 실제 IT 과제를 해결하는 방법을 배우게 됩니다.</p>
 
-  <p>This workshop is designed to give you practical skills and a clear understanding of how to simplify and control your complex infrastructure.</p>
+  <p>이 워크샵은 복잡한 인프라를 단순화하고 제어하는 방법에 대한 실용적인 기술과 명확한 이해를 제공하도록 설계되었습니다.</p>
 
-  <p>Let's get started.</p></span>
+  <p>자, 시작해 봅시다.</p></span>
 icon: https://www.suse.com/favicon.ico
 tags:
 - smls
@@ -19,6 +19,7 @@ tags:
 owner: suse
 developers:
 - raul.mahiques@suse.com
+maintenance: true
 skipping_enabled: true
 idle_timeout: 6000
 timelimit: 10800
@@ -30,5 +31,5 @@ lab_config:
   override_challenge_layout: false
   hideStopButton: false
   default_layout: AssignmentLeft
+checksum: "8718051429427707558"
 enhanced_loading: true
-maintenance: true
