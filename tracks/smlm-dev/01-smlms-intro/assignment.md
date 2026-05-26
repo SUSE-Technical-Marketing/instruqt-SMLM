@@ -87,7 +87,7 @@ Along the different challenges you will have the following tools available:
  ✈ **Centos 7**:
    A legacy distribution still in use on some older aircrafts and ground systems.
 
- ✈ **Ubuntu 24**: A specific Linux distribution required by our marketing department to run their graphic design applications..
+ ✈ **Ubuntu 24**: A specific Linux distribution required by our marketing department to run their graphic design applications.
 
  ✈ **SLES 15**: <b class="suse">SUSE</b>'s highly reliable, stable and secure Linux distribution that forms the backbone of our most critical systems.
 
