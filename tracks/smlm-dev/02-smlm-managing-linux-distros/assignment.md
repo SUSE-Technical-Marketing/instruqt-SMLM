@@ -324,7 +324,7 @@ Let's go back to the Systems list
 
 Let's click on any of the systems and go to `Details` ✈ `Custom Info`.
 
-We have already populated each system with a value,
+We have already populated some of the systems with a value.
 
 <br/>
 
